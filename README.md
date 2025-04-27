@@ -76,6 +76,35 @@ Para la elaboración del informe, inicialmente trabajamos en un documento compar
   * [3.3. Impact Mapping](#33-impact-mapping)
   * [3.4. Product Backlog](#34-product-backlog)
 
+- [CAPÍTULO 4: PRODUCT UX/UI DESIGN](#capítulo-4-product-uxui-design)
+  * [4.1. Style Guidelines](#41-style-guidelines)
+    + [4.1.1 General Style Guidelines](#411-general-style-guidelines)
+    + [4.1.2 Web Style Guidelines](#412-web-style-guidelines)
+  * [4.2. Information Architecture](#42-information-architecture)
+    + [4.2.1. Organization Systems](#421-organization-systems)
+    + [4.2.2. Labeling Systems](#422-labeling-systems)
+    + [4.2.3. SEO Tags and Meta Tags](#423-seo-tags-and-meta-tags)
+    + [4.2.4 Searching Systems](#424-searching-systems)
+    + [4.2.5. Navigation Systems](#425-navigation-systems)
+  * [4.3. Landing Page UI Design](#43-landing-page-ui-design)
+    + [4.3.1. Landing Page Wireframes](#431-landing-page-wireframes)
+    + [4.3.2. Landing Page Mock-Ups](#432-landing-page-mock-ups)
+  * [4.4 Web Applications UX/UI Design](#44-web-applications-uxui-design)
+    + [4.4.1. Web Applications Wireframes](#441-web-applications-wireframes)
+    + [4.4.2. Web Applications Wireflow Diagrams](#442-web-applications-wireflow-diagrams)
+    + [4.4.3. Web Applications Mock-up](#443-web-applications-mock-up)
+    + [4.4.4. Web Applications User Flow Diagrams](#444-web-applications-user-flow-diagrams)
+  * [4.5. Web Applications Prototyping](#45-web-applications-prototyping)
+  * [4.6. Domain-Driven Software Architecture](#46-domain-driven-software-architecture)
+    + [4.6.1. Software Architecture Context Diagram](#461-software-architecture-context-diagram)
+    + [4.6.2. Software Architecture Container Diagram](#462-software-architecture-container-diagram)
+    + [4.6.3. Software Architecture Components Diagram](#463-software-architecture-components-diagram)
+  * [4.7. Software Object-Oriented Design](#47-software-object-oriented-design)
+    + [4.7.1. Class Diagram](#471-class-diagram)
+    + [4.7.2. Class Dictionary](#472-class-dictionary)
+  * [4.8. Database Design](#48-database-design)
+    + [4.8.1. Database Diagram](#481-database-diagram)
+
 # CAPÍTULO 1: INTRODUCCIÓN
 
 ## 1.1. Startup Profile
@@ -1071,3 +1100,565 @@ Algunos lectores no usan plataformas digitales simplemente por desconocimiento o
 | 22 | US19 | Como desarrollador, quiero crear un endpoint de API RESTful que permita a las ONGs crear nuevas actividades de voluntariado, así como leer, actualizar y eliminar la información de las actividades existentes en la base de datos. | 5 |
 | 23 | US20 | Como desarrollador, quiero crear un endpoint de API RESTful que permita a los voluntarios registrarse en la plataforma y a las ONGs leer, actualizar y gestionar la información de los voluntarios (perfil, historial de participación, etc.). | 5 |
 | 24 | US21 | Como desarrollador, quiero crear un endpoint de API RESTful que permita a los voluntarios inscribirse en actividades específicas y a las ONGs registrar la asistencia de los voluntarios a dichas actividades. | 8 |
+
+# CAPÍTULO 4: PRODUCT UX/UI DESIGN
+## 4.1. Style Guidelines
+VolunTrack es una plataforma web diseñada para facilitar la organización de procesos de ONGs, ofreciendo un diseño intuitivo y accesible. Con ese objetivo en mente, Wasi Masi establece en está sección una guía estructurada de los elementos visuales y de diseño destinados a VolunTrack, de modo que se asegure su uso coherente a lo largo del desarrollo de la plataforma. Esta guía incluye la tipografía, la paleta de colores y el logotipo; elementos de branding enfocados en la simplicidad, que están alineados con el espíritu de VolunTrack: generar impacto.
+
+### 4.1.1. General Style Guidelines
+El branding de VolunTrack es el eje central de su identidad visual, concebido para reflejar los valores de la plataforma: compromiso e impacto social. A través de un estilo visual limpio, accesible y moderno, la marca busca representar la esencia de la colaboración solidaria, generando una presencia visual cercana y reconocible. El logo, la paleta de colores y la tipografía de VolunTrack comunican orden y empatía, simbolizando la facilidad con la que las ONGs y los voluntarios pueden conectarse, organizarse y transformar su entorno. El branding está alineado con el propósito colaborativo de la plataforma, asegurando que los usuarios se sientan inspirados por una experiencia intuitiva, motivadora y orientada al cambio social.
+
+#### 4.1.1.1. Tipografía
+La tipografía es un elemento esencial dentro de la identidad visual de VolunTrack porque comunica mucho más que solo palabras: transmite personalidad, emociones y profesionalismo. En esta plataforma orientada a la organización y participación social, la tipografía debe reflejar claridad, confianza y accesibilidad. Un tipo de letra bien seleccionado facilita la lectura y navegación para todos los usuarios, desde líderes de ONGs hasta voluntarios nuevos, promoviendo una experiencia fluida y sin fricciones. Por ello, se ha seleccionado la tipografía Alexandria, que ofrece un equilibrio entre modernidad y legibilidad.
+
+Este tipo de letra será utilizado para toda la plataforma, incluyendo el logo. Esta coherencia ayudará a consolidar la identidad de la marca. Una tipografía como Alexandria refuerza los valores de orden y colaboración  que definen a VolunTrack, generando una conexión más fuerte entre la plataforma y su comunidad.
+
+Se han establecido distintos grosores tipográficos —light, regular, medium y bold— con el objetivo de estructurar adecuadamente los niveles de contenido, mejorando la jerarquía visual y facilitando la navegación.
+
+<p align="center">
+  <img src="https://imgur.com/CoPI0wo.png" alt="TipoTipoti" width="500">
+</p>
+
+#### 4.1.1.2. Colores
+La paleta de color no es solo una cuestión estética; es el alma visual de VolunTrack. Los colores elegidos giran en torno al color cian, utilizando diferentes variaciones de este, para que la experiencia sea no solo funcional, sino también emocionalmente significativa. Cada tono ha sido seleccionado con intención de transmitir los valores centrales de la plataforma: organización, confianza, energía positiva y empatía.
+
+<p align="center">
+  <img src="https://imgur.com/giFbySZ.png" alt="Colores" width="500">
+</p>
+
+**Colores principales**
+* #0C7987 (azul verdoso oscuro): Representa compromiso y profesionalismo. Es un color que evoca estabilidad y organización, cualidades que las ONGs valoran profundamente.
+* #9BD0DF (celeste): Aporta frescura, transparencia y tranquilidad. Este tono genera confianza y refuerza la idea de que VolunTrack es fácil de usar y accesible para todos.
+* #24344C (azul profundo): Da estructura y seriedad. Es ideal para destacar secciones clave sin romper la armonía visual. Un color sobrio que equilibra lo emocional con lo funcional.
+* #3C9FB9 (celeste cian): Agrega energía y vitalidad. Es el toque moderno de la paleta, ideal para llamar la atención sin saturar. 
+**Colores secundarios**
+* #4E96AC (cian grisáceo): Refuerza la coherencia visual y funciona como un conector entre tonos principales. Es versátil, suave y útil para fondos o componentes de navegación.
+* #FFFFFF (blanco): El clásico que nunca falla. Es el lienzo que permite que todo respire. Da claridad, orden y contraste.
+* #000000 (negro): Usado con mesura, refuerza la legibilidad y aporta elegancia. Ideal para textos importantes y detalles tipográficos.
+
+**Colores secundarios**
+* #4E96AC (cian grisáceo): Refuerza la coherencia visual y funciona como un conector entre tonos principales. Es versátil, suave y útil para fondos o componentes de navegación.
+* #FFFFFF (blanco): El clásico que nunca falla. Es el lienzo que permite que todo respire. Da claridad, orden y contraste.
+* #000000 (negro): Usado con mesura, refuerza la legibilidad y aporta elegancia. Ideal para textos importantes y detalles tipográficos.
+
+
+#### 4.1.1.3. Espaciado
+Nuestro sistema de espaciado primario se establece en 50 píxeles, proporcionando una base visual consistente en toda la interfaz. Para asegurar flexibilidad y adaptabilidad a diversos elementos y contextos, este valor puede ajustarse en incrementos o decrementos de 5 píxeles según sea necesario. Esta aproximación modular facilita una jerarquía visual clara y un ritmo armónico en la disposición de los componentes, contribuyendo a una experiencia de usuario intuitiva y organizada.
+
+Espaciados de 50px en el Dashboard inicial:
+
+<p align="center">
+  <img src="https://imgur.com/VV9BG4o.png" alt="Es111" width="500">
+</p>
+
+Espaciados con múltiplos de 5 (5px, 15px y 25px):
+
+<p align="center">
+  <img src="https://imgur.com/dtDoDIJ.png" alt="Es122" width="500">
+</p>
+
+
+#### 4.1.1.4. Tono de Comunicación y Lenguaje Aplicado
+El tono de comunicación de VolunTrack se construye sobre los pilares de la empatía, la claridad, la cercanía y el profesionalismo. Esta plataforma no solo ofrece soluciones digitales para ONGs, sino que también actúa como un puente entre personas que buscan generar un impacto positivo en la sociedad. Por ello, cada mensaje está pensado para transmitir humanidad, compromiso y accesibilidad. VolunTrack se comunica con las personas, estableciendo un vínculo genuino con líderes de organizaciones, voluntarios activos y nuevos interesados en unirse.
+
+El lenguaje que utiliza la plataforma es claro y directo. Se evita el uso de tecnicismos innecesarios y se apuesta por frases sencillas y cotidianas, de modo que cualquier usuario, independientemente de su familiaridad con la tecnología, pueda comprender y utilizar la herramienta con facilidad. La experiencia del usuario es una prioridad, y cada mensaje está diseñado para ser comprensible y sin ambigüedades.
+
+VolunTrack mantiene un tono cercano y positivo. La comunicación está pensada para ser amigable, motivadora y optimista, con el objetivo de inspirar acción y reforzar la idea de que cada pequeño aporte puede generar un gran cambio. De esta manera, se crea una relación de confianza entre la plataforma y su comunidad, incentivando la participación activa. Por ejemplo, en lugar de utilizar frases como “Complete el formulario para inscribirse como voluntario”, VolunTrack prefiere expresiones más cercanas como “¿Listo para empezar? Regístrate y únete como voluntario en solo unos pasos”.
+
+A pesar de su calidez, el tono de VolunTrack también refleja profesionalismo. Todos los mensajes siguen estándares de calidad y coherencia que transmiten seguridad y orden. Esto permite que la plataforma sea percibida como una solución seria y confiable, capaz de acompañar a las organizaciones en su labor social.
+
+### 4.1.2. Web Style Guidelines
+*Dashboard de actividades*
+
+<p align="center">
+  <img src="https://imgur.com/YeOSuF3.png" alt="WBG1" width="500">
+</p>
+
+*Sección de Mis Voluntarios*
+
+<p align="center">
+  <img src="https://imgur.com/UpNNBV3.png" alt="WBG2" width="500">
+</p>
+
+VolunTrack se estructura en dos pantallas principales para la gestión integral del voluntariado: el Dashboard de Actividades y la sección de Mis Voluntarios. El Dashboard de Actividades sirve como el centro neurálgico para la supervisión y la gestión operativa de las oportunidades de voluntariado, ofreciendo una visión panorámica de las actividades en curso y futuras. Por otro lado, la sección de Mis Voluntarios se enfoca en la gestión de la base de voluntarios de la organización, permitiendo visualizar perfiles, historial de participación y realizar acciones de comunicación y gestión específicas. Esta división en dos áreas principales responde a la necesidad de separar claramente la gestión de las actividades en sí de la gestión de las personas que participan en ellas, facilitando así un flujo de trabajo más organizado e intuitivo. Dentro de estas dos secciones principales, los coordinadores pueden llevar a cabo todas las acciones necesarias para la gestión integral de sus actividades de voluntariado, desde la creación y publicación de oportunidades hasta el seguimiento de la participación y la comunicación con los voluntarios.
+
+## 4.2. Information Architecture
+En esta sección, se detallan las decisiones fundamentales que guiarán la organización del contenido tanto en la web como en la aplicación móvil de VolunTrack. El objetivo primordial es asegurar que la estructura de la información, el etiquetado, la navegación y las funcionalidades de búsqueda permitan a visitantes y usuarios interactuar intuitivamente y encontrar la información deseada sin dificultad, facilitando así la adopción y el uso efectivo de la plataforma.
+
+## 4.2.1. Organization Systems
+Organization Systems Diagrams
+
+<p align="center">
+  <img src="https://imgur.com/2ghtdki.png" alt="OS1" width="500">
+</p>
+
+<p align="center">
+  <img src="https://imgur.com/yjxlwBV.png" alt="OS2" width="500">
+</p>
+
+En la definición de nuestros Organization Systems, hemos establecido una estrategia clara sobre cómo estructurar y presentar la información dentro de VolunTrack. La organización visual del contenido se adaptará al contexto específico de cada sección. Aplicaremos una jerarquía visual para destacar la información más relevante y guiar la atención del usuario, asegurando que los elementos cruciales sean fácilmente identificables. Para procesos que requieran múltiples pasos, como la creación de una nueva actividad, emplearemos una organización secuencial, presentando la información de manera lineal y lógica para facilitar la comprensión y la finalización de la tarea. Finalmente, una organización matricial podría utilizarse en la presentación de listados complejos, como la gestión de voluntarios con múltiples atributos, permitiendo a los usuarios explorar la información a través de diferentes dimensiones.
+
+En cuanto a los esquemas de categorización del contenido, la elección se basará en la naturaleza de la información y las necesidades de los usuarios. Utilizaremos un esquema alfabético para facilitar la búsqueda y localización rápida de elementos específicos, como la lista de voluntarios. Un esquema cronológico será fundamental para presentar información sensible al tiempo, como el historial de participación o el calendario de actividades. La mayor parte del contenido se organizará por tópicos, agrupando la información relacionada para facilitar la exploración y el descubrimiento dentro de las secciones principales como el Dashboard de Actividades o Mis Voluntarios. Finalmente, consideraremos la audiencia para adaptar la presentación y el lenguaje en secciones específicas, asegurando que tanto los coordinadores de ONG como los voluntarios encuentren la información relevante y accesible.
+
+### 4.2.2. Labeling Systems
+En la definición de nuestros Labeling Systems, priorizamos la claridad y la concisión para asegurar una comprensión intuitiva de la información presentada en VolunTrack. Las etiquetas utilizadas para representar conjuntos de datos y sus asociaciones se han seleccionado cuidadosamente para ser directas y emplear el mínimo número de palabras posible, evitando la ambigüedad y reduciendo la carga cognitiva para los usuarios. Por ejemplo, al momento de seleccionar una actividad, se tienen las etiquetas “Detalles” e “Inscritos”, que transmiten al usuario perfectamente la distinción entre la información general y específica de la actividad y la sección dedicada a la gestión de los voluntarios que se han unido a ella.
+
+<p align="center">
+  <img src="https://imgur.com/1gSxiVc.png" alt="LSLSLS" width="500">
+</p>
+
+En los listados de voluntarios, los atributos clave se identifican con etiquetas breves y descriptivas como "Nombre", "Edad" o "Profesión".
+
+<p align="center">
+  <img src="https://imgur.com/hYvPZSb.png" alt="LSLSLS2" width="500">
+</p>
+
+Buscamos establecer una correspondencia unívoca entre la etiqueta y el contenido que representa, manteniendo la coherencia en toda la interfaz web y móvil. Las acciones disponibles se etiquetan con verbos claros y orientados a la tarea, como "Crear", "Ver más", "Enviar Notificación" y "Marcar Asistencia". 
+
+<p align="center">
+  <img src="https://imgur.com/8wc2WqW.png" alt="LSLSLS3" width="500">
+</p>
+
+Para las agrupaciones de información relacionada, utilizamos títulos de sección concisos como "Dashboard de Actividades", "Mis Voluntarios" y "Mi Perfil". Este enfoque en la simplicidad y la precisión en el etiquetado busca minimizar la confusión, facilitar la navegación y permitir que los visitantes y usuarios identifiquen rápidamente la información y las funcionalidades que necesitan.
+
+<p align="center">
+  <img src="https://imgur.com/GDRvLEV.png" alt="LSLSLS4" width="500">
+</p>
+
+### 4.2.3. SEO Tags and Meta Tags
+
+<p align="center">
+  <img src="https://imgur.com/PWrstqC.png" alt="SEO" width="500">
+</p>
+
+Estos metatags son esenciales para optimizar la visibilidad y la funcionalidad del landing page de VolunTrack. El <meta charset="UTF-8'> asegura la correcta codificación de caracteres, permitiendo la visualización adecuada de texto en diversos idiomas y símbolos. Los metatags <meta name="viewport" content="width=device-width, initial-scale=1.0'> son cruciales para la responsividad, garantizando que la página se adapte correctamente a diferentes tamaños de pantalla y dispositivos móviles, mejorando la experiencia del usuario. Los metatags <meta http-equiv="X-UA-Compatible" content="IE=edge'> y <meta http-equiv="X-UA-Compatible" content="ie=edge'> aseguran la compatibilidad con diferentes versiones de Internet Explorer, evitando problemas de visualización y funcionamiento. Finalmente, el <title>VolunTrack - Plataforma de Gestión de Voluntariado | HOME</title> define el título de la página, que es fundamental para el SEO (Optimización para Motores de Búsqueda) y la identificación de la página en las pestañas del navegador, mejorando la usabilidad y el posicionamiento de VolunTrack.
+
+<p align="center">
+  <img src="https://imgur.com/q7Y5In8.png" alt="SEO" width="500">
+</p>
+
+Estos metatags optimizan la página "Crear Nueva Actividad" de VolunTrack: el <title> y la <meta name="description'> mejoran el SEO y la comprensión de la página, la <meta name="keywords'> aumenta la visibilidad en búsquedas y la <meta name="author'> atribuye la creación al equipo de desarrollo.
+
+### 4.2.4. Searching Systems
+
+En la sección de Voluntarios Inscritos a una Actividad, implementaremos una barra de búsqueda que permitirá a los coordinadores encontrar rápidamente a un voluntario específico dentro de la lista de inscritos. Esta búsqueda se realizará principalmente por nombre. Los resultados de la búsqueda se actualizarán dinámicamente en la lista de voluntarios inscritos, resaltando el nombre del voluntario encontrado.
+
+<p align="center">
+  <img src="https://imgur.com/OucbV8S.png" alt="ss1" width="500">
+</p>
+
+De manera similar, en la sección principal de "Mis Voluntarios", se dispone de una barra de búsqueda para localizar voluntarios en toda la base de datos de la ONG. La búsqueda principal se realizará por nombre y correo electrónico. Para refinar la búsqueda, se ofrecen diversos filtros
+
+Los resultados de la búsqueda se mostrarán en la tabla de la lista de voluntarios, manteniendo las columnas informativas relevantes (Nombre, Edad, Profesión, etc.). La barra de búsqueda incluye funcionalidad de autocompletado para nombres y correos electrónicos registrados, facilitando la rapidez y precisión de la búsqueda. Al igual que en otras secciones con listados, se implementará paginación para gestionar grandes volúmenes de voluntarios.
+
+<p align="center">
+  <img src="https://imgur.com/xBBksbx.png" alt="ss2" width="500">
+</p>
+
+El objetivo de estos sistemas de búsqueda centrados en voluntarios es permitir a los coordinadores encontrar y gestionar la información de los voluntarios de manera eficiente, ya sea dentro del contexto de una actividad específica o en la gestión general de su base de datos.
+
+### 4.2.5. Navigation Systems
+
+<p align="center">
+  <img src="https://imgur.com/v84fLNS.png" alt="ns1" width="500">
+</p>
+
+El menú superior del landing page de VolunTrack está diseñado para proporcionar una navegación clara e intuitiva, guiando a los usuarios hacia las secciones clave de información y acción. La estructura del menú se basa en una jerarquía simple y lógica, con etiquetas concisas que representan categorías de contenido fácilmente comprensibles para el usuario. La ubicación destacada del botón "ÚNETE" invita a la acción principal, facilitando a los usuarios el inicio del registro o la exploración de la plataforma. La consistencia en el diseño visual del menú, incluyendo la tipografía, el espaciado y los colores, contribuye a una experiencia de usuario coherente y profesional. Además, la disposición horizontal del menú es un patrón común y esperado, lo que reduce la carga cognitiva y permite a los usuarios encontrar rápidamente la información que buscan.
+
+<p align="center">
+  <img src="https://imgur.com/fLEJqNi.png" alt="ns2" width="500">
+</p>
+
+El menú superior de la aplicación VolunTrack mantiene una estructura y filosofía de diseño similar al menú del landing page, priorizando la claridad y la eficiencia en la navegación. Al igual que en la página principal, se emplean etiquetas concisas y fácilmente comprensibles para representar las secciones funcionales clave de la aplicación.
+
+<p align="center">
+  <img src="https://imgur.com/Cp6SEdr.png" alt="ns3" width="500">
+</p>
+
+El dashboard de VolunTrack organiza la información y las funciones principales de la aplicación para facilitar la navegación y la interacción eficiente del usuario. Al presentar una visión general estructurada mediante widgets, se prioriza la información clave y se proveen accesos directos a las acciones más comunes, como la gestión de actividades o la visualización de voluntarios. La jerarquía visual, establecida mediante encabezados claros y el agrupamiento lógico de la información, guía al usuario a través del contenido, permitiéndole identificar rápidamente las áreas de interés y las tareas pendientes. La disposición de los elementos y la inclusión de botones de acción estratégicamente ubicados buscan minimizar el esfuerzo cognitivo y optimizar el flujo de trabajo, asegurando que los usuarios puedan alcanzar sus objetivos de manera intuitiva y satisfactoria.
+
+<p align="center">
+  <img src="https://imgur.com/NBgt1FC.png" alt="ns4" width="500">
+</p>
+
+Los botones "Detalles" e "Inscritos" funcionan como un sistema de navegación segmentado dentro de la vista de una actividad, permitiendo a los usuarios cambiar entre dos tipos de información relevante. Esta segmentación organiza la información en categorías claras y distintas, evitando la sobrecarga cognitiva y facilitando la búsqueda de información específica. 
+
+## 4.3. Landing Page UI Design
+
+### 4.3.1. Landing Page Wireframes
+
+* Wireframe de la sección Home
+
+<p align="center">
+  <img src="https://imgur.com/WYRKUPm.png" alt="LDW1" width="500">
+</p>
+
+El wireframe presenta una estructura limpia con un titular principal y texto de apoyo en la parte superior, seguido de dos botones de acción clave. El diseño general busca una jerarquía visual clara para guiar al usuario.
+
+* Wireframe de la sección Planes
+
+<p align="center">
+  <img src="https://imgur.com/stQvGXQ.png" alt="LDW2" width="500">
+</p>
+
+El wireframe de "Planes" muestra tres columnas distintas, cada una representando un plan de suscripción con un título, una breve descripción de sus características y un botón de suscripción. La disposición busca facilitar la comparación directa de las diferentes ofertas.
+
+* Wireframe de la sección FAQ
+
+<p align="center">
+  <img src="https://imgur.com/7jVYYfL.png" alt="LDW3" width="500">
+</p>
+
+<p align="center">
+  <img src="https://imgur.com/ZfHdD8Q.png" alt="LDW4" width="500">
+</p>
+
+El wireframe de "Preguntas Frecuentes" presenta un título principal seguido de una pregunta destacada y su respuesta. Debajo, se listan otras preguntas con un formato que sugiere que las respuestas se mostrarán al interactuar con ellas. A la izquierda, se observan placeholders para elementos visuales complementarios.
+
+* Wireframe de la sección Contáctanos
+
+<p align="center">
+  <img src="https://imgur.com/AWZipmv.png" alt="LDW5" width="500">
+</p>
+
+El wireframe de "Contáctanos" muestra un formulario a la derecha para que los usuarios envíen mensajes, precedido por un breve texto introductorio. A la izquierda, se observa un placeholder para un elemento visual. En la parte inferior, hay placeholders para información de contacto adicional.
+
+* Wireframe de la sección Nuestro Equipo
+
+<p align="center">
+  <img src="https://imgur.com/Ihh80CQ.png" alt="LDW6" width="500">
+</p>
+
+El wireframe de "Nuestro Equipo" presenta una disposición en cuadrícula con placeholders para fotografías de los miembros del equipo, debajo de cada uno con espacio para su nombre y su rol.
+
+* Wireframe del Footer
+
+<p align="center">
+  <img src="https://imgur.com/ZZoSi9v.png" alt="LDW7" width="500">
+</p>
+
+El wireframe del footer muestra el logo y una breve descripción de VolunTrack a la izquierda, enlaces de navegación en el centro y placeholders para los logos de clientes que confían en la plataforma a la derecha, junto con iconos de redes sociales.
+
+### 4.3.2. Landing Page Mock-ups
+
+<p align="center">
+  <img src="https://imgur.com/PnaDJ9u.png" alt="LDMU1" width="500">
+</p>
+
+La pantalla de inicio de VolunTrack presenta de inmediato su propuesta de valor con un titular llamativo y un subtítulo conciso, comunicando el beneficio principal para las ONGs. La imagen de fondo, con manos de diversos colores elevándose, busca conectar emocionalmente con el usuario y transmitir la idea de colaboración e impacto colectivo. La ubicación prominente de los botones de llamada a la acción guía al usuario hacia los siguientes pasos lógicos: registrarse o solicitar más información. El menú de navegación superior es claramente visible y ofrece acceso directo a las secciones clave del sitio, facilitando la exploración de la plataforma. La combinación de elementos textuales y visuales busca captar la atención del visitante y comunicar de manera efectiva el propósito y los beneficios de VolunTrack desde el primer contacto.
+
+<p align="center">
+  <img src="https://imgur.com/51oJTv8.png" alt="LDMU2" width="500">
+</p>
+
+La sección "Sobre Nosotros" busca establecer la identidad y los valores de VolunTrack, comenzando con un titular que destaca su propuesta de valor diferencial. Un breve párrafo explica la misión de la plataforma, enfocándose en la creación de comunidades y la conexión entre ONGs y voluntarios. Se utilizan elementos visuales impactantes, como un collage de imágenes que representan la diversidad y el impacto del voluntariado, para conectar emocionalmente con el usuario y reforzar el mensaje. 
+
+<p align="center">
+  <img src="https://imgur.com/TZTswhp.png" alt="LDMU3" width="500">
+</p>
+
+La pantalla de "Planes" presenta las opciones de suscripción de manera clara y comparativa, guiando al usuario a través del proceso de selección. La información se organiza en tarjetas o columnas distintas para cada plan, lo que facilita la comparación de características y precios. Se utiliza una jerarquía visual para destacar los elementos más importantes, como el precio y el botón de llamada a la acción, atrayendo la atención del usuario hacia la conversión. La pantalla emplea un lenguaje conciso y descriptivo para explicar los beneficios de cada plan, y utiliza elementos visuales como íconos o marcas de verificación para resaltar las funcionalidades clave. La disposición de los planes y la información sigue un flujo lógico, desde las opciones más básicas hasta las más avanzadas, permitiendo al usuario tomar una decisión informada y segura.
+
+<p align="center">
+  <img src="https://imgur.com/IMmN3qj.png" alt="LDMU4" width="500">
+</p>
+
+La sección inicial de Preguntas Frecuentes facilita la búsqueda rápida de información mediante una presentación clara y estructurada. El título "Preguntas Frecuentes" indica directamente el contenido, y el subtítulo "¿Cómo Podemos Ayudarte?" orienta al usuario hacia la utilidad del recurso. Una breve introducción contextualiza la información que se ofrece. Las preguntas se muestran como elementos seleccionables, diseñados para expandirse y mostrar las respuestas, lo que permite un escaneo veloz de los temas y evita la sobrecarga de texto. La diferenciación visual de las preguntas mediante su formato las distingue claramente de las respuestas. Imágenes relevantes complementan el texto, manteniendo el interés del usuario. El diseño general es limpio y espacioso, lo que favorece la legibilidad y la comprensión.
+
+<p align="center">
+  <img src="https://imgur.com/Yuz4HnB.png" alt="LDMU5" width="500">
+</p>
+
+La segunda sección de la página de Preguntas Frecuentes continúa facilitando el acceso a información relevante mediante una estructura clara y directa. Cada pregunta se presenta de forma individual, con un formato que permite expandir la respuesta al hacer clic. Se mantiene la coherencia visual con la sección anterior, utilizando un diseño limpio y suficiente espacio en blanco para mejorar la legibilidad. 
+
+<p align="center">
+  <img src="https://imgur.com/UZ0ldi5.png" alt="LDMU6" width="500">
+</p>
+
+La sección "Contáctanos" está diseñada para facilitar la comunicación entre los usuarios y VolunTrack. Un formulario de contacto ocupa el espacio derecho, mientras que el izquierdo tiene el logo como refuerzo de marca. permitiendo a los usuarios enviar consultas específicas de manera directa. La estructura de la sección organiza claramente las diferentes opciones.
+
+<p align="center">
+  <img src="https://imgur.com/jNMab0X.png" alt="LDMU7" width="500">
+</p>
+
+La continuación de la sección "Contáctanos" proporciona información de contacto adicional organizada de forma clara y accesible. Se presentan tres métodos principales: teléfono, correo electrónico y dirección de oficina, cada uno acompañado de un icono distintivo para facilitar su identificación visual. La información de cada método se muestra de manera concisa y legible, permitiendo a los usuarios encontrar rápidamente los detalles que necesitan. La inclusión de un mapa interactivo de Google Maps en la parte inferior ofrece una referencia visual de la ubicación de la oficina, facilitando la planificación de visitas presenciales. La disposición de los elementos en columnas y el uso de iconos ayudan a estructurar la información y a reducir la carga cognitiva, permitiendo a los usuarios elegir el método de contacto más conveniente de manera intuitiva.
+
+<p align="center">
+  <img src="https://imgur.com/QcKTytN.png" alt="LDMU8" width="500">
+</p>
+
+La sección "Nuestro Equipo" presenta a los miembros del equipo de VolunTrack de una manera visual y organizada. Cada miembro se identifica con una fotografía clara y un breve texto que incluye su nombre y rol dentro del proyecto. La disposición de las fotos en una cuadrícula facilita la visualización y el escaneo de los diferentes integrantes. El uso de etiquetas de color distintivas debajo de cada foto ayuda a diferenciar visualmente a los miembros y a categorizarlos por área de especialización. Este diseño busca generar confianza y transparencia al mostrar el lado humano del proyecto de forma accesible y directa.
+
+<p align="center">
+  <img src="https://imgur.com/LNKoyCn.png" alt="LDMU9" width="500">
+</p>
+
+Esta sección, ubicada estratégicamente cerca del final de las pantallas, busca generar confianza y credibilidad al mostrar logotipos de organizaciones que aparentemente utilizan VolunTrack. El título "¿Quién confía en VolunTrack?" plantea una pregunta directa que se responde visualmente con los logos de diversas entidades. La disposición horizontal de los logos permite un escaneo rápido y fácil de las marcas asociadas. 
+
+<p align="center">
+  <img src="https://imgur.com/oX9HJPw.png" alt="LDMU10" width="500">
+</p>
+
+El pie de página de VolunTrack organiza información relevante y enlaces de interés de forma concisa y accesible. La sección "Links rápidos" ofrece una navegación alternativa a las secciones principales del sitio, facilitando el acceso directo a información clave. La sección "Clientes que confían en nosotros" refuerza la credibilidad al mostrar visualmente los logos de organizaciones que utilizan la plataforma. Además, se incluye un breve texto descriptivo de VolunTrack y enlaces a redes sociales, proporcionando contexto y extendiendo la presencia de la marca. La disposición de los elementos en columnas facilita la lectura y el escaneo, permitiendo a los usuarios encontrar rápidamente la información que buscan o conectar con VolunTrack en diferentes canales.
+
+## 4.4. Web Applications UX/UI Design
+
+### 4.4.1. Web Applications Wireframes
+
+<p align="center">
+  <img src="https://imgur.com/1cV72ZZ.png" alt="WAW1" width="500">
+</p>
+
+El primer wireframe de VolunTrack corresponde a la pantalla principal de la plataforma. En la parte superior se ubica una barra de navegación que integra el logo y accesos directos al Dashboard, la sección de voluntarios, las notificaciones y el perfil personal. En el área central se despliega el "Dashboard de Actividades", donde se listan las diversas oportunidades de voluntariado que ofrece el sistema.
+
+<p align="center">
+  <img src="https://imgur.com/Iz0uSHa.png" alt="WAW2" width="500">
+</p>
+
+El presente wireframe muestra la información de una actividad de voluntariado seleccionada de la anterior pantalla, dividida en la descripción, instrucciones y propósito de esta.
+
+<p align="center">
+  <img src="https://imgur.com/Ahb8PwG.png" alt="WAW3" width="500">
+</p>
+
+Al presionar el botón “Inscritos”, se visualiza una pantalla donde se presenta una lista de los voluntarios registrados en la actividad. Asimismo, en el lado izquierdo se encuentran cuatro botones con diferentes funcionalidades con relación al evento de voluntariado. En el lado derecho se encuentra el voluntario seleccionado de la lista central.
+
+<p align="center">
+  <img src="https://imgur.com/kXqrmRt.png" alt="WAW4" width="500">
+</p>
+
+El presente wireframe muestra la pantalla de creación de eventos de voluntariado, donde el usuario tendrá que llenar diferentes apartados para finalizar la entrada de datos.
+
+<p align="center">
+  <img src="https://imgur.com/6PGyp0Q.png" alt="WAW5" width="500">
+</p>
+
+Esta pantalla muestra el calendario de las actividades mensuales de la asociación de voluntariado.
+
+<p align="center">
+  <img src="https://imgur.com/FZyOzxq.png" alt="WAW6" width="500">
+</p>
+
+Accediendo a "Mis Voluntarios" desde el menú principal, se accede a la pantalla reflejada en el sexto wireframe. La interfaz divide la información en bloques: estadísticas generales de los voluntarios, listado detallado de usuarios (con nombre, edad y profesión), perfil ampliado del voluntario seleccionado y un historial de las actividades en las que ha participado.
+
+<p align="center">
+  <img src="https://imgur.com/dzIe7ln.png" alt="WAW7" width="500">
+</p>
+
+El séptimo wireframe corresponde a la gestión de perfil del líder o coordinador de la ONG. Accediendo mediante el segundo ícono ubicado en la esquina superior derecha, se despliega la información personal, la descripción de la organización y configuraciones de cuenta, permitiendo personalizar la experiencia de uso.
+
+<p align="center">
+  <img src="https://imgur.com/6vAEngk.png" alt="WAW8" width="500">
+</p>
+
+En este wireframe se visualiza el sistema de notificaciones. Al presionar el primer ícono de la barra superior, se abre un panel lateral donde se enlistan todas las alertas relevantes para el usuario, facilitando el monitoreo de actividades y comunicaciones importantes.
+
+<p align="center">
+  <img src="https://imgur.com/uDBsM90.png" alt="WAW9" width="500">
+</p>
+
+Por último, se puede apreciar la pantalla de acceso a la plataforma. El usuario puede iniciar sesión mediante su Email y contraseña o crear una nueva cuenta.
+
+### 4.4.2. Web Applications Wireflow Diagrams
+**Wireflow #1**
+
+Como usuario, quiero crear una actividad de voluntariado nueva y quiero visualizar los detalles más importantes de esta.
+
+*Task Flow:*
+
+<p align="center">
+  <img src="https://imgur.com/U7sUKSh.png" alt="TF1" width="500">
+</p>
+
+*Wireflow:*
+
+<p align="center">
+  <img src="https://imgur.com/udAXA5Z.png" alt="WF1" width="500">
+</p>
+
+Para poder crear una actividad o ver las existentes, se debe seguir un conjunto de pasos. Primero, es vital que el usuario inicie sesión con su cuenta registrada. Continuamente, aparecerá en la pantalla principal de VolunTrack, es decir, el dashboard de actividades. En este, se pueden visualizar los eventos creados previamente por el usuario. Al seleccionar uno de ellos a través del botón “Ver Más”, se mostrarán los detalles de aquel. 
+
+Asimismo, si se desea crear una nueva actividad, encima del dashboard, en la parte derecha, se encuentra el botón de “Crear”, el cual permitirá esta acción. Al presionarlo, aparecerá un formulario con campos relevantes para la creación de la actividad; es necesario llenarlos todos para continuar. Al finalizar, aparecerá la nueva actividad con los detalles colocados.
+
+**Wireflow #2**
+
+Como usuario, quiero ver detalles sobre mis colaboradores, así como la cantidad de nuevos voluntarios que se han inscrito en mi organización.
+
+*Taskflow:*
+
+<p align="center">
+  <img src="https://imgur.com/FgJ6OPq.png" alt="TF2" width="500">
+</p>
+
+*Wireflow:*
+
+<p align="center">
+  <img src="https://imgur.com/0xJUIx9.png" alt="WF2" width="500">
+</p>
+
+Para ver detalles sobre los voluntarios y la cantidad de nuevos ingresos, se debe, en primer lugar, iniciar sesión en VolunTrack con credenciales previamente establecidas. Al realizar esta acción, se presentará la pantalla principal de la plataforma, el dashboard de actividades. En el encabezado, que se encuentra en la parte superior, se debe apretar el enlace “Mis Voluntarios”. Este llevará al usuario a la sección de voluntarios de su organización, en la cual podrá ver detalles e información sobre ellos, así como la cantidad de nuevos ingresos. 
+
+Por otro lado, VolunTrack mandará notificaciones al usuario sobre su progreso y su estado. Un tipo de notificación es la felicitación por la cantidad de nuevos ingresos. Desde cualquier sección de la plataforma, al hacer clic en el enlace con el ícono de campana, se podrá acceder a las notificaciones que le llegan al usuario. Al presionar en aquella sobre la cantidad de ingresos, el sistema llevará al usuario a la sección de sus voluntarios, en la cual verá la información proporcionada en la notificación.
+
+**Wireflow #3**
+
+Como usuario, quiero pasar asistencia y emitir certificados para los voluntarios que han asistido a una de las actividades.
+
+*Taskflow:*
+
+<p align="center">
+  <img src="https://imgur.com/wolS9u6.png" alt="TF3" width="500">
+</p>
+
+*Wireflow:*
+
+<p align="center">
+  <img src="https://imgur.com/bincdvb.png" alt="WF3" width="500">
+</p>
+
+Para que un usuario pase asistencia y emita certificados en VolunTrack debe empezar por el inicio de sesión en la plataforma, con su correo y contraseña registrada. Luego, desde el "Dashboard de Actividades", el usuario selecciona la actividad correspondiente. Al ingresar a los detalles de la actividad, accede a la sección de "Inscritos", donde puede visualizar la lista de voluntarios registrados. Desde esta pantalla, el usuario puede marcar quiénes asistieron a la actividad y, posteriormente, emitir los certificados para aquellos voluntarios que cumplieron con su participación. Además, hay otras opciones de gestión que puede realizar el usuario, según sea su necesidad.
+
+Para mejor visualización de los Wireflows de VolunTrack, acceder al siguiente link: https://lucid.app/lucidchart/6d203d95-a99b-42f5-89a4-18abdc85c7a8/edit?viewport_loc=-4179%2C-3628%2C29871%2C13885%2C0_0&invitationId=inv_030ec1fa-a7fe-46c5-a660-10386174a01b 
+
+### 4.4.3. Web Applications Mock-up
+
+<p align="center">
+  <img src="https://imgur.com/zXEmnVs.png" alt="WAM1" width="500">
+</p>
+
+El primer mockup de Voluntrack muestra la pantalla de inicio de la plataforma. En la parte superior se aprecia un encabezado donde aparecen el logo y accesos rápidos al “Dashboard”, “Mis Voluntarios”, a las notificaciones y al perfil del usuario. El centro de la página contiene el “Dashboard de Actividades”, en el cual se encuentran las oportunidades de voluntariado que ofrece la aplicación.
+
+<p align="center">
+  <img src="https://imgur.com/cjcW4qS.png" alt="WAM2" width="500">
+</p>
+
+Al presionar el botón “VER MÁS”, se podrá apreciar la segunda pantalla de la aplicación. La sección “Detalles” ofrece información completa sobre el evento o actividad de voluntariado seleccionada: descripción extensa, instrucciones, propósito, ubicación y la fecha en la cual se realizará.
+
+<p align="center">
+  <img src="https://imgur.com/MPb1l3Q.png" alt="WAM3" width="500">
+</p>
+
+El tercer mockup corresponde a la sección de “Inscritos”. En la parte izquierda de la pantalla se muestran cuatro botones: “Enviar Notificación”, “Marcar Asistencia”, “Crear Certificados”, “Abrir Inscripciones”, cada uno con su respectiva funcionalidad. En el centro se aprecia una lista de los voluntarios inscritos a la actividad. En la parte derecha de la pantalla se muestra el perfil del voluntario seleccionado en la lista, con la posibilidad de marcar su asistencia y cambiar el estado de inscripción.
+
+<p align="center">
+  <img src="https://imgur.com/LXgsrPl.png" alt="WAM4" width="500">
+</p>
+
+Luego de presionar el botón “+ Crear” de la pantalla principal, el usuario se dirige a un formulario de creación de actividades o eventos de voluntariado dividido en campos básicos como título, fecha, dirección, instrucciones y propósito. En la parte izquierda se encuentra un botón de “Adjuntar archivo”, con el cual se podrán adjuntar hasta un máximo de 4 imágenes. 
+
+<p align="center">
+  <img src="https://imgur.com/YHuk76R.png" alt="WAM5" width="500">
+</p>
+
+Luego de presionar el botón “Calendario” de la pantalla principal, se podrán visualizar todas las actividades de voluntariado creadas por el usuario en cada mes del año.
+
+<p align="center">
+  <img src="https://imgur.com/dM4NBu3.png" alt="WAM6" width="500">
+</p>
+
+Al presionar “Mis Voluntarios” de la página principal, se aprecia una pantalla dividida en secciones. La primera sección contiene las métricas de los voluntarios inscritos en tus actividades. En la segunda sección, se observa una lista de todos tus voluntarios, mostrando su nombre, edad y profesión. La tercera sección muestra al voluntario seleccionado en la lista anteriormente mencionada. La cuarta sección contiene el historial de las actividades anteriormente realizadas.
+
+<p align="center">
+  <img src="https://imgur.com/g5vSzDF.png" alt="WAM7" width="500">
+</p>
+
+Al presionar el segundo ícono ubicado en la esquina superior derecha, el usuario se redirigirá a la pantalla de “Mi Perfil”, en el cual se encuentra toda la información personal, descripción y configuración de la asociación de voluntariado.
+
+<p align="center">
+  <img src="https://imgur.com/8G8kvF4.png" alt="WAM8" width="500">
+</p>
+
+Al presionar el primer ícono ubicado en la esquina superior derecha, se desplegará una sección en la parte derecha de la pantalla, en el cual se muestran todas las notificaciones posibles.
+
+<p align="center">
+  <img src="https://imgur.com/hRDHl7I.png" alt="WAM9" width="500">
+</p>
+
+El último mockup corresponde al formulario de inicio de sesión de VolunTrack. En esta pantalla, el usuario puede iniciar sesión utilizando su cuenta de Google o Apple. Además, en la parte inferior se encuentra un botón destacado que invita a los nuevos usuarios a "Crear Cuenta", facilitando así tanto el acceso rápido como el registro dentro de la plataforma.
+
+### 4.4.4. Web Applications User Flow Diagrams
+
+**Userflow #1**
+
+Como usuario, quiero crear una actividad de voluntariado nueva y quiero visualizar los detalles más importantes de esta.
+
+<p align="center">
+  <img src="https://imgur.com/QsqsgEO.png" alt="UF1" width="500">
+</p>
+
+**Userflow #2**
+
+Como usuario, quiero ver detalles sobre mis colaboradores, así como la cantidad de nuevos voluntarios que se han inscrito en mi organización.
+
+<p align="center">
+  <img src="https://imgur.com/eU7S8E0.png" alt="UF2" width="500">
+</p>
+
+**Userflow #3**
+
+Como usuario, quiero pasar asistencia y emitir certificados para los voluntarios que han asistido a una de las actividades.
+
+<p align="center">
+  <img src="https://imgur.com/FP7dWFc.png" alt="UF3" width="500">
+</p>
+
+Para mejor visualización de los Userflows de VolunTrack, acceder al siguiente link: https://lucid.app/lucidchart/6d203d95-a99b-42f5-89a4-18abdc85c7a8/edit?viewport_loc=-4179%2C-3628%2C29871%2C13885%2C0_0&invitationId=inv_030ec1fa-a7fe-46c5-a660-10386174a01b
+
+## 4.5. Web Applications Prototyping
+Con el propósito de optimizar la accesibilidad y la experiencia de usuario antes del lanzamiento definitivo, desarrollamos un prototipo interactivo enfocado en la navegación web. Este modelo funcional reproduce de manera completa el recorrido que realizará el usuario dentro del sitio, permitiendo explorar directamente las secciones, elementos y flujos de interacción previstos para la versión final.
+
+El prototipo fue creado bajo estrictos principios de arquitectura de la información, jerarquía visual coherente y diseño universal, asegurando una experiencia de navegación intuitiva y accesible para todos los usuarios. Cada elemento fue diseñado respetando estándares de usabilidad y consistencia visual, favoreciendo un entorno digital fluido y agradable.
+
+Partiendo de maquetas de alta fidelidad y criterios de usabilidad previamente establecidos, esta versión interactiva representa con gran precisión la futura interfaz web. Se convierte en una herramienta esencial para validar decisiones de diseño, anticipar posibles puntos de fricción y garantizar una experiencia de usuario consistente, accesible y alineada con los objetivos del proyecto.
+
+Video demostrativo: https://youtu.be/SiFnEpgN64c
+
+Link al prototipo interactivo: https://www.figma.com/proto/krPEYNc7KDEvZbax5LxfrA/VolunTrack?page-id=15%3A170&node-id=35-189&p=f&viewport=110%2C50%2C0.16&t=onC3hpMX1io72KLX-1&scaling=contain&content-scaling=fixed
+
+## 4.6. Domain-Driven Software Architecture
+En nuestro proyecto VolunTrack, adoptamos los principios de la Domain-Driven Software Architecture para centrar el diseño y la implementación en el núcleo del negocio: la gestión de actividades de voluntariado y la interacción con los voluntarios. Esto implica modelar el software en torno a los conceptos y la lógica del dominio del voluntariado, asegurando que la estructura y el lenguaje del código reflejen fielmente el mundo real de las ONGs y sus colaboradores, facilitando así la comunicación entre el equipo de desarrollo y los expertos del dominio.
+
+### 4.6.1. Software Architecture Context Diagram
+
+<p align="center">
+  <img src="https://imgur.com/FR9QhSq.png" alt="ContextD" width="500">
+</p>
+
+### 4.6.2. Software Architecture Container Diagram
+
+<p align="center">
+  <img src="https://imgur.com/54gnZXo.png" alt="ContainerD" width="500">
+</p>
+
+### 4.6.3. Software Architecture Components Diagram
+
+<p align="center">
+  <img src="https://imgur.com/16VhhFW.png" alt="ComponentsD" width="500">
+</p>
+
+## 4.7. Software Object-Oriented Design
+### 4.7.1. Class Diagram
+
+<p align="center">
+  <img src="https://imgur.com/RvZpsav.png" alt="Class" width="500">
+</p>
+
+### 4.7.2. Class Dictionary
+* Usuario: Representa a cualquier persona registrada tanto voluntarios como líderes o coordinadores de voluntariado en la plataforma. 
+* Voluntario: Representa a las personas que participan en actividades de voluntariado. Además de los atributos heredados de “Usuario”, gestiona intereses personales, historial de actividades realizadas, cantidad de participaciones e información sobre las horas voluntarias acumuladas.
+* Organizacion: también hereda de Usuario y representa a las entidades que crean y gestionan actividades de voluntariado. Tienen el permiso de crear, editar, ver y eliminar eventos.
+* Actividad: Representa las actividades de voluntariado disponibles en la plataforma. Contiene información como nombre, lugar, fecha, duración y asistentes registrados.
+* Inscripcion: Registra la participación de un voluntario en una actividad. Contiene detalles como el estado de la inscripción y la fecha en que se realizó.
+* Certificado: Documento que acredita la participación de un voluntario en una actividad. Registra las horas realizadas, la fecha de emisión y el estado del certificado.
+* InformeImpacto: Reporte que resume el impacto generado por una actividad. Incluye datos como número de participantes, horas trabajadas y una descripción general.
+* Notificacion: Mensajes enviados a los usuarios para informar sobre inscripciones, actualizaciones de actividades o eventos relevantes.
+* EnvioNotificacion:  Servicio encargado de gestionar el envío y el estado de las notificaciones dentro de la plataforma.
+* ActividadFactory: Clase que centraliza la creación de actividades, facilitando su instanciación de manera controlada y consistente.
+* GestorActividad: Permite editar o eliminar actividades ya creadas en la plataforma, asegurando su correcta gestión.
+
+## 4.8. Database Design
+### 4.8.1. Database Diagram
+
+<p align="center">
+  <img src="https://imgur.com/xbCRPHT.png" alt="Database" width="500">
+</p>
