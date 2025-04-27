@@ -70,6 +70,12 @@ Para la elaboración del informe, inicialmente trabajamos en un documento compar
     + [2.3.5. As-Is Scenario Mapping](#235-as-is-scenario-mapping)
   * [2.4 Ubiquitous Language](#24-ubiquitous-language)
 
+- [CAPÍTULO 3: REQUIREMENTS SPECIFICATION](#capítulo-3-requirements-specification)
+  * [3.1. To-Be Scenario Mapping](#31-to-be-scenario-mapping)
+  * [3.2. User Stories](#32-user-stories)
+  * [3.3. Impact Mapping](#33-impact-mapping)
+  * [3.4. Product Backlog](#34-product-backlog)
+
 # CAPÍTULO 1: INTRODUCCIÓN
 
 ## 1.1. Startup Profile
@@ -671,3 +677,397 @@ Algunos lectores no usan plataformas digitales simplemente por desconocimiento o
 * Impact (Impacto): Efecto positivo del trabajo de la ONG y voluntarios.
 * Resource (Recurso): Material o apoyo para la actividad.
 * Profile (Perfil): Datos del voluntario (contacto, intereses, etc.).
+
+# CAPÍTULO 3: REQUIREMENTS SPECIFICATION
+
+## 3.1. To-Be Scenario Mapping
+
+**Segmento #1: Líderes y coordinadores de ONGs** 
+
+<p align="center">
+  <img src="https://imgur.com/ZHMBJxk.png" alt="tobe1" width="500">
+</p>
+
+**Segmento #2: Voluntarios existentes y potenciales**
+
+<p align="center">
+  <img src="https://imgur.com/gCslzZW.png" alt="tobe2" width="500">
+</p>
+
+## 3.2. User Stories
+### 3.2.1. Requisitos
+**Requisitos Funcionales**
+
+| Código  | Requisito |
+|---------|-----------|
+| RFU-01 | Registro de ONGs |
+| RFU-02 | Gestión de perfil de ONG |
+| RFU-03 | Creación y edición de actividades de voluntariado |
+| RFU-04 | Exploración de actividades disponibles |
+| RFU-05 | Inscripción de voluntarios en actividades |
+| RFU-06 | Visualización de voluntarios inscritos por actividad |
+| RFU-07 | Marcado de asistencia |
+| RFU-08 | Generación automática de certificados |
+| RFU-09 | Historial de participación de voluntarios |
+| RFU-10 | Comunicación entre ONG y voluntarios |
+| RFU-11 | Aprobación o rechazo de inscripciones |
+| RFU-12 | Generación de informes de participación |
+| RFU-13 | Vista de resumen de participación por voluntario |
+| RFU-14 | Visualización de propuesta de valor en landing page |
+| RFU-15 | Acceso a información sobre planes y precios |
+| RFU-16 | Consulta de contacto y pasos para iniciar |
+| RFU-17 | Gestión de usuarios |
+| RFU-18 | Gestión de actividades vía API |
+| RFU-19 | Gestión de asistencia vía API |
+| RFU-20 | Dashboard de administración de voluntariado |
+
+**Requisitos No Funcionales**
+
+| Código  | Requisito |
+|---------|-----------|
+| RNFU-01 | Interfaz amigable |
+| RNFU-02 | Escalabilidad |
+| RNFU-03 | Tiempo de respuesta |
+| RNFU-04 | Disponibilidad del sistema |
+| RNFU-05 | Accesibilidad multiplataforma |
+| RNFU-06 | Notificaciones personalizables |
+| RNFU-07 | Seguridad de los datos |
+| RNFU-08 | Compatibilidad API |
+
+### 3.2.2. Historias de Usuario
+
+| **User Story ID** | US01 |
+|-------------------|------|
+| **Epic ID**        | E01 |
+| **Title**          | Registrar nueva ONG |
+| **Description**    | Como coordinador de una ONG, quiero poder registrar mi organización en VolunTrack para empezar a gestionar a mis voluntarios y actividades en un solo lugar. |
+| **Acceptance Criteria #1** | Dado que el usuario accede a la página de registro de ONG<br>Cuando completa todos los campos requeridos y hace clic en “Registrarse”<br>Entonces el sistema guarda los datos y muestra un mensaje de confirmación con instrucciones para verificar el correo electrónico. |
+| **Acceptance Criteria #2** | Dado que el usuario intenta registrarse con un correo electrónico ya utilizado<br>Cuando presiona el botón de “Registrarse”<br>Entonces el sistema muestra un mensaje de error indicando que ese correo ya está en uso. |
+| **Acceptance Criteria #3** | Dado que el usuario ingresa una contraseña que no cumple con los requisitos mínimos<br>Cuando intenta enviar el formulario<br>Entonces el sistema muestra una advertencia que describe los criterios necesarios (mínimo 8 caracteres, al menos una mayúscula, una minúscula y un número o símbolo). |
+
+| **User Story ID** | US02 |
+|-------------------|------|
+| **Epic ID**        | E02 |
+| **Title**          | Explorar actividades disponibles |
+| **Description**    | Como voluntario, quiero poder explorar las diferentes actividades de voluntariado disponibles en VolunTrack para encontrar oportunidades que se ajusten a mis intereses y disponibilidad. |
+| **Acceptance Criteria #1** | Dado que el voluntario accede a la página de actividades disponibles<br>Cuando el voluntario filtra las actividades por interés o tipo<br>Entonces el sistema muestra solo las actividades que coinciden con los filtros seleccionados. |
+| **Acceptance Criteria #2** | Dado que el voluntario está en la página de actividades<br>Cuando selecciona una actividad específica<br>Entonces el sistema muestra los detalles completos de la actividad, incluyendo descripción, fecha, hora, lugar, y número de voluntarios necesarios. |
+| **Acceptance Criteria #3** | Dado que el voluntario desea ver las actividades de una fecha específica<br>Cuando elige una fecha en el calendario o usa los filtros de fecha<br>Entonces el sistema actualiza la lista de actividades disponibles para esa fecha. |
+
+| **User Story ID** | US03 |
+|-------------------|------|
+| **Epic ID**        | E01 |
+| **Title**          | Crear nueva actividad |
+| **Description**    | Como coordinador de una ONG, quiero poder crear nuevas actividades de voluntariado en VolunTrack, especificando detalles como la descripción, fecha, hora, ubicación y número de voluntarios necesarios. |
+| **Acceptance Criteria #1** | Dado que el coordinador accede al formulario de creación de actividad<br>Cuando ingresa todos los detalles requeridos (descripción, fecha, hora, ubicación, número de voluntarios)<br>Entonces el sistema permite guardar la actividad y muestra un mensaje de confirmación. |
+| **Acceptance Criteria #2** | Dado que el coordinador está creando una nueva actividad<br>Cuando la fecha y hora de la actividad ingresada ya están ocupadas por otra actividad<br>Entonces el sistema muestra un mensaje de advertencia indicando el conflicto de horario y no permite guardar la actividad. |
+| **Acceptance Criteria #3** | Dado que el coordinador ha creado una actividad<br>Cuando la actividad es guardada<br>Entonces el sistema muestra la nueva actividad en el calendario de la organización y notifica a los voluntarios que la actividad está disponible para registrarse. |
+
+| **User Story ID** | US04 |
+|-------------------|------|
+| **Epic ID**        | E02 |
+| **Title**          | Inscribirme en una actividad |
+| **Description**    | Como voluntario, quiero poder inscribirme fácilmente en una actividad de voluntariado que me interese a través de VolunTrack. |
+| **Acceptance Criteria #1** | Dado que el voluntario está viendo una actividad disponible<br>Cuando hace clic en el botón "Inscribirme"<br>Entonces el sistema registra al voluntario en la actividad y muestra un mensaje de confirmación de inscripción. |
+| **Acceptance Criteria #2** | Dado que el voluntario intenta inscribirse en una actividad<br>Cuando la actividad ya está llena (número máximo de voluntarios alcanzado)<br>Entonces el sistema muestra un mensaje indicando que no es posible inscribirse debido a que no hay más plazas disponibles. |
+| **Acceptance Criteria #3** | Dado que el voluntario ya está inscrito en una actividad<br>Cuando el voluntario accede a la actividad<br>Entonces el sistema muestra un mensaje indicando que ya está inscrito y permite cancelar la inscripción si lo desea. |
+
+| **User Story ID** | US05 |
+|-------------------|------|
+| **Epic ID**        | E05 |
+| **Title**          | Ver lista de voluntarios por actividad |
+| **Description**    | Como coordinador de una ONG, quiero poder ver la lista de voluntarios inscritos en cada actividad para tener una visión clara de quién participará. |
+| **Acceptance Criteria #1** | Dado que el coordinador accede a una actividad específica<br>Cuando selecciona la opción de ver los voluntarios inscritos<br>Entonces el sistema muestra una lista con los nombres y detalles de los voluntarios registrados en esa actividad. |
+| **Acceptance Criteria #2** | Dado que el coordinador visualiza la lista de voluntarios<br>Cuando la lista contiene más de 10 voluntarios<br>Entonces el sistema permite al coordinador buscar y filtrar voluntarios por nombre, fecha de inscripción u otros criterios relevantes. |
+| **Acceptance Criteria #3** | Dado que el coordinador está visualizando la lista de voluntarios<br>Cuando un voluntario decide cancelar su inscripción<br>Entonces el sistema actualiza la lista de voluntarios inscritos y muestra un mensaje de confirmación. |
+
+| **User Story ID** | US06 |
+|-------------------|------|
+| **Epic ID**        | E03 |
+| **Title**          | Recibir notificaciones de actividades |
+| **Description**    | Como voluntario, quiero poder recibir notificaciones sobre nuevas actividades que coincidan con mis intereses o recordatorios de las actividades en las que me he inscrito. |
+| **Acceptance Criteria #1** | Dado que el voluntario ha especificado sus intereses en el perfil<br>Cuando se publiquen nuevas actividades que coincidan con esos intereses<br>Entonces el sistema envía una notificación al voluntario informándole sobre las nuevas actividades disponibles. |
+| **Acceptance Criteria #2** | Dado que el voluntario está inscrito en una actividad<br>Cuando se acerque la fecha de la actividad<br>Entonces el sistema envía un recordatorio al voluntario para que se prepare para la actividad. |
+| **Acceptance Criteria #3** | Dado que el voluntario ha optado por recibir notificaciones<br>Cuando se realice cualquier cambio importante en una actividad a la que está inscrito (hora, ubicación, cancelación, etc.)<br>Entonces el sistema envía una notificación informando al voluntario sobre el cambio. |
+
+| **User Story ID** | US07 |
+|-------------------|------|
+| **Epic ID**        | E03 |
+| **Title**          | Marcar asistencia de voluntarios |
+| **Description**    | Como coordinador de una ONG, quiero poder marcar la asistencia de los voluntarios en una actividad para llevar un registro de su participación. |
+| **Acceptance Criteria #1** | Dado que el coordinador está en la actividad<br>Cuando selecciona la opción de marcar asistencia<br>Entonces el sistema muestra una lista de voluntarios inscritos y permite al coordinador marcar su asistencia con un clic. |
+| **Acceptance Criteria #2** | Dado que el coordinador marca la asistencia de los voluntarios<br>Cuando un voluntario está ausente<br>Entonces el coordinador puede registrar la ausencia y el sistema actualizará el estado de asistencia. |
+| **Acceptance Criteria #3** | Dado que el coordinador ha marcado la asistencia de los voluntarios<br>Cuando se guarda la información<br>Entonces el sistema genera un informe de asistencia que puede ser descargado o visualizado por el coordinador. |
+
+| **User Story ID** | US08 |
+|-------------------|------|
+| **Epic ID**        | E04 |
+| **Title**          | Ver mi historial de participación |
+| **Description**    | Como voluntario, quiero poder ver un historial de todas las actividades en las que he participado a través de VolunTrack. |
+| **Acceptance Criteria #1** | Dado que el voluntario accede a su perfil<br>Cuando selecciona la opción de "Historial de Participación"<br>Entonces el sistema muestra una lista con todas las actividades en las que el voluntario ha participado, ordenadas por fecha. |
+| **Acceptance Criteria #2** | Dado que el voluntario está visualizando su historial de participación<br>Cuando selecciona una actividad de la lista<br>Entonces el sistema muestra los detalles completos de la actividad, incluyendo la fecha, hora, lugar y si completó la actividad. |
+| **Acceptance Criteria #3** | Dado que el voluntario tiene un historial de participación<br>Cuando se ha completado una actividad<br>Entonces el sistema marca la actividad como "Completada" y la incluye en su historial con un indicador de estado. |
+
+| **User Story ID** | US09 |
+|-------------------|------|
+| **Epic ID**        | E04 |
+| **Title**          | Generar certificado de participación |
+| **Description**    | Como coordinador de una ONG, quiero poder generar certificados de participación para los voluntarios que completaron una actividad. |
+| **Acceptance Criteria #1** | Dado que el coordinador tiene acceso a una actividad completada<br>Cuando selecciona la opción de generar certificado para un voluntario<br>Entonces el sistema genera un certificado con el nombre del voluntario, nombre de la actividad, fecha y horas de participación. |
+| **Acceptance Criteria #2** | Dado que el coordinador desea generar un certificado de participación<br>Cuando genera el certificado<br>Entonces el sistema ofrece la opción de descargar el certificado en formato PDF o enviarlo por correo electrónico al voluntario. |
+| **Acceptance Criteria #3** | Dado que un voluntario ha completado varias actividades<br>Cuando el coordinador selecciona varios voluntarios de la lista de inscritos<br>Entonces el sistema permite generar certificados individuales para cada uno de los voluntarios seleccionados. |
+
+| **User Story ID** | US10 |
+|-------------------|------|
+| **Epic ID**        | E01 |
+| **Title**          | Editar detalles de una actividad |
+| **Description**    | Como coordinador de una ONG, quiero poder editar los detalles de una actividad existente (como fecha, hora, descripción o número de voluntarios necesarios) para mantener la información actualizada. |
+| **Acceptance Criteria #1** | Dado que el coordinador accede a una actividad existente<br>Cuando selecciona la opción "Editar" en los detalles de la actividad<br>Entonces el sistema muestra un formulario con todos los campos editables (fecha, hora, descripción, número de voluntarios necesarios, etc.). |
+| **Acceptance Criteria #2** | Dado que el coordinador edita los detalles de una actividad<br>Cuando se realiza un cambio en la fecha y hora<br>Entonces el sistema verifica que la nueva fecha y hora no generen conflictos con otras actividades y muestra un mensaje de advertencia en caso de conflicto. |
+| **Acceptance Criteria #3** | Dado que el coordinador ha editado los detalles de la actividad<br>Cuando hace clic en "Guardar cambios"<br>Entonces el sistema actualiza la actividad con los nuevos detalles y muestra un mensaje de confirmación indicando que los cambios fueron guardados correctamente. |
+
+| **User Story ID** | US11 |
+|-------------------|------|
+| **Epic ID**        | E03 |
+| **Title**          | Comunicarme con los voluntarios de una actividad |
+| **Description**    | Como coordinador de una ONG, quiero poder enviar mensajes o notificaciones a los voluntarios inscritos en una actividad específica para compartir información importante o recordatorios. |
+| **Acceptance Criteria #1** | Dado que el coordinador accede a una actividad específica<br>Cuando selecciona la opción para enviar un mensaje a los voluntarios inscritos<br>Entonces el sistema muestra una interfaz para redactar el mensaje y permite elegir a los voluntarios a quienes se enviará el mensaje. |
+| **Acceptance Criteria #2** | Dado que el coordinador ha redactado un mensaje<br>Cuando hace clic en "Enviar mensaje"<br>Entonces el sistema envía el mensaje o notificación a todos los voluntarios inscritos en la actividad y muestra un mensaje de confirmación. |
+| **Acceptance Criteria #3** | Dado que el coordinador ha enviado un mensaje a los voluntarios<br>Cuando los voluntarios reciban el mensaje<br>Entonces el sistema muestra una notificación en la plataforma o envía una alerta por correo electrónico o mensaje de texto (según la preferencia del voluntario). |
+
+| **User Story ID** | US12 |
+|-------------------|------|
+| **Epic ID**        | E05 |
+| **Title**          | Gestionar el estado de inscripción de un voluntario |
+| **Description**    | Como coordinador de una ONG, quiero poder aprobar o rechazar la inscripción de un voluntario a una actividad, o incluso dar de baja a un voluntario si es necesario. |
+| **Acceptance Criteria #1** | Dado que el coordinador está viendo la lista de voluntarios inscritos en una actividad<br>Cuando selecciona un voluntario de la lista<br>Entonces el sistema muestra opciones para aprobar, rechazar o dar de baja al voluntario de la actividad. |
+| **Acceptance Criteria #2** | Dado que el coordinador aprueba o rechaza la inscripción de un voluntario<br>Cuando se hace la selección<br>Entonces el sistema actualiza el estado de inscripción del voluntario y envía una notificación al voluntario informándole sobre la decisión (aprobación, rechazo o baja). |
+| **Acceptance Criteria #3** | Dado que el coordinador decide dar de baja a un voluntario<br>Cuando el coordinador confirma la acción<br>Entonces el sistema elimina al voluntario de la actividad y actualiza la lista de voluntarios inscritos, notificando al voluntario que su inscripción ha sido cancelada. |
+
+| **User Story ID** | US13 |
+|-------------------|------|
+| **Epic ID**        | E04 |
+| **Title**          | Ver un resumen de la participación de un voluntario |
+| **Description**    | Como coordinador de una ONG, quiero poder ver un resumen del historial de participación de un voluntario específico, incluyendo las actividades en las que ha participado y las horas dedicadas. |
+| **Acceptance Criteria #1** | Dado que el coordinador accede al perfil de un voluntario<br>Cuando selecciona la opción de "Ver resumen de participación"<br>Entonces el sistema muestra un resumen con las actividades en las que el voluntario ha participado, ordenadas por fecha, junto con las horas dedicadas a cada una. |
+| **Acceptance Criteria #2** | Dado que el coordinador visualiza el historial de participación<br>Cuando el coordinador hace clic en una actividad específica del resumen<br>Entonces el sistema muestra los detalles completos de esa actividad, incluyendo el número de horas y la descripción de la actividad. |
+| **Acceptance Criteria #3** | Dado que el coordinador ve el historial de participación<br>Cuando el voluntario ha completado varias actividades<br>Entonces el sistema proporciona un total acumulado de las horas de participación del voluntario y un indicador de su nivel de participación. |
+
+| **User Story ID** | US14 |
+|-------------------|------|
+| **Epic ID**        | E05 |
+| **Title**          | Generar informes de impacto para voluntarios |
+| **Description**    | Como coordinador de una ONG, quiero poder generar informes personalizados para cada voluntario que muestren su contribución en términos de horas dedicadas, tareas realizadas e incluso un estimado del impacto que han generado para que se sientan valorados y vean el resultado de su esfuerzo. |
+| **Acceptance Criteria #1** | Dado que el coordinador accede al perfil de un voluntario<br>Cuando selecciona la opción para generar un informe de impacto<br>Entonces el sistema genera un informe con el total de horas dedicadas por el voluntario, las actividades en las que participó y un resumen de las tareas realizadas. |
+| **Acceptance Criteria #2** | Dado que el coordinador está generando el informe de impacto<br>Cuando se calculan las horas dedicadas y las tareas realizadas<br>Entonces el sistema permite incluir una estimación del impacto del voluntario, basada en parámetros como el número de personas beneficiadas, el tipo de actividad y otros factores relevantes. |
+| **Acceptance Criteria #3** | Dado que el coordinador ha generado el informe de impacto<br>Cuando hace clic en "Descargar informe"<br>Entonces el sistema proporciona el informe en formato PDF o permite enviarlo por correo electrónico al voluntario, mostrando el valor de su contribución. |
+
+| **User Story ID** | US15 |
+|-------------------|------|
+| **Epic ID**        | E06 |
+| **Title**          | Entender la propuesta de valor para ONGs |
+| **Description**    | Como visitante (líder o coordinador de una ONG), quiero poder entender claramente en la página principal de VolunTrack cómo esta plataforma puede ayudar a mi organización a gestionar el voluntariado de manera más eficiente y efectiva, destacando los beneficios clave como la centralización, el ahorro de tiempo y la mejora del impacto social. |
+| **Acceptance Criteria #1** | Dado que el visitante accede a la página principal de VolunTrack<br>Cuando visualiza la propuesta de valor de la plataforma<br>Entonces el sistema debe presentar una sección clara y destacada que explique cómo la plataforma centraliza la gestión del voluntariado, con ejemplos prácticos de uso. |
+| **Acceptance Criteria #2** | Dado que el visitante está viendo la propuesta de valor<br>Cuando hace clic en los beneficios clave<br>Entonces el sistema debe mostrar más detalles interactivos o pop-ups que expliquen cómo VolunTrack ahorra tiempo y mejora la eficiencia en la gestión de voluntarios. |
+| **Acceptance Criteria #3** | Dado que el visitante está interesado en los beneficios de la plataforma<br>Cuando lee la propuesta de valor<br>Entonces el sistema debe incluir ejemplos de casos de éxito o testimonios que resalten cómo VolunTrack ha mejorado el impacto social de otras ONGs. |
+
+| **User Story ID** | US16 |
+|-------------------|------|
+| **Epic ID**        | E06 |
+| **Title**          | Explorar las funcionalidades clave para voluntarios |
+| **Description**    | Como visitante, quiero poder identificar fácilmente en la página principal de VolunTrack las funcionalidades que me permitirán encontrar y participar en actividades de voluntariado de forma sencilla, como la búsqueda por intereses, la visualización de actividades disponibles y el proceso de registro. |
+| **Acceptance Criteria #1** | Dado que el visitante accede a la página principal de VolunTrack<br>Cuando visualiza las funcionalidades clave de la plataforma<br>Entonces el sistema debe presentar claramente las opciones para buscar actividades por intereses, mostrando un campo de búsqueda prominente y fácil de usar. |
+| **Acceptance Criteria #2** | Dado que el visitante está explorando las funcionalidades de la plataforma<br>Cuando hace clic en "Ver actividades disponibles"<br>Entonces el sistema debe mostrar una lista actualizada de las actividades disponibles que el visitante puede explorar, con filtros para ayudar a organizar la información (por ejemplo, por fecha, ubicación, tipo de actividad). |
+| **Acceptance Criteria #3** | Dado que el visitante encuentra una actividad de interés<br>Cuando hace clic en el botón "Registrarse"<br>Entonces el sistema debe guiar al visitante a través del proceso de registro para esa actividad, solicitando la información necesaria para completar la inscripción de manera sencilla. |
+
+| **User Story ID** | US17 |
+|-------------------|------|
+| **Epic ID**        | E06 |
+| **Title**          | Encontrar información de contacto y cómo empezar |
+| **Description**    | Como visitante, quiero poder encontrar fácilmente la información de contacto de VolunTrack y saber cuáles son los siguientes pasos para registrar mi ONG o comenzar a explorar las oportunidades de voluntariado en la plataforma. |
+| **Acceptance Criteria #1** | Dado que el visitante accede a la página principal de VolunTrack<br>Cuando busca información de contacto<br>Entonces el sistema debe mostrar de forma clara y visible los métodos de contacto (correo electrónico, teléfono, formulario de contacto, etc.) en la parte superior o inferior de la página, con un enlace directo a una página de contacto. |
+| **Acceptance Criteria #2** | Dado que el visitante desea comenzar a explorar las oportunidades de voluntariado<br>Cuando selecciona la opción para "Empezar a explorar" o "Registrarse"<br>Entonces el sistema debe mostrar los pasos siguientes, incluyendo la opción para registrarse en la plataforma o crear una cuenta de ONG, con instrucciones claras para guiar al visitante a través del proceso. |
+| **Acceptance Criteria #3** | Dado que el visitante desea registrar su ONG<br>Cuando hace clic en "Registrar mi ONG"<br>Entonces el sistema debe redirigir al visitante a un formulario de registro con los campos necesarios, o proporcionar detalles sobre el proceso para crear una cuenta de ONG, destacando las ventajas y el valor de registrarse en VolunTrack. |
+
+| **User Story ID** | US18 |
+|-------------------|------|
+| **Epic ID**        | E06 |
+| **Title**          | Conocer los planes y precios para ONGs |
+| **Description**    | Como visitante, quiero poder encontrar de forma clara y accesible en la Landing Page de VolunTrack la información sobre los diferentes planes de suscripción y sus respectivos precios, para evaluar si se ajustan al presupuesto y las necesidades de mi organización. |
+| **Acceptance Criteria #1** | Dado que el visitante accede a la Landing Page de VolunTrack<br>Cuando busca información sobre planes y precios<br>Entonces el sistema debe mostrar una sección claramente visible con una lista de los planes de suscripción disponibles y sus respectivos precios. |
+| **Acceptance Criteria #2** | Dado que el visitante visualiza la información de planes y precios<br>Cuando selecciona un plan específico<br>Entonces el sistema debe mostrar más detalles sobre ese plan, incluyendo características específicas, beneficios adicionales y cualquier restricción o requisito relacionado con el plan. |
+| **Acceptance Criteria #3** | Dado que el visitante está interesado en obtener más información sobre los planes<br>Cuando hace clic en un enlace de "Más información" o "Contacto para consultas"<br>Entonces el sistema debe redirigir al visitante a una página de contacto o a una sección donde pueda enviar preguntas o recibir asistencia personalizada para evaluar mejor el plan que más le convenga. |
+
+| **User Story ID** | US19 |
+|-------------------|------|
+| **Epic ID**        | E07 |
+| **Title**          | Endpoint para crear y gestionar actividades |
+| **Description**    | Como desarrollador, quiero crear un endpoint de API RESTful que permita a las ONGs crear nuevas actividades de voluntariado, así como leer, actualizar y eliminar la información de las actividades existentes en la base de datos. |
+| **Acceptance Criteria #1** | Dado que el desarrollador ha creado el endpoint de la API<br>Cuando una ONG realiza una solicitud POST para crear una nueva actividad<br>Entonces el sistema debe validar los datos enviados (como la descripción, fecha, hora y número de voluntarios), y si son correctos, debe crear la nueva actividad en la base de datos, respondiendo con un código 201 y los detalles de la actividad creada. |
+| **Acceptance Criteria #2** | Dado que el desarrollador ha creado el endpoint de la API<br>Cuando una ONG realiza una solicitud GET para leer los detalles de una actividad existente<br>Entonces el sistema debe devolver los detalles de la actividad solicitada, respondiendo con un código 200 y la información de la actividad en formato JSON. |
+| **Acceptance Criteria #3** | Dado que el desarrollador ha creado el endpoint de la API<br>Cuando una ONG realiza una solicitud PUT para actualizar la información de una actividad existente<br>Entonces el sistema debe validar los datos actualizados y, si son correctos, debe actualizar la actividad en la base de datos, respondiendo con un código 200 y los detalles de la actividad actualizada. |
+
+| **User Story ID** | US20 |
+|-------------------|------|
+| **Epic ID**        | E07 |
+| **Title**          | Endpoint para registrar y gestionar voluntarios |
+| **Description**    | Como desarrollador, quiero crear un endpoint de API RESTful que permita a los voluntarios registrarse en la plataforma y a las ONGs leer, actualizar y gestionar la información de los voluntarios (perfil, historial de participación, etc.). |
+| **Acceptance Criteria #1** | Dado que el desarrollador ha creado el endpoint de la API<br>Cuando un voluntario realiza una solicitud POST para registrarse en la plataforma<br>Entonces el sistema debe validar los datos enviados (como nombre, correo electrónico, intereses, etc.), y si son correctos, debe crear el perfil del voluntario en la base de datos, respondiendo con un código 201 y los detalles del voluntario registrado. |
+| **Acceptance Criteria #2** | Dado que el desarrollador ha creado el endpoint de la API<br>Cuando una ONG realiza una solicitud GET para leer la información del perfil de un voluntario<br>Entonces el sistema debe devolver los detalles completos del perfil del voluntario solicitado (nombre, historial de participación, actividades inscritas, etc.), respondiendo con un código 200 y los datos en formato JSON. |
+| **Acceptance Criteria #3** | Dado que el desarrollador ha creado el endpoint de la API<br>Cuando una ONG realiza una solicitud PUT para actualizar la información de un voluntario (como su perfil o historial de participación)<br>Entonces el sistema debe validar los datos actualizados y, si son correctos, debe actualizar la información del voluntario en la base de datos, respondiendo con un código 200 y los detalles del voluntario actualizado. |
+
+| **User Story ID** | US21 |
+|-------------------|------|
+| **Epic ID**        | E07 |
+| **Title**          | Endpoint para la inscripción y asistencia a actividades |
+| **Description**    | Como desarrollador, quiero crear un endpoint de API RESTful que permita a los voluntarios inscribirse en actividades específicas y a las ONGs registrar la asistencia de los voluntarios a dichas actividades. |
+| **Acceptance Criteria #1** | Dado que el desarrollador ha creado el endpoint de la API<br>Cuando un voluntario realiza una solicitud POST para inscribirse en una actividad específica<br>Entonces el sistema debe verificar que la actividad esté disponible y que haya plazas disponibles, luego registrar la inscripción del voluntario en la actividad, respondiendo con un código 201 y los detalles de la inscripción. |
+| **Acceptance Criteria #2** | Dado que el desarrollador ha creado el endpoint de la API<br>Cuando una ONG realiza una solicitud GET para ver los voluntarios inscritos en una actividad<br>Entonces el sistema debe devolver la lista de voluntarios inscritos, junto con sus detalles (nombre, correo electrónico, horas asignadas, etc.), respondiendo con un código 200 y los datos en formato JSON. |
+| **Acceptance Criteria #3** | Dado que el desarrollador ha creado el endpoint de la API<br>Cuando una ONG realiza una solicitud PUT para registrar la asistencia de un voluntario a una actividad (por ejemplo, al marcar "asistió")<br>Entonces el sistema debe actualizar el estado de la asistencia del voluntario y responder con un código 200 y la confirmación de que la asistencia ha sido registrada correctamente. |
+| **Acceptance Criteria #4** | Dado que el desarrollador ha creado el endpoint de la API<br>Cuando una ONG realiza una solicitud DELETE para eliminar la inscripción de un voluntario a una actividad<br>Entonces el sistema debe eliminar la inscripción del voluntario en la actividad y responder con un código 204 sin contenido. |
+
+| **User Story ID** | US22 |
+|-------------------|------|
+| **Epic ID**        | E05 |
+| **Title**          | Ver y gestionar voluntarios |
+| **Description**    | Como coordinador de una ONG, quiero poder ver una lista completa de todos los voluntarios registrados en la plataforma junto con información relevante, para poder administrar nuestra base de voluntarios de manera eficiente. |
+| **Acceptance Criteria #1** | Dado que el coordinador accede a la sección de voluntarios<br>Cuando selecciona la opción "Ver voluntarios"<br>Entonces el sistema debe mostrar una lista completa de todos los voluntarios registrados, incluyendo información relevante como nombre, correo electrónico, historial de actividades y estado de participación. |
+| **Acceptance Criteria #2** | Dado que el coordinador está visualizando la lista de voluntarios<br>Cuando realiza una búsqueda o aplica filtros (por nombre, actividad, estado, etc.)<br>Entonces el sistema debe actualizar la lista de voluntarios para mostrar solo aquellos que coinciden con los criterios de búsqueda o filtro seleccionados. |
+| **Acceptance Criteria #3** | Dado que el coordinador está viendo la lista de voluntarios<br>Cuando selecciona un voluntario específico<br>Entonces el sistema debe mostrar los detalles completos de ese voluntario, incluyendo su perfil, historial de actividades y cualquier otra información relevante, permitiendo al coordinador gestionar su información (editar, eliminar, etc.). |
+
+| **User Story ID** | US23 |
+|-------------------|------|
+| **Epic ID**        | E01 |
+| **Title**          | Visualizar Calendario de Actividades |
+| **Description**    | Como coordinador de una ONG, quiero tener una vista de calendario interactiva de todas las actividades programadas de mi organización dentro de un panel de control, para poder visualizar fácilmente la distribución de las actividades a lo largo del tiempo, identificar posibles conflictos de programación y tener una visión general rápida de nuestro plan de voluntariado. |
+| **Acceptance Criteria #1** | Dado que el coordinador accede al panel de control de actividades<br>Cuando visualiza el calendario interactivo<br>Entonces el sistema muestra todas las actividades programadas en un formato de calendario (mensual, semanal o diario) según la preferencia seleccionada por el coordinador. |
+| **Acceptance Criteria #2** | Dado que el coordinador visualiza el calendario de actividades<br>Cuando hace clic en una actividad<br>Entonces el sistema muestra una ventana emergente o un modal con los detalles completos de la actividad, como la fecha, hora, descripción, lugar, y número de voluntarios inscritos. |
+| **Acceptance Criteria #3** | Dado que el coordinador ve el calendario<br>Cuando hay un conflicto de programación (actividades que se superponen en el mismo horario)<br>Entonces el sistema resalta las actividades en conflicto y muestra una advertencia o notificación para que el coordinador pueda identificar y resolver el conflicto de manera eficiente. |
+| **Acceptance Criteria #4** | Dado que el coordinador desea agregar una nueva actividad<br>Cuando selecciona una fecha en el calendario y completa los campos necesarios para crear una nueva actividad<br>Entonces el sistema agrega la actividad al calendario y actualiza la vista para reflejar la nueva programación. |
+
+| **User Story ID** | US24 |
+|-------------------|------|
+| **Epic ID**        | E01 |
+| **Title**          | Dashboard de Actividades |
+| **Description**    | Como coordinador de una ONG, quiero tener un panel de control (dashboard) que me ofrezca una visión general del estado de nuestras actividades para poder tener una perspectiva general del programa de voluntariado de mi organización y tomar decisiones informadas. |
+| **Acceptance Criteria #1** | Dado que un usuario ha ingresado sus credenciales válidas y ha pulsado el botón "Iniciar Sesión"<br>Cuando la autenticación es exitosa<br>Entonces el sistema lo redirige automáticamente a la vista de su dashboard principal. |
+| **Acceptance Criteria #2** | Dado que hay próximas actividades programadas para la ONG<br>Cuando el coordinador visualiza el dashboard<br>Entonces se muestra una lista de las próximas actividades con su título y fecha de inicio. |
+| **Acceptance Criteria #3** | Dado que el coordinador ha iniciado sesión<br>Cuando visualiza los elementos del dashboard<br>Entonces se muestra un pequeño calendario integrado que permite acceder rápidamente a la vista completa del calendario de actividades de la ONG. |
+| **Acceptance Criteria #4** | Dado que el coordinador ha iniciado sesión<br>Cuando visualiza los elementos del dashboard<br>Entonces se muestran botones o enlaces claramente identificados para las acciones más comunes de la ONG, como crear actividades. |
+
+### 3.2.3. Epicas
+
+| **EPIC 01:** | Gestión de ONGs y Actividades |
+|:------------:|:------------------------------|
+| | Como coordinador de una ONG, quiero tener herramientas completas para registrar mi organización, crear y modificar actividades de voluntariado, para poder gestionar de manera eficiente nuestras operaciones y oportunidades de participación. |
+| **User Story ID** | **Título** |
+| US01 | Registrar nueva ONG |
+| US03 | Crear nueva actividad |
+| US10 | Editar detalles de una actividad |
+| US23 | Visualizar Calendario de Actividades |
+| US24 | Dashboard de actividades |
+
+| **EPIC 02:** | Exploración y Registro de Voluntarios |
+|:------------:|:--------------------------------------|
+| | Como voluntario, quiero tener una forma intuitiva de explorar las actividades disponibles y registrarme fácilmente en aquellas que me interesen, para poder encontrar oportunidades relevantes y unirme a las causas que me importan. |
+| **User Story ID** | **Título** |
+| US02 | Explorar actividades disponibles |
+| US04 | Inscribirme en una actividad |
+
+| **EPIC 03:** | Comunicación y Gestión de Asistencia |
+|:------------:|:--------------------------------------|
+| | Como coordinador de una ONG y como voluntario, quiero tener funcionalidades efectivas para comunicarnos sobre las actividades y para que la ONG pueda realizar un seguimiento preciso de la asistencia de los voluntarios, para asegurar una buena coordinación y reconocer la participación. |
+| **User Story ID** | **Título** |
+| US06 | Recibir notificaciones de actividades |
+| US07 | Marcar asistencia de voluntarios |
+| US11 | Comunicarme con los voluntarios de una actividad |
+
+| **EPIC 04:** | Reportes de Participación y Reconocimiento |
+|:------------:|:-------------------------------------------|
+| | Como voluntario y como coordinador de una ONG, quiero tener acceso a reportes sobre la participación y herramientas para generar reconocimientos, para que los voluntarios puedan ver su contribución y las ONGs puedan valorar su esfuerzo. |
+| **User Story ID** | **Título** |
+| US08 | Ver mi historial de participación |
+| US09 | Generar certificado de participación |
+| US13 | Ver un resumen de la participación de un voluntario |
+
+| **EPIC 05:** | Visualización de Voluntarios e Informes de Impacto |
+|:------------:|:--------------------------------------------------|
+| | Como coordinador de una ONG, quiero poder ver fácilmente la lista de voluntarios para cada actividad y generar informes sobre el impacto de su trabajo, para tener una visión clara de quiénes participan y demostrar el valor del voluntariado. |
+| **User Story ID** | **Título** |
+| US05 | Ver lista de voluntarios por actividad |
+| US12 | Gestionar el estado de inscripción de un voluntario |
+| US14 | Generar informes de impacto para voluntarios |
+| US22 | Ver y gestionar voluntarios |
+
+| **EPIC 06:** | Experiencia en Landing Page |
+|:------------:|:----------------------------|
+| | Como visitante interesado, quiero encontrar fácilmente en la Landing Page información clara sobre la propuesta de valor de VolunTrack, las funcionalidades clave y cómo empezar a utilizar la plataforma, para comprender sus beneficios y decidir si se ajusta a mis necesidades. |
+| **User Story ID** | **Título** |
+| US15 | Entender la propuesta de valor para ONGs |
+| US16 | Explorar las funcionalidades clave para voluntarios |
+| US17 | Encontrar información de contacto y cómo empezar |
+| US18 | Conocer los planes y precios para ONGs |
+
+| **EPIC 07:** | API para Gestión de Voluntarios, Actividades, Inscripción y Asistencia |
+|:------------:|:-----------------------------------------------------------------------|
+| | Como desarrollador, quiero tener un API RESTful robusto que me permita integrar las funcionalidades principales de gestión de ONGs, actividades, voluntarios e inscripciones con otros sistemas, para facilitar la extensibilidad y la interoperabilidad de VolunTrack. |
+| **User Story ID** | **Título** |
+| US19 | Endpoint para crear y gestionar actividades |
+| US20 | Endpoint para registrar y gestionar voluntarios |
+| US21 | Endpoint para la inscripción y asistencia a actividades |
+
+## 3.3. Impact Mapping
+**Business Goals**
+
+1. Alcanzar 30 ONGs activas en la plataforma con al menos 2 actividades creadas cada una en los primeros 3 meses. 
+
+<p align="center">
+  <img src="https://imgur.com/Z7n2gAE.png" alt="Im1" width="500">
+</p>
+
+2. Conseguir que el 70% de los voluntarios que se registran en VolunTrack se inscriban en al menos una actividad durante su primer mes.
+
+<p align="center">
+  <img src="https://imgur.com/2HfWMOV.png" alt="Im2" width="500">
+</p>
+
+3. Lograr que el 70% de las ONGs activas utilicen las herramientas de la plataforma para analizar la participación de sus voluntarios y reconocer su contribución (viendo listas, resúmenes, generando certificados o informes de impacto) al menos una vez al mes durante los próximos 3 meses.
+
+<p align="center">
+  <img src="https://imgur.com/rA1TX1O.png" alt="Im3" width="500">
+</p>
+
+4. Aumentar en un 15% la tasa de conversión de visitantes de la Landing Page a usuarios registrados en la plataforma en los próximos 2 meses
+
+<p align="center">
+  <img src="https://imgur.com/aJ4KXYo.png" alt="Im4" width="500">
+</p>
+
+## 3.4. Product Backlog
+
+| # Orden | User Story ID | Descripción | Story Points (1/2/3/5/8) |
+|:-------:|:-------------:|:------------|:-----------------------:|
+| 1 | US01 | Como coordinador de una ONG, quiero poder registrar mi organización en VolunTrack para empezar a gestionar a mis voluntarios y actividades en un solo lugar. | 3 |
+| 2 | US03 | Como coordinador de una ONG, quiero poder crear nuevas actividades de voluntariado en VolunTrack, especificando detalles como la descripción, fecha, hora, ubicación y número de voluntarios necesarios. | 5 |
+| 3 | US02 | Como voluntario, quiero poder explorar las diferentes actividades de voluntariado disponibles en VolunTrack para encontrar oportunidades que se ajusten a mis intereses y disponibilidad. | 5 |
+| 4 | US04 | Como voluntario, quiero poder inscribirme fácilmente en una actividad de voluntariado que me interese a través de VolunTrack. | 3 |
+| 5 | US23 | Como coordinador de una ONG, quiero tener una vista de calendario interactiva de todas las actividades programadas de mi organización dentro de un panel de control, para poder visualizar fácilmente la distribución de las actividades a lo largo del tiempo, identificar posibles conflictos de programación y tener una visión general rápida de nuestro plan de voluntariado. | 5 |
+| 6 | US24 | Como coordinador de una ONG, quiero tener un panel de control (dashboard) que me ofrezca una visión general del estado de nuestras actividades para poder tener una perspectiva general del programa de voluntariado de mi organización y tomar decisiones informadas. | 8 |
+| 7 | US05 | Como coordinador de una ONG, quiero poder ver la lista de voluntarios inscritos en cada actividad para tener una visión clara de quién participará. | 3 |
+| 8 | US07 | Como coordinador de una ONG, quiero poder marcar la asistencia de los voluntarios en una actividad para llevar un registro de su participación. | 3 |
+| 9 | US06 | Como voluntario, quiero poder recibir notificaciones sobre nuevas actividades que coincidan con mis intereses o recordatorios de las actividades en las que me he inscrito. | 5 |
+| 10 | US08 | Como voluntario, quiero poder ver un historial de todas las actividades en las que he participado a través de VolunTrack. | 3 |
+| 11 | US09 | Como coordinador de una ONG, quiero poder generar certificados de participación para los voluntarios que completaron una actividad. | 5 |
+| 12 | US12 | Como coordinador de una ONG, quiero poder aprobar o rechazar la inscripción de un voluntario a una actividad, o incluso dar de baja a un voluntario si es necesario. | 3 |
+| 13 | US11 | Como coordinador de una ONG, quiero poder enviar mensajes o notificaciones a los voluntarios inscritos en una actividad específica para compartir información importante o recordatorios. | 3 |
+| 14 | US13 | Como coordinador de una ONG, quiero poder ver un resumen del historial de participación de un voluntario específico, incluyendo las actividades en las que ha participado y las horas dedicadas. | 3 |
+| 15 | US14 | Como coordinador de una ONG, quiero poder generar informes personalizados para cada voluntario que muestren su contribución en términos de horas dedicadas, tareas realizadas e incluso un estimado del impacto que han generado para que se sientan valorados y vean el resultado de su esfuerzo. | 3 |
+| 16 | US10 | Como coordinador de una ONG, quiero poder editar los detalles de una actividad existente (como fecha, hora, descripción o número de voluntarios necesarios) para mantener la información actualizada. | 3 |
+| 17 | US22 | Como coordinador de una ONG, quiero poder ver una lista completa de todos los voluntarios registrados en la plataforma junto con información relevante, para poder administrar nuestra base de voluntarios de manera eficiente. | 5 |
+| 18 | US15 | Como visitante (líder o coordinador de una ONG), quiero poder entender claramente en la página principal de VolunTrack cómo esta plataforma puede ayudar a mi organización a gestionar el voluntariado de manera más eficiente y efectiva, destacando los beneficios clave como la centralización, el ahorro de tiempo y la mejora del impacto social. | 2 |
+| 19 | US16 | Como visitante, quiero poder identificar fácilmente en la página principal de VolunTrack las funcionalidades que me permitirán encontrar y participar en actividades de voluntariado de forma sencilla, como la búsqueda por intereses, la visualización de actividades disponibles y el proceso de registro. | 2 |
+| 20 | US17 | Como visitante, quiero poder encontrar fácilmente la información de contacto de VolunTrack y saber cuáles son los siguientes pasos para registrar mi ONG o comenzar a explorar las oportunidades de voluntariado en la plataforma. | 2 |
+| 21 | US18 | Como visitante, quiero poder encontrar de forma clara y accesible en la Landing Page de VolunTrack la información sobre los diferentes planes de suscripción y sus respectivos precios, para evaluar si se ajustan al presupuesto y las necesidades de mi organización. | 2 |
+| 22 | US19 | Como desarrollador, quiero crear un endpoint de API RESTful que permita a las ONGs crear nuevas actividades de voluntariado, así como leer, actualizar y eliminar la información de las actividades existentes en la base de datos. | 5 |
+| 23 | US20 | Como desarrollador, quiero crear un endpoint de API RESTful que permita a los voluntarios registrarse en la plataforma y a las ONGs leer, actualizar y gestionar la información de los voluntarios (perfil, historial de participación, etc.). | 5 |
+| 24 | US21 | Como desarrollador, quiero crear un endpoint de API RESTful que permita a los voluntarios inscribirse en actividades específicas y a las ONGs registrar la asistencia de los voluntarios a dichas actividades. | 8 |
