@@ -105,6 +105,17 @@ Para la elaboración del informe, inicialmente trabajamos en un documento compar
   * [4.8. Database Design](#48-database-design)
     + [4.8.1. Database Diagram](#481-database-diagram)
 
+# Student Outcome
+
+ABET - EAC - Student Outcome 5
+Criterio: La capacidad de funcionar efectivamente en un equipo cuyos miembros juntos proporcionan liderazgo, crean un entorno de colaboración e inclusivo, establecen objetivos, planifican tareas y cumplen objetivos.
+
+| Criterio específico                                        | Acciones realizadas                                                                                                                                   | Conclusiones                                                                                                                                                                                                                                                                                 |
+|-------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Comunica oralmente con efectividad a diferentes rangos de audiencia | - Binda Arbañil, Marcelo Alejandro (TB1)<br>- Castillo Garay, Ainhoa Lucía (TB1)<br>- Martel Andrade, Cassius Estefano (TB1)<br>- Nakamurakare Teruya, Alex Tomio (TB1)<br>- Ortiz Alarcón, Víctor Nicolás (TB1) | El desarrollo de VolunTrack fortaleció nuestra capacidad de comunicación oral, evidenciado en las presentaciones del TB1 y en la creación de videos expositivos del proyecto, el prototipo y el landing page. Esto nos permitió aprender a adaptar la información técnica a audiencias diversas y a participar eficazmente en discusiones y debates dentro del equipo, mejorando nuestra claridad al exponer ideas y responder preguntas. |
+| Comunica por escrito con efectividad a diferentes rangos de audiencia | - Binda Arbañil, Marcelo Alejandro (TB1)<br>- Castillo Garay, Ainhoa Lucía (TB1)<br>- Martel Andrade, Cassius Estefano (TB1)<br>- Nakamurakare Teruya, Alex Tomio (TB1)<br>- Ortiz Alarcón, Víctor Nicolás (TB1) | La elaboración del informe de VolunTrack mejoró significativamente nuestras habilidades de comunicación escrita, al requerir la redacción precisa de especificaciones, la documentación clara de decisiones de diseño y la creación de diagramas comprensibles, logrando transmitir información técnica de manera efectiva a través de un documento coherente y bien estructurado. |
+
+
 # CAPÍTULO 1: INTRODUCCIÓN
 
 ## 1.1. Startup Profile
