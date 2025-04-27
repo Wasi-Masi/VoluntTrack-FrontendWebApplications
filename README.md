@@ -28,7 +28,18 @@
 # Project Report Collaboration Insights
 
 Repositorio donde está el project report: https://github.com/Wasi-Masi/VoluntTrack-FrontendWebApplications
+
 Para la elaboración del informe, inicialmente trabajamos en un documento compartido de Google Docs y posteriormente trasladamos el contenido al README del repositorio principal. A cada miembro del equipo se le asignó la responsabilidad de subir un capítulo.
+
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/f296fcd2-46ba-4952-8e70-4b49724622d4" alt="Insights readme">
+</p>
+
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/3a2a9058-1f46-4a01-a2df-813a445d9acb" alt="Commits readme">
+</p>
+
+Como se puede ver, todos hemos participado en los commits del readme. Si bien parece que uno de los miembros realizo más commits, es debido a que fue el encargado de realizar hotfixes, ajustes menores, correcciones y los merges.
 
 # Contenido
 
