@@ -1,10 +1,11 @@
-
-
 mat-toolbar {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   background-color: #24344C;
   color: white;
+  height: 72px;
+  padding: 0 24px;
 }
 
 .logo {
@@ -25,26 +26,28 @@ mat-toolbar {
 .toolbar-right {
   display: flex;
   align-items: center;
+  gap: 24px;
 }
 
-mat-icon {
-  vertical-align: middle;
-  line-height: 20px;
-  font-size: 24px;
-}
-
-img {
-  width: 36px;
-  height: 36px;
-}
-
-.active {
-  color: red; /* Cambia el color del texto a blanco para mayor contraste */
-  font-weight: bolder;
-  border-radius: 4px;
-}
-
-button {
+.toolbar-right button {
   color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.3s ease, transform 0.3s ease;
+  vertical-align: middle;
+  font-size: 16px;
 
 }
+
+.toolbar-right button:hover {
+  color: #9BD0DF;
+  transform: scale(1.1);
+}
+
+.toolbar-right button:focus {
+  background-color: #9BD0DF;
+  color:#24344C;
+  font-weight: bolder;
+}
+

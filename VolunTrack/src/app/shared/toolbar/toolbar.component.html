@@ -1,19 +1,21 @@
-<mat-toolbar>
-
+<mat-toolbar color="primary">
+  <!-- Logo y Título a la izquierda -->
   <div class="logo">
-    <img src="/assets/Logo_Icon.png.png" alt="VolunTrack Logo" class="logo-img" height="40" />
+    <img src="/assets/Logo_Icon.png" alt="VolunTrack Logo" class="logo-img" />
     <span class="title">VolunTrack</span>
   </div>
 
+  <!-- Elementos a la derecha -->
   <div class="toolbar-right">
-    <button mat-button routerLink="/dashboard" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Dashboard</button>
-    <button mat-button routerLink="/volunteers" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">My Volunteers</button>
-    <button mat-icon-button (click)="openNotifications()" aria-label="Notifications">
-      <mat-icon>notifications</mat-icon>
-    </button>
-    <button mat-icon-button routerLink="/profile" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" aria-label="Profile">
-      <mat-icon>account_circle</mat-icon>
-    </button>
-  </div>
+    <button mat-button (click)="goToDashboard()">Dashboard</button>
+    <button mat-button (click)="goToVolunteers()">My Volunteers</button>
 
+    <button mat-icon-button (click)="openNotifications()">
+    <mat-icon>notifications</mat-icon>
+    </button>
+    <button mat-icon-button (click)="goToProfile()">
+    <mat-icon>account_circle</mat-icon>
+    </button>
+
+  </div>
 </mat-toolbar>
