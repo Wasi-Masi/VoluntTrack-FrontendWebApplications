@@ -57,17 +57,17 @@
       </div>
 
       <div class="details-columns">
-        <div>
+        <div class="instructions-panel">
           <h4>Instructions</h4>
-          <ol>
+          <ul>
             <li *ngFor="let instr of activity.instructions">{{ instr }}</li>
-          </ol>
+          </ul>
         </div>
-        <div>
+        <div class="purpose-panel">
           <h4>Purpose</h4>
-          <ol>
+          <ul>
             <li *ngFor="let purp of activity.purpose">{{ purp }}</li>
-          </ol>
+          </ul>
         </div>
       </div>
     </div>

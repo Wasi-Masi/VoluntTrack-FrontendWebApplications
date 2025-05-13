@@ -132,11 +132,45 @@ h2, h3, h4 {
   gap: 8px;
   color: #555;
 }
-
+h3, h4 {
+  font-weight: bold;
+}
 
 .description-panel {
   border-radius: 8px;
   margin-top: 10px;
+}
+
+.description-panel,
+.instructions-panel,
+.purpose-panel {
+  background-color: #f9f9f9;
+  border: 3px solid #24344C;
+  border-radius: 12px;
+  padding: 16px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+/* Aplica margen entre las columnas para evitar que se peguen */
+.details-columns {
+  display: flex;
+  gap: 20px;
+}
+
+/* Cambiar viñetas por guiones */
+.instructions-panel ul,
+.purpose-panel ul {
+  list-style-type: none;
+  padding-left: 0;
+  margin: 0;
+}
+
+.instructions-panel li::before,
+.purpose-panel li::before {
+  content: "– ";
+  color: #0C7987;
+  font-weight: bold;
+  margin-right: 4px;
 }
 
 .details-columns {
