@@ -1,39 +1,37 @@
 .details-header {
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  padding: 20px 30px;
+  margin: 20px auto;
   background-color: #f9f9f9;
-  border-bottom: 1px solid #ddd;
+  height: auto;
+  max-width: 90%;
+
 }
 
-
-.details-header {
-  background-color: #f9f9f9;
+h2 {
+  font-size: 30px;
+  font-weight: bolder;
 }
+
 .details-container {
   display: flex;
   gap: 30px;
-  max-width: 90%;       /* <= Panel más contenido */
-  margin: 30px auto;        /* Centrado en pantalla */
-  padding: 30px;
+  max-width: 90%;
+  height: 55%;
+  margin: 20px auto;
+  padding: 20px;
   background-color: #9BD0DF50;
   border-radius: 16px;
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
 
 }
 
-.left-buttons button {
-  margin-right: 10px;
-}
 
-.right-buttons {
-  display: flex;
-  align-items: center;
-}
+
 
 .left-panel {
   width: 30%;
+  height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -118,6 +116,7 @@
 /* PANEL DERECHO: Detalles de la actividad */
 .right-panel {
   width: 70%;
+  height: 100%;
   display: flex;
   flex-direction: column;
   gap: 20px;
@@ -134,8 +133,6 @@ h2, h3, h4 {
   color: #555;
 }
 
-.clock {
-}
 
 .description-panel {
   border-radius: 8px;
@@ -154,6 +151,36 @@ p, li {
   line-height: 1.8;
 }
 
+.details-header button {
+  color: black;
+  border: 2px solid #24344C;
+  background-color: transparent;
+  display: flex;
+  align-items: center;
+  transition: color 0.3s ease, transform 0.3s ease, background-color 0.3s ease, border 0.3s ease;
+  vertical-align: middle;
+  font-size: 16px;
+  border-radius: 16px;
+}
 
 
+
+.details-header button:hover {
+  color: #24344C;
+  background-color: #f0f0f0;
+  transform: scale(1.05);
+}
+
+.details-header .the-buttons button:focus {
+  color: white;
+  font-weight: bolder;
+  background-color: #24344C;
+  border-color: #24344C;
+}
+
+.details-header .the-buttons {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
 

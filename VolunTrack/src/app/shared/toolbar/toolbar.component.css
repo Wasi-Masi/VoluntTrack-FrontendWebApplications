@@ -37,7 +37,6 @@ mat-toolbar {
   transition: color 0.3s ease, transform 0.3s ease;
   vertical-align: middle;
   font-size: 16px;
-
 }
 
 .toolbar-right button:hover {
