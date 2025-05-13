@@ -17,30 +17,24 @@
 
 .dashboard-card {
   padding: 20px;
-  background-color: #ffffff;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  max-width: 1500px; /* Max width for the dashboard */
+  height: 65%;
+  width: 90%; /* Takes up 90% of the screen width, with a max-width */
+  margin: 0 auto; /* Center the dashboard */
 }
 
 .activities-container {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr); /* 5 items per row */
   gap: 20px;
   overflow-y: auto;
-  max-height: 500px;
-}
-
-.activity-row {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-  justify-content: space-between;
-  width: 100%;
+  max-height: 800px;
 }
 
 .activity-card {
   background-color: #f0f0f0;
-  width: calc(20% - 20px); /* 5 items in a row */
   border-radius: 8px;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
   overflow: hidden;
@@ -75,4 +69,29 @@
 
 .activity-info mat-icon {
   margin-left: 5px;
+}
+
+/* Responsive design: Adjust columns based on screen size */
+@media (max-width: 1400px) {
+  .activities-container {
+    grid-template-columns: repeat(4, 1fr); /* 4 columns for medium screens */
+  }
+}
+
+@media (max-width: 1000px) {
+  .activities-container {
+    grid-template-columns: repeat(3, 1fr); /* 3 columns for small screens */
+  }
+}
+
+@media (max-width: 600px) {
+  .activities-container {
+    grid-template-columns: repeat(2, 1fr); /* 2 columns for very small screens */
+  }
+}
+
+@media (max-width: 400px) {
+  .activities-container {
+    grid-template-columns: 1fr; /* 1 column for ultra-small screens */
+  }
 }
