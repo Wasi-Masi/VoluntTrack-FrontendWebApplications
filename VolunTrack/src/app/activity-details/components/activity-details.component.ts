@@ -1,10 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import {ActivatedRoute, RouterLink} from '@angular/router';
 import { ActivityDetailsService } from '../services/activity-details.service';
 import { Activity } from '../../dashboard/model/dashboard.entity';
 import {NgForOf, NgIf} from '@angular/common';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButton, MatIconButton } from '@angular/material/button';
+import { MatTooltipModule } from '@angular/material/tooltip';
+
 
 @Component({
   selector: 'app-activity-details',
@@ -14,7 +16,9 @@ import { MatButton, MatIconButton } from '@angular/material/button';
     MatIconModule,
     MatButton,
     MatIconButton,
-    NgIf
+    NgIf,
+    RouterLink,
+    MatTooltipModule
   ],
   styleUrls: ['./activity-details.component.css']
 })
@@ -40,5 +44,5 @@ export class ActivityDetailsComponent implements OnInit {
   selectImage(img: string) {
     this.selectedImage = img;
   }
- 
+
 }

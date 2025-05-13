@@ -1,6 +1,9 @@
 <!-- HEADER -->
 <div class="details-header">
   <div class="left-buttons">
+    <button mat-icon-button color="primary" [routerLink]="['/dashboard']" matTooltip="Back to Dashboard">
+      <mat-icon>arrow_back</mat-icon>
+    </button>
     <button mat-button color="primary">Details</button>
     <button mat-button color="primary">Registered Volunteers</button>
   </div>
@@ -12,8 +15,7 @@
 </div>
 
 <!-- MAIN PANEL -->
-<div class="details-panel" *ngIf="activity">
-  <div class="details-container">
+  <div class="details-container" *ngIf="activity">
     <!-- LEFT PANEL: Image and Carousel -->
     <div class="left-panel">
       <!-- MAIN IMAGE -->
@@ -71,4 +73,4 @@
       </div>
     </div>
   </div>
-</div>
+
