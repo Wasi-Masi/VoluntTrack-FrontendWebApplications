@@ -1,4 +1,6 @@
-export class DashboardActivity {
+
+
+export class DashboardEntity {
   constructor(
     public id: number,
     public title: string,

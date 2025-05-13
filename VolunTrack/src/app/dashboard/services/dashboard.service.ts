@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { DashboardActivity } from '../model/dashboard.entity';
+import { DashboardEntity } from '../model/dashboard.entity';
 
 
 @Injectable({
@@ -12,7 +12,7 @@ export class DashboardService {
 
   constructor(private http: HttpClient) {}
 
-  getActivities(): Observable<DashboardActivity[]> {
-    return this.http.get<DashboardActivity[]>(`${this.apiUrl}/activities`);
+  getActivities(): Observable<DashboardEntity[]> {
+    return this.http.get<DashboardEntity[]>(`${this.apiUrl}/activities`);
   }
 }

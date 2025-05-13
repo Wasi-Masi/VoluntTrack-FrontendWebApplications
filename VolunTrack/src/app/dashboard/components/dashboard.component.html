@@ -14,7 +14,7 @@
   <div class="activities-container">
     <div class="activity-row" *ngFor="let activity of activities">
       <div class="activity-card">
-        <img [src]="activity.dashboardPicture" alt="{{ activity.title }}" />
+        <img [src]="activity.dashboardPicture" alt="{{ activity.title }}" class="activity-image" />
         <div class="activity-info">
           <h3>{{ activity.title }}</h3>
           <p>{{ activity.date }} — {{ activity.startTime }} to {{ activity.endTime }}</p>

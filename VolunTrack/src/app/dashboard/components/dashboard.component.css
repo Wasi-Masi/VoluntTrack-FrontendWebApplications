@@ -1,0 +1,78 @@
+.dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  background-color: #f5f5f5;
+  border-radius: 8px;
+}
+
+.dashboard-header h2 {
+  margin: 0;
+}
+
+.dashboard-actions button {
+  margin-left: 10px;
+}
+
+.dashboard-card {
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.activities-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  overflow-y: auto;
+  max-height: 500px;
+}
+
+.activity-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.activity-card {
+  background-color: #f0f0f0;
+  width: calc(20% - 20px); /* 5 items in a row */
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.activity-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.activity-info {
+  padding: 10px;
+}
+
+.activity-info h3 {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.activity-info p {
+  font-size: 14px;
+  color: #555;
+}
+
+.activity-info button {
+  margin-top: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.activity-info mat-icon {
+  margin-left: 5px;
+}
