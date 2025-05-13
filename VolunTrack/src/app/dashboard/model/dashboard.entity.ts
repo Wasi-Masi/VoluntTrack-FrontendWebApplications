@@ -1,15 +1,9 @@
-
-
-export class DashboardEntity {
+export class Activity {
   constructor(
     public id: number,
     public title: string,
     public dashboardPicture: string,
-    public mainPicture: string,
-    public picture1: string,
-    public picture2: string,
-    public picture3: string,
-    public picture4: string,
+    public pictures: string[],
     public date: string,
     public startTime: string,
     public endTime: string,
@@ -19,8 +13,5 @@ export class DashboardEntity {
     public purpose: string[],
     public inscriptionCount: number,
     public isInscriptionOpen: boolean
-
-  ) {
-
-  }
+  ) {}
 }

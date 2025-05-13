@@ -1,0 +1,110 @@
+.details-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px;
+  max-width: 1800px;
+  margin: 0 auto;
+}
+
+.left-buttons button {
+  margin-right: 15px;
+  font-weight: bold;
+  color: #3C9FB9;
+}
+
+.right-buttons {
+  display: flex;
+  align-items: center;
+  color: #3C9FB9;
+}
+
+.right-buttons span {
+  margin-left: 8px;
+  font-weight: bold;
+}
+
+.details-panel {
+  background-color: rgba(155, 208, 223, 0.3);
+  padding: 30px;
+  max-width: 1800px;
+  margin: 0 auto;
+  border-radius: 8px;
+}
+
+.details-container {
+  display: flex;
+  gap: 40px;
+}
+
+/* IMAGE GALLERY */
+.gallery {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.thumbnail {
+  border: 2px solid transparent;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: border 0.3s ease;
+}
+
+.thumbnail.selected {
+  border: 2px solid #3C9FB9;
+}
+
+.thumbnail img {
+  width: 80px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+/* MAIN IMAGE */
+.main-image img {
+  width: 400px;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+/* INFO SECTION */
+.info {
+  flex: 1;
+}
+
+.datetime, .location {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 10px 0;
+  color: #555;
+}
+
+.clock {
+  margin-left: 20px;
+}
+
+.description-panel {
+  margin-top: 20px;
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.details-columns {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 30px;
+  gap: 40px;
+}
+
+.details-columns div {
+  flex: 1;
+}
+
+h2, h3, h4 {
+  color: #0C7987;
+}

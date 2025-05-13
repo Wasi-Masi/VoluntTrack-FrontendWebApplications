@@ -18,7 +18,7 @@
         <div class="activity-info">
           <h3>{{ activity.title }}</h3>
           <p>{{ activity.date }} — {{ activity.startTime }} to {{ activity.endTime }}</p>
-          <button mat-button color="primary">
+          <button mat-button color="primary" [routerLink]="['/activity', activity.id]">
             View More <mat-icon>arrow_forward</mat-icon>
           </button>
         </div>

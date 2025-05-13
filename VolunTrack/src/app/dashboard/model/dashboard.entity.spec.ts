@@ -1,8 +1,8 @@
-import { DashboardEntity } from './dashboard.entity';
+import { Activity } from './dashboard.entity';
 
 describe('DashboardEntity', () => {
   it('should create an instance', () => {
-    const activity = new DashboardEntity(
+    const activity = new Activity(
       1,                            // id
       'Test Activity',              // title
       'path/to/dashboardPicture.jpg', // dashboardPicture

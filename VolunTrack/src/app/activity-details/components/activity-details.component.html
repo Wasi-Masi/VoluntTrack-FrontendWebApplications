@@ -1,1 +1,70 @@
-<p>activity-details works!</p>
+<!-- HEADER -->
+<div class="details-header">
+  <div class="left-buttons">
+    <button mat-button color="primary">Details</button>
+    <button mat-button color="primary">Registered Volunteers</button>
+  </div>
+  <div class="right-buttons">
+    <button mat-icon-button color="accent">
+      <mat-icon>edit</mat-icon>
+    </button>
+    <span>Edit</span>
+  </div>
+</div>
+
+<!-- MAIN PANEL -->
+<div class="details-panel" *ngIf="activity">
+  <div class="details-container">
+    <!-- IMAGE GALLERY -->
+    <div class="gallery">
+      <div
+        class="thumbnail"
+        *ngFor="let img of activity.pictures"
+        [class.selected]="img === selectedImage"
+        (click)="selectImage(img)"
+      >
+        <img [src]="img" alt="Activity thumbnail" />
+      </div>
+    </div>
+
+    <!-- MAIN IMAGE -->
+    <div class="main-image" *ngIf="selectedImage">
+      <img [src]="selectedImage" alt="Selected Activity Image" />
+    </div>
+
+    <!-- ACTIVITY INFO -->
+    <div class="info">
+      <h2>{{ activity.title }}</h2>
+      <div class="datetime">
+        <mat-icon>calendar_today</mat-icon>
+        <span>{{ activity.date }}</span>
+        <mat-icon class="clock">access_time</mat-icon>
+        <span>{{ activity.startTime }} - {{ activity.endTime }}</span>
+      </div>
+      <div class="location">
+        <mat-icon>location_on</mat-icon>
+        <span>{{ activity.address }}</span>
+      </div>
+
+      <div class="description-panel">
+        <h3>Description</h3>
+        <p>{{ activity.description }}</p>
+      </div>
+
+      <div class="details-columns">
+        <div>
+          <h4>Instructions</h4>
+          <ul>
+            <li *ngFor="let instr of activity.instructions">{{ instr }}</li>
+          </ul>
+        </div>
+        <div>
+          <h4>Purpose</h4>
+          <ul>
+            <li *ngFor="let purp of activity.purpose">{{ purp }}</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
