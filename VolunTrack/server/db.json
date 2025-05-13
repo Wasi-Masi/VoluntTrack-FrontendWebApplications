@@ -3,211 +3,211 @@
     {
       "id": 1,
       "title": "Beach Cleanup",
-      "dashboardPicture": "https://i.imgur.com/j7Vz1BP.jpg",
-      "mainPicture": "",
-      "picture1": "",
-      "picture2": "",
-      "picture3": "",
-      "picture4": "",
-      "date": "2025-05-20",
-      "startTime": "09:00",
-      "endTime": "12:00",
-      "address": "Lima, Peru",
-      "description": "Let's clean the beach together.",
-      "instructions": ["Bring gloves", "Wear sunscreen"],
-      "purpose": ["Environmental protection", "Community engagement"],
-      "inscriptionsCount": 42,
-      "inscriptionsOpen": true
+      "description": "Join us for a community-led beach cleanup aimed at preserving our coastal environment. Together, we'll collect litter, remove plastic waste, and learn about the impact of pollution on marine life. It's a great way to contribute to a cleaner ocean and connect with others who care about the planet.",
+      "instructions": [
+        "Bring gloves and trash bags",
+        "Wear sunscreen and a hat",
+        "Bring reusable water bottle",
+        "Wear comfortable shoes",
+        "Be ready to sort recyclables"
+      ],
+      "purpose": [
+        "Environmental protection",
+        "Pollution awareness",
+        "Ocean conservation",
+        "Community engagement",
+        "Sustainable habits promotion"
+      ]
     },
     {
       "id": 2,
       "title": "Park Reforestation",
-      "dashboardPicture": "https://i.imgur.com/758s7QQ.jpg",
-      "mainPicture": "",
-      "picture1": "",
-      "picture2": "",
-      "picture3": "",
-      "picture4": "",
-      "date": "2025-05-22",
-      "startTime": "08:00",
-      "endTime": "11:00",
-      "address": "San Isidro, Lima",
-      "description": "Join us to plant trees in the park.",
-      "instructions": ["Bring a shovel", "Wear comfortable shoes"],
-      "purpose": ["Forest restoration", "Biodiversity promotion"],
-      "inscriptionsCount": 68,
-      "inscriptionsOpen": true
+      "description": "Help us restore green spaces in the city by planting trees and native plants. This initiative supports biodiversity, improves air quality, and enhances the beauty of our public parks. No previous experience needed—just a love for nature!",
+      "instructions": [
+        "Bring a shovel or gardening tools",
+        "Wear a hat and gloves",
+        "Use insect repellent",
+        "Wear sturdy, comfortable shoes",
+        "Bring a refillable water bottle"
+      ],
+      "purpose": [
+        "Forest restoration",
+        "Biodiversity promotion",
+        "Urban greening",
+        "Environmental education",
+        "Community collaboration"
+      ]
     },
     {
       "id": 3,
       "title": "Community Fitness",
-      "dashboardPicture": "https://i.imgur.com/iApwiHo.jpg",
-      "mainPicture": "",
-      "picture1": "",
-      "picture2": "",
-      "picture3": "",
-      "picture4": "",
-      "date": "2025-06-01",
-      "startTime": "07:00",
-      "endTime": "08:00",
-      "address": "Miraflores, Lima",
-      "description": "Let's exercise together in the park.",
-      "instructions": ["Bring water", "Wear workout clothes"],
-      "purpose": ["Health and fitness", "Community building"],
-      "inscriptionsCount": 55,
-      "inscriptionsOpen": false
+      "description": "Start your day with an energizing group workout in the park! This free fitness session is open to all ages and abilities, focused on promoting healthy lifestyles through fun, inclusive exercise routines. Meet your neighbors and get moving together.",
+      "instructions": [
+        "Bring water and a towel",
+        "Wear workout clothes and running shoes",
+        "Arrive 10 minutes early to stretch",
+        "Follow the instructor's guidance",
+        "Respect everyone's pace and space"
+      ],
+      "purpose": [
+        "Health and fitness",
+        "Active lifestyle encouragement",
+        "Community bonding",
+        "Mental well-being",
+        "Accessible exercise opportunities"
+      ]
     },
     {
       "id": 4,
       "title": "Food Drive",
-      "dashboardPicture": "https://i.imgur.com/rnDhpGF.jpg",
-      "mainPicture": "",
-      "picture1": "",
-      "picture2": "",
-      "picture3": "",
-      "picture4": "",
-      "date": "2025-06-05",
-      "startTime": "10:00",
-      "endTime": "13:00",
-      "address": "Barranco, Lima",
-      "description": "Donate food to help the less fortunate.",
-      "instructions": ["Bring non-perishable food", "Be generous"],
-      "purpose": ["Support the needy", "Community solidarity"],
-      "inscriptionsCount": 120,
-      "inscriptionsOpen": true
+      "description": "Help us support families in need by donating non-perishable food items. All contributions will be distributed to local shelters and community kitchens. Together, we can fight hunger and make a real difference.",
+      "instructions": [
+        "Bring canned or dry food items",
+        "Label and organize your donations",
+        "Check expiration dates before donating",
+        "Spread the word to friends and neighbors",
+        "Stay to help with sorting and packing"
+      ],
+      "purpose": [
+        "Support the needy",
+        "Combat food insecurity",
+        "Promote social responsibility",
+        "Foster community solidarity",
+        "Encourage generosity and sharing"
+      ]
     },
     {
       "id": 5,
       "title": "Street Art Festival",
-      "dashboardPicture": "https://i.imgur.com/MrPkr79.jpg",
-      "mainPicture": "",
-      "picture1": "",
-      "picture2": "",
-      "picture3": "",
-      "picture4": "",
-      "date": "2025-06-10",
-      "startTime": "12:00",
-      "endTime": "18:00",
-      "address": "Barranco, Lima",
-      "description": "Come enjoy street art in Lima's streets.",
-      "instructions": ["Wear comfortable clothes", "Bring your camera"],
-      "purpose": ["Art appreciation", "Cultural exchange"],
-      "inscriptionsCount": 35,
-      "inscriptionsOpen": true
+      "description": "Celebrate urban creativity at our Street Art Festival! Watch live mural painting, meet local artists, enjoy music, and discover how art transforms public spaces into vibrant community stories. All ages welcome!",
+      "instructions": [
+        "Wear comfortable clothes and walking shoes",
+        "Bring your camera or sketchbook",
+        "Respect the artists and their work",
+        "Stay hydrated throughout the event",
+        "Participate in interactive workshops"
+      ],
+      "purpose": [
+        "Art appreciation",
+        "Cultural exchange",
+        "Public space revitalization",
+        "Community engagement through art",
+        "Support for local artists"
+      ]
     },
     {
       "id": 6,
-      "title": "Recycling education",
-      "dashboardPicture": "https://i.imgur.com/yUB08vO.jpg",
-      "mainPicture": "",
-      "picture1": "",
-      "picture2": "",
-      "picture3": "",
-      "picture4": "",
-      "date": "2025-06-15",
-      "startTime": "09:00",
-      "endTime": "17:00",
-      "address": "Lima Convention Center",
-      "description": "The biggest tech event of the year.",
-      "instructions": ["Bring your ID", "Prepare for networking"],
-      "purpose": ["Technology innovation", "Networking"],
-      "inscriptionsCount": 200,
-      "inscriptionsOpen": true
+      "title": "Recycling Education",
+      "description": "Join our full-day Recycling Education event and learn how to reduce, reuse, and recycle effectively. Through talks, workshops, and interactive displays, you'll discover practical ways to live more sustainably and protect the environment.",
+      "instructions": [
+        "Bring a notebook and pen",
+        "Bring your ID for registration",
+        "Bring examples of recyclable items",
+        "Be prepared to take notes and ask questions",
+        "Participate in sorting demos and activities"
+      ],
+      "purpose": [
+        "Environmental education",
+        "Waste reduction awareness",
+        "Promote sustainable living",
+        "Community empowerment",
+        "Hands-on recycling practices"
+      ]
     },
     {
       "id": 7,
-      "title": "Clothing donation and sorting",
-      "dashboardPicture": "https://i.imgur.com/24uxlSk.jpg",
-      "mainPicture": "",
-      "picture1": "",
-      "picture2": "",
-      "picture3": "",
-      "picture4": "",
-      "date": "2025-06-20",
-      "startTime": "08:00",
-      "endTime": "12:00",
-      "address": "Costa Verde, Lima",
-      "description": "Join the beach volleyball competition.",
-      "instructions": ["Bring sunscreen", "Bring a beach ball"],
-      "purpose": ["Sports competition", "Community participation"],
-      "inscriptionsCount": 18,
-      "inscriptionsOpen": true
+      "title": "Clothing Donation and Sorting",
+      "description": "Help us collect and organize donated clothes for people in need. Volunteers will sort items by size, season, and condition to prepare them for distribution. Every item donated brings comfort and dignity to someone else.",
+      "instructions": [
+        "Bring gently used clothes",
+        "Make sure all items are clean",
+        "Wear comfortable clothes for moving boxes",
+        "Label bags by category if possible",
+        "Stay to help with sorting and folding"
+      ],
+      "purpose": [
+        "Support low-income families",
+        "Promote reuse and sustainability",
+        "Reduce textile waste",
+        "Encourage community service",
+        "Organize efficient donation systems"
+      ]
     },
     {
       "id": 8,
       "title": "Charity Run",
-      "dashboardPicture": "https://i.imgur.com/ax4WWgX.jpg",
-      "mainPicture": "",
-      "picture1": "",
-      "picture2": "",
-      "picture3": "",
-      "picture4": "",
-      "date": "2025-06-25",
-      "startTime": "07:00",
-      "endTime": "10:00",
-      "address": "Parque Kennedy, Lima",
-      "description": "Run for a cause in the heart of Lima.",
-      "instructions": ["Wear running shoes", "Bring water"],
-      "purpose": ["Charity support", "Health and fitness"],
-      "inscriptionsCount": 150,
-      "inscriptionsOpen": true
+      "description": "Take part in a fun run to raise funds for local charities. Whether you jog, run, or walk, your participation helps support important community causes. Enjoy music, refreshments, and a great community spirit.",
+      "instructions": [
+        "Wear proper running shoes",
+        "Bring water and snacks",
+        "Check in early for bib pickup",
+        "Follow the marked route",
+        "Invite friends and family to join or cheer"
+      ],
+      "purpose": [
+        "Charity fundraising",
+        "Health and fitness promotion",
+        "Community awareness",
+        "Encouraging active lifestyles",
+        "Support for local causes"
+      ]
     },
     {
       "id": 9,
-      "title": "Animal shelter volunteering",
-      "dashboardPicture": "https://i.imgur.com/kMmOJFi.jpg",
-      "mainPicture": "",
-      "picture1": "",
-      "picture2": "",
-      "picture3": "",
-      "picture4": "",
-      "date": "2025-07-01",
-      "startTime": "10:00",
-      "endTime": "14:00",
-      "address": "Miraflores, Lima",
-      "description": "Learn photography skills with professionals.",
-      "instructions": ["Bring your camera", "Bring a notebook"],
-      "purpose": ["Photography skills", "Creative development"],
-      "inscriptionsCount": 25,
-      "inscriptionsOpen": false
+      "title": "Animal Shelter Volunteering",
+      "description": "Volunteer at a local animal shelter and make a difference in the lives of rescued animals. You'll help with feeding, cleaning, and socializing with pets awaiting adoption. Great for animal lovers who want to give back.",
+      "instructions": [
+        "Wear clothes you can get dirty",
+        "Bring gloves and water",
+        "Be gentle and patient with animals",
+        "Help with cleaning and feeding tasks",
+        "Follow staff instructions closely"
+      ],
+      "purpose": [
+        "Animal care and support",
+        "Volunteer service",
+        "Community involvement",
+        "Raise awareness for adoption",
+        "Compassion and responsibility"
+      ]
     },
     {
       "id": 10,
-      "title": "Language teaching for kids",
-      "dashboardPicture": "https://i.imgur.com/ghM4wNw.jpg",
-      "mainPicture": "",
-      "picture1": "",
-      "picture2": "",
-      "picture3": "",
-      "picture4": "",
-      "date": "2025-07-05",
-      "startTime": "09:00",
-      "endTime": "16:00",
-      "address": "Lima, Peru",
-      "description": "Learn to code with industry experts.",
-      "instructions": ["Bring a laptop", "Install coding tools"],
-      "purpose": ["Coding skills", "Tech education"],
-      "inscriptionsCount": 120,
-      "inscriptionsOpen": true
+      "title": "Language Teaching for Kids",
+      "description": "Support young learners by teaching them basic language skills through games, stories, and interactive lessons. Volunteers will work in small groups to help kids improve their speaking and understanding abilities in a fun, encouraging environment.",
+      "instructions": [
+        "Prepare simple language games or flashcards",
+        "Bring notebooks or printouts if needed",
+        "Be patient and encouraging",
+        "Wear casual but respectful clothing",
+        "Collaborate with other volunteers"
+      ],
+      "purpose": [
+        "Youth education",
+        "Language development",
+        "Empowering children",
+        "Educational equity",
+        "Fostering communication skills"
+      ]
     },
     {
       "id": 11,
-      "title": "After-school tutoring",
-      "dashboardPicture": "https://i.imgur.com/i6fqsMN.jpg",
-      "mainPicture": "",
-      "picture1": "",
-      "picture2": "",
-      "picture3": "",
-      "picture4": "",
-      "date": "2025-07-10",
-      "startTime": "11:00",
-      "endTime": "17:00",
-      "address": "Lima Art Gallery",
-      "description": "Explore contemporary art in Lima.",
-      "instructions": ["Wear comfortable shoes", "Bring an art guide"],
-      "purpose": ["Art appreciation", "Cultural exploration"],
-      "inscriptionsCount": 35,
-      "inscriptionsOpen": false
+      "title": "After-School Tutoring",
+      "description": "Volunteer as a tutor to help students with their homework, reading, or math after school. This is a chance to support children's education and make learning more accessible and enjoyable in a safe, supervised setting.",
+      "instructions": [
+        "Bring educational materials (books, worksheets, etc.)",
+        "Be patient and flexible with students",
+        "Maintain a positive attitude",
+        "Arrive on time and stay the full session",
+        "Coordinate with program leaders for assigned tasks"
+      ],
+      "purpose": [
+        "Academic support",
+        "Mentorship for students",
+        "Educational empowerment",
+        "Closing the achievement gap",
+        "Promoting lifelong learning"
+      ]
     }
   ]
 }
