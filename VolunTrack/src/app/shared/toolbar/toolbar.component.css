@@ -1,0 +1,50 @@
+
+
+mat-toolbar {
+  display: flex;
+  justify-content: space-between;
+  background-color: #24344C;
+  color: white;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.logo-img {
+  height: 40px;
+  margin-right: 10px;
+}
+
+.title {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.toolbar-right {
+  display: flex;
+  align-items: center;
+}
+
+mat-icon {
+  vertical-align: middle;
+  line-height: 20px;
+  font-size: 24px;
+}
+
+img {
+  width: 36px;
+  height: 36px;
+}
+
+.active {
+  color: red; /* Cambia el color del texto a blanco para mayor contraste */
+  font-weight: bolder;
+  border-radius: 4px;
+}
+
+button {
+  color: white;
+
+}
