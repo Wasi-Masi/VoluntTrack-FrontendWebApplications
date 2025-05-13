@@ -8,32 +8,36 @@
     <button mat-icon-button color="accent">
       <mat-icon>edit</mat-icon>
     </button>
-    <span>Edit</span>
   </div>
 </div>
 
 <!-- MAIN PANEL -->
 <div class="details-panel" *ngIf="activity">
   <div class="details-container">
-    <!-- IMAGE GALLERY -->
-    <div class="gallery">
-      <div
-        class="thumbnail"
-        *ngFor="let img of activity.pictures"
-        [class.selected]="img === selectedImage"
-        (click)="selectImage(img)"
-      >
-        <img [src]="img" alt="Activity thumbnail" />
+    <!-- LEFT PANEL: Image and Carousel -->
+    <div class="left-panel">
+      <!-- MAIN IMAGE -->
+      <div class="main-image" *ngIf="selectedImage">
+        <img [src]="selectedImage" alt="Selected Activity Image" />
+      </div>
+
+      <!-- IMAGE CAROUSEL -->
+      <div class="carousel">
+        <div class="thumbnail-container">
+          <div
+            class="thumbnail"
+            *ngFor="let img of activity.pictures; let i = index"
+            [class.selected]="img === selectedImage"
+            (click)="selectImage(img)"
+          >
+            <img [src]="img" alt="Activity thumbnail" />
+          </div>
+        </div>
       </div>
     </div>
 
-    <!-- MAIN IMAGE -->
-    <div class="main-image" *ngIf="selectedImage">
-      <img [src]="selectedImage" alt="Selected Activity Image" />
-    </div>
-
-    <!-- ACTIVITY INFO -->
-    <div class="info">
+    <!-- RIGHT PANEL: Activity Details -->
+    <div class="right-panel">
       <h2>{{ activity.title }}</h2>
       <div class="datetime">
         <mat-icon>calendar_today</mat-icon>
@@ -54,15 +58,15 @@
       <div class="details-columns">
         <div>
           <h4>Instructions</h4>
-          <ul>
+          <ol>
             <li *ngFor="let instr of activity.instructions">{{ instr }}</li>
-          </ul>
+          </ol>
         </div>
         <div>
           <h4>Purpose</h4>
-          <ul>
+          <ol>
             <li *ngFor="let purp of activity.purpose">{{ purp }}</li>
-          </ul>
+          </ol>
         </div>
       </div>
     </div>

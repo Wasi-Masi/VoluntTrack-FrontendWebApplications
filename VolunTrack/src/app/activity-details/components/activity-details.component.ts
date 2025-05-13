@@ -21,6 +21,8 @@ import { MatButton, MatIconButton } from '@angular/material/button';
 export class ActivityDetailsComponent implements OnInit {
   activity!: Activity;
   selectedImage: string = '';
+  currentIndex: number = 0;
+
 
   constructor(
     private route: ActivatedRoute,
@@ -38,4 +40,5 @@ export class ActivityDetailsComponent implements OnInit {
   selectImage(img: string) {
     this.selectedImage = img;
   }
+ 
 }

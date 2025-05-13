@@ -10,7 +10,7 @@ body {
   align-items: center;
   padding: 20px;
   background-color: #ffffff;
-  max-width: 1800px;
+  max-width: 90%;
   border-radius: 8px;
   margin: 0 auto;
 }
@@ -38,7 +38,7 @@ body {
   padding: 20px;
   border-radius: 8px;
   background-color: rgba(155, 208, 223, 0.5); /* 50% opacity */
-  max-width: 1800px;
+  max-width: 90%;
   width: 100%;
   margin: 0 auto;
   height: 75%; /* Full height minus header */
