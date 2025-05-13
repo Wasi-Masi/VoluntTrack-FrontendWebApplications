@@ -17,7 +17,20 @@
         "Ocean conservation",
         "Community engagement",
         "Sustainable habits promotion"
-      ]
+      ],
+      "dashboardPicture": "https://i.imgur.com/j7Vz1BP.jpg",
+      "mainPicture": "",
+      "picture1": "",
+      "picture2": "",
+      "picture3": "",
+      "picture4": "",
+      "date": "2025-05-20",
+      "startTime": "09:00",
+      "endTime": "12:00",
+      "address": "Lima, Peru",
+      "inscriptionsCount": 42,
+      "inscriptionsOpen": true
+
     },
     {
       "id": 2,
@@ -36,7 +49,19 @@
         "Urban greening",
         "Environmental education",
         "Community collaboration"
-      ]
+      ],
+      "dashboardPicture": "https://i.imgur.com/758s7QQ.jpg",
+      "mainPicture": "",
+      "picture1": "",
+      "picture2": "",
+      "picture3": "",
+      "picture4": "",
+      "date": "2025-05-22",
+      "startTime": "08:00",
+      "endTime": "11:00",
+      "address": "San Isidro, Lima",
+      "inscriptionsCount": 68,
+      "inscriptionsOpen": true
     },
     {
       "id": 3,
@@ -55,7 +80,19 @@
         "Community bonding",
         "Mental well-being",
         "Accessible exercise opportunities"
-      ]
+      ],
+      "dashboardPicture": "https://i.imgur.com/iApwiHo.jpg",
+      "mainPicture": "",
+      "picture1": "",
+      "picture2": "",
+      "picture3": "",
+      "picture4": "",
+      "date": "2025-06-01",
+      "startTime": "07:00",
+      "endTime": "08:00",
+      "address": "Miraflores, Lima",
+      "inscriptionsCount": 55,
+      "inscriptionsOpen": false
     },
     {
       "id": 4,
@@ -74,7 +111,19 @@
         "Promote social responsibility",
         "Foster community solidarity",
         "Encourage generosity and sharing"
-      ]
+      ],
+      "dashboardPicture": "https://i.imgur.com/rnDhpGF.jpg",
+      "mainPicture": "",
+      "picture1": "",
+      "picture2": "",
+      "picture3": "",
+      "picture4": "",
+      "date": "2025-06-05",
+      "startTime": "10:00",
+      "endTime": "13:00",
+      "address": "Barranco, Lima",
+      "inscriptionsCount": 120,
+      "inscriptionsOpen": true
     },
     {
       "id": 5,
@@ -93,7 +142,19 @@
         "Public space revitalization",
         "Community engagement through art",
         "Support for local artists"
-      ]
+      ],
+      "dashboardPicture": "https://i.imgur.com/MrPkr79.jpg",
+      "mainPicture": "",
+      "picture1": "",
+      "picture2": "",
+      "picture3": "",
+      "picture4": "",
+      "date": "2025-06-10",
+      "startTime": "12:00",
+      "endTime": "18:00",
+      "address": "Barranco, Lima",
+      "inscriptionsCount": 35,
+      "inscriptionsOpen": true
     },
     {
       "id": 6,
@@ -112,7 +173,19 @@
         "Promote sustainable living",
         "Community empowerment",
         "Hands-on recycling practices"
-      ]
+      ],
+      "dashboardPicture": "https://i.imgur.com/yUB08vO.jpg",
+      "mainPicture": "",
+      "picture1": "",
+      "picture2": "",
+      "picture3": "",
+      "picture4": "",
+      "date": "2025-06-15",
+      "startTime": "09:00",
+      "endTime": "17:00",
+      "address": "Lima Convention Center",
+      "inscriptionsCount": 200,
+      "inscriptionsOpen": true
     },
     {
       "id": 7,
@@ -131,7 +204,19 @@
         "Reduce textile waste",
         "Encourage community service",
         "Organize efficient donation systems"
-      ]
+      ],
+      "dashboardPicture": "https://i.imgur.com/24uxlSk.jpg",
+      "mainPicture": "",
+      "picture1": "",
+      "picture2": "",
+      "picture3": "",
+      "picture4": "",
+      "date": "2025-06-20",
+      "startTime": "08:00",
+      "endTime": "12:00",
+      "address": "Costa Verde, Lima",
+      "inscriptionsCount": 18,
+      "inscriptionsOpen": true
     },
     {
       "id": 8,
@@ -150,7 +235,19 @@
         "Community awareness",
         "Encouraging active lifestyles",
         "Support for local causes"
-      ]
+      ],
+      "dashboardPicture": "https://i.imgur.com/ax4WWgX.jpg",
+      "mainPicture": "",
+      "picture1": "",
+      "picture2": "",
+      "picture3": "",
+      "picture4": "",
+      "date": "2025-06-25",
+      "startTime": "07:00",
+      "endTime": "10:00",
+      "address": "Parque Kennedy, Lima",
+      "inscriptionsCount": 150,
+      "inscriptionsOpen": true
     },
     {
       "id": 9,
@@ -169,7 +266,19 @@
         "Community involvement",
         "Raise awareness for adoption",
         "Compassion and responsibility"
-      ]
+      ],
+      "dashboardPicture": "https://i.imgur.com/kMmOJFi.jpg",
+      "mainPicture": "",
+      "picture1": "",
+      "picture2": "",
+      "picture3": "",
+      "picture4": "",
+      "date": "2025-07-01",
+      "startTime": "10:00",
+      "endTime": "14:00",
+      "address": "Miraflores, Lima",
+      "inscriptionsCount": 25,
+      "inscriptionsOpen": false
     },
     {
       "id": 10,
@@ -188,7 +297,19 @@
         "Empowering children",
         "Educational equity",
         "Fostering communication skills"
-      ]
+      ],
+      "dashboardPicture": "https://i.imgur.com/ghM4wNw.jpg",
+      "mainPicture": "",
+      "picture1": "",
+      "picture2": "",
+      "picture3": "",
+      "picture4": "",
+      "date": "2025-07-05",
+      "startTime": "09:00",
+      "endTime": "16:00",
+      "address": "Lima, Peru",
+      "inscriptionsCount": 120,
+      "inscriptionsOpen": true
     },
     {
       "id": 11,
@@ -207,7 +328,19 @@
         "Educational empowerment",
         "Closing the achievement gap",
         "Promoting lifelong learning"
-      ]
+      ],
+      "dashboardPicture": "https://i.imgur.com/i6fqsMN.jpg",
+      "mainPicture": "",
+      "picture1": "",
+      "picture2": "",
+      "picture3": "",
+      "picture4": "",
+      "date": "2025-07-10",
+      "startTime": "11:00",
+      "endTime": "17:00",
+      "address": "Lima Art Gallery",
+      "inscriptionsCount": 35,
+      "inscriptionsOpen": false
     }
   ]
 }
