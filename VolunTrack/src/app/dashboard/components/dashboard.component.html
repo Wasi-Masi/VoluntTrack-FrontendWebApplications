@@ -1,1 +1,28 @@
-<p>dashboard works!</p>
+<div class="dashboard-header">
+  <h2>Activity Dashboard</h2>
+  <div class="dashboard-actions">
+    <button mat-stroked-button color="primary">
+      <mat-icon>add</mat-icon> Create
+    </button>
+    <button mat-stroked-button color="accent">
+      <mat-icon>calendar_today</mat-icon> Calendar
+    </button>
+  </div>
+</div>
+
+<div class="dashboard-card">
+  <div class="activities-container">
+    <div class="activity-row" *ngFor="let activity of activities">
+      <div class="activity-card">
+        <img [src]="activity.dashboardPicture" alt="{{ activity.title }}" />
+        <div class="activity-info">
+          <h3>{{ activity.title }}</h3>
+          <p>{{ activity.date }} — {{ activity.startTime }} to {{ activity.endTime }}</p>
+          <button mat-button color="primary">
+            View More <mat-icon>arrow_forward</mat-icon>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

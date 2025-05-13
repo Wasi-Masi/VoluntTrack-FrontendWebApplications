@@ -1,0 +1,22 @@
+{
+  "activities": [
+    {
+      "title": "Beach Cleanup",
+      "dashboardPicture": "/assets/dashboard/beach.png",
+      "mainPicture": "/assets/activity/main1.png",
+      "picture1": "/assets/activity/pic1.png",
+      "picture2": "/assets/activity/pic2.png",
+      "picture3": "/assets/activity/pic3.png",
+      "picture4": "/assets/activity/pic4.png",
+      "date": "2025-05-20",
+      "startTime": "09:00",
+      "endTime": "12:00",
+      "address": "Lima, Peru",
+      "description": "Let's clean the beach together.",
+      "instructions": ["Bring gloves", "Wear sunscreen"],
+      "purpose": ["Environmental protection", "Community engagement"],
+      "inscriptionsCount": 42,
+      "inscriptionsOpen": true
+    }
+  ]
+}
