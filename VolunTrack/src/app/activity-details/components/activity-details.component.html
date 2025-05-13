@@ -5,7 +5,7 @@
       <mat-icon>arrow_back</mat-icon>
     </button>
     <button mat-button >Details</button>
-    <button mat-button >Registered Volunteers</button>
+    <button mat-button [routerLink]="['/registered', activity.id]" >Registered Volunteers</button>
     <button mat-icon-button>
       <mat-icon>edit</mat-icon>
     </button>
