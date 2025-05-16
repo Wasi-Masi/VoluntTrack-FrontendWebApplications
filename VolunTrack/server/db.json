@@ -327,21 +327,51 @@
     },
     {
       "id": "12",
-      "title": "a",
-      "dashboardPicture": "https://i.imgur.com/i6fqsMN.jpg",
+      "title": "Adoptemos gatitos !!",
+      "dashboardPicture": "https://i.imgur.com/WFUvBSK.jpg",
       "pictures": [
-        "https://i.imgur.com/i6fqsMN.jpg"
+        "https://i.imgur.com/WFUvBSK.jpg",
+        "https://i.imgur.com/wNet0D1.jpg",
+        "https://i.imgur.com/S8eNmIN.jpg"
       ],
-      "date": "2025-05-17",
-      "startTime": "00:37",
-      "endTime": "00:35",
-      "address": "a",
-      "description": "a",
+      "date": "2025-05-20",
+      "startTime": "08:00",
+      "endTime": "23:00",
+      "address": "Parque Kennedy, Miraflores",
+      "description": "Vengan a adoptar gatitos !!",
       "instructions": [
-        "a"
+        "1. Ir al Parque Kennedy",
+        "2. Adoptar",
+        "3. Llevarlos a casa",
+        "4. Amarlos !!!"
       ],
       "purpose": [
-        "a"
+        "El propósito es que los gatitos consigan casita <3"
+      ],
+      "inscriptionCount": 0,
+      "isInscriptionOpen": true
+    },
+    {
+      "id": "13",
+      "title": "Decoremos árboles divertidos",
+      "dashboardPicture": "https://i.imgur.com/hnFO3lL.jpg",
+      "pictures": [
+        "https://i.imgur.com/hnFO3lL.jpg",
+        "https://i.mgur.com/SCOGqaE.jpg",
+        "https://i.imgur.com/2657hub.jpg"
+      ],
+      "date": "2025-06-18",
+      "startTime": "10:30",
+      "endTime": "18:00",
+      "address": "Parque Kennedy, Miraflores",
+      "description": "Hay que crear ropita y ponerla en los árboles que tienen formas chistosas o similares a humanos.",
+      "instructions": [
+        "1. Idear",
+        "2. Coser",
+        "3. Vestir"
+      ],
+      "purpose": [
+        "Divertirnos!!"
       ],
       "inscriptionCount": 0,
       "isInscriptionOpen": true
@@ -349,7 +379,7 @@
   ],
   "volunteers": [
     {
-      "id": "1",
+      "id": 1,
       "fullName": "Albano Llopis Hierro",
       "email": "maitecalatayud@bonet.com",
       "age": 19,
@@ -362,7 +392,7 @@
       "certificateIds": []
     },
     {
-      "id": "2",
+      "id": 2,
       "fullName": "Leandro Arroyo Pastor",
       "email": "eulaliagracia@yahoo.com",
       "age": 40,
@@ -377,7 +407,7 @@
       ]
     },
     {
-      "id": "3",
+      "id": 3,
       "fullName": "Naiara Manzano Pardo",
       "email": "isabelpeinado@telefonica.net",
       "age": 26,
@@ -392,7 +422,7 @@
       ]
     },
     {
-      "id": "4",
+      "id": 4,
       "fullName": "Ernestina Berenguer Collado",
       "email": "e.rodriguez@correo.es",
       "age": 30,
@@ -408,7 +438,7 @@
       ]
     },
     {
-      "id": "5",
+      "id": 5,
       "fullName": "Fátima Jiménez De La Torre",
       "email": "fatimajimenez@telefonica.net",
       "age": 58,
@@ -421,7 +451,7 @@
       "certificateIds": []
     },
     {
-      "id": "6",
+      "id": 6,
       "fullName": "Cristóbal Amador Martí",
       "email": "miriam.martinez@gmail.com",
       "age": 21,
@@ -437,7 +467,7 @@
       ]
     },
     {
-      "id": "7",
+      "id": 7,
       "fullName": "Valentín Plaza March",
       "email": "vplaza@plazamarch.org",
       "age": 24,
@@ -452,7 +482,7 @@
       ]
     },
     {
-      "id": "8",
+      "id": 8,
       "fullName": "Montserrat Iglesias Valenzuela",
       "email": "miglesias@yahoo.es",
       "age": 33,
@@ -469,7 +499,7 @@
       ]
     },
     {
-      "id": "9",
+      "id": 9,
       "fullName": "Alba Cano Escribano",
       "email": "alba.cano@outlook.com",
       "age": 29,
@@ -484,7 +514,7 @@
       ]
     },
     {
-      "id": "10",
+      "id": 10,
       "fullName": "Fermín Arias Chacón",
       "email": "fermin.arias@gmail.com",
       "age": 42,
@@ -497,7 +527,7 @@
       "certificateIds": []
     },
     {
-      "id": "11",
+      "id": 11,
       "fullName": "Jimena Carrasco Reina",
       "email": "jcarrasco@correo.com",
       "age": 36,
@@ -513,7 +543,7 @@
       ]
     },
     {
-      "id": "12",
+      "id": 12,
       "fullName": "Ezequiel Blanco Rojo",
       "email": "ezequielblanco@protonmail.com",
       "age": 27,
@@ -526,7 +556,7 @@
       "certificateIds": []
     },
     {
-      "id": "13",
+      "id": 13,
       "fullName": "Pablo Palacios Aguado",
       "email": "ppalacios@educa.org",
       "age": 39,
@@ -542,7 +572,7 @@
       ]
     },
     {
-      "id": "14",
+      "id": 14,
       "fullName": "Lucía Vargas Godoy",
       "email": "lucia.vargas@correo.com",
       "age": 22,
@@ -557,7 +587,7 @@
       ]
     },
     {
-      "id": "15",
+      "id": 15,
       "fullName": "Mateo Robles Huertas",
       "email": "m.robles@educa.pe",
       "age": 31,
@@ -570,7 +600,7 @@
       "certificateIds": []
     },
     {
-      "id": "16",
+      "id": 16,
       "fullName": "Laura Paredes Cordero",
       "email": "lparedes@hotmail.com",
       "age": 35,
@@ -586,7 +616,7 @@
       ]
     },
     {
-      "id": "17",
+      "id": 17,
       "fullName": "Sergio Ibarra Cano",
       "email": "sergio.ibarra@gmail.com",
       "age": 28,
@@ -601,7 +631,7 @@
       ]
     },
     {
-      "id": "18",
+      "id": 18,
       "fullName": "Rocío Peña Robledo",
       "email": "rociopena@yahoo.es",
       "age": 41,
@@ -614,7 +644,7 @@
       "certificateIds": []
     },
     {
-      "id": "19",
+      "id": 19,
       "fullName": "Andrés Bueno Lozano",
       "email": "andresbueno@outlook.com",
       "age": 45,
@@ -631,7 +661,7 @@
       ]
     },
     {
-      "id": "20",
+      "id": 20,
       "fullName": "Marta Lozano Barrios",
       "email": "martalbz@hotmail.com",
       "age": 33,
@@ -646,7 +676,7 @@
       ]
     },
     {
-      "id": "21",
+      "id": 21,
       "fullName": "Javier Molina Ruiz",
       "email": "javiermolina@gmail.com",
       "age": 29,
@@ -662,7 +692,7 @@
       ]
     },
     {
-      "id": "22",
+      "id": 22,
       "fullName": "Clara Fernández Soto",
       "email": "clara.fernandez@mail.com",
       "age": 24,
@@ -675,7 +705,7 @@
       "certificateIds": []
     },
     {
-      "id": "23",
+      "id": 23,
       "fullName": "Raúl Gómez Navarro",
       "email": "raul.gomez@correo.com",
       "age": 34,
@@ -691,7 +721,7 @@
       ]
     },
     {
-      "id": "24",
+      "id": 24,
       "fullName": "María López Castillo",
       "email": "maria.lopez@educa.org",
       "age": 31,
@@ -706,7 +736,7 @@
       ]
     },
     {
-      "id": "25",
+      "id": 25,
       "fullName": "Diego Ramírez Fuentes",
       "email": "diego.ramirez@correo.com",
       "age": 38,
@@ -719,7 +749,7 @@
       "certificateIds": []
     },
     {
-      "id": "26",
+      "id": 26,
       "fullName": "Natalia Morales Vega",
       "email": "natalia.morales@mail.com",
       "age": 27,
@@ -735,7 +765,7 @@
       ]
     },
     {
-      "id": "27",
+      "id": 27,
       "fullName": "Fernando Cruz Diaz",
       "email": "fernando.cruz@protonmail.com",
       "age": 42,
@@ -750,7 +780,7 @@
       ]
     },
     {
-      "id": "28",
+      "id": 28,
       "fullName": "Isabel Sánchez López",
       "email": "isabel.sanchez@mail.com",
       "age": 35,
@@ -766,7 +796,7 @@
       ]
     },
     {
-      "id": "29",
+      "id": 29,
       "fullName": "Carlos Mendoza Ruiz",
       "email": "carlos.mendoza@gmail.com",
       "age": 30,
@@ -779,7 +809,7 @@
       "certificateIds": []
     },
     {
-      "id": "30",
+      "id": 30,
       "fullName": "Verónica Herrera Silva",
       "email": "veronica.herrera@correo.com",
       "age": 26,
@@ -794,7 +824,7 @@
       ]
     },
     {
-      "id": "31",
+      "id": 31,
       "fullName": "Sergio Vargas Molina",
       "email": "sergio.vargas@mail.com",
       "age": 33,
@@ -810,7 +840,7 @@
       ]
     },
     {
-      "id": "32",
+      "id": 32,
       "fullName": "Lorena Gutierrez Paredes",
       "email": "lorena.gutierrez@correo.com",
       "age": 29,
@@ -823,7 +853,7 @@
       "certificateIds": []
     },
     {
-      "id": "33",
+      "id": 33,
       "fullName": "Mario Torres Salazar",
       "email": "mario.torres@mail.com",
       "age": 41,
@@ -839,7 +869,7 @@
       ]
     },
     {
-      "id": "34",
+      "id": 34,
       "fullName": "Patricia Romero Díaz",
       "email": "patricia.romero@correo.com",
       "age": 28,
@@ -854,7 +884,7 @@
       ]
     },
     {
-      "id": "35",
+      "id": 35,
       "fullName": "Jorge Castro Jiménez",
       "email": "jorge.castro@gmail.com",
       "age": 37,
@@ -867,7 +897,7 @@
       "certificateIds": []
     },
     {
-      "id": "36",
+      "id": 36,
       "fullName": "Adriana Rojas Mendoza",
       "email": "adriana.rojas@mail.com",
       "age": 26,
@@ -883,7 +913,7 @@
       ]
     },
     {
-      "id": "37",
+      "id": 37,
       "fullName": "Andrés Salinas Vega",
       "email": "andres.salinas@correo.com",
       "age": 40,
@@ -898,7 +928,7 @@
       ]
     },
     {
-      "id": "38",
+      "id": 38,
       "fullName": "Marina Ortega Luna",
       "email": "marina.ortega@mail.com",
       "age": 31,
@@ -914,7 +944,7 @@
       ]
     },
     {
-      "id": "39",
+      "id": 39,
       "fullName": "Rafael Mendoza Paredes",
       "email": "rafael.mendoza@gmail.com",
       "age": 29,
@@ -927,7 +957,7 @@
       "certificateIds": []
     },
     {
-      "id": "40",
+      "id": 40,
       "fullName": "Claudia Vega Torres",
       "email": "claudia.vega@correo.com",
       "age": 34,
@@ -942,7 +972,7 @@
       ]
     },
     {
-      "id": "41",
+      "id": 41,
       "fullName": "Felipe Calderón Suárez",
       "email": "felipe.calderon@mail.com",
       "age": 38,
@@ -958,7 +988,7 @@
       ]
     },
     {
-      "id": "42",
+      "id": 42,
       "fullName": "Mariela Castro Díaz",
       "email": "mariela.castro@correo.com",
       "age": 27,
@@ -971,7 +1001,7 @@
       "certificateIds": []
     },
     {
-      "id": "43",
+      "id": 43,
       "fullName": "Esteban Herrera Fuentes",
       "email": "esteban.herrera@mail.com",
       "age": 45,
@@ -987,7 +1017,7 @@
       ]
     },
     {
-      "id": "44",
+      "id": 44,
       "fullName": "Lucía Fernández Moreno",
       "email": "lucia.fernandez@correo.com",
       "age": 30,
@@ -1002,7 +1032,7 @@
       ]
     },
     {
-      "id": "45",
+      "id": 45,
       "fullName": "Ricardo Peña Salazar",
       "email": "ricardo.pena@gmail.com",
       "age": 36,
@@ -1015,7 +1045,7 @@
       "certificateIds": []
     },
     {
-      "id": "46",
+      "id": 46,
       "fullName": "Verónica Solís Gutiérrez",
       "email": "veronica.solis@mail.com",
       "age": 28,
@@ -1031,7 +1061,7 @@
       ]
     },
     {
-      "id": "47",
+      "id": 47,
       "fullName": "Héctor Ramírez Torres",
       "email": "hector.ramirez@correo.com",
       "age": 39,
@@ -1046,7 +1076,7 @@
       ]
     },
     {
-      "id": "48",
+      "id": 48,
       "fullName": "Martha Delgado Peña",
       "email": "martha.delgado@mail.com",
       "age": 33,
@@ -1062,7 +1092,7 @@
       ]
     },
     {
-      "id": "49",
+      "id": 49,
       "fullName": "Diego Flores Ruiz",
       "email": "diego.flores@gmail.com",
       "age": 31,
@@ -1075,7 +1105,7 @@
       "certificateIds": []
     },
     {
-      "id": "50",
+      "id": 50,
       "fullName": "Natalia Vega Morales",
       "email": "natalia.vega@correo.com",
       "age": 29,
@@ -1089,6 +1119,14 @@
         1,
         2
       ]
+    }
+  ],
+  "notifications": [
+    {
+      "id": "1",
+      "title": "Actividad creada",
+      "message": "Has creado una nueva actividad de voluntariado. ¡Comparte para sumar voluntarios!",
+      "createdAt": "2025-05-16T09:50:55.558Z"
     }
   ]
 }
