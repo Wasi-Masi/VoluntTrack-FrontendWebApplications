@@ -1,4 +1,3 @@
-
 .dashboard-header {
   display: flex;
   justify-content: space-between;
@@ -8,6 +7,10 @@
   max-width: 90%;
   border-radius: 8px;
   margin: 0 auto;
+}
+
+.dashboard-header .selected, .selected mat-icon{
+  color: #24344C;
 }
 
 .dashboard-header h2 {
@@ -31,13 +34,13 @@
 
 .activities-form__container {
   padding: 2rem;
-  border-radius: 8px;
+  border-radius: 20px;
   box-sizing: border-box;
   background-color: rgba(155, 208, 223, 0.5);
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.25);
   max-width: 90%;
   width: 100%;
   margin: 0 auto;
-  height: 75%;
   overflow: hidden;
 }
 
