@@ -2231,32 +2231,42 @@ Los aspectos definidos para este Sprint son los siguientes:
 | **US14**         | T01    | Diseñar plantilla de informe de impacto con datos relevantes | 2 | Binda Arbañil, Marcelo Alejandro | Done |
 |                  | T02    | Implementar generación del informe desde perfil del voluntario | 2 | Castillo Garay, Ainhoa Lucía | Done |
 |                  | T03    | Implementar opción de descarga PDF y envío por email | 3 | Binda Arbañil, Marcelo Alejandro | To-do |
+
 | **US15**         | T01    | Diseñar sección destacada de propuesta de valor en la página principal | 3 | Castillo Garay, Ainhoa Lucía | Done |
 |                  | T02    | Implementar pop-ups o detalles interactivos para beneficios clave | 3 | Binda Arbañil, Marcelo Alejandro | Done |
 |                  | T03    | Incluir casos de éxito o testimonios reales | 3 | Castillo Garay, Ainhoa Lucía | Done |
+
 | **US16**         | T01    | Implementar búsqueda por intereses con campo destacado | 4 | Ortiz Alarcón, Victor Nicolás | Done |
 |                  | T02    | Mostrar lista de actividades disponibles con filtros | 3 | Ortiz Alarcón, Victor Nicolás | Done |
+
 | **US17**         | T01    | Mostrar información de contacto visible y accesible | 4 | Martel Andrade, Cassius Estefano | Done |
 |                  | T02    | Crear pantalla de contacto con opciones para registrar ONG o empezar a explorar | 3 | Nakamurake Teruya, Alex Tomio | Done |
 |                  | T03    | Implementar redirección a formulario para registrar ONG con campos e instrucciones claras | 3 | Martel Andrade, Cassius Estefano | Done |
+
 | **US18**         | T01    | Diseñar sección de planes y precios clara y atractiva | 3 | Nakamurake Teruya, Alex Tomio | Done |
 |                  | T02    | Implementar visualización de detalles por plan seleccionado | 4 | Ortiz Alarcón, Victor Nicolás | Done |
 |                  | T03    | Añadir opción de contacto o formulario para consultas sobre planes | 2 | Ortiz Alarcón, Victor Nicolás | Done |
+
 | **US19**         | T01    | Crear endpoint POST para nuevas actividades con validación | 1 | Martel Andrade, Cassius Estefano | Done |
 |                  | T02    | Crear endpoint GET para leer detalles de actividades | 1 | Nakamurake Teruya, Alex Tomio | Done |
 |                  | T03    | Crear endpoint PUT para actualizar actividades | 1 | Binda Arbañil, Marcelo Alejandro | Done |
+
 | **US20**         | T01    | Crear endpoint POST para registrar voluntarios | 1 | Castillo Garay, Ainhoa Lucía | Done |
 |                  | T02    | Crear endpoint GET para obtener perfil de voluntario | 1 | Martel Andrade, Cassius Estefano | Done |
 |                  | T03    | Crear endpoint PUT para actualizar información del voluntario | 1 | Nakamurake Teruya, Alex Tomio | Done |
+
 | **US21**         | T01    | Crear endpoint POST para inscripción en actividades | 1 | Binda Arbañil, Marcelo Alejandro | Done |
 |                  | T02    | Crear endpoint GET para listar voluntarios inscritos | 1 | Castillo Garay, Ainhoa Lucía | Done |
 |                  | T03    | Crear endpoint PUT para registrar asistencia | 1 | Ortiz Alarcón, Victor Nicolás | Done |
 |                  | T04    | Crear endpoint DELETE para eliminar inscripción | 1 | Ortiz Alarcón, Victor Nicolás | Done |
+
 | **US22**         | T01    | Implementar vista de lista de voluntarios con información relevante | 3 | Martel Andrade, Cassius Estefano | Done |
 |                  | T02    | Añadir funcionalidades de búsqueda y filtrado en la lista de voluntarios | 2 | Nakamurake Teruya, Alex Tomio | Done |
 |                  | T03    | Mostrar detalles y opciones de gestión para voluntarios | 2 | Martel Andrade, Cassius Estefano | Done |
+
 | **US23**         | T01    | Crear vista de calendario interactivo para actividades | 3 | Nakamurake Teruya, Alex Tomio | Done |
 |                  | T02    | Implementar función para agregar nueva actividad desde el calendario | 3 | Binda Arbañil, Marcelo Alejandro | Done |
+
 | **US24**         | T01    | Implementar redirección al dashboard tras login | 2 | Castillo Garay, Ainhoa Lucía | Done |
 |                  | T02    | Mostrar próximas actividades programadas en dashboard | 3 | Martel Andrade, Cassius Estefano | Done |
 |                  | T03    | Agregar botones de acción rápida (crear actividad, etc.) | 3 | Nakamurake Teruya, Alex Tomio | Done |
