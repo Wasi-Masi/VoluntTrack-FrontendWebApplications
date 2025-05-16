@@ -5,7 +5,7 @@
     <button mat-stroked-button color="primary" [routerLink]="['/create-activity']">
       <mat-icon>add</mat-icon> {{ 'create' | translate }}
     </button>
-    <button mat-stroked-button color="accent">
+    <button [routerLink]="['/calendar']" mat-stroked-button color="accent">
       <mat-icon>calendar_today</mat-icon> {{ 'calendar' | translate }}
     </button>
   </div>
@@ -27,3 +27,5 @@
     </div>
   </div>
 </div>
+
+<div style="height: 10%;"></div>
