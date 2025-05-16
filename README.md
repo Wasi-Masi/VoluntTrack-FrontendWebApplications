@@ -2283,6 +2283,197 @@ Los aspectos definidos para este Sprint son los siguientes:
       <td>Castillo Garay, Ainhoa Lucía</td>
       <td>Done</td>
     </tr>
+    <tr>
+      <td rowspan="2"><strong>US16</strong></td>
+      <td>T01</td>
+      <td>Implementar búsqueda por intereses con campo destacado</td>
+      <td>4</td>
+      <td>Ortiz Alarcón, Victor Nicolás</td>
+      <td>Done</td>
+    </tr>
+    <tr>
+      <td>T02</td>
+      <td>Mostrar lista de actividades disponibles con filtros</td>
+      <td>3</td>
+      <td>Ortiz Alarcón, Victor Nicolás</td>
+      <td>Done</td>
+    </tr>
+    <tr>
+      <td rowspan="3"><strong>US17</strong></td>
+      <td>T01</td>
+      <td>Mostrar información de contacto visible y accesible</td>
+      <td>4</td>
+      <td>Martel Andrade, Cassius Estefano</td>
+      <td>Done</td>
+    </tr>
+    <tr>
+      <td>T02</td>
+      <td>Crear pantalla de contacto con opciones para registrar ONG o empezar a explorar</td>
+      <td>3</td>
+      <td>Nakamurake Teruya, Alex Tomio</td>
+      <td>Done</td>
+    </tr>
+    <tr>
+      <td>T03</td>
+      <td>Implementar redirección a formulario para registrar ONG con campos e instrucciones claras</td>
+      <td>3</td>
+      <td>Martel Andrade, Cassius Estefano</td>
+      <td>Done</td>
+    </tr> 
+    <tr>
+      <td rowspan="3"><strong>US18</strong></td>
+      <td>T01</td>
+      <td>Diseñar sección de planes y precios clara y atractiva</td>
+      <td>3</td>
+      <td>Nakamurake Teruya, Alex Tomio</td>
+      <td>Done</td>
+    </tr>
+    <tr>
+      <td>T02</td>
+      <td>Implementar visualización de detalles por plan seleccionado</td>
+      <td>4</td>
+      <td>Ortiz Alarcón, Victor Nicolás</td>
+      <td>Done</td>
+    </tr>
+    <tr>
+      <td>T03</td>
+      <td>Añadir opción de contacto o formulario para consultas sobre planes</td>
+      <td>2</td>
+      <td>Ortiz Alarcón, Victor Nicolás</td>
+      <td>Done</td>
+    </tr>
+    <tr>
+      <td rowspan="3"><strong>US19</strong></td>
+      <td>T01</td>
+      <td>Crear endpoint POST para nuevas actividades con validación</td>
+      <td>1</td>
+      <td>Martel Andrade, Cassius Estefano</td>
+      <td>Done</td>
+    </tr>
+    <tr>
+      <td>T02</td>
+      <td>Crear endpoint GET para leer detalles de actividades</td>
+      <td>1</td>
+      <td>Nakamurake Teruya, Alex Tomio</td>
+      <td>Done</td>
+    </tr>
+    <tr>
+      <td>T03</td>
+      <td>Crear endpoint PUT para actualizar actividades</td>
+      <td>1</td>
+      <td>Binda Arbañil, Marcelo Alejandro</td>
+      <td>Done</td>
+    </tr>
+    <tr>
+      <td rowspan="3"><strong>US20</strong></td>
+      <td>T01</td>
+      <td>Crear endpoint POST para registrar voluntarios</td>
+      <td>1</td>
+      <td>Castillo Garay, Ainhoa Lucía</td>
+      <td>Done</td>
+    </tr>
+    <tr>
+      <td>T02</td>
+      <td>Crear endpoint GET para obtener perfil de voluntario</td>
+      <td>1</td>
+      <td>Martel Andrade, Cassius Estefano</td>
+      <td>Done</td>
+    </tr>
+    <tr>
+      <td>T03</td>
+      <td>Crear endpoint PUT para actualizar información del voluntario</td>
+      <td>1</td>
+      <td>Nakamurake Teruya, Alex Tomio</td>
+      <td>Done</td>
+    </tr>
+    <tr>
+      <td rowspan="4"><strong>US21</strong></td>
+      <td>T01</td>
+      <td>Crear endpoint POST para inscripción en actividades</td>
+      <td>1</td>
+      <td>Binda Arbañil, Marcelo Alejandro</td>
+      <td>Done</td>
+    </tr>
+    <tr>
+      <td>T02</td>
+      <td>Crear endpoint GET para listar voluntarios inscritos</td>
+      <td>1</td>
+      <td>Castillo Garay, Ainhoa Lucía</td>
+      <td>Done</td>
+    </tr>
+    <tr>
+      <td>T03</td>
+      <td>Crear endpoint PUT para registrar asistencia</td>
+      <td>1</td>
+      <td>Ortiz Alarcón, Victor Nicolás</td>
+      <td>Done</td>
+    </tr>
+    <tr>
+      <td>T04</td>
+      <td>Crear endpoint DELETE para eliminar inscripción</td>
+      <td>1</td>
+      <td>Ortiz Alarcón, Victor Nicolás</td>
+      <td>Done</td>
+    </tr>
+    <tr>
+      <td rowspan="3"><strong>US22</strong></td>
+      <td>T01</td>
+      <td>Implementar vista de lista de voluntarios con información relevante</td>
+      <td>3</td>
+      <td>Martel Andrade, Cassius Estefano</td>
+      <td>Done</td>
+    </tr>
+    <tr>
+      <td>T02</td>
+      <td>Añadir funcionalidades de búsqueda y filtrado en la lista de voluntarios</td>
+      <td>2</td>
+      <td>Nakamurake Teruya, Alex Tomio</td>
+      <td>Done</td>
+    </tr>
+    <tr>
+      <td>T03</td>
+      <td>Mostrar detalles y opciones de gestión para voluntarios</td>
+      <td>2</td>
+      <td>Martel Andrade, Cassius Estefano</td>
+      <td>Done</td>
+    </tr>
+    <tr>
+      <td rowspan="2"><strong>US23</strong></td>
+      <td>T01</td>
+      <td>Crear vista de calendario interactivo para actividades</td>
+      <td>3</td>
+      <td>Nakamurake Teruya, Alex Tomio</td>
+      <td>Done</td>
+    </tr>
+    <tr>
+      <td>T02</td>
+      <td>Implementar función para agregar nueva actividad desde el calendario</td>
+      <td>3</td>
+      <td>Binda Arbañil, Marcelo Alejandro</td>
+      <td>Done</td>
+    </tr>
+    <tr>
+      <td rowspan="3"><strong>US24</strong></td>
+      <td>T01</td>
+      <td>Implementar redirección al dashboard tras login</td>
+      <td>2</td>
+      <td>Castillo Garay, Ainhoa Lucía</td>
+      <td>Done</td>
+    </tr>
+    <tr>
+      <td>T02</td>
+      <td>Mostrar próximas actividades programadas en dashboard</td>
+      <td>3</td>
+      <td>Martel Andrade, Cassius Estefano</td>
+      <td>Done</td>
+    </tr>
+    <tr>
+      <td>T03</td>
+      <td>Agregar botones de acción rápida (crear actividad, etc.)</td>
+      <td>3</td>
+      <td>Nakamurake Teruya, Alex Tomio</td>
+      <td>Done</td>
+    </tr>
   </tbody>
 </table>
 
