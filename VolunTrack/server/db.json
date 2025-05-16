@@ -1157,20 +1157,27 @@
       "pfp": "https://i.imgur.com/K9hEj0v.jpg",
       "plan": "Premium",
       "banner": "https://i.imgur.com/UtsAyzE.jpg",
-      "description": "soyese, cree voluntariadoas desde hace 204 años, yo fui el fundador de las ongs, yo cree la onu."
+      "description": "soyese, cree voluntariadoas desde hace 204 años, yo fui el fundador de las ongs, yo cree la onu.",
+      "language": "English",
+      "notifications": "All",
+      "timezone": "GMT-4",
+      "inscriptions": "Automatic"
+    },
+    {
+      "id": "6fbe",
+      "username": "TOmio",
+      "password": "a",
+      "email": "a@a.com",
+      "phone": "999888777",
+      "pfp": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQCiW5pVbw2nkJUAWRa2PeHDuIa7ddJIshVeQ&s",
+      "plan": "basic",
+      "banner": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQCiW5pVbw2nkJUAWRa2PeHDuIa7ddJIshVeQ&s",
+      "description": "PIZZA",
+      "language": "English",
+      "notifications": "All",
+      "timezone": "GMT-5",
+      "inscriptions": "Automatic"
     }
   ],
-  "userlogin": [
-    {
-      "id": "8b6c",
-      "username": "e",
-      "password": "a",
-      "email": "chicos@gmai.com",
-      "phone": "123123123",
-      "pfp": "https://i.imgur.com/K9hEj0v.jpg",
-      "plan": "Premium",
-      "banner": "https://i.imgur.com/UtsAyzE.jpg",
-      "description": "soyese, cree voluntariadoas desde hace 204 años, yo fui el fundador de las ongs, yo cree la onu."
-    }
-  ]
+  "userlogin": []
 }

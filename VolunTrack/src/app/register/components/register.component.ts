@@ -53,6 +53,10 @@ export class RegisterComponent {
         plan: 'basic',
         banner: this.banner,
         description: this.description,
+        language: 'English',
+        notifications: 'All',
+        timezone: 'GMT-5',
+        inscriptions: 'Automatic'
       };
 
       this.http.post('http://localhost:3000/users', newUser).subscribe({
