@@ -1,1 +1,15 @@
-<p>logfin works!</p>
+<div class="login-container">
+  <h2>Login</h2>
+  <div>
+    <label>Username:</label>
+    <input [(ngModel)]="username" type="text" />
+  </div>
+  <div>
+    <label>Password:</label>
+    <input [(ngModel)]="password" type="password" />
+  </div>
+  <div>
+    <button (click)="handleLogin()">Login</button>
+    <button (click)="goToRegister()">Go to Register</button>
+  </div>
+</div>

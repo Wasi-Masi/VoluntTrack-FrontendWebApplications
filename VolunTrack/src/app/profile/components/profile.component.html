@@ -1,1 +1,64 @@
-<p>profile works!</p>
+<div class="profile-container">
+  <h1 class="title">Mi Perfil</h1>
+
+  <div class="banner">
+    <img class="cover" [src]="user?.banner" alt="Banner">
+    <div class="profile-icon-wrapper">
+      <img class="profile-icon" [src]="user?.pfp" alt="Icono">
+    </div>
+    <div class="description-box">
+      <strong>Descripción:</strong>
+      <div *ngIf="!editMode">
+        <p>{{ user?.description }}</p>
+      </div>
+      <div *ngIf="editMode">
+        <textarea [(ngModel)]="editedUser.description"></textarea>
+      </div>
+    </div>
+  </div>
+
+  <div class="profile-content">
+    <div class="personal-info">
+      <h3>Información Personal</h3>
+
+      <p><strong>Nombre de Usuario:</strong>
+        <span *ngIf="!editMode">{{ user?.username }}</span>
+        <input *ngIf="editMode" [(ngModel)]="editedUser.username">
+      </p>
+
+      <p><strong>Correo electrónico:</strong>
+        <span *ngIf="!editMode">{{ user?.email }}</span>
+        <input *ngIf="editMode" [(ngModel)]="editedUser.email">
+      </p>
+
+      <p><strong>Contraseña:</strong>
+        <span *ngIf="!editMode">**********</span>
+        <input *ngIf="editMode" type="password" [(ngModel)]="editedUser.password">
+      </p>
+
+      <p><strong>Número de teléfono:</strong>
+        <span *ngIf="!editMode">{{ user?.phone }}</span>
+        <input *ngIf="editMode" [(ngModel)]="editedUser.phone">
+      </p>
+
+      <p><strong>Plan:</strong>
+        <span *ngIf="!editMode">{{ user?.plan }}</span>
+        <select *ngIf="editMode" [(ngModel)]="editedUser.plan">
+          <option value="Gratis">Gratis</option>
+          <option value="Premium">Premium</option>
+        </select>
+      </p>
+
+      <div class="button-group">
+        <button *ngIf="!editMode" class="edit-btn" (click)="toggleEdit()">✏️ Editar detalles</button>
+        <div *ngIf="editMode">
+          <button class="edit-btn" (click)="saveChanges()">💾 Guardar</button>
+          <button class="logout-btn" (click)="cancelEdit()">❌ Cancelar</button>
+        </div>
+        <button class="logout-btn" (click)="logout()">⛔ Cerrar Sesión</button>
+      </div>
+    </div>
+
+    <!-- Configuración omitida por brevedad -->
+  </div>
+</div>

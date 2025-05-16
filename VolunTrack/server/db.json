@@ -1,7 +1,7 @@
 {
   "activities": [
     {
-      "id": 1,
+      "id": "1",
       "title": "Beach Cleanup",
       "description": "Join us for a community-led beach cleanup aimed at preserving our coastal environment. Together, we'll collect litter, remove plastic waste, and learn about the impact of pollution on marine life. It's a great way to contribute to a cleaner ocean and connect with others who care about the planet.",
       "instructions": [
@@ -34,10 +34,9 @@
       "address": "Lima, Peru",
       "inscriptionsCount": 42,
       "inscriptionsOpen": true
-
     },
     {
-      "id": 2,
+      "id": "2",
       "title": "Park Reforestation",
       "description": "Help us restore green spaces in the city by planting trees and native plants. This initiative supports biodiversity, improves air quality, and enhances the beauty of our public parks. No previous experience needed—just a love for nature!",
       "instructions": [
@@ -66,7 +65,7 @@
       "inscriptionsOpen": true
     },
     {
-      "id": 3,
+      "id": "3",
       "title": "Community Fitness",
       "description": "Start your day with an energizing group workout in the park! This free fitness session is open to all ages and abilities, focused on promoting healthy lifestyles through fun, inclusive exercise routines. Meet your neighbors and get moving together.",
       "instructions": [
@@ -95,7 +94,7 @@
       "inscriptionsOpen": false
     },
     {
-      "id": 4,
+      "id": "4",
       "title": "Food Drive",
       "description": "Help us support families in need by donating non-perishable food items. All contributions will be distributed to local shelters and community kitchens. Together, we can fight hunger and make a real difference.",
       "instructions": [
@@ -124,7 +123,7 @@
       "inscriptionsOpen": true
     },
     {
-      "id": 5,
+      "id": "5",
       "title": "Street Art Festival",
       "description": "Celebrate urban creativity at our Street Art Festival! Watch live mural painting, meet local artists, enjoy music, and discover how art transforms public spaces into vibrant community stories. All ages welcome!",
       "instructions": [
@@ -153,7 +152,7 @@
       "inscriptionsOpen": true
     },
     {
-      "id": 6,
+      "id": "6",
       "title": "Recycling Education",
       "description": "Join our full-day Recycling Education event and learn how to reduce, reuse, and recycle effectively. Through talks, workshops, and interactive displays, you'll discover practical ways to live more sustainably and protect the environment.",
       "instructions": [
@@ -182,7 +181,7 @@
       "inscriptionsOpen": true
     },
     {
-      "id": 7,
+      "id": "7",
       "title": "Clothing Donation and Sorting",
       "description": "Help us collect and organize donated clothes for people in need. Volunteers will sort items by size, season, and condition to prepare them for distribution. Every item donated brings comfort and dignity to someone else.",
       "instructions": [
@@ -211,7 +210,7 @@
       "inscriptionsOpen": true
     },
     {
-      "id": 8,
+      "id": "8",
       "title": "Charity Run",
       "description": "Take part in a fun run to raise funds for local charities. Whether you jog, run, or walk, your participation helps support important community causes. Enjoy music, refreshments, and a great community spirit.",
       "instructions": [
@@ -240,7 +239,7 @@
       "inscriptionsOpen": true
     },
     {
-      "id": 9,
+      "id": "9",
       "title": "Animal Shelter Volunteering",
       "description": "Volunteer at a local animal shelter and make a difference in the lives of rescued animals. You'll help with feeding, cleaning, and socializing with pets awaiting adoption. Great for animal lovers who want to give back.",
       "instructions": [
@@ -269,7 +268,7 @@
       "inscriptionsOpen": false
     },
     {
-      "id": 10,
+      "id": "10",
       "title": "Language Teaching for Kids",
       "description": "Support young learners by teaching them basic language skills through games, stories, and interactive lessons. Volunteers will work in small groups to help kids improve their speaking and understanding abilities in a fun, encouraging environment.",
       "instructions": [
@@ -298,7 +297,7 @@
       "inscriptionsOpen": true
     },
     {
-      "id": 11,
+      "id": "11",
       "title": "After-School Tutoring",
       "description": "Volunteer as a tutor to help students with their homework, reading, or math after school. This is a chance to support children's education and make learning more accessible and enjoyable in a safe, supervised setting.",
       "instructions": [
@@ -326,5 +325,19 @@
       "inscriptionsCount": 35,
       "inscriptionsOpen": false
     }
-  ]
+  ],
+  "users": [
+    {
+      "id": "8b6c",
+      "username": "chicos",
+      "password": "chi",
+      "email": "chicos@gmai.com",
+      "phone": "123123123",
+      "pfp": "https://i.imgur.com/K9hEj0v.jpg",
+      "plan": "Premium",
+      "banner": "https://i.imgur.com/UtsAyzE.jpg",
+      "description": "soyese"
+    }
+  ],
+  "userlogin": []
 }
