@@ -1146,5 +1146,19 @@
       "message": "Has enviado correctamente un correo al voluntario seleccionado.",
       "createdAt": "2025-05-16T11:47:19.886Z"
     }
-  ]
+  ],
+  "users": [
+    {
+      "id": "8b6c",
+      "username": "e",
+      "password": "a",
+      "email": "chicos@gmai.com",
+      "phone": "123123123",
+      "pfp": "https://i.imgur.com/K9hEj0v.jpg",
+      "plan": "Premium",
+      "banner": "https://i.imgur.com/UtsAyzE.jpg",
+      "description": "soyese"
+    }
+  ],
+  "userlogin": []
 }

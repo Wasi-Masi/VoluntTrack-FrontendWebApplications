@@ -7,8 +7,6 @@
     <list default="true" id="32d7f7b8-0dc4-4ad3-b13e-38150f113ef0" name="Changes" comment="add to gitignore">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/VolunTrack/server/db.json" beforeDir="false" afterPath="$PROJECT_DIR$/VolunTrack/server/db.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/VolunTrack/src/app/calendar/components/calendar.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/VolunTrack/src/app/calendar/components/calendar.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/VolunTrack/src/app/calendar/components/calendar.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/VolunTrack/src/app/calendar/components/calendar.component.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,7 +27,7 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "feature/calendar",
+    "git-widget-placeholder": "develop",
     "last_opened_file_path": "C:/Users/alext/appweb/FitManager",
     "node.js.detected.package.eslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
