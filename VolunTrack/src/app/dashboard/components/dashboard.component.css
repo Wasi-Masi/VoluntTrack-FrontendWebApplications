@@ -1,4 +1,3 @@
-
 .dashboard-header {
   display: flex;
   justify-content: space-between;
@@ -32,7 +31,8 @@
 .dashboard-card {
   padding: 20px;
   border-radius: 8px;
-  background-color: rgba(155, 208, 223, 0.5); /* 50% opacity */
+  background-color: rgba(155, 208, 223, 0.5);
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.25);
   max-width: 90%;
   width: 100%;
   margin: 0 auto;
