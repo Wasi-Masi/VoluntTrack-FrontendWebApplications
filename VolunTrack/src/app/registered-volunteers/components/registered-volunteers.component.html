@@ -53,11 +53,11 @@
           </ng-container>
 
           <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-          <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
-        </table>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns" (click)="selectVolunteer(row)"
+              [class.selected]="selectedVolunteer === row" style="cursor: pointer;"></tr>        </table>
 
         <!-- Paginador -->
-        <mat-paginator [pageSizeOptions]="[5]" showFirstLastButtons></mat-paginator>
+        <mat-paginator [pageSizeOptions]="[7]" showFirstLastButtons></mat-paginator>
 
         <!-- Mensaje cuando no hay datos -->
         <p *ngIf="dataSource.data.length === 0">
@@ -73,7 +73,7 @@
         <mat-icon style="margin-right: 8px;">notifications_active</mat-icon>
         Enviar notificación
       </button>
-      <p style="margin: 0 0 12px 36px; font-size: 0.9rem; color: rgba(0,0,0,0.6);">
+      <p style=" font-size: 0.9rem; color: rgba(0,0,0,0.6);">
         Toca aquí para enviar un mensaje a los voluntarios de esta actividad. Útil para compartir información o recordatorios.
       </p>
 
@@ -82,7 +82,7 @@
         <mat-icon style="margin-right: 8px;">check_circle</mat-icon>
         Marcar asistencia
       </button>
-      <p style="margin: 0 0 12px 36px; font-size: 0.9rem; color: rgba(0,0,0,0.6);">
+      <p style=" font-size: 0.9rem; color: rgba(0,0,0,0.6);">
         Presiona para registrar quiénes asistieron hoy a la actividad. ¡Lleva un control fácil!
       </p>
 
@@ -91,7 +91,7 @@
         <mat-icon style="margin-right: 8px;">emoji_events</mat-icon>
         Crear certificados
       </button>
-      <p style="margin: 0 0 12px 36px; font-size: 0.9rem; color: rgba(0,0,0,0.6);">
+      <p style=" font-size: 0.9rem; color: rgba(0,0,0,0.6);">
         ¿Quieres reconocer a tus voluntarios? Toca para generar certificados de participación.
       </p>
 
@@ -100,9 +100,47 @@
         <mat-icon style="margin-right: 8px;">person_add</mat-icon>
         Abrir inscripciones
       </button>
-      <p style="margin: 0 0 0 36px; font-size: 0.9rem; color: rgba(0,0,0,0.6);">
+      <p style=" font-size: 0.9rem; color: rgba(0,0,0,0.6);">
         ¿Necesitas más voluntarios? Presiona para permitir que más personas se unan a esta actividad.
       </p>
     </div>
+
+    <mat-card class="volunteer-details-panel mat-elevation-z2" *ngIf="selectedVolunteer; else noVolunteer">
+      <mat-card-header>
+        <div mat-card-avatar class="volunteer-avatar">
+          <img *ngIf="selectedVolunteer.photoUrl; else defaultAvatar" [src]="selectedVolunteer.photoUrl" alt="Foto perfil" />
+          <ng-template #defaultAvatar>
+            <mat-icon>person</mat-icon>
+          </ng-template>
+        </div>
+        <mat-card-title>{{ selectedVolunteer.fullName }}</mat-card-title>
+        <mat-card-subtitle>{{ selectedVolunteer.registration?.status | titlecase }}</mat-card-subtitle>
+      </mat-card-header>
+
+      <mat-card-content>
+        <p><strong>Asistencia:</strong> {{ selectedVolunteer.registration?.attendance ? 'Sí' : 'No' }}</p>
+      </mat-card-content>
+
+      <mat-card-actions>
+        <button mat-stroked-button color="primary" (click)="toggleRegistrationStatus()">
+          Cambiar estado de inscripción
+        </button>
+        <button mat-stroked-button color="accent" (click)="toggleAttendance()">
+          Marcar asistencia
+        </button>
+      </mat-card-actions>
+    </mat-card>
+
+    <!-- Mensaje si no hay voluntario seleccionado -->
+    <ng-template #noVolunteer>
+      <mat-card class="volunteer-details-panel mat-elevation-z1">
+        <mat-card-content style="text-align: center; padding: 30px;">
+          <mat-icon style="font-size: 48px; color: rgba(0,0,0,0.2);">person_outline</mat-icon>
+          <p style="margin-top: 16px; font-size: 1rem; color: rgba(0,0,0,0.5);">
+            Selecciona un voluntario para ver su información
+          </p>
+        </mat-card-content>
+      </mat-card>
+    </ng-template>
   </div>
 </div>

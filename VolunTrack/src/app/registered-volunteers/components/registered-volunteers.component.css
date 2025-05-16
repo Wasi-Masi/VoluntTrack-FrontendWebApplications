@@ -1,27 +1,57 @@
-.details-header {
-  display: flex;
-  justify-content: space-between;
-  margin: 20px auto;
-  background-color: #f9f9f9;
-  height: auto;
-  max-width: 90%;
-
+/* Contenedor header con botones */
+:root {
+  --color-primary: #3C9FB9;        /* Azul principal */
+  --color-primary-light: #9BD0DF;  /* Azul claro */
+  --color-secondary: #4E9CAC;      /* Azul medio */
+  --color-accent: #0C7987;         /* Azul acento */
+  --color-dark: #24344C;           /* Azul oscuro */
+  --color-gray-light: #f5f5f5;
+  --color-gray-border: #ccc;
+  --color-text-muted: rgba(0, 0, 0, 0.6);
+  --color-row-hover: rgba(0, 123, 255, 0.1);
+  --color-row-selected: rgba(0, 123, 255, 0.2);
 }
 
 
+.volunteers-panel {
+  height: auto;
+}
+
+.details-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 20px auto;
+  background-color: #f9f9f9;
+  padding: 12px 20px;
+  max-width: 90%;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(36, 52, 76, 0.1);
+  box-sizing: border-box;
+}
+
+.details-header .the-buttons {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
 .details-header button {
-  color: black;
+  color: #24344C;
   border: 2px solid #24344C;
   background-color: transparent;
   display: flex;
   align-items: center;
-  transition: color 0.3s ease, transform 0.3s ease, background-color 0.3s ease, border 0.3s ease;
   vertical-align: middle;
   font-size: 16px;
   border-radius: 16px;
+  transition:
+    color 0.3s ease,
+    transform 0.3s ease,
+    background-color 0.3s ease,
+    border-color 0.3s ease;
+  cursor: pointer;
 }
-
-
 
 .details-header button:hover {
   color: #24344C;
@@ -34,46 +64,127 @@
   font-weight: bolder;
   background-color: #24344C;
   border-color: #24344C;
+  outline: none;
 }
-
-.details-header .the-buttons {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
+/* Contenedor principal */
 .details-container {
   display: flex;
+  flex-wrap: wrap;
   gap: 30px;
   max-width: 90%;
-  height: 55%;
   margin: 20px auto;
   padding: 20px;
   background-color: #9BD0DF50;
   border-radius: 16px;
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
-
+  box-sizing: border-box;
 }
 
+/* Subcontenedor de paneles */
 .details-subpanels {
   display: flex;
   width: 100%;
-  flex-direction: row;
+  flex-wrap: wrap;
+  flex: 1;
   gap: 20px;
-  margin-top: 16px;
+  box-sizing: border-box;
 }
 
+/* Panel tabla voluntarios */
 .volunteers-table-subpanel {
+  flex: 2;
   display: flex;
   flex-direction: column;
-  height: 100%;
+  overflow-x: auto;
+  box-sizing: border-box;
+
 }
 
+/* Panel de acciones */
 .volunteers-actions-subpanel {
-  flex: 1;
-  min-width: 200px;
   background-color: #f5f5f5;
-  padding: 16px;
+  flex:1;
+  padding: 24px 20px;
   border-radius: 8px;
   border: 1px solid #ccc;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: left;
+  gap: 20px;
+  justify-content: center;
+}
+
+/* Botones dentro del panel de acciones */
+.volunteers-actions-subpanel button {
+  width: 100%;
+  max-width: 200px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+/* Tablas Angular Material */
+table.mat-table {
+  width: 100%;
+  min-width: 400px;
+  table-layout: auto;
+}
+
+/* Texto en panel de acciones */
+.volunteers-actions-subpanel p {
+  font-size: 0.9rem;
+  color: rgba(0, 0, 0, 0.6);
+  line-height: 1.3;
+  text-align: center;
+  margin: 0;
+}
+
+/* Responsive: apilar en pantallas pequeñas */
+@media (max-width: 800px) {
+  .details-subpanels {
+    flex-direction: column;
+  }
+
+  .volunteers-table-subpanel,
+  .volunteers-actions-subpanel {
+    flex-basis: 100% !important;
+    max-width: 100% !important;
+  }
+}
+
+.volunteer-details-panel {
+  flex: 1;
+  min-width: 280px;
+  max-width: 320px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.volunteer-avatar {
+  background-color: #e0e0e0;
+  border-radius: 50%;
+  overflow: hidden;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.volunteer-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+tr.selected {
+  background-color: rgba(0, 123, 255, 0.2); /* azul claro */
+  cursor: pointer;
+}
+tr:hover {
+  background-color: rgba(0, 123, 255, 0.1);
+  cursor: pointer;
 }

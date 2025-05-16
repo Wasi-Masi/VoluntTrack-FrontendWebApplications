@@ -1,16 +1,17 @@
+
 <!-- HEADER -->
 <div class="details-header" *ngIf="activity">
-  <div class="the-buttons">
+  <div class="the-buttons" *ngIf="activity">
     <button mat-icon-button  [routerLink]="['/dashboard']" matTooltip="Back to Dashboard">
       <mat-icon>arrow_back</mat-icon>
     </button>
-    <button mat-button >Details</button>
+    <button mat-button [routerLink]="['/activity', activity.id]">Details</button>
+
     <button mat-button [routerLink]="['/registered', activity.id]" >Registered Volunteers</button>
     <button mat-icon-button>
       <mat-icon>edit</mat-icon>
     </button>
   </div>
-
 </div>
 
 <!-- MAIN PANEL -->

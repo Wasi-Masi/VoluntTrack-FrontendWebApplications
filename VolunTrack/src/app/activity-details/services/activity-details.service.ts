@@ -12,7 +12,8 @@ export class ActivityDetailsService {
 
   constructor(private http: HttpClient) {}
 
-  getActivityById(id: number): Observable<Activity> {
+  getActivityById(id: string): Observable<Activity> {
     return this.http.get<Activity>(`${this.apiUrl}/${id}`);
   }
+
 }
