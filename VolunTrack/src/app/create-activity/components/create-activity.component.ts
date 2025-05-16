@@ -51,7 +51,9 @@ export class CreateActivityComponent {
       .map(url => url.trim())
       .filter(url => url.length > 0);
 
+
     this.createService.getActivities().subscribe(existingActivities => {
+
       const maxId = existingActivities.length > 0
         ? Math.max(...existingActivities.map(a => a.id))
         : 0;
@@ -71,13 +73,14 @@ export class CreateActivityComponent {
           .filter(line => line.length > 0),
         dashboardPicture: pictures[0] || '',
         pictures: pictures
-      }
+      };
 
       this.createService.createActivity(newActivity).subscribe(() => {
         this.router.navigate(['/dashboard']);
       });
     });
   }
+
 
   discard() {
     this.router.navigate(['/dashboard']);
