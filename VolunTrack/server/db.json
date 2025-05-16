@@ -324,6 +324,32 @@
       "address": "Lima Art Gallery",
       "inscriptionsCount": 35,
       "inscriptionsOpen": false
+    },
+    {
+      "id": "12",
+      "title": "Adoptemos gatitos !!",
+      "dashboardPicture": "https://i.imgur.com/WFUvBSK.jpg",
+      "pictures": [
+        "https://i.imgur.com/WFUvBSK.jpg",
+        "https://i.imgur.com/wNet0D1.jpg",
+        "https://i.imgur.com/S8eNmIN.jpg"
+      ],
+      "date": "2025-05-20",
+      "startTime": "08:00",
+      "endTime": "23:00",
+      "address": "Parque Kennedy, Miraflores",
+      "description": "Vengan a adoptar gatitos !!",
+      "instructions": [
+        "1. Ir al Parque Kennedy",
+        "2. Adoptar",
+        "3. Llevarlos a casa",
+        "4. Amarlos !!!"
+      ],
+      "purpose": [
+        "El propósito es que los gatitos consigan casita <3"
+      ],
+      "inscriptionCount": 0,
+      "isInscriptionOpen": true
     }
   ],
   "volunteers": [
@@ -1070,5 +1096,12 @@
       ]
     }
   ],
-  "notifications": []
+  "notifications": [
+    {
+      "id": "1",
+      "title": "Actividad creada",
+      "message": "Has creado una nueva actividad de voluntariado. ¡Comparte para sumar voluntarios!",
+      "createdAt": "2025-05-16T09:38:12.788Z"
+    }
+  ]
 }

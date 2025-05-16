@@ -7,6 +7,7 @@ import { Activity } from '../../dashboard/model/dashboard.entity';
 import {MatButton} from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { CreateActivityService } from '../services/create-activity.service';
+import { NotificationsService} from '../../notifications/services/notifications.service';
 
 @Component({
   selector: 'app-create-activity',
@@ -43,7 +44,11 @@ export class CreateActivityComponent {
   purpose: string = '';
   picturesInput: string = '';
 
-  constructor(private createService: CreateActivityService, private router: Router) {}
+  constructor(
+    private createService: CreateActivityService,
+    private router: Router,
+    private notificationsService: NotificationsService,
+  ) {}
 
   onSubmit() {
     const pictures = this.picturesInput
@@ -75,6 +80,9 @@ export class CreateActivityComponent {
       };
 
       this.createService.createActivity(newActivity).subscribe(() => {
+        this.notificationsService.createTypedNotification('new-activity').subscribe(() => {
+          window.dispatchEvent(new Event('openNotifications'));
+        });
         this.router.navigate(['/dashboard']);
       });
     });
