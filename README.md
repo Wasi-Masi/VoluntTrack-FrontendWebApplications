@@ -136,7 +136,15 @@ Como se puede ver, todos hemos participado en los commits del readme. Si bien pa
       - [5.2.1.6. Services Documentation Evidence for Sprint Review](#5216-services-documentation-evidence-for-sprint-review)
       - [5.2.1.7. Software Deployment Evidence for Sprint Review](#5217-software-deployment-evidence-for-sprint-review)
       - [5.2.1.8. Team Collaboration Insights during Sprint](#5218-team-collaboration-insights-during-sprint)
-
+    + [5.2.2. Sprint 2](#522-sprint-2)
+      - [5.2.2.1. Sprint Planning 2](#5221-sprint-planning-2)
+      - [5.2.2.2. Aspect Leaders and Collaborators](#5222-aspect-leaders-and-collaborators)
+      - [5.2.2.3. Sprint Backlog 2](#5223-sprint-backlog-2)
+      - [5.2.2.4. Development Evidence for Sprint Review](#5224-development-evidence-for-sprint-review)
+      - [5.2.2.5. Execution Evidence for Sprint Review](#5225-execution-evidence-for-sprint-review)
+      - [5.2.2.6. Services Documentation Evidence for Sprint Review](#5226-services-documentation-evidence-for-sprint-review)
+      - [5.2.2.7. Software Deployment Evidence for Sprint Review](#5227-software-deployment-evidence-for-sprint-review)
+      - [5.2.2.8. Team Collaboration Insights during Sprint](#5228-team-collaboration-insights-during-sprint)
 - [Conclusiones](#conclusiones)
   
 - [Recomendaciones](#recomendaciones)
@@ -2864,6 +2872,28 @@ Este ajuste posibilitó que nuestra aplicación accediera a los datos de forma r
 </p>
 <p align="center"><strong>Figura 169.</strong> Proceso de inicialización del hosting en Firebase CLI.</p>
 
+### 5.2.2.8. Team Collaboration Insights during Sprint
+
+Durante este Sprint, el equipo se centró en la implementación de las funcionalidades clave del frontend para la aplicación web de VolunTrack, utilizando Angular como el marco principal de desarrollo. Se trabajó en la creación de interfaces de usuario intuitivas y en la integración de diversas funcionalidades, como la visualización del dashboard de actividades y la visualización de voluntarios pertenecientes a una actividad. Además, se desarrollaron pantallas esenciales para la experiencia del usuario, tales como la sección de calendario y notificaciones.
+
+#### Actividades de implementación:
+- La interfaz de usuario fue implementada con base en los diseños realizados en Figma, aplicando los estilos y flujos definidos de forma fluida y coherente.
+
+- Utilizando Angular, se desarrollaron estructuras dinámicas mediante componentes reutilizables que permiten gestionar el estado de la interfaz de manera eficiente y escalable.
+
+- Se integró Angular Router para la navegación fluida entre las distintas secciones de la plataforma, y se utilizaron servicios para manejar el estado compartido entre componentes, facilitando la futura integración con funcionalidades de backend.
+
+#### Colaboradores en el repositorio:
+
+<p align="center">
+  <img src="./assets/colaboradores.png" alt="Colaboradores repositorio" width="700">
+</p>
+<p align="center"><strong>Figura 170.</strong> Participación de miembros del equipo en los commits del repositorio principal del frontend.</p>
+
+#### Histograma de contribuciones en el tiempo:
+[Ver histograma en Google Drive](https://drive.google.com/drive/folders/1R20lekxhffWaysbl4PmnwoOmCMK34kw_?usp=sharing)
+
+
 ## Conclusiones
 
 El trabajo parcial realizado en el proyecto **VolunTrack** representó un avance sustancial en la materialización de la plataforma destinada a facilitar la gestión de ONGs y la conexión con voluntarios. Durante esta etapa, el equipo logró desarrollar una aplicación web funcional que cumple con los requerimientos básicos planteados inicialmente, permitiendo la gestión eficiente de información y procesos relacionados con las organizaciones no gubernamentales. Esta creación de una aplicación operativa marca un hito importante, ya que traduce en un producto tangible las ideas y diseños elaborados en fases previas del proyecto.
@@ -2930,3 +2960,9 @@ VolunTrack. https://www.pivotaltracker.com/n/projects/2740950
 Anexo E. Lean UX Canvas
 
 VolunTrack Lean UX Canvas. https://drive.google.com/file/d/1uj3f76zZgQNJNxdLU8cLH2YIALPgiF-v/view
+
+Anexo F. Link del video del trabajo parcial. https://upcedupe-my.sharepoint.com/:v:/g/personal/u202312899_upc_edu_pe/EWyLn5yGgVpKlOwTOisrjtoBvD2i2tt2XV2s3nlWKXieLQ?e=yBzOfA&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D
+
+Anexo G. Link del video del Sprint 2 Review. https://drive.google.com/file/d/1pp985R2apsaa4qa8KcvP_UM9SSYTLKDV/view?usp=sharing
+
+Anexo H. Link del Web Application. https://voluntrackbywasimasi.netlify.app/ 
