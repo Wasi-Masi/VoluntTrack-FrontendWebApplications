@@ -1,5 +1,6 @@
-
-.dashboard-header {
+/* Encabezado del dashboard o voluntarios */
+.dashboard-header,
+.volunteers-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -10,13 +11,15 @@
   margin: 0 auto;
 }
 
-.dashboard-header h2 {
+.dashboard-header h2,
+.volunteers-header h2 {
   margin: 0;
   font-size: 32px;
   color: #0C7987;
   font-weight: bolder;
 }
 
+/* Botones del encabezado */
 .dashboard-actions button {
   color: #3C9FB9;
   border: none;
@@ -29,25 +32,25 @@
   color: #3C9FB9;
 }
 
-.dashboard-card {
+/* Tarjeta contenedora principal */
+.dashboard-card,
+.volunteers-card {
   padding: 20px;
   border-radius: 8px;
-  background-color: rgba(155, 208, 223, 0.5); /* 50% opacity */
+  background-color: rgba(155, 208, 223, 0.5);
   max-width: 90%;
   width: 100%;
   margin: 0 auto;
-  height: 75%; /* Full height minus header */
-  overflow: hidden;
   box-sizing: border-box;
+  overflow-y: auto;
 }
 
+/* Actividades */
 .activities-container {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   gap: 30px;
-  overflow-y: auto;
   padding: 20px;
-  height: 100%;
   box-sizing: border-box;
   justify-content: center;
 }
@@ -103,28 +106,21 @@
   color: #3C9FB9;
 }
 
-/* Responsive Design */
-@media (max-width: 1400px) {
-  .activities-container {
-    grid-template-columns: repeat(4, 1fr);
-  }
+/* Voluntarios - filtros y tabla */
+.volunteers-search-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: 20px;
 }
 
-@media (max-width: 1000px) {
-  .activities-container {
-    grid-template-columns: repeat(3, 1fr);
-  }
+/* Tabla responsive */
+table {
+  width: 100%;
+  border-spacing: 0;
 }
 
-@media (max-width: 600px) {
-  .activities-container {
-    grid-template-columns: repeat(2, 1fr);
-  }
+.mat-header-cell,
+.mat-cell {
+  padding: 8px 16px;
 }
-
-@media (max-width: 400px) {
-  .activities-container {
-    grid-template-columns: 1fr;
-  }
-}
-

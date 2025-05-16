@@ -1,10 +1,70 @@
 <div class="volunteers-header">
   <h2>My Volunteers</h2>
-
 </div>
 
 <div class="volunteers-card">
-  <div class="volunteers-container">
-    <p>hola</p>
+
+  <!-- ✅ Campo de búsqueda visible siempre -->
+  <div class="volunteers-search-always">
+    <mat-form-field appearance="outline" style="width: 300px;"> <!-- Ajusta el ancho si lo deseas -->
+      <mat-label>Buscar por nombre</mat-label>
+      <input matInput [(ngModel)]="searchText" (input)="applyFilters()" placeholder="Escribe un nombre..." />
+    </mat-form-field>
+
+    <!-- ✅ Botón para mostrar/ocultar filtros -->
+    <button mat-stroked-button (click)="toggleFilters()" color="primary">Filtros</button>
   </div>
+
+  <!-- ✅ Filtros adicionales ocultos por defecto -->
+  <div class="volunteers-search-filters" *ngIf="showFilters" style="margin-top: 1rem;"> <!-- contenedor visible condicionalmente -->
+    <mat-form-field appearance="outline">
+      <mat-label>Edad mínima</mat-label>
+      <input matInput type="number" [(ngModel)]="minAge" (input)="applyFilters()" />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Edad máxima</mat-label>
+      <input matInput type="number" [(ngModel)]="maxAge" (input)="applyFilters()" />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Estado</mat-label>
+      <mat-select [(ngModel)]="statusFilter" (selectionChange)="applyFilters()">
+        <mat-option value="">Todos</mat-option>
+        <mat-option value="activo">Activo</mat-option>
+        <mat-option value="inactivo">Inactivo</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Registrado desde</mat-label>
+      <input matInput [matDatepicker]="picker" [(ngModel)]="registrationDateFilter" (dateChange)="applyFilters()" />
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+  </div>
+
+  <!-- ✅ Tabla con tamaño fijo sin scroll interno -->
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" style="min-height: 350px;"> <!-- altura fija -->
+    <ng-container matColumnDef="fullName">
+      <th mat-header-cell *matHeaderCellDef> Nombre </th>
+      <td mat-cell *matCellDef="let volunteer"> {{ volunteer.fullName }} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="age">
+      <th mat-header-cell *matHeaderCellDef> Edad </th>
+      <td mat-cell *matCellDef="let volunteer"> {{ volunteer.age }} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="profession">
+      <th mat-header-cell *matHeaderCellDef> Profesión </th>
+      <td mat-cell *matCellDef="let volunteer"> {{ volunteer.profession }} </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+
+  <!-- ✅ Paginador fuera de tabla, controla la paginación -->
+  <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
 </div>
