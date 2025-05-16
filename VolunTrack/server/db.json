@@ -1123,52 +1123,8 @@
   ],
   "notifications": [],
   "users": [
-    {
-      "id": "9969",
-      "username": "a",
-      "password": "a",
-      "email": "a",
-      "phone": "1",
-      "pfp": "a",
-      "plan": "basic",
-      "banner": "a",
-      "description": "a"
-    },
-    {
-      "id": "c00d",
-      "username": "a",
-      "password": "a",
-      "email": "a",
-      "phone": "a",
-      "pfp": "a",
-      "plan": "basic",
-      "banner": "a",
-      "description": "a"
-    },
-    {
-      "id": "bd83",
-      "username": "as",
-      "password": "111",
-      "email": "asda",
-      "phone": "asd",
-      "pfp": "asd",
-      "plan": "basic",
-      "banner": "asd",
-      "description": "asd"
-    }
   ],
   "userlogin": [
-    {
-      "id": "bd83",
-      "username": "as",
-      "password": "111",
-      "email": "asda",
-      "phone": "asd",
-      "pfp": "asd",
-      "plan": "basic",
-      "banner": "asd",
-      "description": "asd"
-    }
   ],
   "registers": [
     {
@@ -1940,54 +1896,6 @@
       "volunteerId": "45",
       "activityTitle": "Community Fitness",
       "text": "Mediante este certificado, se acredita que el voluntario Ricardo Peña Salazar participó satisfactoriamente en la actividad \"Community Fitness\" el 5/31/2025."
-    },
-    {
-      "id": "ba8c37c1-d31a-4a7d-b10a-79f7ad4f85fb",
-      "volunteerId": "5",
-      "activityTitle": "Park Reforestation",
-      "text": "Mediante este certificado, se acredita que el voluntario Fátima Jiménez De La Torre participó satisfactoriamente en la actividad \"Park Reforestation\" el 21/5/2025."
-    },
-    {
-      "id": "6a7abece-96d6-40ad-9289-2b20492d01d7",
-      "volunteerId": "15",
-      "activityTitle": "Park Reforestation",
-      "text": "Mediante este certificado, se acredita que el voluntario Mateo Robles Huertas participó satisfactoriamente en la actividad \"Park Reforestation\" el 21/5/2025."
-    },
-    {
-      "id": "ce741957-4a70-4afc-95ff-6ff0511056f7",
-      "volunteerId": "22",
-      "activityTitle": "Park Reforestation",
-      "text": "Mediante este certificado, se acredita que el voluntario Clara Fernández Soto participó satisfactoriamente en la actividad \"Park Reforestation\" el 21/5/2025."
-    },
-    {
-      "id": "b15a7914-b136-42bb-bcbc-3f8730dda071",
-      "volunteerId": "27",
-      "activityTitle": "Park Reforestation",
-      "text": "Mediante este certificado, se acredita que el voluntario Fernando Cruz Diaz participó satisfactoriamente en la actividad \"Park Reforestation\" el 21/5/2025."
-    },
-    {
-      "id": "f3f11260-b460-4765-8194-768310361ef7",
-      "volunteerId": "13",
-      "activityTitle": "Park Reforestation",
-      "text": "Mediante este certificado, se acredita que el voluntario Pablo Palacios Aguado participó satisfactoriamente en la actividad \"Park Reforestation\" el 21/5/2025."
-    },
-    {
-      "id": "785ab6df-5f99-45b9-b0ef-8f22521f6ebf",
-      "volunteerId": "9",
-      "activityTitle": "Park Reforestation",
-      "text": "Mediante este certificado, se acredita que el voluntario Alba Cano Escribano participó satisfactoriamente en la actividad \"Park Reforestation\" el 21/5/2025."
-    },
-    {
-      "id": "1795b63c-35b7-41e4-9ff0-789a07d80a40",
-      "volunteerId": "34",
-      "activityTitle": "Park Reforestation",
-      "text": "Mediante este certificado, se acredita que el voluntario Patricia Romero Díaz participó satisfactoriamente en la actividad \"Park Reforestation\" el 21/5/2025."
-    },
-    {
-      "id": "37295c0e-22db-4c7a-b0e6-1f39fdaa6b46",
-      "volunteerId": "48",
-      "activityTitle": "Park Reforestation",
-      "text": "Mediante este certificado, se acredita que el voluntario Martha Delgado Peña participó satisfactoriamente en la actividad \"Park Reforestation\" el 21/5/2025."
     }
   ]
 }
