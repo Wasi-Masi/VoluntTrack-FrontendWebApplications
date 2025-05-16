@@ -263,31 +263,28 @@ Los líderes y coordinadores de ONGs llegaron a utilizar VolunTrack debido a la 
 
 En América Latina, el 51% de las organizaciones no gubernamentales se consideran pequeñas y el 37% medianas (Global NGO, 2019), lo que significa que el 88% del sector probablemente no cuente con herramientas tecnológicas avanzadas para la gestión de sus actividades. Esta realidad representa una oportunidad significativa para VolunTrack, ya que al ofrecer una solución accesible, intuitiva y centralizada, puede cubrir una necesidad latente en la mayoría de estas organizaciones.
 
-##### Figura 1 Tamaño relativo de las ONGs en América Latina (%)
-
 <p align="center">
   <img src="https://github.com/user-attachments/assets/02776839-fc81-4676-8be4-6c2207159dc5" alt="Tamaño relativo de las ONGs en América Latina (%)">
 </p>
+<p align="center"><strong>Figura 1.</strong> Tamaño relativo de las ONGs en América Latina (%).</p>
 
 _Nota._ El criterio para determinar el tamaño de una organización en este estudio es totalmente subjetivo. Las mismas ONGs indicaron si se consideran pequeñas, medianas o grandes. Adaptado de Technology Report 2019, por Global NGO, 2019 (https://assets-global.website-files.com/5da60733afec9db1fb998273/5de8285d137d82cb7d96674e_2019-Tech-Report-English.pdf).
 
 De acuerdo con Global NGO (2019), solo el 58% de las organizaciones no gubernamentales envía correos electrónicos a sus voluntarios, y más del 70% de ellas lo hace únicamente una vez al mes o con menor frecuencia. Esta limitada comunicación podría generar un sentimiento de desconexión entre los voluntarios, afectando su motivación y rendimiento. Además, la baja frecuencia en el envío de mensajes podría estar vinculada a la falta de herramientas adecuadas para gestionar comunicaciones masivas de manera eficiente. En este contexto, VolunTrack busca facilitar esta tarea, proporcionando un sistema automatizado y accesible que permita a las ONGs mantener una comunicación constante y significativa con sus voluntarios.
 
-##### Figura 2 Frecuencia de las ONGs en cuanto al envío de correos a los voluntarios
-
 <p align="center">
   <img src="https://github.com/user-attachments/assets/51164d42-6103-4db3-8870-1236fe8ddd64" alt="Frecuencia de las ONGs en cuanto al envío de correos a los voluntarios">
 </p>
+<p align="center"><strong>Figura 2.</strong> Frecuencia de las ONGs en cuanto al envío de correos a los voluntarios.</p>
 
 _Nota._ No se están teniendo en cuenta otros métodos de comunicación que las ONGs puedan tener con sus voluntarios. Adaptado de Technology Report 2019, por Global NGO, 2019 (https://assets-global.website-files.com/5da60733afec9db1fb998273/5de8285d137d82cb7d96674e_2019-Tech-Report-English.pdf).
 
 De la población en edad de trabajar, un 20,8% participa en actividades de voluntariado, de las cuales un 14,3% corresponde a voluntariado informal (United Nations Volunteers, 2022). Esta cifra revela no solo una significativa predisposición social hacia el voluntariado, sino también una alta proporción de participación fuera de canales institucionales. Esto evidencia la necesidad de plataformas como VolunTrack, que pueden ayudar a formalizar, organizar y potenciar estas iniciativas, facilitando la conexión entre personas dispuestas a colaborar y organizaciones que requieren apoyo estructurado.
 
-##### Figura 3 Porcentaje de la población en edad de trabajar que participan en voluntariados formales e informales
-
 <p align="center">
   <img src="https://github.com/user-attachments/assets/9c91e210-5c7c-4256-88ef-e2e006ae4046" alt="Porcentaje de la población en edad de trabajar que participan en voluntariados formales e informales">
 </p>
+<p align="center"><strong>Figura 3.</strong> Porcentaje de la población en edad de trabajar que participan en voluntariados formales e informales.</p>
 
 _Nota._ La sección celeste, que no es señalada con ningún porcentaje, representa el porcentaje de personas en edad de trabajar que no realizan actividades de voluntariado (79,2%). Adaptado de Lo que no se cuenta: estimaciones globales relativas al voluntariado, por United Nations Volunteers, 2022 (swvr2022.unv.org/wp-content/uploads/2022/04/Chapter-2_web_ES.pdf).
 
@@ -389,6 +386,7 @@ En cuanto al comportamiento, VolunTrack debe ser rápido, confiable y sin fallos
 <p align="center">
   <img src="https://github.com/user-attachments/assets/e6b1dded-2ce3-4be7-a6e1-dcffe6b292b3" alt="Canvas de Voluntrack">
 </p>
+<p align="center"><strong>Figura 4.</strong> Canvas de VolunTrack con hipótesis clave de usuario, problema, solución y métricas.</p>
 
 <p align="center">
   <a href="https://drive.google.com/file/d/1uj3f76zZgQNJNxdLU8cLH2YIALPgiF-v/view?usp=sharing">Link del Canvas</a>
@@ -456,6 +454,8 @@ En el ámbito de las plataformas digitales para la gestión de voluntariado, exi
 
 Este análisis competitivo permite entender las fortalezas, debilidades, estrategias y oportunidades de plataformas similares para detectar áreas de diferenciación y ventajas estratégicas para VolunTrack. Así, se optimizan decisiones sobre posicionamiento, desarrollo de funcionalidades y marketing.
 
+**Tabla 1. Comparación competitiva entre VolunTrack y plataformas similares de gestión de voluntariado.**
+
 |               | Nombre         | VolunTrack | VolunteerHub | Volgistics | POINT |
 |---------------|----------------|------------|--------------|------------|-------|
 |               |                 | <p align="center">  <img src="https://imgur.com/k3I79xc.png" alt="AC1" width="500"></p> | <p align="center">  <img src="https://imgur.com/DBLY9Yo.png" alt="AC2" width="500"></p> | <p align="center">  <img src="https://imgur.com/X1kAhPf.png" alt="AC3" width="500"></p> | <p align="center">  <img src="https://imgur.com/wislR0S.png" alt="AC4" width="500"></p> |
@@ -470,7 +470,6 @@ Este análisis competitivo permite entender las fortalezas, debilidades, estrate
 |               | Oportunidades | Expansión a sectores educativos y de salud, integración de IA para asignaciones, alianzas con plataformas de donaciones. | Inclusión social como valor diferencial, expansión a pequeños voluntariados. | Mejoras en app móvil, gamificación, modernización de interfaz. | Expandirse hacia RSE empresarial, analítica avanzada, monetización ética. |
 |               | Debilidades | Base de usuarios en crecimiento, app móvil aún en desarrollo, falta de integraciones CRM al inicio. | Precio elevado, curva de aprendizaje técnica alta. | Interfaz anticuada, pocas integraciones externas. | Funcionalidad limitada para ONGs grandes, dependencia de adopción masiva. |
 |               | Amenazas | Competidores con más trayectoria, cambios en políticas de privacidad, baja adopción sin buena difusión. | Competidores accesibles y reducción de presupuestos en ONGs. | Nuevas plataformas más modernas y apps móviles más fuertes. | Modelos insostenibles si no monetizan, cambios en políticas de app stores. |
-
 
 
 ### 2.1.2. Estrategias y tácticas frente a competidores
@@ -550,6 +549,8 @@ VolunTrack buscará alianzas con plataformas de donaciones o financiamiento cole
 <p align="center">
   <img src="https://imgur.com/zhqkjLh.png" alt="e11" width="500">
 </p>
+<p align="center"><strong>Figura 5.</strong> Entrevista a Claudio Astocondor, coordinador de ONG.</p>
+
 
 * Link: https://upcedupe-my.sharepoint.com/:v:/g/personal/u20201f855_upc_edu_pe/EccjEo0rS0FCiWl1pw3HLI8Bxj4PJLi6KG8Q-ZWwZvwyzw?e=YNaKTr
 * Instante en el que inicia: 0:01 min
@@ -566,6 +567,7 @@ Claudio Astocondor organiza a los voluntarios mediante una mezcla de Google Form
 <p align="center">
   <img src="https://imgur.com/hS7TU9H.png" alt="e12" width="500">
 </p>
+<p align="center"><strong>Figura 6.</strong> Entrevista a Leonardo López, coordinador de ONG.</p>
 
 * Link: https://upcedupe-my.sharepoint.com/:v:/g/personal/u20201f855_upc_edu_pe/EccjEo0rS0FCiWl1pw3HLI8Bxj4PJLi6KG8Q-ZWwZvwyzw?e=YNaKTr
 * Instante en el que inicia: 9:25 min
@@ -582,6 +584,7 @@ Leonardo López, coordinador de una ONG, destaca la necesidad de una plataforma 
 <p align="center">
   <img src="https://imgur.com/EcelfHe.png" alt="e13" width="500">
 </p>
+<p align="center"><strong>Figura 7.</strong> Entrevista a Jorge Casaboza, coordinador juvenil de ONG.</p>
 
 * Link: https://upcedupe-my.sharepoint.com/:v:/g/personal/u20201f855_upc_edu_pe/EccjEo0rS0FCiWl1pw3HLI8Bxj4PJLi6KG8Q-ZWwZvwyzw?e=YNaKTr
 * Instante en el que inicia: 16:01 min
@@ -600,6 +603,7 @@ Jorge indica que los líderes y coordinadores de ONGs organizan a sus voluntario
 <p align="center">
   <img src="https://imgur.com/sOHGqXA.png" alt="e21" width="500">
 </p>
+<p align="center"><strong>Figura 8.</strong> Entrevista a Tatiana Nakamurakare, voluntaria potencial.</p>
 
 * Link: https://upcedupe-my.sharepoint.com/:v:/g/personal/u20201f855_upc_edu_pe/EccjEo0rS0FCiWl1pw3HLI8Bxj4PJLi6KG8Q-ZWwZvwyzw?e=YNaKTr
 * Instante en el que inicia: 19:50 min
@@ -616,6 +620,7 @@ Tatiana no se siente cómoda inscribiéndose en actividades de voluntariado debi
 <p align="center">
   <img src="https://imgur.com/ok0MOav.png" alt="e22" width="500">
 </p>
+<p align="center"><strong>Figura 9.</strong> Entrevista a Roxana Arbañil, voluntaria activa.</p>
 
 * Link: https://upcedupe-my.sharepoint.com/:v:/g/personal/u20201f855_upc_edu_pe/EccjEo0rS0FCiWl1pw3HLI8Bxj4PJLi6KG8Q-ZWwZvwyzw?e=YNaKTr
 * Instante en el que inicia: 23:00 min
@@ -632,6 +637,7 @@ Katty, voluntaria actual y potencial, comentó que a veces resulta complicado en
 <p align="center">
   <img src="https://imgur.com/UfU3E4O.png" alt="e23" width="500">
 </p>
+<p align="center"><strong>Figura 10.</strong> Entrevista a Diego Peralta, voluntario activo.</p>
 
 * Link: https://upcedupe-my.sharepoint.com/:v:/g/personal/u20201f855_upc_edu_pe/EccjEo0rS0FCiWl1pw3HLI8Bxj4PJLi6KG8Q-ZWwZvwyzw?e=YNaKTr
 * Instante en el que inicia: 25:59 min
@@ -668,19 +674,23 @@ Algunos lectores no usan plataformas digitales simplemente por desconocimiento o
 
 ## 2.3. Needfinding
 ### 2.3.1. User Personas
+
 **Segmento #1: Líderes y coordinadores de ONGs**
 
 <p align="center">
   <img src="https://imgur.com/undefined.png" alt="up1" width="500">
 </p>
+<p align="center"><strong>Figura 11.</strong> User Persona – Líder/coordinador de ONG.</p>
 
 **Segmento #2: Voluntarios existentes y potenciales**
 
 <p align="center">
   <img src="https://imgur.com/EyxOif1.png" alt="up2" width="500">
 </p>
+<p align="center"><strong>Figura 12.</strong> User Persona – Voluntario actual o potencial.</p>
 
 ### 2.3.2. User Task Matrix
+**Tabla 2. Matriz de frecuencia e importancia de tareas para distintos perfiles de usuario.**
 
 |   User Task Matrix  |   Carmen Torres  |              |   Nahomi Pérez  |              |
 |---------------------|------------------|--------------|-----------------|--------------|
@@ -704,12 +714,14 @@ Algunos lectores no usan plataformas digitales simplemente por desconocimiento o
 <p align="center">
   <img src="https://imgur.com/ifhOdJT.png" alt="uj1" width="500">
 </p>
+<p align="center"><strong>Figura 13.</strong> User Journey de líderes y coordinadores de ONGs.</p>
 
 **Segmento #2: Voluntarios existentes y potenciales**
 
 <p align="center">
   <img src="https://imgur.com/E7Htrk7.png" alt="uj2" width="500">
 </p>
+<p align="center"><strong>Figura 14.</strong> User Journey de voluntarios actuales o potenciales.</p>
 
 ### 2.3.4. Empathy Mapping
 
@@ -718,12 +730,14 @@ Algunos lectores no usan plataformas digitales simplemente por desconocimiento o
 <p align="center">
   <img src="https://imgur.com/04xScfM.png" alt="em1" width="500">
 </p>
+<p align="center"><strong>Figura 15.</strong> Empathy Map de líderes y coordinadores de ONGs.</p>
 
 **Segmento #2: Voluntarios existentes y potenciales**
 
 <p align="center">
   <img src="https://imgur.com/cLUcxIg.png" alt="em2" width="500">
 </p>
+<p align="center"><strong>Figura 16.</strong> Empathy Map de voluntarios actuales o potenciales.</p>
 
 ### 2.3.5. As-Is Scenario Mapping
 
@@ -732,13 +746,14 @@ Algunos lectores no usan plataformas digitales simplemente por desconocimiento o
 <p align="center">
   <img src="https://imgur.com/InY4IbU.png" alt="asis1" width="500">
 </p>
+<p align="center"><strong>Figura 17.</strong> As-Is Scenario de líderes y coordinadores de ONGs.</p>
 
 **Segmento #2: Voluntarios existentes y potenciales**
 
 <p align="center">
   <img src="https://imgur.com/wQ2iwLg.png" alt="asis2" width="500">
 </p>
-
+<p align="center"><strong>Figura 18.</strong> As-Is Scenario de voluntarios actuales o potenciales.</p>
 
 ## 2.4. Ubiquitous Language
 
@@ -765,16 +780,18 @@ Algunos lectores no usan plataformas digitales simplemente por desconocimiento o
 <p align="center">
   <img src="https://imgur.com/ZHMBJxk.png" alt="tobe1" width="500">
 </p>
+<p align="center"><strong>Figura 19.</strong> To-Be Scenario de líderes y coordinadores de ONGs.</p>
 
 **Segmento #2: Voluntarios existentes y potenciales**
 
 <p align="center">
   <img src="https://imgur.com/gCslzZW.png" alt="tobe2" width="500">
 </p>
+<p align="center"><strong>Figura 20.</strong> To-Be Scenario de voluntarios actuales o potenciales.</p>
 
 ## 3.2. User Stories
 ### 3.2.1. Requisitos
-**Requisitos Funcionales**
+**Tabla 3. Requisitos funcionales del sistema VolunTrack.**
 
 | Código  | Requisito |
 |---------|-----------|
@@ -799,7 +816,7 @@ Algunos lectores no usan plataformas digitales simplemente por desconocimiento o
 | RFU-19 | Gestión de asistencia vía API |
 | RFU-20 | Dashboard de administración de voluntariado |
 
-**Requisitos No Funcionales**
+**Tabla 4. Requisitos no funcionales del sistema VolunTrack.**
 
 | Código  | Requisito |
 |---------|-----------|
@@ -814,6 +831,8 @@ Algunos lectores no usan plataformas digitales simplemente por desconocimiento o
 
 ### 3.2.2. Historias de Usuario
 
+**Tabla 5. Historia de usuario US01 - Registrar nueva ONG.**
+
 | **User Story ID** | US01 |
 |-------------------|------|
 | **Epic ID**        | E01 |
@@ -822,6 +841,9 @@ Algunos lectores no usan plataformas digitales simplemente por desconocimiento o
 | **Acceptance Criteria #1** | Dado que el usuario accede a la página de registro de ONG<br>Cuando completa todos los campos requeridos y hace clic en “Registrarse”<br>Entonces el sistema guarda los datos y muestra un mensaje de confirmación con instrucciones para verificar el correo electrónico. |
 | **Acceptance Criteria #2** | Dado que el usuario intenta registrarse con un correo electrónico ya utilizado<br>Cuando presiona el botón de “Registrarse”<br>Entonces el sistema muestra un mensaje de error indicando que ese correo ya está en uso. |
 | **Acceptance Criteria #3** | Dado que el usuario ingresa una contraseña que no cumple con los requisitos mínimos<br>Cuando intenta enviar el formulario<br>Entonces el sistema muestra una advertencia que describe los criterios necesarios (mínimo 8 caracteres, al menos una mayúscula, una minúscula y un número o símbolo). |
+
+**Tabla 6. Historia de usuario US02 - Explorar actividades disponibles.**
+
 
 | **User Story ID** | US02 |
 |-------------------|------|
@@ -832,6 +854,8 @@ Algunos lectores no usan plataformas digitales simplemente por desconocimiento o
 | **Acceptance Criteria #2** | Dado que el voluntario está en la página de actividades<br>Cuando selecciona una actividad específica<br>Entonces el sistema muestra los detalles completos de la actividad, incluyendo descripción, fecha, hora, lugar, y número de voluntarios necesarios. |
 | **Acceptance Criteria #3** | Dado que el voluntario desea ver las actividades de una fecha específica<br>Cuando elige una fecha en el calendario o usa los filtros de fecha<br>Entonces el sistema actualiza la lista de actividades disponibles para esa fecha. |
 
+**Tabla 7. Historia de usuario US03 - Crear nueva actividad.**
+
 | **User Story ID** | US03 |
 |-------------------|------|
 | **Epic ID**        | E01 |
@@ -840,6 +864,8 @@ Algunos lectores no usan plataformas digitales simplemente por desconocimiento o
 | **Acceptance Criteria #1** | Dado que el coordinador accede al formulario de creación de actividad<br>Cuando ingresa todos los detalles requeridos (descripción, fecha, hora, ubicación, número de voluntarios)<br>Entonces el sistema permite guardar la actividad y muestra un mensaje de confirmación. |
 | **Acceptance Criteria #2** | Dado que el coordinador está creando una nueva actividad<br>Cuando la fecha y hora de la actividad ingresada ya están ocupadas por otra actividad<br>Entonces el sistema muestra un mensaje de advertencia indicando el conflicto de horario y no permite guardar la actividad. |
 | **Acceptance Criteria #3** | Dado que el coordinador ha creado una actividad<br>Cuando la actividad es guardada<br>Entonces el sistema muestra la nueva actividad en el calendario de la organización y notifica a los voluntarios que la actividad está disponible para registrarse. |
+
+**Tabla 8. Historia de usuario US04 - Inscribirme en una actividad.**
 
 | **User Story ID** | US04 |
 |-------------------|------|
@@ -850,6 +876,8 @@ Algunos lectores no usan plataformas digitales simplemente por desconocimiento o
 | **Acceptance Criteria #2** | Dado que el voluntario intenta inscribirse en una actividad<br>Cuando la actividad ya está llena (número máximo de voluntarios alcanzado)<br>Entonces el sistema muestra un mensaje indicando que no es posible inscribirse debido a que no hay más plazas disponibles. |
 | **Acceptance Criteria #3** | Dado que el voluntario ya está inscrito en una actividad<br>Cuando el voluntario accede a la actividad<br>Entonces el sistema muestra un mensaje indicando que ya está inscrito y permite cancelar la inscripción si lo desea. |
 
+**Tabla 9. Historia de usuario US05 - Ver lista de voluntarios por actividad.**
+
 | **User Story ID** | US05 |
 |-------------------|------|
 | **Epic ID**        | E05 |
@@ -858,6 +886,8 @@ Algunos lectores no usan plataformas digitales simplemente por desconocimiento o
 | **Acceptance Criteria #1** | Dado que el coordinador accede a una actividad específica<br>Cuando selecciona la opción de ver los voluntarios inscritos<br>Entonces el sistema muestra una lista con los nombres y detalles de los voluntarios registrados en esa actividad. |
 | **Acceptance Criteria #2** | Dado que el coordinador visualiza la lista de voluntarios<br>Cuando la lista contiene más de 10 voluntarios<br>Entonces el sistema permite al coordinador buscar y filtrar voluntarios por nombre, fecha de inscripción u otros criterios relevantes. |
 | **Acceptance Criteria #3** | Dado que el coordinador está visualizando la lista de voluntarios<br>Cuando un voluntario decide cancelar su inscripción<br>Entonces el sistema actualiza la lista de voluntarios inscritos y muestra un mensaje de confirmación. |
+
+**Tabla 10. Historia de usuario US06 - Recibir notificaciones de actividades.**
 
 | **User Story ID** | US06 |
 |-------------------|------|
@@ -868,6 +898,8 @@ Algunos lectores no usan plataformas digitales simplemente por desconocimiento o
 | **Acceptance Criteria #2** | Dado que el voluntario está inscrito en una actividad<br>Cuando se acerque la fecha de la actividad<br>Entonces el sistema envía un recordatorio al voluntario para que se prepare para la actividad. |
 | **Acceptance Criteria #3** | Dado que el voluntario ha optado por recibir notificaciones<br>Cuando se realice cualquier cambio importante en una actividad a la que está inscrito (hora, ubicación, cancelación, etc.)<br>Entonces el sistema envía una notificación informando al voluntario sobre el cambio. |
 
+**Tabla 11. Historia de usuario US07 - Marcar asistencia de voluntarios.**
+
 | **User Story ID** | US07 |
 |-------------------|------|
 | **Epic ID**        | E03 |
@@ -876,6 +908,8 @@ Algunos lectores no usan plataformas digitales simplemente por desconocimiento o
 | **Acceptance Criteria #1** | Dado que el coordinador está en la actividad<br>Cuando selecciona la opción de marcar asistencia<br>Entonces el sistema muestra una lista de voluntarios inscritos y permite al coordinador marcar su asistencia con un clic. |
 | **Acceptance Criteria #2** | Dado que el coordinador marca la asistencia de los voluntarios<br>Cuando un voluntario está ausente<br>Entonces el coordinador puede registrar la ausencia y el sistema actualizará el estado de asistencia. |
 | **Acceptance Criteria #3** | Dado que el coordinador ha marcado la asistencia de los voluntarios<br>Cuando se guarda la información<br>Entonces el sistema genera un informe de asistencia que puede ser descargado o visualizado por el coordinador. |
+
+**Tabla 12. Historia de usuario US08 - Ver mi historial de participación.**
 
 | **User Story ID** | US08 |
 |-------------------|------|
@@ -886,6 +920,8 @@ Algunos lectores no usan plataformas digitales simplemente por desconocimiento o
 | **Acceptance Criteria #2** | Dado que el voluntario está visualizando su historial de participación<br>Cuando selecciona una actividad de la lista<br>Entonces el sistema muestra los detalles completos de la actividad, incluyendo la fecha, hora, lugar y si completó la actividad. |
 | **Acceptance Criteria #3** | Dado que el voluntario tiene un historial de participación<br>Cuando se ha completado una actividad<br>Entonces el sistema marca la actividad como "Completada" y la incluye en su historial con un indicador de estado. |
 
+**Tabla 13. Historia de usuario US09 - Generar certificado de participación.**
+
 | **User Story ID** | US09 |
 |-------------------|------|
 | **Epic ID**        | E04 |
@@ -894,6 +930,8 @@ Algunos lectores no usan plataformas digitales simplemente por desconocimiento o
 | **Acceptance Criteria #1** | Dado que el coordinador tiene acceso a una actividad completada<br>Cuando selecciona la opción de generar certificado para un voluntario<br>Entonces el sistema genera un certificado con el nombre del voluntario, nombre de la actividad, fecha y horas de participación. |
 | **Acceptance Criteria #2** | Dado que el coordinador desea generar un certificado de participación<br>Cuando genera el certificado<br>Entonces el sistema ofrece la opción de descargar el certificado en formato PDF o enviarlo por correo electrónico al voluntario. |
 | **Acceptance Criteria #3** | Dado que un voluntario ha completado varias actividades<br>Cuando el coordinador selecciona varios voluntarios de la lista de inscritos<br>Entonces el sistema permite generar certificados individuales para cada uno de los voluntarios seleccionados. |
+
+**Tabla 14. Historia de usuario US10 - Editar detalles de una actividad.**
 
 | **User Story ID** | US10 |
 |-------------------|------|
@@ -904,6 +942,8 @@ Algunos lectores no usan plataformas digitales simplemente por desconocimiento o
 | **Acceptance Criteria #2** | Dado que el coordinador edita los detalles de una actividad<br>Cuando se realiza un cambio en la fecha y hora<br>Entonces el sistema verifica que la nueva fecha y hora no generen conflictos con otras actividades y muestra un mensaje de advertencia en caso de conflicto. |
 | **Acceptance Criteria #3** | Dado que el coordinador ha editado los detalles de la actividad<br>Cuando hace clic en "Guardar cambios"<br>Entonces el sistema actualiza la actividad con los nuevos detalles y muestra un mensaje de confirmación indicando que los cambios fueron guardados correctamente. |
 
+**Tabla 15. Historia de usuario US11 - Comunicarme con los voluntarios de una actividad.**
+
 | **User Story ID** | US11 |
 |-------------------|------|
 | **Epic ID**        | E03 |
@@ -912,6 +952,8 @@ Algunos lectores no usan plataformas digitales simplemente por desconocimiento o
 | **Acceptance Criteria #1** | Dado que el coordinador accede a una actividad específica<br>Cuando selecciona la opción para enviar un mensaje a los voluntarios inscritos<br>Entonces el sistema muestra una interfaz para redactar el mensaje y permite elegir a los voluntarios a quienes se enviará el mensaje. |
 | **Acceptance Criteria #2** | Dado que el coordinador ha redactado un mensaje<br>Cuando hace clic en "Enviar mensaje"<br>Entonces el sistema envía el mensaje o notificación a todos los voluntarios inscritos en la actividad y muestra un mensaje de confirmación. |
 | **Acceptance Criteria #3** | Dado que el coordinador ha enviado un mensaje a los voluntarios<br>Cuando los voluntarios reciban el mensaje<br>Entonces el sistema muestra una notificación en la plataforma o envía una alerta por correo electrónico o mensaje de texto (según la preferencia del voluntario). |
+
+**Tabla 16. Historia de usuario US12 - Gestionar el estado de inscripción de un voluntario.**
 
 | **User Story ID** | US12 |
 |-------------------|------|
@@ -922,6 +964,8 @@ Algunos lectores no usan plataformas digitales simplemente por desconocimiento o
 | **Acceptance Criteria #2** | Dado que el coordinador aprueba o rechaza la inscripción de un voluntario<br>Cuando se hace la selección<br>Entonces el sistema actualiza el estado de inscripción del voluntario y envía una notificación al voluntario informándole sobre la decisión (aprobación, rechazo o baja). |
 | **Acceptance Criteria #3** | Dado que el coordinador decide dar de baja a un voluntario<br>Cuando el coordinador confirma la acción<br>Entonces el sistema elimina al voluntario de la actividad y actualiza la lista de voluntarios inscritos, notificando al voluntario que su inscripción ha sido cancelada. |
 
+**Tabla 17. Historia de usuario US13 - Ver un resumen de la participación de un voluntario.**
+
 | **User Story ID** | US13 |
 |-------------------|------|
 | **Epic ID**        | E04 |
@@ -930,6 +974,8 @@ Algunos lectores no usan plataformas digitales simplemente por desconocimiento o
 | **Acceptance Criteria #1** | Dado que el coordinador accede al perfil de un voluntario<br>Cuando selecciona la opción de "Ver resumen de participación"<br>Entonces el sistema muestra un resumen con las actividades en las que el voluntario ha participado, ordenadas por fecha, junto con las horas dedicadas a cada una. |
 | **Acceptance Criteria #2** | Dado que el coordinador visualiza el historial de participación<br>Cuando el coordinador hace clic en una actividad específica del resumen<br>Entonces el sistema muestra los detalles completos de esa actividad, incluyendo el número de horas y la descripción de la actividad. |
 | **Acceptance Criteria #3** | Dado que el coordinador ve el historial de participación<br>Cuando el voluntario ha completado varias actividades<br>Entonces el sistema proporciona un total acumulado de las horas de participación del voluntario y un indicador de su nivel de participación. |
+
+**Tabla 18. Historia de usuario US14 - Generar informes de impacto para voluntarios.**
 
 | **User Story ID** | US14 |
 |-------------------|------|
@@ -940,6 +986,8 @@ Algunos lectores no usan plataformas digitales simplemente por desconocimiento o
 | **Acceptance Criteria #2** | Dado que el coordinador está generando el informe de impacto<br>Cuando se calculan las horas dedicadas y las tareas realizadas<br>Entonces el sistema permite incluir una estimación del impacto del voluntario, basada en parámetros como el número de personas beneficiadas, el tipo de actividad y otros factores relevantes. |
 | **Acceptance Criteria #3** | Dado que el coordinador ha generado el informe de impacto<br>Cuando hace clic en "Descargar informe"<br>Entonces el sistema proporciona el informe en formato PDF o permite enviarlo por correo electrónico al voluntario, mostrando el valor de su contribución. |
 
+**Tabla 19. Historia de usuario US15 - Entender la propuesta de valor para ONGs.**
+
 | **User Story ID** | US15 |
 |-------------------|------|
 | **Epic ID**        | E06 |
@@ -948,6 +996,8 @@ Algunos lectores no usan plataformas digitales simplemente por desconocimiento o
 | **Acceptance Criteria #1** | Dado que el visitante accede a la página principal de VolunTrack<br>Cuando visualiza la propuesta de valor de la plataforma<br>Entonces el sistema debe presentar una sección clara y destacada que explique cómo la plataforma centraliza la gestión del voluntariado, con ejemplos prácticos de uso. |
 | **Acceptance Criteria #2** | Dado que el visitante está viendo la propuesta de valor<br>Cuando hace clic en los beneficios clave<br>Entonces el sistema debe mostrar más detalles interactivos o pop-ups que expliquen cómo VolunTrack ahorra tiempo y mejora la eficiencia en la gestión de voluntarios. |
 | **Acceptance Criteria #3** | Dado que el visitante está interesado en los beneficios de la plataforma<br>Cuando lee la propuesta de valor<br>Entonces el sistema debe incluir ejemplos de casos de éxito o testimonios que resalten cómo VolunTrack ha mejorado el impacto social de otras ONGs. |
+
+**Tabla 20. Historia de usuario US16 - Explorar funcionalidades clave para voluntarios.**
 
 | **User Story ID** | US16 |
 |-------------------|------|
@@ -958,6 +1008,8 @@ Algunos lectores no usan plataformas digitales simplemente por desconocimiento o
 | **Acceptance Criteria #2** | Dado que el visitante está explorando las funcionalidades de la plataforma<br>Cuando hace clic en "Ver actividades disponibles"<br>Entonces el sistema debe mostrar una lista actualizada de las actividades disponibles que el visitante puede explorar, con filtros para ayudar a organizar la información (por ejemplo, por fecha, ubicación, tipo de actividad). |
 | **Acceptance Criteria #3** | Dado que el visitante encuentra una actividad de interés<br>Cuando hace clic en el botón "Registrarse"<br>Entonces el sistema debe guiar al visitante a través del proceso de registro para esa actividad, solicitando la información necesaria para completar la inscripción de manera sencilla. |
 
+**Tabla 21. Historia de usuario US17 - Encontrar información de contacto y cómo empezar.**
+
 | **User Story ID** | US17 |
 |-------------------|------|
 | **Epic ID**        | E06 |
@@ -966,6 +1018,8 @@ Algunos lectores no usan plataformas digitales simplemente por desconocimiento o
 | **Acceptance Criteria #1** | Dado que el visitante accede a la página principal de VolunTrack<br>Cuando busca información de contacto<br>Entonces el sistema debe mostrar de forma clara y visible los métodos de contacto (correo electrónico, teléfono, formulario de contacto, etc.) en la parte superior o inferior de la página, con un enlace directo a una página de contacto. |
 | **Acceptance Criteria #2** | Dado que el visitante desea comenzar a explorar las oportunidades de voluntariado<br>Cuando selecciona la opción para "Empezar a explorar" o "Registrarse"<br>Entonces el sistema debe mostrar los pasos siguientes, incluyendo la opción para registrarse en la plataforma o crear una cuenta de ONG, con instrucciones claras para guiar al visitante a través del proceso. |
 | **Acceptance Criteria #3** | Dado que el visitante desea registrar su ONG<br>Cuando hace clic en "Registrar mi ONG"<br>Entonces el sistema debe redirigir al visitante a un formulario de registro con los campos necesarios, o proporcionar detalles sobre el proceso para crear una cuenta de ONG, destacando las ventajas y el valor de registrarse en VolunTrack. |
+
+**Tabla 22. Historia de usuario US18 - Conocer los planes y precios para ONGs.**
 
 | **User Story ID** | US18 |
 |-------------------|------|
@@ -976,6 +1030,8 @@ Algunos lectores no usan plataformas digitales simplemente por desconocimiento o
 | **Acceptance Criteria #2** | Dado que el visitante visualiza la información de planes y precios<br>Cuando selecciona un plan específico<br>Entonces el sistema debe mostrar más detalles sobre ese plan, incluyendo características específicas, beneficios adicionales y cualquier restricción o requisito relacionado con el plan. |
 | **Acceptance Criteria #3** | Dado que el visitante está interesado en obtener más información sobre los planes<br>Cuando hace clic en un enlace de "Más información" o "Contacto para consultas"<br>Entonces el sistema debe redirigir al visitante a una página de contacto o a una sección donde pueda enviar preguntas o recibir asistencia personalizada para evaluar mejor el plan que más le convenga. |
 
+**Tabla 23. Historia de usuario US19 - Endpoint para crear y gestionar actividades.**
+
 | **User Story ID** | US19 |
 |-------------------|------|
 | **Epic ID**        | E07 |
@@ -985,6 +1041,8 @@ Algunos lectores no usan plataformas digitales simplemente por desconocimiento o
 | **Acceptance Criteria #2** | Dado que el desarrollador ha creado el endpoint de la API<br>Cuando una ONG realiza una solicitud GET para leer los detalles de una actividad existente<br>Entonces el sistema debe devolver los detalles de la actividad solicitada, respondiendo con un código 200 y la información de la actividad en formato JSON. |
 | **Acceptance Criteria #3** | Dado que el desarrollador ha creado el endpoint de la API<br>Cuando una ONG realiza una solicitud PUT para actualizar la información de una actividad existente<br>Entonces el sistema debe validar los datos actualizados y, si son correctos, debe actualizar la actividad en la base de datos, respondiendo con un código 200 y los detalles de la actividad actualizada. |
 
+**Tabla 24. Historia de usuario US20 - Endpoint para registrar y gestionar voluntarios.**
+
 | **User Story ID** | US20 |
 |-------------------|------|
 | **Epic ID**        | E07 |
@@ -993,6 +1051,8 @@ Algunos lectores no usan plataformas digitales simplemente por desconocimiento o
 | **Acceptance Criteria #1** | Dado que el desarrollador ha creado el endpoint de la API<br>Cuando un voluntario realiza una solicitud POST para registrarse en la plataforma<br>Entonces el sistema debe validar los datos enviados (como nombre, correo electrónico, intereses, etc.), y si son correctos, debe crear el perfil del voluntario en la base de datos, respondiendo con un código 201 y los detalles del voluntario registrado. |
 | **Acceptance Criteria #2** | Dado que el desarrollador ha creado el endpoint de la API<br>Cuando una ONG realiza una solicitud GET para leer la información del perfil de un voluntario<br>Entonces el sistema debe devolver los detalles completos del perfil del voluntario solicitado (nombre, historial de participación, actividades inscritas, etc.), respondiendo con un código 200 y los datos en formato JSON. |
 | **Acceptance Criteria #3** | Dado que el desarrollador ha creado el endpoint de la API<br>Cuando una ONG realiza una solicitud PUT para actualizar la información de un voluntario (como su perfil o historial de participación)<br>Entonces el sistema debe validar los datos actualizados y, si son correctos, debe actualizar la información del voluntario en la base de datos, respondiendo con un código 200 y los detalles del voluntario actualizado. |
+
+**Tabla 25. Historia de usuario US21 - Endpoint para la inscripción y asistencia a actividades.**
 
 | **User Story ID** | US21 |
 |-------------------|------|
@@ -1004,6 +1064,8 @@ Algunos lectores no usan plataformas digitales simplemente por desconocimiento o
 | **Acceptance Criteria #3** | Dado que el desarrollador ha creado el endpoint de la API<br>Cuando una ONG realiza una solicitud PUT para registrar la asistencia de un voluntario a una actividad (por ejemplo, al marcar "asistió")<br>Entonces el sistema debe actualizar el estado de la asistencia del voluntario y responder con un código 200 y la confirmación de que la asistencia ha sido registrada correctamente. |
 | **Acceptance Criteria #4** | Dado que el desarrollador ha creado el endpoint de la API<br>Cuando una ONG realiza una solicitud DELETE para eliminar la inscripción de un voluntario a una actividad<br>Entonces el sistema debe eliminar la inscripción del voluntario en la actividad y responder con un código 204 sin contenido. |
 
+**Tabla 26. Historia de usuario US22 - Ver y gestionar voluntarios.**
+
 | **User Story ID** | US22 |
 |-------------------|------|
 | **Epic ID**        | E05 |
@@ -1012,6 +1074,8 @@ Algunos lectores no usan plataformas digitales simplemente por desconocimiento o
 | **Acceptance Criteria #1** | Dado que el coordinador accede a la sección de voluntarios<br>Cuando selecciona la opción "Ver voluntarios"<br>Entonces el sistema debe mostrar una lista completa de todos los voluntarios registrados, incluyendo información relevante como nombre, correo electrónico, historial de actividades y estado de participación. |
 | **Acceptance Criteria #2** | Dado que el coordinador está visualizando la lista de voluntarios<br>Cuando realiza una búsqueda o aplica filtros (por nombre, actividad, estado, etc.)<br>Entonces el sistema debe actualizar la lista de voluntarios para mostrar solo aquellos que coinciden con los criterios de búsqueda o filtro seleccionados. |
 | **Acceptance Criteria #3** | Dado que el coordinador está viendo la lista de voluntarios<br>Cuando selecciona un voluntario específico<br>Entonces el sistema debe mostrar los detalles completos de ese voluntario, incluyendo su perfil, historial de actividades y cualquier otra información relevante, permitiendo al coordinador gestionar su información (editar, eliminar, etc.). |
+
+**Tabla 27. Historia de usuario US23 - Visualizar calendario de actividades.**
 
 | **User Story ID** | US23 |
 |-------------------|------|
@@ -1022,6 +1086,8 @@ Algunos lectores no usan plataformas digitales simplemente por desconocimiento o
 | **Acceptance Criteria #2** | Dado que el coordinador visualiza el calendario de actividades<br>Cuando hace clic en una actividad<br>Entonces el sistema muestra una ventana emergente o un modal con los detalles completos de la actividad, como la fecha, hora, descripción, lugar, y número de voluntarios inscritos. |
 | **Acceptance Criteria #3** | Dado que el coordinador ve el calendario<br>Cuando hay un conflicto de programación (actividades que se superponen en el mismo horario)<br>Entonces el sistema resalta las actividades en conflicto y muestra una advertencia o notificación para que el coordinador pueda identificar y resolver el conflicto de manera eficiente. |
 | **Acceptance Criteria #4** | Dado que el coordinador desea agregar una nueva actividad<br>Cuando selecciona una fecha en el calendario y completa los campos necesarios para crear una nueva actividad<br>Entonces el sistema agrega la actividad al calendario y actualiza la vista para reflejar la nueva programación. |
+
+**Tabla 28. Historia de usuario US24 - Dashboard de actividades.**
 
 | **User Story ID** | US24 |
 |-------------------|------|
@@ -1034,6 +1100,8 @@ Algunos lectores no usan plataformas digitales simplemente por desconocimiento o
 | **Acceptance Criteria #4** | Dado que el coordinador ha iniciado sesión<br>Cuando visualiza los elementos del dashboard<br>Entonces se muestran botones o enlaces claramente identificados para las acciones más comunes de la ONG, como crear actividades. |
 
 ### 3.2.3. Epicas
+
+**Tabla 29. Agrupación de historias de usuario por épicas temáticas del sistema VolunTrack.**
 
 | **EPIC 01:** | Gestión de ONGs y Actividades |
 |:------------:|:------------------------------|
@@ -1102,26 +1170,32 @@ Algunos lectores no usan plataformas digitales simplemente por desconocimiento o
 <p align="center">
   <img src="https://imgur.com/Z7n2gAE.png" alt="Im1" width="500">
 </p>
+<p align="center"><strong>Figura 21.</strong> Meta: alcanzar 30 ONGs activas con mínimo dos actividades.</p>
 
 2. Conseguir que el 70% de los voluntarios que se registran en VolunTrack se inscriban en al menos una actividad durante su primer mes.
 
 <p align="center">
   <img src="https://imgur.com/2HfWMOV.png" alt="Im2" width="500">
 </p>
+<p align="center"><strong>Figura 22.</strong> Meta: 70% de voluntarios inscritos participen en al menos una actividad.</p>
 
 3. Lograr que el 70% de las ONGs activas utilicen las herramientas de la plataforma para analizar la participación de sus voluntarios y reconocer su contribución (viendo listas, resúmenes, generando certificados o informes de impacto) al menos una vez al mes durante los próximos 3 meses.
 
 <p align="center">
   <img src="https://imgur.com/rA1TX1O.png" alt="Im3" width="500">
 </p>
+<p align="center"><strong>Figura 23.</strong> Meta: uso recurrente de herramientas de análisis y reconocimiento.</p>
 
 4. Aumentar en un 15% la tasa de conversión de visitantes de la Landing Page a usuarios registrados en la plataforma en los próximos 2 meses
 
 <p align="center">
   <img src="https://imgur.com/aJ4KXYo.png" alt="Im4" width="500">
 </p>
+<p align="center"><strong>Figura 24.</strong> Meta: aumentar conversión de visitantes a registros en la Landing Page.</p>
 
 ## 3.4. Product Backlog
+
+**Tabla 30. Product Backlog priorizado con historias de usuario y estimaciones en Story Points.**
 
 | # Orden | User Story ID | Descripción | Story Points (1/2/3/5/8) |
 |:-------:|:-------------:|:------------|:-----------------------:|
@@ -1167,6 +1241,7 @@ Se han establecido distintos grosores tipográficos —light, regular, medium y 
 <p align="center">
   <img src="https://imgur.com/CoPI0wo.png" alt="TipoTipoti" width="500">
 </p>
+<p align="center"><strong>Figura 25.</strong> Tipografía oficial utilizada en la identidad visual de VolunTrack.</p>
 
 #### 4.1.1.2. Colores
 La paleta de color no es solo una cuestión estética; es el alma visual de VolunTrack. Los colores elegidos giran en torno al color cian, utilizando diferentes variaciones de este, para que la experiencia sea no solo funcional, sino también emocionalmente significativa. Cada tono ha sido seleccionado con intención de transmitir los valores centrales de la plataforma: organización, confianza, energía positiva y empatía.
@@ -1174,6 +1249,7 @@ La paleta de color no es solo una cuestión estética; es el alma visual de Volu
 <p align="center">
   <img src="https://imgur.com/giFbySZ.png" alt="Colores" width="500">
 </p>
+<p align="center"><strong>Figura 26.</strong> Paleta cromática principal de VolunTrack basada en tonos de cian.</p>
 
 **Colores principales**
 * #0C7987 (azul verdoso oscuro): Representa compromiso y profesionalismo. Es un color que evoca estabilidad y organización, cualidades que las ONGs valoran profundamente.
@@ -1199,12 +1275,14 @@ Espaciados de 50px en el Dashboard inicial:
 <p align="center">
   <img src="https://imgur.com/VV9BG4o.png" alt="Es111" width="500">
 </p>
+<p align="center"><strong>Figura 27.</strong> Espaciado base de 50px aplicado en el Dashboard inicial.</p>
 
 Espaciados con múltiplos de 5 (5px, 15px y 25px):
 
 <p align="center">
   <img src="https://imgur.com/dtDoDIJ.png" alt="Es122" width="500">
 </p>
+<p align="center"><strong>Figura 28.</strong> Variaciones de espaciado en múltiplos de 5 píxeles: 5px, 15px y 25px.</p>
 
 
 #### 4.1.1.4. Tono de Comunicación y Lenguaje Aplicado
@@ -1222,12 +1300,14 @@ A pesar de su calidez, el tono de VolunTrack también refleja profesionalismo. T
 <p align="center">
   <img src="https://imgur.com/YeOSuF3.png" alt="WBG1" width="500">
 </p>
+<p align="center"><strong>Figura 29.</strong> Vista del Dashboard de actividades de VolunTrack.</p>
 
 *Sección de Mis Voluntarios*
 
 <p align="center">
   <img src="https://imgur.com/UpNNBV3.png" alt="WBG2" width="500">
 </p>
+<p align="center"><strong>Figura 30.</strong> Sección “Mis Voluntarios” para la gestión de participantes.</p>
 
 VolunTrack se estructura en dos pantallas principales para la gestión integral del voluntariado: el Dashboard de Actividades y la sección de Mis Voluntarios. El Dashboard de Actividades sirve como el centro neurálgico para la supervisión y la gestión operativa de las oportunidades de voluntariado, ofreciendo una visión panorámica de las actividades en curso y futuras. Por otro lado, la sección de Mis Voluntarios se enfoca en la gestión de la base de voluntarios de la organización, permitiendo visualizar perfiles, historial de participación y realizar acciones de comunicación y gestión específicas. Esta división en dos áreas principales responde a la necesidad de separar claramente la gestión de las actividades en sí de la gestión de las personas que participan en ellas, facilitando así un flujo de trabajo más organizado e intuitivo. Dentro de estas dos secciones principales, los coordinadores pueden llevar a cabo todas las acciones necesarias para la gestión integral de sus actividades de voluntariado, desde la creación y publicación de oportunidades hasta el seguimiento de la participación y la comunicación con los voluntarios.
 
@@ -1240,10 +1320,12 @@ Organization Systems Diagrams
 <p align="center">
   <img src="https://imgur.com/2ghtdki.png" alt="OS1" width="500">
 </p>
+<p align="center"><strong>Figura 31.</strong> Diagrama del sistema organizacional de contenidos: vista general.</p>
 
 <p align="center">
   <img src="https://imgur.com/yjxlwBV.png" alt="OS2" width="500">
 </p>
+<p align="center"><strong>Figura 32.</strong> Diagrama del sistema organizacional de contenidos: estructura detallada.</p>
 
 En la definición de nuestros Organization Systems, hemos establecido una estrategia clara sobre cómo estructurar y presentar la información dentro de VolunTrack. La organización visual del contenido se adaptará al contexto específico de cada sección. Aplicaremos una jerarquía visual para destacar la información más relevante y guiar la atención del usuario, asegurando que los elementos cruciales sean fácilmente identificables. Para procesos que requieran múltiples pasos, como la creación de una nueva actividad, emplearemos una organización secuencial, presentando la información de manera lineal y lógica para facilitar la comprensión y la finalización de la tarea. Finalmente, una organización matricial podría utilizarse en la presentación de listados complejos, como la gestión de voluntarios con múltiples atributos, permitiendo a los usuarios explorar la información a través de diferentes dimensiones.
 
@@ -1255,36 +1337,42 @@ En la definición de nuestros Labeling Systems, priorizamos la claridad y la con
 <p align="center">
   <img src="https://imgur.com/1gSxiVc.png" alt="LSLSLS" width="500">
 </p>
+<p align="center"><strong>Figura 33.</strong> Etiquetas utilizadas para distinguir entre información general e inscritos por actividad.</p>
 
 En los listados de voluntarios, los atributos clave se identifican con etiquetas breves y descriptivas como "Nombre", "Edad" o "Profesión".
 
 <p align="center">
   <img src="https://imgur.com/hYvPZSb.png" alt="LSLSLS2" width="500">
 </p>
+<p align="center"><strong>Figura 34.</strong> Etiquetas clave en el listado de voluntarios como “Nombre”, “Edad” y “Profesión”.</p>
 
 Buscamos establecer una correspondencia unívoca entre la etiqueta y el contenido que representa, manteniendo la coherencia en toda la interfaz web y móvil. Las acciones disponibles se etiquetan con verbos claros y orientados a la tarea, como "Crear", "Ver más", "Enviar Notificación" y "Marcar Asistencia". 
 
 <p align="center">
   <img src="https://imgur.com/8wc2WqW.png" alt="LSLSLS3" width="500">
 </p>
+<p align="center"><strong>Figura 35.</strong> Etiquetas orientadas a tareas como “Crear”, “Ver más” o “Marcar Asistencia”.</p>
 
 Para las agrupaciones de información relacionada, utilizamos títulos de sección concisos como "Dashboard de Actividades", "Mis Voluntarios" y "Mi Perfil". Este enfoque en la simplicidad y la precisión en el etiquetado busca minimizar la confusión, facilitar la navegación y permitir que los visitantes y usuarios identifiquen rápidamente la información y las funcionalidades que necesitan.
 
 <p align="center">
   <img src="https://imgur.com/GDRvLEV.png" alt="LSLSLS4" width="500">
 </p>
+<p align="center"><strong>Figura 36.</strong> Títulos de sección como “Dashboard de Actividades”, “Mis Voluntarios” y “Mi Perfil”.</p>
 
 ### 4.2.3. SEO Tags and Meta Tags
 
 <p align="center">
   <img src="https://imgur.com/PWrstqC.png" alt="SEO" width="500">
 </p>
+<p align="center"><strong>Figura 37.</strong> Metaetiquetas esenciales para responsividad y compatibilidad web.</p>
 
 Estos metatags son esenciales para optimizar la visibilidad y la funcionalidad del landing page de VolunTrack. El <meta charset="UTF-8'> asegura la correcta codificación de caracteres, permitiendo la visualización adecuada de texto en diversos idiomas y símbolos. Los metatags <meta name="viewport" content="width=device-width, initial-scale=1.0'> son cruciales para la responsividad, garantizando que la página se adapte correctamente a diferentes tamaños de pantalla y dispositivos móviles, mejorando la experiencia del usuario. Los metatags <meta http-equiv="X-UA-Compatible" content="IE=edge'> y <meta http-equiv="X-UA-Compatible" content="ie=edge'> aseguran la compatibilidad con diferentes versiones de Internet Explorer, evitando problemas de visualización y funcionamiento. Finalmente, el <title>VolunTrack - Plataforma de Gestión de Voluntariado | HOME</title> define el título de la página, que es fundamental para el SEO (Optimización para Motores de Búsqueda) y la identificación de la página en las pestañas del navegador, mejorando la usabilidad y el posicionamiento de VolunTrack.
 
 <p align="center">
   <img src="https://imgur.com/q7Y5In8.png" alt="SEO" width="500">
 </p>
+<p align="center"><strong>Figura 38.</strong> Título optimizado para SEO en el encabezado de la landing page.</p>
 
 Estos metatags optimizan la página "Crear Nueva Actividad" de VolunTrack: el <title> y la <meta name="description'> mejoran el SEO y la comprensión de la página, la <meta name="keywords'> aumenta la visibilidad en búsquedas y la <meta name="author'> atribuye la creación al equipo de desarrollo.
 
@@ -1295,6 +1383,7 @@ En la sección de Voluntarios Inscritos a una Actividad, implementaremos una bar
 <p align="center">
   <img src="https://imgur.com/OucbV8S.png" alt="ss1" width="500">
 </p>
+<p align="center"><strong>Figura 39.</strong> Búsqueda dinámica en la lista de voluntarios inscritos a una actividad.</p>
 
 De manera similar, en la sección principal de "Mis Voluntarios", se dispone de una barra de búsqueda para localizar voluntarios en toda la base de datos de la ONG. La búsqueda principal se realizará por nombre y correo electrónico. Para refinar la búsqueda, se ofrecen diversos filtros
 
@@ -1303,6 +1392,7 @@ Los resultados de la búsqueda se mostrarán en la tabla de la lista de voluntar
 <p align="center">
   <img src="https://imgur.com/xBBksbx.png" alt="ss2" width="500">
 </p>
+<p align="center"><strong>Figura 40.</strong> Barra de búsqueda con autocompletado y filtros en la sección Mis Voluntarios.</p>
 
 El objetivo de estos sistemas de búsqueda centrados en voluntarios es permitir a los coordinadores encontrar y gestionar la información de los voluntarios de manera eficiente, ya sea dentro del contexto de una actividad específica o en la gestión general de su base de datos.
 
@@ -1311,24 +1401,28 @@ El objetivo de estos sistemas de búsqueda centrados en voluntarios es permitir 
 <p align="center">
   <img src="https://imgur.com/v84fLNS.png" alt="ns1" width="500">
 </p>
+<p align="center"><strong>Figura 41.</strong> Menú superior de la landing page con jerarquía visual clara y botón de acción destacado.</p>
 
 El menú superior del landing page de VolunTrack está diseñado para proporcionar una navegación clara e intuitiva, guiando a los usuarios hacia las secciones clave de información y acción. La estructura del menú se basa en una jerarquía simple y lógica, con etiquetas concisas que representan categorías de contenido fácilmente comprensibles para el usuario. La ubicación destacada del botón "ÚNETE" invita a la acción principal, facilitando a los usuarios el inicio del registro o la exploración de la plataforma. La consistencia en el diseño visual del menú, incluyendo la tipografía, el espaciado y los colores, contribuye a una experiencia de usuario coherente y profesional. Además, la disposición horizontal del menú es un patrón común y esperado, lo que reduce la carga cognitiva y permite a los usuarios encontrar rápidamente la información que buscan.
 
 <p align="center">
   <img src="https://imgur.com/fLEJqNi.png" alt="ns2" width="500">
 </p>
+<p align="center"><strong>Figura 42.</strong> Menú superior de la aplicación VolunTrack con estructura funcional y consistente.</p>
 
 El menú superior de la aplicación VolunTrack mantiene una estructura y filosofía de diseño similar al menú del landing page, priorizando la claridad y la eficiencia en la navegación. Al igual que en la página principal, se emplean etiquetas concisas y fácilmente comprensibles para representar las secciones funcionales clave de la aplicación.
 
 <p align="center">
   <img src="https://imgur.com/Cp6SEdr.png" alt="ns3" width="500">
 </p>
+<p align="center"><strong>Figura 43.</strong> Vista del dashboard con widgets y accesos rápidos a secciones clave.</p>
 
 El dashboard de VolunTrack organiza la información y las funciones principales de la aplicación para facilitar la navegación y la interacción eficiente del usuario. Al presentar una visión general estructurada mediante widgets, se prioriza la información clave y se proveen accesos directos a las acciones más comunes, como la gestión de actividades o la visualización de voluntarios. La jerarquía visual, establecida mediante encabezados claros y el agrupamiento lógico de la información, guía al usuario a través del contenido, permitiéndole identificar rápidamente las áreas de interés y las tareas pendientes. La disposición de los elementos y la inclusión de botones de acción estratégicamente ubicados buscan minimizar el esfuerzo cognitivo y optimizar el flujo de trabajo, asegurando que los usuarios puedan alcanzar sus objetivos de manera intuitiva y satisfactoria.
 
 <p align="center">
   <img src="https://imgur.com/NBgt1FC.png" alt="ns4" width="500">
 </p>
+<p align="center"><strong>Figura 44.</strong> Segmentación por pestañas “Detalles” e “Inscritos” dentro de una actividad.</p>
 
 Los botones "Detalles" e "Inscritos" funcionan como un sistema de navegación segmentado dentro de la vista de una actividad, permitiendo a los usuarios cambiar entre dos tipos de información relevante. Esta segmentación organiza la información en categorías claras y distintas, evitando la sobrecarga cognitiva y facilitando la búsqueda de información específica. 
 
@@ -1341,6 +1435,7 @@ Los botones "Detalles" e "Inscritos" funcionan como un sistema de navegación se
 <p align="center">
   <img src="https://imgur.com/WYRKUPm.png" alt="LDW1" width="500">
 </p>
+<p align="center"><strong>Figura 45.</strong> Wireframe de la sección Home.</p>
 
 El wireframe presenta una estructura limpia con un titular principal y texto de apoyo en la parte superior, seguido de dos botones de acción clave. El diseño general busca una jerarquía visual clara para guiar al usuario.
 
@@ -1349,6 +1444,7 @@ El wireframe presenta una estructura limpia con un titular principal y texto de 
 <p align="center">
   <img src="https://imgur.com/stQvGXQ.png" alt="LDW2" width="500">
 </p>
+<p align="center"><strong>Figura 46.</strong> Wireframe de la sección Planes.</p>
 
 El wireframe de "Planes" muestra tres columnas distintas, cada una representando un plan de suscripción con un título, una breve descripción de sus características y un botón de suscripción. La disposición busca facilitar la comparación directa de las diferentes ofertas.
 
@@ -1357,10 +1453,12 @@ El wireframe de "Planes" muestra tres columnas distintas, cada una representando
 <p align="center">
   <img src="https://imgur.com/7jVYYfL.png" alt="LDW3" width="500">
 </p>
+<p align="center"><strong>Figura 47.</strong> Wireframe de la sección FAQ – Parte 1.</p>
 
 <p align="center">
   <img src="https://imgur.com/ZfHdD8Q.png" alt="LDW4" width="500">
 </p>
+<p align="center"><strong>Figura 48.</strong> Wireframe de la sección FAQ – Parte 2.</p>
 
 El wireframe de "Preguntas Frecuentes" presenta un título principal seguido de una pregunta destacada y su respuesta. Debajo, se listan otras preguntas con un formato que sugiere que las respuestas se mostrarán al interactuar con ellas. A la izquierda, se observan placeholders para elementos visuales complementarios.
 
@@ -1369,6 +1467,7 @@ El wireframe de "Preguntas Frecuentes" presenta un título principal seguido de 
 <p align="center">
   <img src="https://imgur.com/AWZipmv.png" alt="LDW5" width="500">
 </p>
+<p align="center"><strong>Figura 49.</strong> Wireframe de la sección Contáctanos.</p>
 
 El wireframe de "Contáctanos" muestra un formulario a la derecha para que los usuarios envíen mensajes, precedido por un breve texto introductorio. A la izquierda, se observa un placeholder para un elemento visual. En la parte inferior, hay placeholders para información de contacto adicional.
 
@@ -1377,6 +1476,7 @@ El wireframe de "Contáctanos" muestra un formulario a la derecha para que los u
 <p align="center">
   <img src="https://imgur.com/Ihh80CQ.png" alt="LDW6" width="500">
 </p>
+<p align="center"><strong>Figura 50.</strong> Wireframe de la sección Nuestro Equipo.</p>
 
 El wireframe de "Nuestro Equipo" presenta una disposición en cuadrícula con placeholders para fotografías de los miembros del equipo, debajo de cada uno con espacio para su nombre y su rol.
 
@@ -1385,6 +1485,7 @@ El wireframe de "Nuestro Equipo" presenta una disposición en cuadrícula con pl
 <p align="center">
   <img src="https://imgur.com/ZZoSi9v.png" alt="LDW7" width="500">
 </p>
+<p align="center"><strong>Figura 51.</strong> Wireframe del Footer.</p>
 
 El wireframe del footer muestra el logo y una breve descripción de VolunTrack a la izquierda, enlaces de navegación en el centro y placeholders para los logos de clientes que confían en la plataforma a la derecha, junto con iconos de redes sociales.
 
@@ -1393,60 +1494,70 @@ El wireframe del footer muestra el logo y una breve descripción de VolunTrack a
 <p align="center">
   <img src="https://imgur.com/PnaDJ9u.png" alt="LDMU1" width="500">
 </p>
+<p align="center"><strong>Figura 52.</strong> Mock-up de la pantalla de inicio de VolunTrack.</p>
 
 La pantalla de inicio de VolunTrack presenta de inmediato su propuesta de valor con un titular llamativo y un subtítulo conciso, comunicando el beneficio principal para las ONGs. La imagen de fondo, con manos de diversos colores elevándose, busca conectar emocionalmente con el usuario y transmitir la idea de colaboración e impacto colectivo. La ubicación prominente de los botones de llamada a la acción guía al usuario hacia los siguientes pasos lógicos: registrarse o solicitar más información. El menú de navegación superior es claramente visible y ofrece acceso directo a las secciones clave del sitio, facilitando la exploración de la plataforma. La combinación de elementos textuales y visuales busca captar la atención del visitante y comunicar de manera efectiva el propósito y los beneficios de VolunTrack desde el primer contacto.
 
 <p align="center">
   <img src="https://imgur.com/51oJTv8.png" alt="LDMU2" width="500">
 </p>
+<p align="center"><strong>Figura 53.</strong> Mock-up de la sección Sobre Nosotros.</p>
 
 La sección "Sobre Nosotros" busca establecer la identidad y los valores de VolunTrack, comenzando con un titular que destaca su propuesta de valor diferencial. Un breve párrafo explica la misión de la plataforma, enfocándose en la creación de comunidades y la conexión entre ONGs y voluntarios. Se utilizan elementos visuales impactantes, como un collage de imágenes que representan la diversidad y el impacto del voluntariado, para conectar emocionalmente con el usuario y reforzar el mensaje. 
 
 <p align="center">
   <img src="https://imgur.com/TZTswhp.png" alt="LDMU3" width="500">
 </p>
+<p align="center"><strong>Figura 54.</strong> Mock-up de la sección Planes.</p>
 
 La pantalla de "Planes" presenta las opciones de suscripción de manera clara y comparativa, guiando al usuario a través del proceso de selección. La información se organiza en tarjetas o columnas distintas para cada plan, lo que facilita la comparación de características y precios. Se utiliza una jerarquía visual para destacar los elementos más importantes, como el precio y el botón de llamada a la acción, atrayendo la atención del usuario hacia la conversión. La pantalla emplea un lenguaje conciso y descriptivo para explicar los beneficios de cada plan, y utiliza elementos visuales como íconos o marcas de verificación para resaltar las funcionalidades clave. La disposición de los planes y la información sigue un flujo lógico, desde las opciones más básicas hasta las más avanzadas, permitiendo al usuario tomar una decisión informada y segura.
 
 <p align="center">
   <img src="https://imgur.com/IMmN3qj.png" alt="LDMU4" width="500">
 </p>
+<p align="center"><strong>Figura 55.</strong> Mock-up inicial de la sección Preguntas Frecuentes.</p>
 
 La sección inicial de Preguntas Frecuentes facilita la búsqueda rápida de información mediante una presentación clara y estructurada. El título "Preguntas Frecuentes" indica directamente el contenido, y el subtítulo "¿Cómo Podemos Ayudarte?" orienta al usuario hacia la utilidad del recurso. Una breve introducción contextualiza la información que se ofrece. Las preguntas se muestran como elementos seleccionables, diseñados para expandirse y mostrar las respuestas, lo que permite un escaneo veloz de los temas y evita la sobrecarga de texto. La diferenciación visual de las preguntas mediante su formato las distingue claramente de las respuestas. Imágenes relevantes complementan el texto, manteniendo el interés del usuario. El diseño general es limpio y espacioso, lo que favorece la legibilidad y la comprensión.
 
 <p align="center">
   <img src="https://imgur.com/Yuz4HnB.png" alt="LDMU5" width="500">
 </p>
+<p align="center"><strong>Figura 56.</strong> Mock-up inicial de la sección Preguntas Frecuentes – Parte 1.</p>
 
 La segunda sección de la página de Preguntas Frecuentes continúa facilitando el acceso a información relevante mediante una estructura clara y directa. Cada pregunta se presenta de forma individual, con un formato que permite expandir la respuesta al hacer clic. Se mantiene la coherencia visual con la sección anterior, utilizando un diseño limpio y suficiente espacio en blanco para mejorar la legibilidad. 
 
 <p align="center">
   <img src="https://imgur.com/UZ0ldi5.png" alt="LDMU6" width="500">
 </p>
+<p align="center"><strong>Figura 57.</strong> Mock-up de la sección Preguntas Frecuentes – Parte 2.</p>
 
 La sección "Contáctanos" está diseñada para facilitar la comunicación entre los usuarios y VolunTrack. Un formulario de contacto ocupa el espacio derecho, mientras que el izquierdo tiene el logo como refuerzo de marca. permitiendo a los usuarios enviar consultas específicas de manera directa. La estructura de la sección organiza claramente las diferentes opciones.
 
 <p align="center">
   <img src="https://imgur.com/jNMab0X.png" alt="LDMU7" width="500">
 </p>
+<p align="center"><strong>Figura 58.</strong> Mock-up de la sección Contáctanos – Parte 1.</p>
 
 La continuación de la sección "Contáctanos" proporciona información de contacto adicional organizada de forma clara y accesible. Se presentan tres métodos principales: teléfono, correo electrónico y dirección de oficina, cada uno acompañado de un icono distintivo para facilitar su identificación visual. La información de cada método se muestra de manera concisa y legible, permitiendo a los usuarios encontrar rápidamente los detalles que necesitan. La inclusión de un mapa interactivo de Google Maps en la parte inferior ofrece una referencia visual de la ubicación de la oficina, facilitando la planificación de visitas presenciales. La disposición de los elementos en columnas y el uso de iconos ayudan a estructurar la información y a reducir la carga cognitiva, permitiendo a los usuarios elegir el método de contacto más conveniente de manera intuitiva.
 
 <p align="center">
   <img src="https://imgur.com/QcKTytN.png" alt="LDMU8" width="500">
 </p>
+<p align="center"><strong>Figura 59.</strong> Mock-up de la sección Contáctanos – Parte 2.</p>
 
 La sección "Nuestro Equipo" presenta a los miembros del equipo de VolunTrack de una manera visual y organizada. Cada miembro se identifica con una fotografía clara y un breve texto que incluye su nombre y rol dentro del proyecto. La disposición de las fotos en una cuadrícula facilita la visualización y el escaneo de los diferentes integrantes. El uso de etiquetas de color distintivas debajo de cada foto ayuda a diferenciar visualmente a los miembros y a categorizarlos por área de especialización. Este diseño busca generar confianza y transparencia al mostrar el lado humano del proyecto de forma accesible y directa.
 
 <p align="center">
   <img src="https://imgur.com/LNKoyCn.png" alt="LDMU9" width="500">
 </p>
+<p align="center"><strong>Figura 60.</strong> Mock-up de la sección Nuestro Equipo.</p>
 
 Esta sección, ubicada estratégicamente cerca del final de las pantallas, busca generar confianza y credibilidad al mostrar logotipos de organizaciones que aparentemente utilizan VolunTrack. El título "¿Quién confía en VolunTrack?" plantea una pregunta directa que se responde visualmente con los logos de diversas entidades. La disposición horizontal de los logos permite un escaneo rápido y fácil de las marcas asociadas. 
 
 <p align="center">
   <img src="https://imgur.com/oX9HJPw.png" alt="LDMU10" width="500">
 </p>
+<p align="center"><strong>Figura 61.</strong> Mock-up de logotipos de organizaciones aliadas en VolunTrack.</p>
 
 El pie de página de VolunTrack organiza información relevante y enlaces de interés de forma concisa y accesible. La sección "Links rápidos" ofrece una navegación alternativa a las secciones principales del sitio, facilitando el acceso directo a información clave. La sección "Clientes que confían en nosotros" refuerza la credibilidad al mostrar visualmente los logos de organizaciones que utilizan la plataforma. Además, se incluye un breve texto descriptivo de VolunTrack y enlaces a redes sociales, proporcionando contexto y extendiendo la presencia de la marca. La disposición de los elementos en columnas facilita la lectura y el escaneo, permitiendo a los usuarios encontrar rápidamente la información que buscan o conectar con VolunTrack en diferentes canales.
 
@@ -1457,54 +1568,63 @@ El pie de página de VolunTrack organiza información relevante y enlaces de int
 <p align="center">
   <img src="https://imgur.com/1cV72ZZ.png" alt="WAW1" width="500">
 </p>
+<p align="center"><strong>Figura 62.</strong> Wireframe del Dashboard de actividades.</p>
 
 El primer wireframe de VolunTrack corresponde a la pantalla principal de la plataforma. En la parte superior se ubica una barra de navegación que integra el logo y accesos directos al Dashboard, la sección de voluntarios, las notificaciones y el perfil personal. En el área central se despliega el "Dashboard de Actividades", donde se listan las diversas oportunidades de voluntariado que ofrece el sistema.
 
 <p align="center">
   <img src="https://imgur.com/Iz0uSHa.png" alt="WAW2" width="500">
 </p>
+<p align="center"><strong>Figura 63.</strong> Wireframe de la vista detallada de una actividad.</p>
 
 El presente wireframe muestra la información de una actividad de voluntariado seleccionada de la anterior pantalla, dividida en la descripción, instrucciones y propósito de esta.
 
 <p align="center">
   <img src="https://imgur.com/Ahb8PwG.png" alt="WAW3" width="500">
 </p>
+<p align="center"><strong>Figura 64.</strong> Wireframe de la lista de voluntarios inscritos en una actividad.</p>
 
 Al presionar el botón “Inscritos”, se visualiza una pantalla donde se presenta una lista de los voluntarios registrados en la actividad. Asimismo, en el lado izquierdo se encuentran cuatro botones con diferentes funcionalidades con relación al evento de voluntariado. En el lado derecho se encuentra el voluntario seleccionado de la lista central.
 
 <p align="center">
   <img src="https://imgur.com/kXqrmRt.png" alt="WAW4" width="500">
 </p>
+<p align="center"><strong>Figura 65.</strong> Wireframe del formulario de creación de actividades.</p>
 
 El presente wireframe muestra la pantalla de creación de eventos de voluntariado, donde el usuario tendrá que llenar diferentes apartados para finalizar la entrada de datos.
 
 <p align="center">
   <img src="https://imgur.com/6PGyp0Q.png" alt="WAW5" width="500">
 </p>
+<p align="center"><strong>Figura 66.</strong> Wireframe del calendario mensual de actividades.</p>
 
 Esta pantalla muestra el calendario de las actividades mensuales de la asociación de voluntariado.
 
 <p align="center">
   <img src="https://imgur.com/FZyOzxq.png" alt="WAW6" width="500">
 </p>
+<p align="center"><strong>Figura 67.</strong> Wireframe de la sección "Mis Voluntarios".</p>
 
 Accediendo a "Mis Voluntarios" desde el menú principal, se accede a la pantalla reflejada en el sexto wireframe. La interfaz divide la información en bloques: estadísticas generales de los voluntarios, listado detallado de usuarios (con nombre, edad y profesión), perfil ampliado del voluntario seleccionado y un historial de las actividades en las que ha participado.
 
 <p align="center">
   <img src="https://imgur.com/dzIe7ln.png" alt="WAW7" width="500">
 </p>
+<p align="center"><strong>Figura 68.</strong> Wireframe de gestión del perfil del coordinador de ONG.</p>
 
 El séptimo wireframe corresponde a la gestión de perfil del líder o coordinador de la ONG. Accediendo mediante el segundo ícono ubicado en la esquina superior derecha, se despliega la información personal, la descripción de la organización y configuraciones de cuenta, permitiendo personalizar la experiencia de uso.
 
 <p align="center">
   <img src="https://imgur.com/6vAEngk.png" alt="WAW8" width="500">
 </p>
+<p align="center"><strong>Figura 69.</strong> Wireframe del sistema de notificaciones.</p>
 
 En este wireframe se visualiza el sistema de notificaciones. Al presionar el primer ícono de la barra superior, se abre un panel lateral donde se enlistan todas las alertas relevantes para el usuario, facilitando el monitoreo de actividades y comunicaciones importantes.
 
 <p align="center">
   <img src="https://imgur.com/uDBsM90.png" alt="WAW9" width="500">
 </p>
+<p align="center"><strong>Figura 70.</strong> Wireframe final de la interfaz del sistema VolunTrack.</p>
 
 Por último, se puede apreciar la pantalla de acceso a la plataforma. El usuario puede iniciar sesión mediante su Email y contraseña o crear una nueva cuenta.
 
@@ -1518,12 +1638,14 @@ Como usuario, quiero crear una actividad de voluntariado nueva y quiero visualiz
 <p align="center">
   <img src="https://imgur.com/U7sUKSh.png" alt="TF1" width="500">
 </p>
+<p align="center"><strong>Figura 71.</strong> Task Flow – Crear y visualizar detalles de una actividad.</p>
 
 *Wireflow:*
 
 <p align="center">
   <img src="https://imgur.com/udAXA5Z.png" alt="WF1" width="500">
 </p>
+<p align="center"><strong>Figura 72.</strong> Wireflow – Crear y visualizar detalles de una actividad.</p>
 
 Para poder crear una actividad o ver las existentes, se debe seguir un conjunto de pasos. Primero, es vital que el usuario inicie sesión con su cuenta registrada. Continuamente, aparecerá en la pantalla principal de VolunTrack, es decir, el dashboard de actividades. En este, se pueden visualizar los eventos creados previamente por el usuario. Al seleccionar uno de ellos a través del botón “Ver Más”, se mostrarán los detalles de aquel. 
 
@@ -1538,12 +1660,14 @@ Como usuario, quiero ver detalles sobre mis colaboradores, así como la cantidad
 <p align="center">
   <img src="https://imgur.com/FgJ6OPq.png" alt="TF2" width="500">
 </p>
+<p align="center"><strong>Figura 73.</strong> Task Flow – Visualizar voluntarios y nuevos ingresos.</p>
 
 *Wireflow:*
 
 <p align="center">
   <img src="https://imgur.com/0xJUIx9.png" alt="WF2" width="500">
 </p>
+<p align="center"><strong>Figura 74.</strong> Wireflow – Visualizar voluntarios y nuevos ingresos.</p>
 
 Para ver detalles sobre los voluntarios y la cantidad de nuevos ingresos, se debe, en primer lugar, iniciar sesión en VolunTrack con credenciales previamente establecidas. Al realizar esta acción, se presentará la pantalla principal de la plataforma, el dashboard de actividades. En el encabezado, que se encuentra en la parte superior, se debe apretar el enlace “Mis Voluntarios”. Este llevará al usuario a la sección de voluntarios de su organización, en la cual podrá ver detalles e información sobre ellos, así como la cantidad de nuevos ingresos. 
 
@@ -1558,12 +1682,14 @@ Como usuario, quiero pasar asistencia y emitir certificados para los voluntarios
 <p align="center">
   <img src="https://imgur.com/wolS9u6.png" alt="TF3" width="500">
 </p>
+<p align="center"><strong>Figura 75.</strong> Task Flow – Pasar asistencia y emitir certificados.</p>
 
 *Wireflow:*
 
 <p align="center">
   <img src="https://imgur.com/bincdvb.png" alt="WF3" width="500">
 </p>
+<p align="center"><strong>Figura 76.</strong> Wireflow – Pasar asistencia y emitir certificados.</p>
 
 Para que un usuario pase asistencia y emita certificados en VolunTrack debe empezar por el inicio de sesión en la plataforma, con su correo y contraseña registrada. Luego, desde el "Dashboard de Actividades", el usuario selecciona la actividad correspondiente. Al ingresar a los detalles de la actividad, accede a la sección de "Inscritos", donde puede visualizar la lista de voluntarios registrados. Desde esta pantalla, el usuario puede marcar quiénes asistieron a la actividad y, posteriormente, emitir los certificados para aquellos voluntarios que cumplieron con su participación. Además, hay otras opciones de gestión que puede realizar el usuario, según sea su necesidad.
 
@@ -1574,54 +1700,63 @@ Para mejor visualización de los Wireflows de VolunTrack, acceder al siguiente l
 <p align="center">
   <img src="https://imgur.com/zXEmnVs.png" alt="WAM1" width="500">
 </p>
+<p align="center"><strong>Figura 77.</strong> Mock-up de la pantalla principal del dashboard de actividades.</p>
 
 El primer mockup de Voluntrack muestra la pantalla de inicio de la plataforma. En la parte superior se aprecia un encabezado donde aparecen el logo y accesos rápidos al “Dashboard”, “Mis Voluntarios”, a las notificaciones y al perfil del usuario. El centro de la página contiene el “Dashboard de Actividades”, en el cual se encuentran las oportunidades de voluntariado que ofrece la aplicación.
 
 <p align="center">
   <img src="https://imgur.com/cjcW4qS.png" alt="WAM2" width="500">
 </p>
+<p align="center"><strong>Figura 78.</strong> Mock-up de la vista de detalles de una actividad seleccionada.</p>
 
 Al presionar el botón “VER MÁS”, se podrá apreciar la segunda pantalla de la aplicación. La sección “Detalles” ofrece información completa sobre el evento o actividad de voluntariado seleccionada: descripción extensa, instrucciones, propósito, ubicación y la fecha en la cual se realizará.
 
 <p align="center">
   <img src="https://imgur.com/MPb1l3Q.png" alt="WAM3" width="500">
 </p>
+<p align="center"><strong>Figura 79.</strong> Mock-up de la sección de voluntarios inscritos en una actividad.</p>
 
 El tercer mockup corresponde a la sección de “Inscritos”. En la parte izquierda de la pantalla se muestran cuatro botones: “Enviar Notificación”, “Marcar Asistencia”, “Crear Certificados”, “Abrir Inscripciones”, cada uno con su respectiva funcionalidad. En el centro se aprecia una lista de los voluntarios inscritos a la actividad. En la parte derecha de la pantalla se muestra el perfil del voluntario seleccionado en la lista, con la posibilidad de marcar su asistencia y cambiar el estado de inscripción.
 
 <p align="center">
   <img src="https://imgur.com/LXgsrPl.png" alt="WAM4" width="500">
 </p>
+<p align="center"><strong>Figura 80.</strong> Mock-up del formulario de creación de actividades.</p>
 
 Luego de presionar el botón “+ Crear” de la pantalla principal, el usuario se dirige a un formulario de creación de actividades o eventos de voluntariado dividido en campos básicos como título, fecha, dirección, instrucciones y propósito. En la parte izquierda se encuentra un botón de “Adjuntar archivo”, con el cual se podrán adjuntar hasta un máximo de 4 imágenes. 
 
 <p align="center">
   <img src="https://imgur.com/YHuk76R.png" alt="WAM5" width="500">
 </p>
+<p align="center"><strong>Figura 81.</strong> Mock-up del calendario de actividades mensuales.</p>
 
 Luego de presionar el botón “Calendario” de la pantalla principal, se podrán visualizar todas las actividades de voluntariado creadas por el usuario en cada mes del año.
 
 <p align="center">
   <img src="https://imgur.com/dM4NBu3.png" alt="WAM6" width="500">
 </p>
+<p align="center"><strong>Figura 82.</strong> Mock-up de la sección “Mis Voluntarios”.</p>
 
 Al presionar “Mis Voluntarios” de la página principal, se aprecia una pantalla dividida en secciones. La primera sección contiene las métricas de los voluntarios inscritos en tus actividades. En la segunda sección, se observa una lista de todos tus voluntarios, mostrando su nombre, edad y profesión. La tercera sección muestra al voluntario seleccionado en la lista anteriormente mencionada. La cuarta sección contiene el historial de las actividades anteriormente realizadas.
 
 <p align="center">
   <img src="https://imgur.com/g5vSzDF.png" alt="WAM7" width="500">
 </p>
+<p align="center"><strong>Figura 83.</strong> Mock-up del perfil del líder o coordinador de ONG.</p>
 
 Al presionar el segundo ícono ubicado en la esquina superior derecha, el usuario se redirigirá a la pantalla de “Mi Perfil”, en el cual se encuentra toda la información personal, descripción y configuración de la asociación de voluntariado.
 
 <p align="center">
   <img src="https://imgur.com/8G8kvF4.png" alt="WAM8" width="500">
 </p>
+<p align="center"><strong>Figura 84.</strong> Mock-up del sistema de notificaciones del usuario.</p>
 
 Al presionar el primer ícono ubicado en la esquina superior derecha, se desplegará una sección en la parte derecha de la pantalla, en el cual se muestran todas las notificaciones posibles.
 
 <p align="center">
   <img src="https://imgur.com/hRDHl7I.png" alt="WAM9" width="500">
 </p>
+<p align="center"><strong>Figura 85.</strong> Mock-up del formulario de inicio de sesión de VolunTrack.</p>
 
 El último mockup corresponde al formulario de inicio de sesión de VolunTrack. En esta pantalla, el usuario puede iniciar sesión utilizando su cuenta de Google o Apple. Además, en la parte inferior se encuentra un botón destacado que invita a los nuevos usuarios a "Crear Cuenta", facilitando así tanto el acceso rápido como el registro dentro de la plataforma.
 
@@ -1634,6 +1769,7 @@ Como usuario, quiero crear una actividad de voluntariado nueva y quiero visualiz
 <p align="center">
   <img src="https://imgur.com/QsqsgEO.png" alt="UF1" width="500">
 </p>
+<p align="center"><strong>Figura 86.</strong> Userflow de creación y visualización de actividades de voluntariado.</p>
 
 **Userflow #2**
 
@@ -1642,6 +1778,7 @@ Como usuario, quiero ver detalles sobre mis colaboradores, así como la cantidad
 <p align="center">
   <img src="https://imgur.com/eU7S8E0.png" alt="UF2" width="500">
 </p>
+<p align="center"><strong>Figura 87.</strong> Userflow para consultar detalles de colaboradores y nuevos voluntarios.</p>
 
 **Userflow #3**
 
@@ -1650,6 +1787,7 @@ Como usuario, quiero pasar asistencia y emitir certificados para los voluntarios
 <p align="center">
   <img src="https://imgur.com/FP7dWFc.png" alt="UF3" width="500">
 </p>
+<p align="center"><strong>Figura 88.</strong> Userflow para pasar asistencia y emitir certificados a voluntarios.</p>
 
 Para mejor visualización de los Userflows de VolunTrack, acceder al siguiente link: https://lucid.app/lucidchart/6d203d95-a99b-42f5-89a4-18abdc85c7a8/edit?viewport_loc=-4179%2C-3628%2C29871%2C13885%2C0_0&invitationId=inv_030ec1fa-a7fe-46c5-a660-10386174a01b
 
@@ -1672,18 +1810,21 @@ En nuestro proyecto VolunTrack, adoptamos los principios de la Domain-Driven Sof
 <p align="center">
   <img src="https://imgur.com/FR9QhSq.png" alt="ContextD" width="500">
 </p>
+<p align="center"><strong>Figura 89.</strong> Diagrama de contexto de la arquitectura de software.</p>
 
 ### 4.6.2. Software Architecture Container Diagram
 
 <p align="center">
   <img src="https://imgur.com/54gnZXo.png" alt="ContainerD" width="500">
 </p>
+<p align="center"><strong>Figura 90.</strong> Diagrama de contenedores de la arquitectura de software.</p>
 
 ### 4.6.3. Software Architecture Components Diagram
 
 <p align="center">
   <img src="https://imgur.com/16VhhFW.png" alt="ComponentsD" width="500">
 </p>
+<p align="center"><strong>Figura 91.</strong> Diagrama de componentes de la arquitectura de software.</p>
 
 ## 4.7. Software Object-Oriented Design
 ### 4.7.1. Class Diagram
@@ -1691,6 +1832,7 @@ En nuestro proyecto VolunTrack, adoptamos los principios de la Domain-Driven Sof
 <p align="center">
   <img src="https://imgur.com/RvZpsav.png" alt="Class" width="500">
 </p>
+<p align="center"><strong>Figura 92.</strong> Diagrama de clases del sistema VolunTrack.</p>
 
 ### 4.7.2. Class Dictionary
 * Usuario: Representa a cualquier persona registrada tanto voluntarios como líderes o coordinadores de voluntariado en la plataforma. 
@@ -1711,6 +1853,7 @@ En nuestro proyecto VolunTrack, adoptamos los principios de la Domain-Driven Sof
 <p align="center">
   <img src="https://imgur.com/xbCRPHT.png" alt="Database" width="500">
 </p>
+<p align="center"><strong>Figura 93.</strong> Diagrama de la base de datos de VolunTrack.</p>
 
 # CAPÍTULO 5: PRODUCT IMPLEMENTATION & DEPLOYMENT
 
@@ -1719,6 +1862,7 @@ En nuestro proyecto VolunTrack, adoptamos los principios de la Domain-Driven Sof
 La Gestión de Configuración de Software (SCM) cumple una función clave en el desarrollo de software, ya que garantiza el control y la coherencia de las versiones y configuraciones a lo largo de todo el ciclo de vida del producto. Según Configu Editorial Team (2024), esta práctica favorece una colaboración fluida entre los equipos, simplifica la administración de cambios complejos y asegura que todos los participantes trabajen en un entorno estandarizado y sincronizado.
 
 ### 5.1.1. Software Development Environment Configuration
+**Tabla 31. Herramientas utilizadas para la configuración del entorno de desarrollo de software.**
 
 | Producto             | Propósito en el Proyecto                                         | Categoría              | Ruta de Descarga / Acceso                          | Descripción                                                                                                                                                         |
 |----------------------|-------------------------------------------------------------------|-------------------------|----------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -1758,6 +1902,7 @@ El formato del código en VolunTrack se regirá por una convención clara que fa
 <p align="center">
   <img src="https://github.com/user-attachments/assets/fb8dcf35-09af-4901-b150-56c4a1a352bc" alt="Espaciado">
 </p>
+<p align="center"><strong>Figura 94.</strong> Ejemplo de espaciado e indentación del código en VolunTrack.</p>
 
 Nomenclatura
 
@@ -1766,6 +1911,7 @@ Los nombres de archivos, variables, funciones y clases se escribirán en inglés
 <p align="center">
   <img src="https://github.com/user-attachments/assets/cda652f4-a032-43ba-853f-95afbde0cc6f" alt="Nomenclatura">
 </p>
+<p align="center"><strong>Figura 95.</strong> Convención de nomenclatura para archivos y variables en el proyecto.</p>
 
 Comentarios
 
@@ -1774,6 +1920,7 @@ Los comentarios en el código de VolunTrack se utilizarán con propósito y mesu
 <p align="center">
   <img src="https://github.com/user-attachments/assets/bb41129b-0724-4061-a890-abbc4281c629" alt="Comentarios">
 </p>
+<p align="center"><strong>Figura 96.</strong> Ejemplo de uso apropiado de comentarios dentro del código fuente.</p>
 
 Commits
 
@@ -1782,6 +1929,7 @@ Los mensajes de commit deberán seguir una estructura estandarizada que permita 
 <p align="center">
   <img src="https://github.com/user-attachments/assets/5806024c-94e4-4898-8bd2-d6f72253afc5" alt="Commits">
 </p>
+<p align="center"><strong>Figura 97.</strong> Formato estandarizado para mensajes de commits en VolunTrack.</p>
 
 ### 5.1.4. Software Deployment Configuration
 
@@ -1792,48 +1940,56 @@ Primero vamos a nuestro repositorio
 <p align="center">
   <img src="https://github.com/user-attachments/assets/2846fce1-b78a-41c5-8657-d5284fff2cc4" alt="Primer paso">
 </p>
+<p align="center"><strong>Figura 98.</strong> Paso 1: Acceso al repositorio de GitHub para iniciar el despliegue.</p>
 
 Nos vamos a settings
 
 <p align="center">
   <img src="https://github.com/user-attachments/assets/8e1d90fc-d8cb-41fe-95e8-d57e65e96dfb" alt="Segundo paso">
 </p>
+<p align="center"><strong>Figura 99.</strong> Paso 2: Ingreso a la pestaña "Settings" del repositorio.</p>
 
 Damos click en pages
 
 <p align="center">
   <img src="https://github.com/user-attachments/assets/9c6ec11b-65a1-4683-b19d-0864a579036e" alt="Tercer paso">
 </p>
+<p align="center"><strong>Figura 100.</strong> Paso 3: Acceso a la sección "Pages" dentro de los ajustes.</p>
 
 Nos aseguramos que el source sea “Deploy from a branch”. Escogemos la rama que vamos a desplegar, en nuestro caso la rama main, escogemos el root y le damos a guardar
 
 <p align="center">
   <img src="https://github.com/user-attachments/assets/ff1c6980-359d-4ff3-8399-116b2461fb9f" alt="Cuarto paso">
 </p>
+<p align="center"><strong>Figura 101.</strong> Paso 4: Selección de rama y carpeta raíz para desplegar el sitio.</p>
 
 Volvemos a code y veremos un punto amarillo
 
 <p align="center">
   <img src="https://github.com/user-attachments/assets/f7eaf141-5a05-4f63-b34b-ded6620f6d78" alt="Cuarto paso">
 </p>
+<p align="center"><strong>Figura 102.</strong> Paso 5: Indicador del estado de despliegue dentro de la pestaña "Code".</p>
 
 Damos click y después click a details
 
 <p align="center">
   <img src="https://github.com/user-attachments/assets/e270dec3-585f-4ad5-9263-b6b8511c99ff" alt="Quinto paso">
 </p>
+<p align="center"><strong>Figura 103.</strong> Paso 6: Acceso al enlace de "Details" del proceso de despliegue.</p>
 
 Una vez esperamos a que se terminen todas
 
 <p align="center">
   <img src="https://github.com/user-attachments/assets/26ddd9d5-6183-435b-926a-ae4e8fa9f989" alt="Sexto paso">
 </p>
+<p align="center"><strong>Figura 104.</strong> Paso 7: Confirmación de despliegue exitoso mediante icono verde.</p>
 
 Nos aparecerá el link del despliegue en settings-pages
 
 <p align="center">
   <img src="https://github.com/user-attachments/assets/c11523fd-4fa1-4032-bf6f-b492489791fc" alt="Sexto paso">
 </p>
+<p align="center"><strong>Figura 105.</strong> Paso 8: Visualización del enlace de despliegue desde "Settings > Pages".</p>
 
 ## 5.2. Landing Page, Services & Applications Implementation
 
@@ -1845,6 +2001,8 @@ Esta sección registra el progreso obtenido durante el Sprint 1 del proyecto Vol
 
 El Sprint Planning es la reunión que marca el inicio de cada sprint, donde el equipo Scrum define qué se va a construir y cómo se alcanzará. Durante esta sesión, se establece un objetivo claro (Sprint Goal), se seleccionan las historias de usuario más relevantes y se descomponen en tareas específicas. Esta planificación no solo organiza el trabajo de manera eficiente, sino que también garantiza un enfoque compartido y alinea al equipo hacia la entrega continua de valor al usuario.
 A continuación, se presenta la tabla correspondiente al Sprint Planning:
+
+**Tabla 32.** Detalles del Sprint Planning para el primer sprint del proyecto VolunTrack.
 
 | **Sprint #**                       | Sprint 1                                                                                                                                              |
 |--------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -1863,6 +2021,8 @@ A continuación, se presenta la tabla correspondiente al Sprint Planning:
 
 #### 5.2.1.2. Aspect Leaders and Collaborators
 
+**Tabla 33.** Asignación de líderes y colaboradores por área de trabajo en el equipo VolunTrack.
+
 | Team Member                        | Diseño UX | Diseño UI - Wireframes | Diseño UI - MockUps | Diseño Landing Page | Control de versiones |
 |-------------------------------------|-----------|------------------------|---------------------|---------------------|-----------------------|
 | Binda Arbañil, Marcelo Alejandro    | L         | C                      | C                   | C                   | C                     |
@@ -1872,6 +2032,8 @@ A continuación, se presenta la tabla correspondiente al Sprint Planning:
 | Ortiz Alarcón, Victor Nicolás        | C         | C                      | C                   | L                   | C                     |
 
 #### 5.2.1.3 Sprint Backlog 1
+
+**Tabla 34.** Sprint Backlog 1: tareas por historia de usuario, estimación, responsables y estado.
 
 | Sprint #       | Sprint #1 |      |      |      |      |
 |----------------|-----------|------|------|------|------|
@@ -1896,20 +2058,25 @@ Icebox de las historias de usuario pendientes (no iniciadas en este sprint)
 <p align="center">
   <img src="https://github.com/user-attachments/assets/a0845de2-56b3-4375-9c4d-63c17f429499" alt="Icebox US pendientes">
 </p>
+<p align="center"><strong>Figura 106.</strong> Icebox de las historias de usuario pendientes (no iniciadas en este sprint).</p>
 
 Historias de usuario empezadas y finalizadas del sprint
 <p align="center">
   <img src="https://github.com/user-attachments/assets/f03f3fb6-c1a5-4408-a777-22a4ca97b25c" alt="Icebox US sprint 1">
 </p>
+<p align="center"><strong>Figura 107.</strong> Historias de usuario empezadas y finalizadas durante el Sprint 1.</p>
 
 Épicas
 <p align="center">
   <img src="https://github.com/user-attachments/assets/20f2abcd-6a7b-4ae5-9d31-8e32442803b2" alt="Épicas">
 </p>
+<p align="center"><strong>Figura 108.</strong> Panel de épicas definidas en el backlog del proyecto.</p>
 
 #### 5.1.2.4. Development Evidence for Sprint Review
 
 Esta sección presenta los principales avances técnicos logrados durante el sprint, en relación con los productos comprometidos: la Landing Page, la Aplicación Web y los Servicios Web. Se detalla el progreso a través de los repositorios utilizados por el equipo, destacando los commits relevantes que reflejan el desarrollo de nuevas funcionalidades, la corrección de errores, las mejoras en la interfaz y la configuración de servicios. Esta evidencia no solo permite evaluar el cumplimiento de los objetivos del sprint, sino que también facilita la retroalimentación durante la reunión de revisión.
+
+**Tabla 35.** Evidencia técnica de desarrollo obtenida desde los commits del repositorio de la Landing Page de VolunTrack.
 
 | Repository | Branch | Commit Id | Commit Message | Commit Message Body | Committed on (Date) |
 |------------|--------|-----------|----------------|---------------------|---------------------|
@@ -1938,48 +2105,56 @@ Primero vamos a nuestro repositorio
 <p align="center">
   <img src="https://github.com/user-attachments/assets/2846fce1-b78a-41c5-8657-d5284fff2cc4" alt="Primer paso">
 </p>
+<p align="center"><strong>Figura 109.</strong> Vista del repositorio desde el que se iniciará el despliegue.</p>
 
 Nos vamos a settings
 
 <p align="center">
   <img src="https://github.com/user-attachments/assets/8e1d90fc-d8cb-41fe-95e8-d57e65e96dfb" alt="Segundo paso">
 </p>
+<p align="center"><strong>Figura 110.</strong> Sección “Settings” del repositorio seleccionada para configurar GitHub Pages.</p>
 
 Damos click en pages
 
 <p align="center">
   <img src="https://github.com/user-attachments/assets/9c6ec11b-65a1-4683-b19d-0864a579036e" alt="Tercer paso">
 </p>
+<p align="center"><strong>Figura 111.</strong> Acceso al menú “Pages” dentro de Settings.</p>
 
 Nos aseguramos que el source sea “Deploy from a branch”. Escogemos la rama que vamos a desplegar, en nuestro caso la rama main, escogemos el root y le damos a guardar
 
 <p align="center">
   <img src="https://github.com/user-attachments/assets/ff1c6980-359d-4ff3-8399-116b2461fb9f" alt="Cuarto paso">
 </p>
+<p align="center"><strong>Figura 112.</strong> Configuración del origen de despliegue (branch y root) para activar GitHub Pages.</p>
 
 Volvemos a code y veremos un punto amarillo
 
 <p align="center">
   <img src="https://github.com/user-attachments/assets/f7eaf141-5a05-4f63-b34b-ded6620f6d78" alt="Cuarto paso">
 </p>
+<p align="center"><strong>Figura 113.</strong> Indicador de progreso de despliegue en la vista de código.</p>
 
 Damos click y después click a details
 
 <p align="center">
   <img src="https://github.com/user-attachments/assets/e270dec3-585f-4ad5-9263-b6b8511c99ff" alt="Quinto paso">
 </p>
+<p align="center"><strong>Figura 114.</strong> Acceso a detalles del estado de despliegue mediante clic en el punto amarillo.</p>
 
 Una vez esperamos a que se terminen todas
 
 <p align="center">
   <img src="https://github.com/user-attachments/assets/26ddd9d5-6183-435b-926a-ae4e8fa9f989" alt="Sexto paso">
 </p>
+<p align="center"><strong>Figura 115.</strong> Proceso de espera hasta que se completen todos los pasos de despliegue.</p>
 
 Nos aparecerá el link del despliegue en settings-pages
 
 <p align="center">
   <img src="https://github.com/user-attachments/assets/c11523fd-4fa1-4032-bf6f-b492489791fc" alt="Sexto paso">
 </p>
+<p align="center"><strong>Figura 116.</strong> Confirmación final del enlace de despliegue generado por GitHub Pages.</p>
 
 #### 5.2.1.8. Team Collaboration Insights during Sprint
 
@@ -1988,12 +2163,14 @@ A lo largo del Sprint 1, el equipo de VolunTrack sostuvo una colaboración conti
 <p align="center">
   <img src="https://github.com/user-attachments/assets/973bdd4e-2dbe-4d35-a8fb-bef50cf5f414" alt="Insights landing page">
 </p>
+<p align="center"><strong>Figura 117.</strong> Sección de Insights de GitHub evidenciando la colaboración de todos los integrantes en la landing page.</p>
 
 En esta imagen se aprecia la sección de “Insights” de Github, donde se puede evidenciar que todos formaron parte de los commits de la landing page
 
 <p align="center">
   <img src="https://github.com/user-attachments/assets/65133b54-3b99-4c0b-835e-f8bfe9af5a7a" alt="Commits READ.ME">
 </p>
+<p align="center"><strong>Figura 118.</strong> Historial de commits del archivo README.md, mostrando contribuciones de múltiples miembros del equipo.</p>
 
 Por otro lado, aquí se aprecia los commits realizados en el repositorio de la landing page
 
