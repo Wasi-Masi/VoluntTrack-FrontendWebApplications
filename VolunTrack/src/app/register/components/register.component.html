@@ -1,0 +1,29 @@
+<div class="register-form">
+  <h2>Registro de Usuario</h2>
+
+  <label>Nombre de usuario:</label>
+  <input type="text" [(ngModel)]="username" />
+
+  <label>Email:</label>
+  <input type="email" [(ngModel)]="email" />
+
+  <label>Teléfono:</label>
+  <input type="text" [(ngModel)]="phone" />
+
+  <label>Ícono (URL):</label>
+  <input type="text" [(ngModel)]="pfp" />
+
+  <label>Banner (URL):</label>
+  <input type="text" [(ngModel)]="banner" />
+
+  <label>Descripcion:</label>
+  <input type="text" [(ngModel)]="description" />
+
+  <label>Contraseña:</label>
+  <input type="password" [(ngModel)]="password" />
+
+  <label>Confirmar contraseña:</label>
+  <input type="password" [(ngModel)]="confirmPassword" />
+
+  <button (click)="registerUser()">Registrarse</button>
+</div>
