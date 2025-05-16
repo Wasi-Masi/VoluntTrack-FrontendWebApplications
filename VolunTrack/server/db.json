@@ -1097,6 +1097,7 @@
     }
   ],
   "notifications": [],
+<<<<<<< Updated upstream
   "users": [
     {
       "id": "9969",
@@ -1147,6 +1148,9 @@
       "inscriptions": "Automatic"
     }
   ],
+=======
+  "users": [],
+>>>>>>> Stashed changes
   "userlogin": [],
   "registers": [
     {
@@ -1918,6 +1922,54 @@
       "volunteerId": "45",
       "activityTitle": "Community Fitness",
       "text": "Mediante este certificado, se acredita que el voluntario Ricardo Peña Salazar participó satisfactoriamente en la actividad \"Community Fitness\" el 5/31/2025."
+    },
+    {
+      "id": "ce487905-a78a-4e91-bf1a-4aefba4b785a",
+      "volunteerId": "7",
+      "activityTitle": "Beach Cleanup",
+      "text": "Mediante este certificado, se acredita que el voluntario Valentín Plaza March participó satisfactoriamente en la actividad \"Beach Cleanup\" el 19/5/2025."
+    },
+    {
+      "id": "c80b6701-6688-4f76-a5a7-1fa88b22c40c",
+      "volunteerId": "21",
+      "activityTitle": "Beach Cleanup",
+      "text": "Mediante este certificado, se acredita que el voluntario Javier Molina Ruiz participó satisfactoriamente en la actividad \"Beach Cleanup\" el 19/5/2025."
+    },
+    {
+      "id": "88042ea6-0935-482b-94d7-5e013af8e18c",
+      "volunteerId": "4",
+      "activityTitle": "Beach Cleanup",
+      "text": "Mediante este certificado, se acredita que el voluntario Ernestina Berenguer Collado participó satisfactoriamente en la actividad \"Beach Cleanup\" el 19/5/2025."
+    },
+    {
+      "id": "0704d33c-c3ae-4803-87d4-0375f25c5225",
+      "volunteerId": "26",
+      "activityTitle": "Beach Cleanup",
+      "text": "Mediante este certificado, se acredita que el voluntario Natalia Morales Vega participó satisfactoriamente en la actividad \"Beach Cleanup\" el 19/5/2025."
+    },
+    {
+      "id": "49018f73-f7b2-4dee-b720-b95a2a5d743b",
+      "volunteerId": "38",
+      "activityTitle": "Beach Cleanup",
+      "text": "Mediante este certificado, se acredita que el voluntario Marina Ortega Luna participó satisfactoriamente en la actividad \"Beach Cleanup\" el 19/5/2025."
+    },
+    {
+      "id": "fae7ac6d-160e-475c-b86a-e0fb38b1b097",
+      "volunteerId": "10",
+      "activityTitle": "Beach Cleanup",
+      "text": "Mediante este certificado, se acredita que el voluntario Fermín Arias Chacón participó satisfactoriamente en la actividad \"Beach Cleanup\" el 19/5/2025."
+    },
+    {
+      "id": "eff9cd87-5bb0-4b21-bc16-5dba64cb3a25",
+      "volunteerId": "14",
+      "activityTitle": "Beach Cleanup",
+      "text": "Mediante este certificado, se acredita que el voluntario Lucía Vargas Godoy participó satisfactoriamente en la actividad \"Beach Cleanup\" el 19/5/2025."
+    },
+    {
+      "id": "4aacaed0-089b-4372-b34d-88e8bc8e1fe6",
+      "volunteerId": "41",
+      "activityTitle": "Beach Cleanup",
+      "text": "Mediante este certificado, se acredita que el voluntario Felipe Calderón Suárez participó satisfactoriamente en la actividad \"Beach Cleanup\" el 19/5/2025."
     }
   ]
 }

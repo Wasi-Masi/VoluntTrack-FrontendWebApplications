@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 <!--
 Description: Login form with username and password inputs, including a toggle button for password visibility with appropriate ARIA attributes for accessibility.
 Author: Your Name
@@ -21,19 +22,34 @@ Author: Your Name
 
   <mat-form-field appearance="outline">
     <mat-label>Password</mat-label>
+=======
+<div class="login-container">
+  <h2>{{ 'login.title' | translate }}</h2>
+
+  <mat-form-field appearance="outline">
+    <mat-label>{{ 'login.username' | translate }}</mat-label>
+    <input matInput [(ngModel)]="username" type="text" />
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>{{ 'login.password' | translate }}</mat-label>
+>>>>>>> Stashed changes
     <input
       matInput
       [type]="hide() ? 'password' : 'text'"
       [(ngModel)]="password"
+<<<<<<< Updated upstream
       aria-required="true"
       aria-describedby="password-desc"
       id="password-input"
+=======
+>>>>>>> Stashed changes
     />
     <button
       mat-icon-button
       matSuffix
       (click)="clickEvent($event)"
-      [attr.aria-label]="'Toggle password visibility'"
+      [attr.aria-label]="'login.toggle-password' | translate"
       [attr.aria-pressed]="!hide()"
       type="button"
     >
@@ -43,7 +59,16 @@ Author: Your Name
   </mat-form-field>
 
   <div class="button-group">
+<<<<<<< Updated upstream
     <button mat-flat-button color="primary" (click)="handleLogin()" aria-label="Login">Login</button>
     <button mat-flat-button class="register" color="accent" (click)="goToRegister()" aria-label="Go to Register">Register</button>
+=======
+    <button mat-flat-button color="primary" (click)="handleLogin()">
+      {{ 'login.login-button' | translate }}
+    </button>
+    <button mat-flat-button class="register" color="accent" (click)="goToRegister()">
+      {{ 'login.register-button' | translate }}
+    </button>
+>>>>>>> Stashed changes
   </div>
 </div>

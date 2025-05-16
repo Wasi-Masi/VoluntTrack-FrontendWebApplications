@@ -37,6 +37,7 @@ import {MatCheckbox} from '@angular/material/checkbox';
 import {CertificatesService} from '../../volunteers/services/certificats.service';
 import {MatSnackBar} from '@angular/material/snack-bar';
 import { NotificationsService} from '../../notifications/services/notifications.service';
+import {TranslateModule} from "@ngx-translate/core";
 
 @Component({
   selector: 'app-registered-volunteers',
@@ -72,7 +73,7 @@ import { NotificationsService} from '../../notifications/services/notifications.
     MatFormFieldModule,
     MatCardModule,
     MatCheckbox,
-
+    TranslateModule
 
   ],
   styleUrls: ['./registered-volunteers.component.css']

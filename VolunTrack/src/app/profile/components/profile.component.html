@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 <!--
   Este componente representa la vista de perfil de usuario en la aplicación.
   El usuario puede cambiar su informacion y preferencias
@@ -5,6 +6,10 @@
 <div class="page-header">
   <h2>My Profile</h2>
 </div>
+=======
+<div class="profile-container">
+  <h1 class="title">{{ 'profile.title' | translate }}</h1>
+>>>>>>> Stashed changes
 
 <div class="profile-container">
   <div class="banner">
@@ -13,7 +18,7 @@
       <img class="profile-icon" [src]="user?.pfp" alt="Icono" aria-label="Profile picture image">
     </div>
     <div class="description-box">
-      <strong>Descripción:</strong>
+      <strong>{{ 'profile.description' | translate }}:</strong>
       <div *ngIf="!editMode">
         <p>{{ user?.description }}</p>
       </div>
@@ -25,42 +30,76 @@
 
   <div class="profile-content">
     <div class="personal-info">
-      <h3>Información Personal</h3>
+      <h3>{{ 'profile.personal-info' | translate }}</h3>
 
+<<<<<<< Updated upstream
       <mat-divider></mat-divider>
 
       <h4>Nombre de Usuario:
+=======
+      <p><strong>{{ 'profile.username' | translate }}:</strong>
+>>>>>>> Stashed changes
         <span *ngIf="!editMode">{{ user?.username }}</span>
         <input *ngIf="editMode" [(ngModel)]="editedUser.username">
       </h4>
 
+<<<<<<< Updated upstream
       <h4>Correo electrónico:
+=======
+      <p><strong>{{ 'profile.email' | translate }}:</strong>
+>>>>>>> Stashed changes
         <span *ngIf="!editMode">{{ user?.email }}</span>
         <input *ngIf="editMode" [(ngModel)]="editedUser.email">
       </h4>
 
+<<<<<<< Updated upstream
       <h4>Contraseña:
+=======
+      <p><strong>{{ 'profile.password' | translate }}:</strong>
+>>>>>>> Stashed changes
         <span *ngIf="!editMode">**********</span>
         <input *ngIf="editMode" type="password" [(ngModel)]="editedUser.password">
       </h4>
 
+<<<<<<< Updated upstream
       <h4>Número de teléfono:
+=======
+      <p><strong>{{ 'profile.phone' | translate }}:</strong>
+>>>>>>> Stashed changes
         <span *ngIf="!editMode">{{ user?.phone }}</span>
         <input matInput *ngIf="editMode" [(ngModel)]="editedUser.phone">
       </h4>
 
+<<<<<<< Updated upstream
       <h4>Plan:
+=======
+      <p><strong>{{ 'profile.plan' | translate }}:</strong>
+>>>>>>> Stashed changes
         <span *ngIf="!editMode">{{ user?.plan }}</span>
         <select *ngIf="editMode" [(ngModel)]="editedUser.plan">
-          <option value="Gratis">Gratis</option>
-          <option value="Premium">Premium</option>
+          <option value="Gratis">{{ 'profile.free' | translate }}</option>
+          <option value="Premium">{{ 'profile.premium' | translate }}</option>
         </select>
       </h4>
 
+<<<<<<< Updated upstream
+=======
+      <div class="button-group">
+        <button *ngIf="!editMode" class="edit-btn" (click)="toggleEdit()">
+          ✏️ {{ 'profile.edit' | translate }}
+        </button>
+        <div *ngIf="editMode">
+          <button class="edit-btn" (click)="saveChanges()">💾 {{ 'profile.save' | translate }}</button>
+          <button class="logout-btn" (click)="cancelEdit()">❌ {{ 'profile.cancel' | translate }}</button>
+        </div>
+        <button class="logout-btn" (click)="logout()">⛔ {{ 'profile.logout' | translate }}</button>
+      </div>
+>>>>>>> Stashed changes
     </div>
     <div class="config-info">
       <h3>Configuration</h3>
 
+<<<<<<< Updated upstream
       <mat-divider></mat-divider>
 
       <h4>Idioma:
@@ -106,6 +145,8 @@
       <button class="logout-btn" (click)="cancelEdit()" aria-label="Cancel changes">❌ Cancelar</button>
     </div>
     <button class="logout-btn" (click)="logout()" aria-label="Log out">⛔ Cerrar Sesión</button>
+=======
+>>>>>>> Stashed changes
   </div>
 </div>
 

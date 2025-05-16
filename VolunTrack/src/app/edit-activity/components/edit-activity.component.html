@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 <!--
 Description: Form for creating or editing activities with fields for pictures, title, date, time, address, description, instructions, and purpose, including action buttons to update or discard changes.
 Author: Victor Ortiz
@@ -11,6 +12,16 @@ Author: Victor Ortiz
     </button>
     <button [routerLink]="['/calendar']" mat-stroked-button color="accent" aria-label="View calendar">
       <mat-icon aria-hidden="true">calendar_today</mat-icon> {{ 'calendar' | translate }}
+=======
+<div class="dashboard-header">
+  <h2 [routerLink]="['/dashboard']">{{ 'create-act.dashboard-title' | translate }}</h2>
+  <div class="dashboard-actions">
+    <button class="selected" mat-stroked-button color="primary" [routerLink]="['/create-activity']">
+      <mat-icon class="selected">add</mat-icon> {{ 'create-act.create' | translate }}
+    </button>
+    <button [routerLink]="['/calendar']" mat-stroked-button color="accent">
+      <mat-icon>calendar_today</mat-icon> {{ 'create-act.calendar' | translate }}
+>>>>>>> Stashed changes
     </button>
   </div>
 </div>
@@ -19,6 +30,7 @@ Author: Victor Ortiz
   <form class="activities-form" (ngSubmit)="onSubmit()" aria-label="Activity creation form">
     <div class="activities-form__left">
       <div class="activities-form__upperside">
+<<<<<<< Updated upstream
         <label for="pictures">{{ 'create-act.add-pictures' | translate }}</label>
         <textarea id="pictures" [(ngModel)]="picturesInput" name="pictures" placeholder="{{ 'create-act.instructions-pictures' | translate}}" aria-describedby="pictures-desc"></textarea>
       </div>
@@ -26,19 +38,41 @@ Author: Victor Ortiz
       <div class="activities-form__left-lowerside">
         <button mat-button type="submit" aria-label="Update activity"><mat-icon aria-hidden="true">done</mat-icon>{{ 'create-act.update' | translate}}</button>
         <button mat-button type="button" (click)="discard()" aria-label="Discard changes"><mat-icon aria-hidden="true">delete_outline</mat-icon>{{ 'create-act.discard' | translate}}</button>
+=======
+        <label>{{ 'create-act.add-pictures' | translate }}</label>
+        <textarea [(ngModel)]="picturesInput" name="pictures" placeholder="{{ 'create-act.instructions-pictures' | translate }}"></textarea>
+      </div>
+
+      <div class="activities-form__left-lowerside">
+        <button mat-button type="submit">
+          <mat-icon>done</mat-icon>{{ 'create-act.update' | translate }}
+        </button>
+        <button mat-button type="button" (click)="discard()">
+          <mat-icon>delete_outline</mat-icon>{{ 'create-act.discard' | translate }}
+        </button>
+>>>>>>> Stashed changes
       </div>
     </div>
 
     <div class="activities-form__right">
       <div class="activities-form__right-sameline">
         <div class="activities-form__upperside">
+<<<<<<< Updated upstream
           <label for="title">{{ 'create-act.title' | translate}}</label>
           <input id="title" type="text" [(ngModel)]="activity.title" name="title" aria-required="true" />
+=======
+          <label>{{ 'create-act.title' | translate }}</label>
+          <input type="text" [(ngModel)]="activity.title" name="title" />
+>>>>>>> Stashed changes
         </div>
       </div>
       <div class="activities-form__right-sameline">
         <div class="activities-form__upperside">
+<<<<<<< Updated upstream
           <label for="date">{{ 'create-act.date' | translate}}</label>
+=======
+          <label>{{ 'create-act.date' | translate }}</label>
+>>>>>>> Stashed changes
           <input
             id="date"
             type="date"
@@ -50,7 +84,11 @@ Author: Victor Ortiz
           />
         </div>
         <div class="activities-form__upperside">
+<<<<<<< Updated upstream
           <label for="startTime">{{ 'create-act.startTime' | translate}}</label>
+=======
+          <label>{{ 'create-act.startTime' | translate }}</label>
+>>>>>>> Stashed changes
           <input
             id="startTime"
             type="time"
@@ -62,7 +100,11 @@ Author: Victor Ortiz
           />
         </div>
         <div class="activities-form__upperside">
+<<<<<<< Updated upstream
           <label for="endTime">{{ 'create-act.endTime' | translate}}</label>
+=======
+          <label>{{ 'create-act.endTime' | translate }}</label>
+>>>>>>> Stashed changes
           <input
             id="endTime"
             type="time"
@@ -76,24 +118,43 @@ Author: Victor Ortiz
       </div>
       <div class="activities-form__right-sameline">
         <div class="activities-form__upperside">
+<<<<<<< Updated upstream
           <label for="address">{{ 'create-act.address' | translate}}</label>
           <input id="address" type="text" [(ngModel)]="activity.address" name="address" />
+=======
+          <label>{{ 'create-act.address' | translate }}</label>
+          <input type="text" [(ngModel)]="activity.address" name="address" />
+>>>>>>> Stashed changes
         </div>
       </div>
       <div class="activities-form__right-sameline">
         <div class="activities-form__upperside">
+<<<<<<< Updated upstream
           <label for="description">{{ 'create-act.description' | translate}}</label>
           <textarea id="description" [(ngModel)]="activity.description" name="description" placeholder="{{ 'create-act.description-textarea' | translate}}"></textarea>
+=======
+          <label>{{ 'create-act.description' | translate }}</label>
+          <textarea [(ngModel)]="activity.description" name="description" placeholder="{{ 'create-act.description-textarea' | translate }}"></textarea>
+>>>>>>> Stashed changes
         </div>
       </div>
       <div class="activities-form__right-sameline">
         <div class="activities-form__right-half">
+<<<<<<< Updated upstream
           <label for="instructions">{{ 'create-act.instructions' | translate}}</label>
           <textarea id="instructions" [(ngModel)]="instructions" name="instructions" placeholder="{{ 'create-act.instructions-textarea' | translate}}"></textarea>
         </div>
         <div class="activities-form__right-half">
           <label for="purpose">{{ 'create-act.purpose' | translate}}</label>
           <textarea id="purpose" [(ngModel)]="purpose" name="purpose" placeholder="{{ 'create-act.purpose-textarea' | translate}}"></textarea>
+=======
+          <label>{{ 'create-act.instructions' | translate }}</label>
+          <textarea [(ngModel)]="instructions" name="instructions" placeholder="{{ 'create-act.instructions-textarea' | translate }}"></textarea>
+        </div>
+        <div class="activities-form__right-half">
+          <label>{{ 'create-act.purpose' | translate }}</label>
+          <textarea [(ngModel)]="purpose" name="purpose" placeholder="{{ 'create-act.purpose-textarea' | translate }}"></textarea>
+>>>>>>> Stashed changes
         </div>
       </div>
     </div>

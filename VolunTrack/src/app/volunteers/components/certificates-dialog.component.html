@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 <!--
   Description: Dialog component that displays a list of certificates with activity titles and descriptions.
   Author: Victor Ortiz
@@ -5,6 +6,11 @@
 
 <h2 mat-dialog-title id="certificates-dialog-title" aria-label="Certificates Dialog Title">Certificados</h2>
 <mat-dialog-content class="certificates-container" role="region" aria-labelledby="certificates-dialog-title" tabindex="0">
+=======
+<h2 mat-dialog-title>{{ 'certificatesDialog.title' | translate }}</h2>
+
+<mat-dialog-content class="certificates-container">
+>>>>>>> Stashed changes
   <mat-card *ngFor="let cert of certificates" class="certificate-card">
   <mat-card-header>
       <mat-card-title>{{ cert.activityTi }}</mat-card-title>
@@ -14,6 +20,11 @@
     </mat-card-content>
   </mat-card>
 </mat-dialog-content>
+
 <mat-dialog-actions align="end">
+<<<<<<< Updated upstream
   <button mat-button mat-dialog-close aria-label="Close Certificates Dialog">Cerrar</button>
+=======
+  <button mat-button mat-dialog-close>{{ 'certificatesDialog.close' | translate }}</button>
+>>>>>>> Stashed changes
 </mat-dialog-actions>

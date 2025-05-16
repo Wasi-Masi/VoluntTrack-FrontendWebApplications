@@ -8,6 +8,8 @@ import { MatToolbar } from '@angular/material/toolbar';
 import { MatButton, MatIconButton } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { Router } from '@angular/router';
+import {TranslatePipe} from "@ngx-translate/core";
+import {LanguageSwitcherComponent} from '../language-switcher/language-switcher.component';
 
 @Component({
   selector: 'app-toolbar-component',
@@ -17,6 +19,8 @@ import { Router } from '@angular/router';
     MatButton,
     MatIconModule,
     MatIconButton,
+    TranslatePipe,
+    LanguageSwitcherComponent
   ],
   templateUrl: './toolbar.component.html',
   styleUrl: './toolbar.component.css'

@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import {NgIf} from '@angular/common';
 import {FormsModule} from '@angular/forms';
+<<<<<<< Updated upstream
 import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
@@ -11,19 +12,27 @@ import { MatButtonModule } from '@angular/material/button';
 import {MatDividerModule} from '@angular/material/divider';
 
 
+=======
+import {TranslatePipe} from '@ngx-translate/core';
+>>>>>>> Stashed changes
 
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',
+  standalone:true,
   imports: [
     NgIf,
     FormsModule,
+<<<<<<< Updated upstream
     MatCardModule,
     MatFormFieldModule,
     MatInputModule,
     MatButtonModule,
     MatSelectModule,
     MatDividerModule
+=======
+    TranslatePipe
+>>>>>>> Stashed changes
   ],
   styleUrls: ['./profile.component.css']
 })
