@@ -193,3 +193,13 @@ tr:hover {
   background-color: rgba(0, 123, 255, 0.1);
   cursor: pointer;
 }
+
+.snack-bar-success {
+  background-color: #4caf50; /* verde */
+  color: white;
+}
+
+.snack-bar-error {
+  background-color: #f44336; /* rojo */
+  color: white;
+}

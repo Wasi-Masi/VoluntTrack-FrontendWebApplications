@@ -31,6 +31,7 @@ import {MatButton, MatButtonModule} from '@angular/material/button';
 import { VolunteersService } from '../services/volunteers.service';
 import { Volunteer } from '../model/volunteers.entity';
 import {DatePipe, NgClass, NgIf} from '@angular/common';
+import {CertificatesDialogComponent} from './certificates-dialog.component';
 
 
 @Component({
@@ -94,6 +95,16 @@ export class VolunteersComponent implements OnInit, AfterViewInit {
     });
   }
 
+  openCertificatesDialog() {
+    if (!this.selectedVolunteer) return;
+
+    this.dialog.open(CertificatesDialogComponent, {
+      width: '600px',
+      data: { volunteerId: this.selectedVolunteer.id }
+    });
+  }
+
+
   applyFilters(): void {
     this.dataSource.data = this.volunteers.filter(v => {
       const matchesName = this.searchText === '' || v.fullName.toLowerCase().includes(this.searchText.toLowerCase());
@@ -105,6 +116,7 @@ export class VolunteersComponent implements OnInit, AfterViewInit {
     });
     this.dataSource.paginator = this.paginator;
   }
+
 
   openFilterDialog(): void {
     const dialogRef = this.dialog.open(VolunteerFilterDialogComponent, {

@@ -1102,6 +1102,17 @@
       "plan": "basic",
       "banner": "a",
       "description": "a"
+    },
+    {
+      "id": "c00d",
+      "username": "a",
+      "password": "a",
+      "email": "a",
+      "phone": "a",
+      "pfp": "a",
+      "plan": "basic",
+      "banner": "a",
+      "description": "a"
     }
   ],
   "userlogin": [],
@@ -1120,7 +1131,7 @@
       "activityId": 1,
       "registrationDate": "2025-05-16",
       "status": "rechazado",
-      "attendance": "no asistio"
+      "attendance": "asistio"
     },
     {
       "id": "3",
@@ -1128,7 +1139,7 @@
       "activityId": 1,
       "registrationDate": "2025-05-16",
       "status": "aceptado",
-      "attendance": "asistio"
+      "attendance": "no asistio"
     },
     {
       "id": "4",
@@ -1825,6 +1836,56 @@
       "registrationDate": "2025-05-16",
       "status": "aceptado",
       "attendance": "asistio"
+    }
+  ],
+  "certificates": [
+    {
+      "id": "385e6be2-ff3f-4e5f-a2db-a270de9ea367",
+      "volunteerId": "3",
+      "activityTitle": "Community Fitness",
+      "text": "Mediante este certificado, se acredita que el voluntario Naiara Manzano Pardo participó satisfactoriamente en la actividad \"Community Fitness\" el 5/31/2025."
+    },
+    {
+      "id": "bef7060c-248f-41eb-be02-65939809ed30",
+      "volunteerId": "28",
+      "activityTitle": "Community Fitness",
+      "text": "Mediante este certificado, se acredita que el voluntario Isabel Sánchez López participó satisfactoriamente en la actividad \"Community Fitness\" el 5/31/2025."
+    },
+    {
+      "id": "d1c3fcbf-c2ee-45a0-8de2-fcd7367208af",
+      "volunteerId": "11",
+      "activityTitle": "Community Fitness",
+      "text": "Mediante este certificado, se acredita que el voluntario Jimena Carrasco Reina participó satisfactoriamente en la actividad \"Community Fitness\" el 5/31/2025."
+    },
+    {
+      "id": "b4117afa-abb0-4bfe-b5ff-eeba8d140644",
+      "volunteerId": "10",
+      "activityTitle": "Community Fitness",
+      "text": "Mediante este certificado, se acredita que el voluntario Fermín Arias Chacón participó satisfactoriamente en la actividad \"Community Fitness\" el 5/31/2025."
+    },
+    {
+      "id": "70439b7e-7141-49e0-a881-6896fa48f85d",
+      "volunteerId": "25",
+      "activityTitle": "Community Fitness",
+      "text": "Mediante este certificado, se acredita que el voluntario Diego Ramírez Fuentes participó satisfactoriamente en la actividad \"Community Fitness\" el 5/31/2025."
+    },
+    {
+      "id": "50b9423a-fd63-4f08-93d0-7c9b7cbff5a2",
+      "volunteerId": "14",
+      "activityTitle": "Community Fitness",
+      "text": "Mediante este certificado, se acredita que el voluntario Lucía Vargas Godoy participó satisfactoriamente en la actividad \"Community Fitness\" el 5/31/2025."
+    },
+    {
+      "id": "4aeb97f3-aa96-4540-b17a-84e26a7547ab",
+      "volunteerId": "37",
+      "activityTitle": "Community Fitness",
+      "text": "Mediante este certificado, se acredita que el voluntario Andrés Salinas Vega participó satisfactoriamente en la actividad \"Community Fitness\" el 5/31/2025."
+    },
+    {
+      "id": "25cc8def-6186-477b-9efa-5e8c36e16f62",
+      "volunteerId": "45",
+      "activityTitle": "Community Fitness",
+      "text": "Mediante este certificado, se acredita que el voluntario Ricardo Peña Salazar participó satisfactoriamente en la actividad \"Community Fitness\" el 5/31/2025."
     }
   ]
 }

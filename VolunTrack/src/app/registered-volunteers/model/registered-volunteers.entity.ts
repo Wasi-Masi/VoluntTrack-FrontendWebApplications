@@ -9,3 +9,14 @@ export class RegisteredVolunteersEntity {
 
   ) {}
 }
+
+export class Certificate {
+  constructor(
+    public id: string,
+    public volunteerId: string,
+    public activityTitle: string,
+    public text: string,
+
+  ) {}
+}
+

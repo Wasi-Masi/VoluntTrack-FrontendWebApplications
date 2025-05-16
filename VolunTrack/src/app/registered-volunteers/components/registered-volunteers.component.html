@@ -119,7 +119,10 @@
       </p>
 
       <!-- Botón Crear certificados -->
-      <button mat-stroked-button color="warn" style="justify-content: flex-start;" matTooltip="Generar certificados">
+      <button mat-stroked-button color="warn"
+              (click)="generateCertificates()"
+              style="justify-content: flex-start;"
+              matTooltip="Generar certificados">
         <mat-icon style="margin-right: 8px;">emoji_events</mat-icon>
         Crear certificados
       </button>

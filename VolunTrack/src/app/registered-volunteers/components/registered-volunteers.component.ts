@@ -16,18 +16,19 @@ import { Activity } from '../../dashboard/model/dashboard.entity';
 import { ActivityDetailsService } from '../../activity-details/services/activity-details.service';
 import { RegisteredVolunteersService } from '../services/registered-volunteers.service';
 import { VolunteersService } from '../../volunteers/services/volunteers.service';
-import { RegisteredVolunteersEntity } from '../model/registered-volunteers.entity';
+import {Certificate, RegisteredVolunteersEntity} from '../model/registered-volunteers.entity';
 import {FormsModule} from '@angular/forms';
 import {MatFormField, MatInput, MatSuffix} from '@angular/material/input';
 import {DatePipe, NgIf, TitleCasePipe} from '@angular/common';
 import {MatButton, MatIconButton} from '@angular/material/button';
 import {MatIconModule} from '@angular/material/icon';
-import {MatCard, MatCardActions, MatCardContent, MatCardHeader, MatCardSubtitle} from '@angular/material/card';
-import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatCard, MatCardContent, MatCardHeader} from '@angular/material/card';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatCardModule } from '@angular/material/card';
 import {MatCheckbox} from '@angular/material/checkbox';
+import {CertificatesService} from '../../volunteers/services/certificats.service';
+import {MatSnackBar} from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-registered-volunteers',
@@ -56,14 +57,13 @@ import {MatCheckbox} from '@angular/material/checkbox';
     MatButton,
     MatCardContent,
     MatCard,
-    MatCardActions,
-    MatCardSubtitle,
     MatCardHeader,
     NgIf,
     MatTooltipModule,
     MatFormFieldModule,
     MatCardModule,
-    MatCheckbox
+    MatCheckbox,
+
 
   ],
   styleUrls: ['./registered-volunteers.component.css']
@@ -86,10 +86,8 @@ export class RegisteredVolunteersComponent implements OnInit {
     if (this.isAttendanceMode) {
       this.displayedColumns = this.attendanceColumns;
 
-      // 🔧 Inicializa attendanceMarked por cada voluntario si no está ya presente
       this.attendanceMarked = {};
       this.dataSource.data.forEach(volunteer => {
-        // Usar registrationId para la clave, y attendance (boolean) para el valor
         this.attendanceMarked[volunteer.registrationId] = volunteer.registration?.attendance ?? false;
       });
     } else {
@@ -131,32 +129,9 @@ export class RegisteredVolunteersComponent implements OnInit {
       }
     });
   }
-
-
-  selectVolunteer(volunteer: any) {
-    this.selectedVolunteer = volunteer;
-  }
-
   onAttendanceChange(registrationId: string, checked: boolean) {
     this.attendanceMarked[registrationId] = checked;
   }
-
-  toggleRegistrationStatus() {
-    if (!this.selectedVolunteer) return;
-
-    // Ejemplo: toggle entre 'registered' y 'cancelled'
-    const currentStatus = this.selectedVolunteer.registration.status;
-    this.selectedVolunteer.registration.status = currentStatus === 'aceptado' ? 'rechazado' : 'aceptado';
-
-    console.log('Estado de inscripción cambiado a', this.selectedVolunteer.registration.status);
-  }
-
-  toggleAttendance() {
-    if (!this.selectedVolunteer) return;
-    // Aquí implementa el toggle de asistencia
-    this.selectedVolunteer.registration.attendance = !this.selectedVolunteer.registration.attendance;
-  }
-
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
   registrations: RegisteredVolunteersEntity[] = [];
@@ -165,7 +140,12 @@ export class RegisteredVolunteersComponent implements OnInit {
     private route: ActivatedRoute,
     private activityService: ActivityDetailsService,
     private regVolunteersService: RegisteredVolunteersService,
-    private volunteerService: VolunteersService
+    private volunteerService: VolunteersService,
+    private certificatesService: CertificatesService,
+    private snackBar: MatSnackBar  // <-- aquí
+
+
+
   ) {}
 
   ngOnInit(): void {
@@ -227,4 +207,37 @@ export class RegisteredVolunteersComponent implements OnInit {
       error: err => console.error('Error loading registrations:', err)
     });
   }
+  generateCertificates() {
+    if (!this.activity) return;
+
+    const certificados: Certificate[] = this.dataSource.data
+      .filter(v => v.registration?.attendance)
+      .map(v => new Certificate(
+        crypto.randomUUID(),
+        v.volunteerId,
+        this.activity.title,
+        `Mediante este certificado, se acredita que el voluntario ${v.fullName} participó satisfactoriamente en la actividad "${this.activity.title}" el ${new Date(this.activity.date).toLocaleDateString()}.`
+      ));
+
+    certificados.forEach(cert => {
+      this.certificatesService.postCertificate(cert).subscribe({
+        next: () => {
+          console.log(`Certificado para ${cert.volunteerId} generado y enviado.`);
+        },
+        error: err => {
+          console.error('Error enviando certificado:', err);
+        }
+      });
+    });
+
+    this.snackBar.open('Certificados generados correctamente', 'Cerrar', {
+      duration: 4000,
+      horizontalPosition: 'right',
+      verticalPosition: 'top',
+      panelClass: ['snack-bar-success']
+    });
+  }
+
+
+
 }

@@ -1,0 +1,12 @@
+.certificates-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  max-height: 500px;
+  overflow-y: auto;
+}
+
+.certificate-card {
+  width: 300px;
+  min-height: 150px;
+}
