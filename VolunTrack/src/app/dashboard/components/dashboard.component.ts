@@ -5,6 +5,7 @@ import {MatButton} from '@angular/material/button';
 import {NgForOf} from '@angular/common';
 import { MatIconModule } from '@angular/material/icon';
 import {RouterLink} from '@angular/router';
+import {TranslatePipe} from '@ngx-translate/core';
 
 
 @Component({
@@ -15,7 +16,8 @@ import {RouterLink} from '@angular/router';
     MatButton,
     NgForOf,
     MatIconModule,
-    RouterLink
+    RouterLink,
+    TranslatePipe
   ],
   styleUrls: ['./dashboard.component.css']
 })

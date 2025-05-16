@@ -1,4 +1,6 @@
 {
+  "create": "Create",
+  "calendar": "Calendar",
   "create-act": {
     "add-pictures": "Add pictures",
     "instructions-pictures": "One URL per line, first one will be shown on dashboard",

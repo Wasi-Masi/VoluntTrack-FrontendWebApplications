@@ -2,10 +2,10 @@
   <h2>Activity Dashboard</h2>
   <div class="dashboard-actions">
     <button mat-stroked-button color="primary" [routerLink]="['/create-activity']" disabled>
-      <mat-icon>add</mat-icon> Create
+      <mat-icon>add</mat-icon> {{ 'create' | translate }}
     </button>
     <button mat-stroked-button color="accent">
-      <mat-icon>calendar_today</mat-icon> Calendar
+      <mat-icon>calendar_today</mat-icon> {{ 'calendar' | translate }}
     </button>
   </div>
 </div>
