@@ -1,7 +1,7 @@
 {
   "activities": [
     {
-      "id": 1,
+      "id": "1",
       "title": "Beach Cleanup",
       "description": "Join us for a community-led beach cleanup aimed at preserving our coastal environment. Together, we'll collect litter, remove plastic waste, and learn about the impact of pollution on marine life. It's a great way to contribute to a cleaner ocean and connect with others who care about the planet.",
       "instructions": [
@@ -34,10 +34,9 @@
       "address": "Lima, Peru",
       "inscriptionsCount": 42,
       "inscriptionsOpen": true
-
     },
     {
-      "id": 2,
+      "id": "2",
       "title": "Park Reforestation",
       "description": "Help us restore green spaces in the city by planting trees and native plants. This initiative supports biodiversity, improves air quality, and enhances the beauty of our public parks. No previous experience needed—just a love for nature!",
       "instructions": [
@@ -66,7 +65,7 @@
       "inscriptionsOpen": true
     },
     {
-      "id": 3,
+      "id": "3",
       "title": "Community Fitness",
       "description": "Start your day with an energizing group workout in the park! This free fitness session is open to all ages and abilities, focused on promoting healthy lifestyles through fun, inclusive exercise routines. Meet your neighbors and get moving together.",
       "instructions": [
@@ -95,7 +94,7 @@
       "inscriptionsOpen": false
     },
     {
-      "id": 4,
+      "id": "4",
       "title": "Food Drive",
       "description": "Help us support families in need by donating non-perishable food items. All contributions will be distributed to local shelters and community kitchens. Together, we can fight hunger and make a real difference.",
       "instructions": [
@@ -124,7 +123,7 @@
       "inscriptionsOpen": true
     },
     {
-      "id": 5,
+      "id": "5",
       "title": "Street Art Festival",
       "description": "Celebrate urban creativity at our Street Art Festival! Watch live mural painting, meet local artists, enjoy music, and discover how art transforms public spaces into vibrant community stories. All ages welcome!",
       "instructions": [
@@ -153,7 +152,7 @@
       "inscriptionsOpen": true
     },
     {
-      "id": 6,
+      "id": "6",
       "title": "Recycling Education",
       "description": "Join our full-day Recycling Education event and learn how to reduce, reuse, and recycle effectively. Through talks, workshops, and interactive displays, you'll discover practical ways to live more sustainably and protect the environment.",
       "instructions": [
@@ -182,7 +181,7 @@
       "inscriptionsOpen": true
     },
     {
-      "id": 7,
+      "id": "7",
       "title": "Clothing Donation and Sorting",
       "description": "Help us collect and organize donated clothes for people in need. Volunteers will sort items by size, season, and condition to prepare them for distribution. Every item donated brings comfort and dignity to someone else.",
       "instructions": [
@@ -211,7 +210,7 @@
       "inscriptionsOpen": true
     },
     {
-      "id": 8,
+      "id": "8",
       "title": "Charity Run",
       "description": "Take part in a fun run to raise funds for local charities. Whether you jog, run, or walk, your participation helps support important community causes. Enjoy music, refreshments, and a great community spirit.",
       "instructions": [
@@ -240,7 +239,7 @@
       "inscriptionsOpen": true
     },
     {
-      "id": 9,
+      "id": "9",
       "title": "Animal Shelter Volunteering",
       "description": "Volunteer at a local animal shelter and make a difference in the lives of rescued animals. You'll help with feeding, cleaning, and socializing with pets awaiting adoption. Great for animal lovers who want to give back.",
       "instructions": [
@@ -269,7 +268,7 @@
       "inscriptionsOpen": false
     },
     {
-      "id": 10,
+      "id": "10",
       "title": "Language Teaching for Kids",
       "description": "Support young learners by teaching them basic language skills through games, stories, and interactive lessons. Volunteers will work in small groups to help kids improve their speaking and understanding abilities in a fun, encouraging environment.",
       "instructions": [
@@ -298,7 +297,7 @@
       "inscriptionsOpen": true
     },
     {
-      "id": 11,
+      "id": "11",
       "title": "After-School Tutoring",
       "description": "Volunteer as a tutor to help students with their homework, reading, or math after school. This is a chance to support children's education and make learning more accessible and enjoyable in a safe, supervised setting.",
       "instructions": [
@@ -325,6 +324,57 @@
       "address": "Lima Art Gallery",
       "inscriptionsCount": 35,
       "inscriptionsOpen": false
+    },
+    {
+      "id": "12",
+      "title": "Adoptemos gatitos !!",
+      "dashboardPicture": "https://i.imgur.com/WFUvBSK.jpg",
+      "pictures": [
+        "https://i.imgur.com/WFUvBSK.jpg",
+        "https://i.imgur.com/wNet0D1.jpg",
+        "https://i.imgur.com/S8eNmIN.jpg"
+      ],
+      "date": "2025-05-20",
+      "startTime": "08:00",
+      "endTime": "23:00",
+      "address": "Parque Kennedy, Miraflores",
+      "description": "Vengan a adoptar gatitos !!",
+      "instructions": [
+        "1. Ir al Parque Kennedy",
+        "2. Adoptar",
+        "3. Llevarlos a casa",
+        "4. Amarlos !!!"
+      ],
+      "purpose": [
+        "El propósito es que los gatitos consigan casita <3"
+      ],
+      "inscriptionCount": 0,
+      "isInscriptionOpen": true
+    },
+    {
+      "id": "13",
+      "title": "Decoremos árboles divertidos",
+      "dashboardPicture": "https://i.imgur.com/hnFO3lL.jpg",
+      "pictures": [
+        "https://i.imgur.com/hnFO3lL.jpg",
+        "https://i.mgur.com/SCOGqaE.jpg",
+        "https://i.imgur.com/2657hub.jpg"
+      ],
+      "date": "2025-06-18",
+      "startTime": "10:30",
+      "endTime": "18:00",
+      "address": "Parque Kennedy, Miraflores",
+      "description": "Hay que crear ropita y ponerla en los árboles que tienen formas chistosas o similares a humanos.",
+      "instructions": [
+        "1. Idear",
+        "2. Coser",
+        "3. Vestir"
+      ],
+      "purpose": [
+        "Divertirnos!!"
+      ],
+      "inscriptionCount": 0,
+      "isInscriptionOpen": true
     }
   ],
   "volunteers": [
@@ -352,7 +402,9 @@
       "profession": "Psicólogo",
       "profilePicture": "https://i.imgur.com/jVyXxXV.jpg",
       "isFeatured": false,
-      "certificateIds": [4]
+      "certificateIds": [
+        4
+      ]
     },
     {
       "id": 3,
@@ -365,7 +417,9 @@
       "profession": "Profesor",
       "profilePicture": "https://i.imgur.com/jVyXxXV.jpg",
       "isFeatured": true,
-      "certificateIds": [6]
+      "certificateIds": [
+        6
+      ]
     },
     {
       "id": 4,
@@ -378,7 +432,10 @@
       "profession": "Abogado",
       "profilePicture": "https://i.imgur.com/jVyXxXV.jpg",
       "isFeatured": false,
-      "certificateIds": [1, 7]
+      "certificateIds": [
+        1,
+        7
+      ]
     },
     {
       "id": 5,
@@ -404,7 +461,10 @@
       "profession": "Diseñador",
       "profilePicture": "https://i.imgur.com/jVyXxXV.jpg",
       "isFeatured": false,
-      "certificateIds": [3, 8]
+      "certificateIds": [
+        3,
+        8
+      ]
     },
     {
       "id": 7,
@@ -417,7 +477,9 @@
       "profession": "Psicólogo",
       "profilePicture": "https://i.imgur.com/jVyXxXV.jpg",
       "isFeatured": false,
-      "certificateIds": [10]
+      "certificateIds": [
+        10
+      ]
     },
     {
       "id": 8,
@@ -430,7 +492,11 @@
       "profession": "Administrador",
       "profilePicture": "https://i.imgur.com/jVyXxXV.jpg",
       "isFeatured": true,
-      "certificateIds": [2, 4, 6]
+      "certificateIds": [
+        2,
+        4,
+        6
+      ]
     },
     {
       "id": 9,
@@ -443,7 +509,9 @@
       "profession": "Estudiante",
       "profilePicture": "https://i.imgur.com/jVyXxXV.jpg",
       "isFeatured": false,
-      "certificateIds": [3]
+      "certificateIds": [
+        3
+      ]
     },
     {
       "id": 10,
@@ -469,7 +537,10 @@
       "profession": "Trabajadora social",
       "profilePicture": "https://i.imgur.com/jVyXxXV.jpg",
       "isFeatured": true,
-      "certificateIds": [1, 4]
+      "certificateIds": [
+        1,
+        4
+      ]
     },
     {
       "id": 12,
@@ -495,7 +566,10 @@
       "profession": "Arquitecto",
       "profilePicture": "https://i.imgur.com/jVyXxXV.jpg",
       "isFeatured": false,
-      "certificateIds": [7, 9]
+      "certificateIds": [
+        7,
+        9
+      ]
     },
     {
       "id": 14,
@@ -508,7 +582,9 @@
       "profession": "Estudiante",
       "profilePicture": "https://i.imgur.com/jVyXxXV.jpg",
       "isFeatured": false,
-      "certificateIds": [3]
+      "certificateIds": [
+        3
+      ]
     },
     {
       "id": 15,
@@ -534,7 +610,10 @@
       "profession": "Ingeniera Ambiental",
       "profilePicture": "https://i.imgur.com/jVyXxXV.jpg",
       "isFeatured": true,
-      "certificateIds": [5, 8]
+      "certificateIds": [
+        5,
+        8
+      ]
     },
     {
       "id": 17,
@@ -547,7 +626,9 @@
       "profession": "Médico",
       "profilePicture": "https://i.imgur.com/jVyXxXV.jpg",
       "isFeatured": false,
-      "certificateIds": [2]
+      "certificateIds": [
+        2
+      ]
     },
     {
       "id": 18,
@@ -573,7 +654,11 @@
       "profession": "Ingeniero",
       "profilePicture": "https://i.imgur.com/jVyXxXV.jpg",
       "isFeatured": false,
-      "certificateIds": [6, 9, 10]
+      "certificateIds": [
+        6,
+        9,
+        10
+      ]
     },
     {
       "id": 20,
@@ -586,7 +671,9 @@
       "profession": "Diseñadora gráfica",
       "profilePicture": "https://i.imgur.com/jVyXxXV.jpg",
       "isFeatured": true,
-      "certificateIds": [1]
+      "certificateIds": [
+        1
+      ]
     },
     {
       "id": 21,
@@ -599,7 +686,10 @@
       "profession": "Abogado",
       "profilePicture": "https://i.imgur.com/jVyXxXV.jpg",
       "isFeatured": false,
-      "certificateIds": [3, 7]
+      "certificateIds": [
+        3,
+        7
+      ]
     },
     {
       "id": 22,
@@ -625,7 +715,10 @@
       "profession": "Ingeniero Civil",
       "profilePicture": "https://i.imgur.com/jVyXxXV.jpg",
       "isFeatured": true,
-      "certificateIds": [2, 5]
+      "certificateIds": [
+        2,
+        5
+      ]
     },
     {
       "id": 24,
@@ -638,7 +731,9 @@
       "profession": "Psicóloga",
       "profilePicture": "https://i.imgur.com/jVyXxXV.jpg",
       "isFeatured": true,
-      "certificateIds": [4]
+      "certificateIds": [
+        4
+      ]
     },
     {
       "id": 25,
@@ -664,7 +759,10 @@
       "profession": "Enfermera",
       "profilePicture": "https://i.imgur.com/jVyXxXV.jpg",
       "isFeatured": false,
-      "certificateIds": [1, 6]
+      "certificateIds": [
+        1,
+        6
+      ]
     },
     {
       "id": 27,
@@ -677,7 +775,9 @@
       "profession": "Mecánico",
       "profilePicture": "https://i.imgur.com/jVyXxXV.jpg",
       "isFeatured": false,
-      "certificateIds": [3]
+      "certificateIds": [
+        3
+      ]
     },
     {
       "id": 28,
@@ -690,7 +790,10 @@
       "profession": "Diseñadora Industrial",
       "profilePicture": "https://i.imgur.com/jVyXxXV.jpg",
       "isFeatured": true,
-      "certificateIds": [7, 8]
+      "certificateIds": [
+        7,
+        8
+      ]
     },
     {
       "id": 29,
@@ -716,7 +819,9 @@
       "profession": "Periodista",
       "profilePicture": "https://i.imgur.com/jVyXxXV.jpg",
       "isFeatured": false,
-      "certificateIds": [10]
+      "certificateIds": [
+        10
+      ]
     },
     {
       "id": 31,
@@ -729,7 +834,10 @@
       "profession": "Arquitecto",
       "profilePicture": "https://i.imgur.com/jVyXxXV.jpg",
       "isFeatured": true,
-      "certificateIds": [2, 4]
+      "certificateIds": [
+        2,
+        4
+      ]
     },
     {
       "id": 32,
@@ -755,7 +863,10 @@
       "profession": "Médico",
       "profilePicture": "https://i.imgur.com/jVyXxXV.jpg",
       "isFeatured": true,
-      "certificateIds": [1, 5]
+      "certificateIds": [
+        1,
+        5
+      ]
     },
     {
       "id": 34,
@@ -768,7 +879,9 @@
       "profession": "Maestra",
       "profilePicture": "https://i.imgur.com/jVyXxXV.jpg",
       "isFeatured": false,
-      "certificateIds": [6]
+      "certificateIds": [
+        6
+      ]
     },
     {
       "id": 35,
@@ -794,7 +907,10 @@
       "profession": "Psicóloga",
       "profilePicture": "https://i.imgur.com/jVyXxXV.jpg",
       "isFeatured": true,
-      "certificateIds": [3, 7]
+      "certificateIds": [
+        3,
+        7
+      ]
     },
     {
       "id": 37,
@@ -807,7 +923,9 @@
       "profession": "Ingeniero Electrónico",
       "profilePicture": "https://i.imgur.com/jVyXxXV.jpg",
       "isFeatured": false,
-      "certificateIds": [2]
+      "certificateIds": [
+        2
+      ]
     },
     {
       "id": 38,
@@ -820,7 +938,10 @@
       "profession": "Diseñadora Gráfica",
       "profilePicture": "https://i.imgur.com/jVyXxXV.jpg",
       "isFeatured": false,
-      "certificateIds": [8, 9]
+      "certificateIds": [
+        8,
+        9
+      ]
     },
     {
       "id": 39,
@@ -846,7 +967,9 @@
       "profession": "Periodista",
       "profilePicture": "https://i.imgur.com/jVyXxXV.jpg",
       "isFeatured": true,
-      "certificateIds": [10]
+      "certificateIds": [
+        10
+      ]
     },
     {
       "id": 41,
@@ -859,7 +982,10 @@
       "profession": "Chef",
       "profilePicture": "https://i.imgur.com/jVyXxXV.jpg",
       "isFeatured": false,
-      "certificateIds": [1, 4]
+      "certificateIds": [
+        1,
+        4
+      ]
     },
     {
       "id": 42,
@@ -885,7 +1011,10 @@
       "profession": "Contador",
       "profilePicture": "https://i.imgur.com/jVyXxXV.jpg",
       "isFeatured": true,
-      "certificateIds": [2, 3]
+      "certificateIds": [
+        2,
+        3
+      ]
     },
     {
       "id": 44,
@@ -898,7 +1027,9 @@
       "profession": "Ingeniera Civil",
       "profilePicture": "https://i.imgur.com/jVyXxXV.jpg",
       "isFeatured": false,
-      "certificateIds": [5]
+      "certificateIds": [
+        5
+      ]
     },
     {
       "id": 45,
@@ -924,7 +1055,10 @@
       "profession": "Enfermera",
       "profilePicture": "https://i.imgur.com/jVyXxXV.jpg",
       "isFeatured": true,
-      "certificateIds": [6, 7]
+      "certificateIds": [
+        6,
+        7
+      ]
     },
     {
       "id": 47,
@@ -937,7 +1071,9 @@
       "profession": "Profesor",
       "profilePicture": "https://i.imgur.com/jVyXxXV.jpg",
       "isFeatured": false,
-      "certificateIds": [8]
+      "certificateIds": [
+        8
+      ]
     },
     {
       "id": 48,
@@ -950,7 +1086,10 @@
       "profession": "Diseñadora Industrial",
       "profilePicture": "https://i.imgur.com/jVyXxXV.jpg",
       "isFeatured": false,
-      "certificateIds": [9, 10]
+      "certificateIds": [
+        9,
+        10
+      ]
     },
     {
       "id": 49,
@@ -976,7 +1115,18 @@
       "profession": "Psicóloga",
       "profilePicture": "https://i.imgur.com/jVyXxXV.jpg",
       "isFeatured": true,
-      "certificateIds": [1, 2]
+      "certificateIds": [
+        1,
+        2
+      ]
+    }
+  ],
+  "notifications": [
+    {
+      "id": "1",
+      "title": "Actividad creada",
+      "message": "Has creado una nueva actividad de voluntariado. ¡Comparte para sumar voluntarios!",
+      "createdAt": "2025-05-16T09:50:55.558Z"
     }
   ]
 }

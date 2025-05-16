@@ -32,6 +32,8 @@ import { VolunteersService } from '../services/volunteers.service';
 import { Volunteer } from '../model/volunteers.entity';
 import {DatePipe, NgClass, NgIf} from '@angular/common';
 
+import { NotificationsService } from '../../notifications/services/notifications.service';
+import { TranslatePipe} from '@ngx-translate/core';
 
 @Component({
   selector: 'app-volunteers',
@@ -51,7 +53,8 @@ import {DatePipe, NgClass, NgIf} from '@angular/common';
     MatButtonModule,
     NgIf,
     DatePipe,
-    NgClass
+    NgClass,
+    TranslatePipe
   ],
   templateUrl: './volunteers.component.html',
   styleUrls: ['./volunteers.component.css']
@@ -69,6 +72,8 @@ export class VolunteersComponent implements OnInit, AfterViewInit {
   selectedVolunteer: Volunteer | null = null;
   selectedRow: any = null;
 
+  sendEmail = false;
+
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   ngAfterViewInit(): void {
     this.dataSource.paginator = this.paginator;
@@ -77,7 +82,8 @@ export class VolunteersComponent implements OnInit, AfterViewInit {
 
   constructor(
     private volunteersService: VolunteersService,
-    private dialog: MatDialog
+    private dialog: MatDialog,
+    private notificationsService: NotificationsService
   ) {}
 
 
@@ -128,10 +134,23 @@ export class VolunteersComponent implements OnInit, AfterViewInit {
       }
     });
   }
+  /*
+  fireNotification() {
+    this.notificationsService.createTypedNotification('mail').subscribe(() => {
+      window.dispatchEvent(new Event('openNotifications'));
+    });
+  }*/
+  aproveSendEmail() {
+    this.sendEmail = !this.sendEmail;
+    console.log(this.sendEmail);
+  }
+
+  protected readonly history = history;
 }
 
 @Component({
   selector: 'app-volunteer-filter-dialog',
+  standalone: true,
   imports: [
     MatDialogTitle,
     MatDialogContent,
