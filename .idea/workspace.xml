@@ -4,8 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="32d7f7b8-0dc4-4ad3-b13e-38150f113ef0" name="Changes" comment="">
+    <list default="true" id="32d7f7b8-0dc4-4ad3-b13e-38150f113ef0" name="Changes" comment="add to gitignore">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/VolunTrack/server/db.json" beforeDir="false" afterPath="$PROJECT_DIR$/VolunTrack/server/db.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VolunTrack/src/app/volunteers/components/volunteers.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/VolunTrack/src/app/volunteers/components/volunteers.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VolunTrack/src/app/volunteers/components/volunteers.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/VolunTrack/src/app/volunteers/components/volunteers.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VolunTrack/src/app/volunteers/components/volunteers.component.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/VolunTrack/src/app/volunteers/components/volunteers.component.spec.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VolunTrack/src/app/volunteers/components/volunteers.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/VolunTrack/src/app/volunteers/components/volunteers.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VolunTrack/src/app/volunteers/model/volunteers.entity.spec.ts" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -15,13 +21,26 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "git-widget-placeholder": "feature/edit-activity",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "ts.external.directory.path": "C:\\Users\\nortz\\OneDrive\\Escritorio\\voluntrack\\VolunTrack\\node_modules\\typescript\\lib"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;git-widget-placeholder&quot;: &quot;feature/metrics&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;npm.start.executor&quot;: &quot;Run&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;C:\\Users\\nortz\\OneDrive\\Escritorio\\voluntrack\\VolunTrack\\node_modules\\typescript\\lib&quot;
   }
-}]]></component>
+}</component>
+  <component name="RunManager">
+    <configuration name="start" type="js.build_tools.npm" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/VolunTrack/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="start" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+  </component>
   <component name="TaskManager">
     <servers />
   </component>
