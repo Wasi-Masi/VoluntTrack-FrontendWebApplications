@@ -16,6 +16,7 @@
 <p align="center">Martel Andrade, Cassius Estefano U202312287</p>
 <p align="center">Nakamurake Teruya, Alex Tomio U20201f855</p>
 <p align="center">Ortiz Alarcón, Victor Nicolás U202312899</p>
+<p align="center">Galván Cerrón, George Aldo U202116055</p>
 
 <p align="center">Abril 2025</p>
 
