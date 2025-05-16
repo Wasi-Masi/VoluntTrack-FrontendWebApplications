@@ -1,6 +1,8 @@
-<div class="profile-container">
-  <h1 class="title">Mi Perfil</h1>
+<div class="page-header">
+  <h2>My Volunteers</h2>
+</div>
 
+<div class="profile-container">
   <div class="banner">
     <img class="cover" [src]="user?.banner" alt="Banner">
     <div class="profile-icon-wrapper">
@@ -21,33 +23,35 @@
     <div class="personal-info">
       <h3>Información Personal</h3>
 
-      <p><strong>Nombre de Usuario:</strong>
+      <mat-divider></mat-divider>
+
+      <h4>Nombre de Usuario:
         <span *ngIf="!editMode">{{ user?.username }}</span>
         <input *ngIf="editMode" [(ngModel)]="editedUser.username">
-      </p>
+      </h4>
 
-      <p><strong>Correo electrónico:</strong>
+      <h4>Correo electrónico:
         <span *ngIf="!editMode">{{ user?.email }}</span>
         <input *ngIf="editMode" [(ngModel)]="editedUser.email">
-      </p>
+      </h4>
 
-      <p><strong>Contraseña:</strong>
+      <h4>Contraseña:
         <span *ngIf="!editMode">**********</span>
         <input *ngIf="editMode" type="password" [(ngModel)]="editedUser.password">
-      </p>
+      </h4>
 
-      <p><strong>Número de teléfono:</strong>
+      <h4>Número de teléfono:
         <span *ngIf="!editMode">{{ user?.phone }}</span>
-        <input *ngIf="editMode" [(ngModel)]="editedUser.phone">
-      </p>
+        <input matInput *ngIf="editMode" [(ngModel)]="editedUser.phone">
+      </h4>
 
-      <p><strong>Plan:</strong>
+      <h4>Plan:
         <span *ngIf="!editMode">{{ user?.plan }}</span>
         <select *ngIf="editMode" [(ngModel)]="editedUser.plan">
           <option value="Gratis">Gratis</option>
           <option value="Premium">Premium</option>
         </select>
-      </p>
+      </h4>
 
       <div class="button-group">
         <button *ngIf="!editMode" class="edit-btn" (click)="toggleEdit()">✏️ Editar detalles</button>
@@ -57,8 +61,17 @@
         </div>
         <button class="logout-btn" (click)="logout()">⛔ Cerrar Sesión</button>
       </div>
-    </div>
 
-    <!-- Configuración omitida por brevedad -->
+    </div>
+    <div class="config-info">
+      <h3>Configuration</h3>
+
+      <mat-divider></mat-divider>
+
+
+
+    </div>
   </div>
+
+
 </div>
