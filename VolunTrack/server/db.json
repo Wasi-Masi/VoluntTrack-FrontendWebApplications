@@ -2,7 +2,7 @@
   "activities": [
     {
       "id": "1",
-      "title": "playas xd",
+      "title": "xd",
       "description": "Join us for a community-led beach cleanup aimed at preserving our coastal environment. Together, we'll collect litter, remove plastic waste, and learn about the impact of pollution on marine life. It's a great way to contribute to a cleaner ocean and connect with others who care about the planet.",
       "instructions": [
         "Bring gloves and trash bags",
@@ -1104,5 +1104,17 @@
       "description": "a"
     }
   ],
-  "userlogin": []
+  "userlogin": [
+    {
+      "id": "9969",
+      "username": "a",
+      "password": "a",
+      "email": "a",
+      "phone": "1",
+      "pfp": "a",
+      "plan": "basic",
+      "banner": "a",
+      "description": "a"
+    }
+  ]
 }
