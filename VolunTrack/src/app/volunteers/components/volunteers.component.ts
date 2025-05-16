@@ -30,7 +30,7 @@ import {MatButton, MatButtonModule} from '@angular/material/button';
 
 import { VolunteersService } from '../services/volunteers.service';
 import { Volunteer } from '../model/volunteers.entity';
-import {DatePipe, NgIf} from '@angular/common';
+import {DatePipe, NgClass, NgIf} from '@angular/common';
 
 
 @Component({
@@ -50,7 +50,8 @@ import {DatePipe, NgIf} from '@angular/common';
     MatDialogModule,
     MatButtonModule,
     NgIf,
-    DatePipe
+    DatePipe,
+    NgClass
   ],
   templateUrl: './volunteers.component.html',
   styleUrls: ['./volunteers.component.css']
@@ -66,9 +67,12 @@ export class VolunteersComponent implements OnInit, AfterViewInit {
   statusFilter: string = '';
   registrationDateFilter: Date | null = null;
   selectedVolunteer: Volunteer | null = null;
+  selectedRow: any = null;
+
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   ngAfterViewInit(): void {
     this.dataSource.paginator = this.paginator;
+    this.paginator.pageSize = 10;
   }
 
   constructor(
@@ -77,8 +81,9 @@ export class VolunteersComponent implements OnInit, AfterViewInit {
   ) {}
 
 
-  selectVolunteer(volunteer: Volunteer): void {
+  selectVolunteer(volunteer: any) {
     this.selectedVolunteer = volunteer;
+    this.selectedRow = volunteer;
   }
 
   ngOnInit(): void {
@@ -104,7 +109,7 @@ export class VolunteersComponent implements OnInit, AfterViewInit {
   openFilterDialog(): void {
     const dialogRef = this.dialog.open(VolunteerFilterDialogComponent, {
       width: '500px',
-      height:'400px',
+      height:'450px',
       data: {
         minAge: this.minAge,
         maxAge: this.maxAge,
@@ -145,7 +150,7 @@ export class VolunteersComponent implements OnInit, AfterViewInit {
   template: `
     <h2 mat-dialog-title>Filtros</h2>
     <mat-dialog-content>
-      <mat-form-field appearance="outline" style="width: 100%;">
+      <mat-form-field appearance="outline" style="width: 100%;" class="secorta" >
         <mat-label>Edad mínima</mat-label>
         <input matInput type="number" [(ngModel)]="data.minAge"/>
       </mat-form-field>
@@ -176,7 +181,16 @@ export class VolunteersComponent implements OnInit, AfterViewInit {
       <button mat-button (click)="onClose()">Cancelar</button>
       <button mat-raised-button color="primary" (click)="onApply()">Aplicar</button>
     </mat-dialog-actions>
-  `
+  `,
+  styles: [`
+    mat-dialog-content {
+      margin-top: 15px;
+    }
+    .secorta {
+      margin-top: 10px;
+    }
+  `]
+
 })
 export class VolunteerFilterDialogComponent {
   constructor(
@@ -192,4 +206,6 @@ export class VolunteerFilterDialogComponent {
     this.dialogRef.close(this.data);
   }
 }
+
+
 
