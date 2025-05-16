@@ -37,7 +37,7 @@
     },
     {
       "id": "2",
-      "title": "Park Reforestation",
+      "title": "Park Reforestationnn",
       "description": "Help us restore green spaces in the city by planting trees and native plants. This initiative supports biodiversity, improves air quality, and enhances the beauty of our public parks. No previous experience needed—just a love for nature!",
       "instructions": [
         "Bring a shovel or gardening tools",
@@ -53,7 +53,7 @@
         "Environmental education",
         "Community collaboration"
       ],
-      "dashboardPicture": "https://i.imgur.com/758s7QQ.jpg",
+      "dashboardPicture": "https://i.imgur.com/j7Vz1BP.jpg",
       "pictures": [
         "https://i.imgur.com/j7Vz1BP.jpg"
       ],
@@ -1144,6 +1144,17 @@
       "plan": "basic",
       "banner": "a",
       "description": "a"
+    },
+    {
+      "id": "1ed1",
+      "username": "b",
+      "password": "b",
+      "email": "b",
+      "phone": "b",
+      "pfp": "b",
+      "plan": "basic",
+      "banner": "b",
+      "description": "b"
     }
   ],
   "userlogin": [
@@ -1654,7 +1665,7 @@
       "activityId": 5,
       "registrationDate": "2025-05-16",
       "status": "rechazado",
-      "attendance": "no asistio"
+      "attendance": "asistio"
     },
     {
       "id": "66",

@@ -1,3 +1,12 @@
+/*
+  Description:
+  Styles for the certificates dialog container and individual certificate cards.
+  The container arranges cards flexibly with wrapping and scrolls vertically if content overflows.
+  Each certificate card has a fixed width and a minimum height for consistent appearance.
+
+  Author: Cassius Martel
+*/
+
 .certificates-container {
   display: flex;
   flex-wrap: wrap;

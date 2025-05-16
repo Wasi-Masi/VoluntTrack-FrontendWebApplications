@@ -1,26 +1,30 @@
+<!--
+Description: Displays a dashboard with a list of activities, including images, titles, dates, and navigation buttons for creating activities and viewing a calendar.
+Author: Cassius Martel
+-->
 
-<div class="dashboard-header">
-  <h2>Activity Dashboard</h2>
-  <div class="dashboard-actions">
-    <button mat-stroked-button color="primary" [routerLink]="['/create-activity']">
+<div class="dashboard-header" role="banner" aria-label="Activity Dashboard Header">
+  <h2 tabindex="0">Activity Dashboard</h2>
+  <div class="dashboard-actions" role="navigation" aria-label="Dashboard actions">
+    <button mat-stroked-button color="primary" [routerLink]="['/create-activity']" aria-label="Create new activity">
       <mat-icon>add</mat-icon> {{ 'create' | translate }}
     </button>
-    <button [routerLink]="['/calendar']" mat-stroked-button color="accent">
+    <button [routerLink]="['/calendar']" mat-stroked-button color="accent" aria-label="View calendar">
       <mat-icon>calendar_today</mat-icon> {{ 'calendar' | translate }}
     </button>
   </div>
 </div>
 
-<div class="dashboard-card">
+<div class="dashboard-card" role="main" aria-label="List of activities">
   <div class="activities-container">
-    <div class="activity-row" *ngFor="let activity of activities">
+    <div class="activity-row" *ngFor="let activity of activities" role="listitem" tabindex="0">
       <div class="activity-card">
-        <img [src] = "activity.dashboardPicture" alt="{{ activity.title }}" class="activity-image" />
+      <img [src]="activity.dashboardPicture" alt="{{ activity.title }}" class="activity-image" />
         <div class="activity-info">
           <h3>{{ activity.title }}</h3>
           <p>{{ activity.date }} — {{ activity.startTime }} to {{ activity.endTime }}</p>
           <button mat-button color="primary" [routerLink]="['/activity', activity.id]">
-            View More <mat-icon>arrow_forward</mat-icon>
+          View More <mat-icon>arrow_forward</mat-icon>
           </button>
         </div>
       </div>

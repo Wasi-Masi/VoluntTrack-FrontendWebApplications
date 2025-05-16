@@ -1,3 +1,8 @@
+/**
+ * Description: Component to edit an existing activity, allowing update of details such as instructions, purpose, and pictures.
+ * Author: Victor Ortiz
+ */
+
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';

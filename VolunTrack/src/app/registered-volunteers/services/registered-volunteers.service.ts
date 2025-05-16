@@ -1,3 +1,10 @@
+/**
+ * Service to manage registered volunteers data, including fetching registrations by activity,
+ * retrieving volunteer details, and updating attendance status.
+ *
+ * Author: Cassius Martel
+ */
+
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
@@ -13,7 +20,6 @@ export class RegisteredVolunteersService {
   constructor(private http: HttpClient) { }
 
   getRegistrationsByActivity(activityId: string): Observable<RegisteredVolunteersEntity[]> {
-    // Usamos HttpParams para enviar el filtro por query param
     const params = new HttpParams().set('activityId', activityId);
 
     return this.http.get<RegisteredVolunteersEntity[]>(this.apiUrl, { params });

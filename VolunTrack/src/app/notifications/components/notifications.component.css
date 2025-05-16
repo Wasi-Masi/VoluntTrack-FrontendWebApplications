@@ -1,3 +1,8 @@
+/*
+Description: Styles for the notification drawer component, including layout, animations, and interactive elements.
+Author: Ainhoa Castillo
+*/
+
 .notification-drawer {
   position: fixed;
   top: 0;

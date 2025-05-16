@@ -1,3 +1,7 @@
+// Description: This component manages the volunteers view, including filtering, metrics calculation, and displaying volunteer details and certificates.
+// Author: Cassius Martel
+
+
 import {
   AfterViewInit,
   Component,
@@ -102,7 +106,6 @@ export class VolunteersComponent implements OnInit, AfterViewInit {
       this.dataSource.data = data;
       this.applyFilters();
 
-      // Calculamos métricas después de cargar los voluntarios
       this.calculateMetrics();
     });
   }
@@ -167,7 +170,6 @@ export class VolunteersComponent implements OnInit, AfterViewInit {
   protected readonly history = history;
 
 
-  // Variables para métricas (puedes inicializarlas)
   totalVolunteers: number = 0;
   newThisMonth: number = 0;
   inactiveVolunteers: number = 0;
@@ -175,16 +177,13 @@ export class VolunteersComponent implements OnInit, AfterViewInit {
   averageAge: number = 0;
   volunteersByProfession: Record<string, number> = {};
 
-  // Variables para porcentaje, pueden ser negativas o positivas
   totalVolunteersChange: number = 0;
   newThisMonthChange: number = 0;
   inactiveVolunteersChange: number = 0;
 
-  // Aquí la fecha actual y la del mes pasado
   currentDate = new Date();
   lastMonthDate = new Date(new Date().setMonth(new Date().getMonth() - 1));
 
-  // Por ejemplo, podrías recibir estas métricas con la API, pero aquí calculamos localmente
 
   getProfessionKeys(): string[] {
     return Object.keys(this.volunteersByProfession);
@@ -194,7 +193,6 @@ export class VolunteersComponent implements OnInit, AfterViewInit {
     this.totalVolunteers = this.volunteers.length;
     this.inactiveVolunteers = this.volunteers.filter(v => v.status === 'inactive').length;
 
-    // Detectar el mes/año más reciente con registro
     let maxYear = 0;
     let maxMonth = -1;
     this.volunteers.forEach(v => {
@@ -207,13 +205,11 @@ export class VolunteersComponent implements OnInit, AfterViewInit {
       }
     });
 
-    // Filtrar los registrados en ese mes/año máximo detectado
     this.newThisMonth = this.volunteers.filter(v => {
       const d = new Date(v.registrationDate);
       return d.getFullYear() === maxYear && d.getMonth() === maxMonth;
     }).length;
 
-    // Para el mes anterior a ese (último mes - 1)
     let prevMonth = maxMonth - 1;
     let prevYear = maxYear;
     if (prevMonth < 0) {
@@ -221,26 +217,22 @@ export class VolunteersComponent implements OnInit, AfterViewInit {
       prevYear--;
     }
 
-    // Nuevos mes pasado (último mes - 1)
     const newLastMonth = this.volunteers.filter(v => {
       const d = new Date(v.registrationDate);
       return d.getFullYear() === prevYear && d.getMonth() === prevMonth;
     }).length;
 
-    // Total voluntarios mes pasado: todos registrados antes del último mes
     const totalLastMonth = this.volunteers.filter(v => {
       const d = new Date(v.registrationDate);
       return (d.getFullYear() < maxYear) || (d.getFullYear() === maxYear && d.getMonth() < maxMonth);
     }).length;
 
-    // Inactivos mes pasado: inactivos registrados antes del último mes
     const inactiveLastMonth = this.volunteers.filter(v => {
       const d = new Date(v.registrationDate);
       return ((d.getFullYear() < maxYear) || (d.getFullYear() === maxYear && d.getMonth() < maxMonth))
         && v.status === 'inactive';
     }).length;
 
-    // Calcula los cambios porcentuales
     this.totalVolunteersChange = this.calculatePercentageChange(totalLastMonth, this.totalVolunteers);
     this.newThisMonthChange = this.calculatePercentageChange(newLastMonth, this.newThisMonth);
     this.inactiveVolunteersChange = this.calculatePercentageChange(inactiveLastMonth, this.inactiveVolunteers);

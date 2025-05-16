@@ -1,3 +1,11 @@
+/*
+Description:
+Styles for the dashboard header, calendar container, sidebar, and calendar day elements.
+Includes layout, colors, typography, and interactive states for calendar month buttons.
+
+Author: Tomio Nakamurakare
+*/
+
 .dashboard-header {
   display: flex;
   justify-content: space-between;

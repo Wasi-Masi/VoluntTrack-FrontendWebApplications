@@ -1,10 +1,15 @@
+/*
+Description: Component that displays a calendar view with activities grouped by date, allowing month navigation.
+Author: Tomio Nakamurakare
+*/
+
 import { Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {MatButton} from '@angular/material/button';
 import {RouterLink} from '@angular/router';
 import { MatIconModule } from '@angular/material/icon';
 import {TranslatePipe} from '@ngx-translate/core';
-import { DashboardService } from '../../dashboard/services/dashboard.service'; // ajusta la ruta si es distinta
+import { DashboardService } from '../../dashboard/services/dashboard.service';
 import { Activity } from '../../dashboard/model/dashboard.entity';
 
 @Component({

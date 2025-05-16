@@ -1,3 +1,9 @@
+/*
+Description: Styles for the dashboard header and activities form layout, including responsive containers, buttons, and input fields with a clean, modern design.
+Author: Victor Ortiz
+*/
+
+
 .dashboard-header {
   display: flex;
   justify-content: space-between;

@@ -1,3 +1,10 @@
+/**
+ * Defines the RegisteredVolunteersEntity class representing a volunteer's registration details for an activity,
+ * and the Certificate class representing a participation certificate for a volunteer.
+ *
+ * Cassius Martel
+ */
+
 export class RegisteredVolunteersEntity {
   constructor(
     public id: string,

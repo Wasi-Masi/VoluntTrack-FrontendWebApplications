@@ -1,3 +1,8 @@
+/**
+ * Description: Handles user login, including validation against a user list, session creation, and navigation. Clears any existing login sessions on init.
+ * Author: Marcelo Binda
+ */
+
 import { Component, signal } from '@angular/core';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';

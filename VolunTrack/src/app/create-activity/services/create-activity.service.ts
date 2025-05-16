@@ -1,3 +1,11 @@
+/*
+Description:
+Service to handle HTTP requests related to activity creation, retrieval,
+and updating via a REST API.
+
+Author: Ainhoa Castillo
+*/
+
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';

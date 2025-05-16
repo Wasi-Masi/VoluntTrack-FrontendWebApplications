@@ -1,3 +1,10 @@
+/*
+Description:
+Styles for the user registration form container, including layout, colors, buttons, and responsive grid design.
+
+Author: Victor Ortiz
+*/
+
 .register-container {
   width: 500px;
   margin: 80px auto;
@@ -28,7 +35,6 @@ mat-form-field {
   width: 100%;
 }
 
-/* Botones al mismo tamaño que los inputs */
 .button-group {
   display: grid;
   grid-template-columns: 1fr;
@@ -46,21 +52,18 @@ mat-form-field {
   color: #000000;
 }
 
-/* Botón cancelar estilo bordeado */
 .button-group button.cancel {
   background-color: #ffffff;
   color: #9BD0DF;
   border: 1px solid #9BD0DF;
 }
 
-/* Responsivo: una sola columna en pantallas pequeñas */
 @media (max-width: 768px) {
   .form-grid {
     grid-template-columns: 1fr;
   }
 }
 
-/* Cambiar color del label cuando está enfocado */
 ::ng-deep .mat-mdc-form-field.mat-focused .mdc-floating-label {
   color: #000000 !important;
 }

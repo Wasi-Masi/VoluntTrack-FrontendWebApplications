@@ -1,3 +1,12 @@
+/*
+Description:
+This Angular standalone component provides a form to create a new activity,
+handling input binding, form submission, and interaction with backend services
+to save the activity and trigger notifications.
+
+Author: Ainhoa Castillo
+*/
+
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
@@ -57,14 +66,13 @@ export class CreateActivityComponent {
       .filter(url => url.length > 0);
 
     this.createService.getActivities().subscribe(existingActivities => {
-      // Convertimos las ids de string a número para calcular el máximo
       const maxIdNumber = existingActivities.length > 0
         ? Math.max(...existingActivities.map(a => Number(a.id)))
         : 0;
 
       const newActivity: Activity = {
         ...this.activity,
-        id: (maxIdNumber + 1).toString(),  // Convertimos de vuelta a string
+        id: (maxIdNumber + 1).toString(),
         inscriptionCount: 0,
         isInscriptionOpen: true,
         instructions: this.instructions

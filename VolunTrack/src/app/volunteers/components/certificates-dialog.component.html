@@ -1,7 +1,12 @@
-<h2 mat-dialog-title>Certificados</h2>
-<mat-dialog-content class="certificates-container">
+<!--
+  Description: Dialog component that displays a list of certificates with activity titles and descriptions.
+  Author: Victor Ortiz
+-->
+
+<h2 mat-dialog-title id="certificates-dialog-title" aria-label="Certificates Dialog Title">Certificados</h2>
+<mat-dialog-content class="certificates-container" role="region" aria-labelledby="certificates-dialog-title" tabindex="0">
   <mat-card *ngFor="let cert of certificates" class="certificate-card">
-    <mat-card-header>
+  <mat-card-header>
       <mat-card-title>{{ cert.activityTi }}</mat-card-title>
     </mat-card-header>
     <mat-card-content>
@@ -10,5 +15,5 @@
   </mat-card>
 </mat-dialog-content>
 <mat-dialog-actions align="end">
-  <button mat-button mat-dialog-close>Cerrar</button>
+  <button mat-button mat-dialog-close aria-label="Close Certificates Dialog">Cerrar</button>
 </mat-dialog-actions>

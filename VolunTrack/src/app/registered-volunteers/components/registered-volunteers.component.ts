@@ -1,3 +1,10 @@
+/**
+ * Component to manage and display the list of volunteers registered for a specific activity.
+ * Includes functionality to search volunteers, mark attendance, and generate certificates.
+ *
+ * Author: Cassius Martel
+ */
+
 import { Component, OnInit, ViewChild } from '@angular/core';
 import {ActivatedRoute, RouterLink} from '@angular/router';
 import { forkJoin } from 'rxjs';

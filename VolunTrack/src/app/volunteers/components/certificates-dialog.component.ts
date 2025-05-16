@@ -1,3 +1,9 @@
+// CertificatesDialogComponent: Dialog component that shows the certificates of a volunteer.
+// It receives the volunteerId through MAT_DIALOG_DATA injection,
+// fetches the certificates using CertificatesService on initialization,
+// and displays them in a list. Includes error handling and debug logging.
+//Author: Cassius Martel
+
 import { Component, Inject, OnInit } from '@angular/core';
 import {
   MAT_DIALOG_DATA,
@@ -9,7 +15,7 @@ import {
 import {CertificatesService} from '../services/certificats.service';
 import {MatCard, MatCardContent, MatCardHeader, MatCardTitle} from '@angular/material/card';
 import {MatButton} from '@angular/material/button';
-import {NgForOf} from '@angular/common'; // Asegúrate de que la ruta es correcta
+import {NgForOf} from '@angular/common';
 
 @Component({
   selector: 'app-certificates-dialog',

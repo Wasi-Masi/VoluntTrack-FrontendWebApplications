@@ -1,3 +1,7 @@
+// Description: Service for handling certificate-related HTTP operations,
+// including posting a single certificate and fetching certificates by volunteer.
+// Author: Cassius Martel
+
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import {Certificate} from '../../registered-volunteers/model/registered-volunteers.entity';

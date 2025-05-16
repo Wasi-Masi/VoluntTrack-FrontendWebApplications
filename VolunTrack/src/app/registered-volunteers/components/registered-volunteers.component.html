@@ -1,77 +1,83 @@
+<!--
+Description: Component template showing activity details with navigation buttons, a searchable and paginated volunteers table, and an actions panel including attendance marking and certificate generation. ARIA attributes are added for improved accessibility.
+Author: Your Name
+-->
+
 <!-- HEADER -->
-<div class="details-header" *ngIf="activity">
-  <div class="the-buttons" *ngIf="activity">
-    <button mat-icon-button  [routerLink]="['/dashboard']" matTooltip="Back to Dashboard">
+<div class="details-header" *ngIf="activity" role="banner" aria-label="Activity navigation header">
+  <div class="the-buttons" *ngIf="activity" role="navigation" aria-label="Activity detail navigation buttons">
+    <button mat-icon-button [routerLink]="['/dashboard']" matTooltip="Back to Dashboard" aria-label="Back to dashboard">
       <mat-icon>arrow_back</mat-icon>
     </button>
-    <button mat-button [routerLink]="['/activity', activity.id]">Details</button>
-
-    <button mat-button [routerLink]="['/registered', activity.id]" >Registered Volunteers</button>
-    <button mat-icon-button>
+    <button mat-button [routerLink]="['/activity', activity.id]" aria-current="page">Details</button>
+    <button mat-button [routerLink]="['/registered', activity.id]">Registered Volunteers</button>
+    <button mat-icon-button aria-label="Edit activity">
       <mat-icon>edit</mat-icon>
     </button>
   </div>
 </div>
 
-<div class="details-container" *ngIf="activity">
+<div class="details-container" *ngIf="activity" role="main" aria-labelledby="activity-details-title">
   <div class="details-subpanels">
 
     <!-- Panel con búsqueda + tabla -->
-    <mat-card class="volunteers-panel mat-elevation-z8">
+    <mat-card class="volunteers-panel mat-elevation-z8" role="region" aria-labelledby="volunteers-panel-title">
       <mat-card-header>
         <mat-form-field appearance="outline" style="width: 100%;">
-          <mat-label>Buscar voluntario por nombre</mat-label>
-          <input matInput type="text" [(ngModel)]="searchText" (ngModelChange)="applyFilter()">
+          <mat-label id="volunteers-search-label">Buscar voluntario por nombre</mat-label>
+          <input matInput type="text" [(ngModel)]="searchText" (ngModelChange)="applyFilter()"
+                 aria-describedby="volunteers-search-description" aria-label="Search volunteer by name" />
           <mat-icon matSuffix>search</mat-icon>
         </mat-form-field>
+        <span id="volunteers-search-description" class="sr-only"></span>
       </mat-card-header>
 
       <mat-card-content>
-        <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" *ngIf="dataSource.data.length > 0">
+        <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" *ngIf="dataSource.data.length > 0" aria-label="Volunteers table">
 
-          <!-- Columnas... -->
+          <!-- Columns defined here with appropriate headers and cells -->
+
           <ng-container matColumnDef="fullName">
-            <th mat-header-cell *matHeaderCellDef> Nombre </th>
+            <th mat-header-cell *matHeaderCellDef scope="col"> Nombre </th>
             <td mat-cell *matCellDef="let volunteer"> {{volunteer.fullName}} </td>
           </ng-container>
 
           <ng-container matColumnDef="age">
-            <th mat-header-cell *matHeaderCellDef> Edad </th>
+            <th mat-header-cell *matHeaderCellDef scope="col"> Edad </th>
             <td mat-cell *matCellDef="let volunteer"> {{volunteer.age}} </td>
           </ng-container>
 
           <ng-container matColumnDef="profession">
-            <th mat-header-cell *matHeaderCellDef> Profesión </th>
+            <th mat-header-cell *matHeaderCellDef scope="col"> Profesión </th>
             <td mat-cell *matCellDef="let volunteer"> {{volunteer.profession}} </td>
           </ng-container>
 
           <ng-container matColumnDef="registrationDate">
-            <th mat-header-cell *matHeaderCellDef> Fecha de inscripción </th>
+            <th mat-header-cell *matHeaderCellDef scope="col"> Fecha de inscripción </th>
             <td mat-cell *matCellDef="let volunteer"> {{volunteer.registrationDate | date:'shortDate'}} </td>
           </ng-container>
 
           <ng-container matColumnDef="registrationStatus">
-            <th mat-header-cell *matHeaderCellDef> Estado </th>
+            <th mat-header-cell *matHeaderCellDef scope="col"> Estado </th>
             <td mat-cell *matCellDef="let volunteer">
               {{ volunteer.registration?.status | titlecase }}
             </td>
           </ng-container>
 
           <ng-container matColumnDef="registrationAttendance">
-            <th mat-header-cell *matHeaderCellDef> Asistencia </th>
+            <th mat-header-cell *matHeaderCellDef scope="col"> Asistencia </th>
             <td mat-cell *matCellDef="let volunteer">
               {{ volunteer.registration?.attendance ? 'Sí' : 'No' }}
             </td>
           </ng-container>
 
           <ng-container matColumnDef="attendanceCheckbox">
-            <th mat-header-cell *matHeaderCellDef> Asistió </th>
+            <th mat-header-cell *matHeaderCellDef scope="col"> Asistió </th>
             <td mat-cell *matCellDef="let volunteer">
-
               <mat-checkbox
                 [checked]="attendanceMarked[volunteer.registrationId]"
-                (change)="onAttendanceChange(volunteer.registrationId, $event.checked)">
-                >
+                (change)="onAttendanceChange(volunteer.registrationId, $event.checked)"
+                aria-label="Mark attendance for {{volunteer.fullName}}">
               </mat-checkbox>
             </td>
           </ng-container>
@@ -81,19 +87,19 @@
         </table>
 
         <!-- Paginador -->
-        <mat-paginator [pageSizeOptions]="[7]" showFirstLastButtons></mat-paginator>
+        <mat-paginator [pageSizeOptions]="[7]" showFirstLastButtons aria-label="Volunteers table pagination"></mat-paginator>
 
         <!-- Mensaje cuando no hay datos -->
-        <p *ngIf="dataSource.data.length === 0">
+        <p *ngIf="dataSource.data.length === 0" role="alert" aria-live="polite">
           No hay voluntarios registrados para esta actividad.
         </p>
       </mat-card-content>
     </mat-card>
 
-    <!-- Subpanel de acciones (vacío por ahora) -->
-    <div class="volunteers-actions-subpanel mat-elevation-z2" style="padding: 16px; display: flex; flex-direction: column; gap: 20px; max-width: 320px;">
+    <!-- Subpanel de acciones -->
+    <div class="volunteers-actions-subpanel mat-elevation-z2" style="padding: 16px; display: flex; flex-direction: column; gap: 20px; max-width: 320px;" role="region" aria-label="Volunteer actions panel">
       <!-- Botón Enviar notificación -->
-      <button mat-stroked-button color="primary" style="justify-content: flex-start;" matTooltip="Enviar mensaje a voluntarios">
+      <button mat-stroked-button color="primary" style="justify-content: flex-start;" matTooltip="Enviar mensaje a voluntarios" aria-label="Send notification to volunteers">
         <mat-icon style="margin-right: 8px;">notifications_active</mat-icon>
         Enviar notificación
       </button>
@@ -105,7 +111,9 @@
               [color]="isAttendanceMode ? 'accent' : 'primary'"
               style="justify-content: flex-start;"
               matTooltip="Registrar asistencia"
-              (click)="toggleAttendanceMode()">
+              (click)="toggleAttendanceMode()"
+              [attr.aria-pressed]="isAttendanceMode"
+              aria-label="Toggle attendance marking mode">
         <mat-icon style="margin-right: 8px;">check_circle</mat-icon>
         {{ isAttendanceMode ? 'Guardar asistencia' : 'Marcar asistencia' }}
       </button>
@@ -114,15 +122,13 @@
         ? 'Presiona nuevamente para guardar los registros de asistencia.'
         : 'Presiona para registrar quiénes asistieron hoy a la actividad. ¡Lleva un control fácil!' }}
       </p>
-      <p style=" font-size: 0.9rem; color: rgba(0,0,0,0.6);">
-        Presiona para registrar quiénes asistieron hoy a la actividad. ¡Lleva un control fácil!
-      </p>
 
       <!-- Botón Crear certificados -->
       <button mat-stroked-button color="warn"
               (click)="generateCertificates()"
               style="justify-content: flex-start;"
-              matTooltip="Generar certificados">
+              matTooltip="Generar certificados"
+              aria-label="Generate certificates">
         <mat-icon style="margin-right: 8px;">emoji_events</mat-icon>
         Crear certificados
       </button>
@@ -131,7 +137,7 @@
       </p>
 
       <!-- Botón Abrir inscripciones -->
-      <button mat-stroked-button color="primary" style="justify-content: flex-start;" matTooltip="Permitir inscripciones">
+      <button mat-stroked-button color="primary" style="justify-content: flex-start;" matTooltip="Permitir inscripciones" aria-label="Open registrations">
         <mat-icon style="margin-right: 8px;">person_add</mat-icon>
         Abrir inscripciones
       </button>

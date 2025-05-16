@@ -1,3 +1,13 @@
+/**
+ * Description:
+ * Component to handle user registration by collecting user details,
+ * validating inputs, and sending the data to the backend API.
+ * On successful registration, navigates to the login page.
+ *
+ * Author: Marcelo Binda
+ */
+
+
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';

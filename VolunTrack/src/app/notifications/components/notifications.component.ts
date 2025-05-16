@@ -1,3 +1,8 @@
+/*
+Description: Component that manages and displays user notifications in a drawer, allowing opening, closing, loading, and deleting notifications.
+Author: Ainhoa Castillo
+*/
+
 import { Component } from '@angular/core';
 import { NotificationsService } from '../services/notifications.service';
 import { Notification } from '../model/notifications.entity';

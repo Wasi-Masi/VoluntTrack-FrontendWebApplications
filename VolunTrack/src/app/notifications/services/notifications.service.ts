@@ -1,3 +1,8 @@
+/*
+Description: Service to manage CRUD operations for notifications, including creating typed notifications with preset messages.
+Author: Ainhoa Castillo
+*/
+
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import {HttpClient} from '@angular/common/http';

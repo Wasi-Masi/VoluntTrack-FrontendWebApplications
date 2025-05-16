@@ -1,88 +1,99 @@
-<div class="dashboard-header">
-  <h2 [routerLink]="['/dashboard']">Activity Dashboard</h2>
-  <div class="dashboard-actions">
-    <button class="selected" mat-stroked-button color="primary" [routerLink]="['/create-activity']">
-      <mat-icon class="selected">add</mat-icon> {{ 'create' | translate }}
+<!--
+Description: Form for creating or editing activities with fields for pictures, title, date, time, address, description, instructions, and purpose, including action buttons to update or discard changes.
+Author: Victor Ortiz
+-->
+
+<div class="dashboard-header" role="banner" aria-label="Activity Dashboard Header">
+  <h2 [routerLink]="['/dashboard']" tabindex="0">Activity Dashboard</h2>
+  <div class="dashboard-actions" role="navigation" aria-label="Dashboard Actions">
+    <button class="selected" mat-stroked-button color="primary" [routerLink]="['/create-activity']" aria-label="Create new activity">
+      <mat-icon class="selected" aria-hidden="true">add</mat-icon> {{ 'create' | translate }}
     </button>
-    <button [routerLink]="['/calendar']" mat-stroked-button color="accent">
-      <mat-icon>calendar_today</mat-icon> {{ 'calendar' | translate }}
+    <button [routerLink]="['/calendar']" mat-stroked-button color="accent" aria-label="View calendar">
+      <mat-icon aria-hidden="true">calendar_today</mat-icon> {{ 'calendar' | translate }}
     </button>
   </div>
 </div>
 
 <div class="activities-form__container">
-  <form class="activities-form" (ngSubmit)="onSubmit()">
+  <form class="activities-form" (ngSubmit)="onSubmit()" aria-label="Activity creation form">
     <div class="activities-form__left">
       <div class="activities-form__upperside">
-        <label>{{ 'create-act.add-pictures' | translate }}</label>
-        <textarea [(ngModel)]="picturesInput" name="pictures" placeholder="{{ 'create-act.instructions-pictures' | translate}}"></textarea>
+        <label for="pictures">{{ 'create-act.add-pictures' | translate }}</label>
+        <textarea id="pictures" [(ngModel)]="picturesInput" name="pictures" placeholder="{{ 'create-act.instructions-pictures' | translate}}" aria-describedby="pictures-desc"></textarea>
       </div>
 
       <div class="activities-form__left-lowerside">
-        <button mat-button type="submit" ><mat-icon>done</mat-icon>{{ 'create-act.update' | translate}}</button>
-        <button mat-button type="button" (click)="discard()"><mat-icon>delete_outline</mat-icon>{{ 'create-act.discard' | translate}}</button>
+        <button mat-button type="submit" aria-label="Update activity"><mat-icon aria-hidden="true">done</mat-icon>{{ 'create-act.update' | translate}}</button>
+        <button mat-button type="button" (click)="discard()" aria-label="Discard changes"><mat-icon aria-hidden="true">delete_outline</mat-icon>{{ 'create-act.discard' | translate}}</button>
       </div>
     </div>
 
     <div class="activities-form__right">
       <div class="activities-form__right-sameline">
         <div class="activities-form__upperside">
-          <label>{{ 'create-act.title' | translate}}</label>
-          <input type="text" [(ngModel)]="activity.title" name="title" />
+          <label for="title">{{ 'create-act.title' | translate}}</label>
+          <input id="title" type="text" [(ngModel)]="activity.title" name="title" aria-required="true" />
         </div>
       </div>
       <div class="activities-form__right-sameline">
         <div class="activities-form__upperside">
-          <label>{{ 'create-act.date' | translate}}</label>
+          <label for="date">{{ 'create-act.date' | translate}}</label>
           <input
+            id="date"
             type="date"
             [(ngModel)]="activity.date"
             name="date"
             min="2025-05-16"
             max="2025-12-31"
+            aria-required="true"
           />
         </div>
         <div class="activities-form__upperside">
-          <label>{{ 'create-act.startTime' | translate}}</label>
+          <label for="startTime">{{ 'create-act.startTime' | translate}}</label>
           <input
+            id="startTime"
             type="time"
             [(ngModel)]="activity.startTime"
             name="startTime"
             min="06:00"
             max="18:00"
+            aria-required="true"
           />
         </div>
         <div class="activities-form__upperside">
-          <label>{{ 'create-act.endTime' | translate}}</label>
+          <label for="endTime">{{ 'create-act.endTime' | translate}}</label>
           <input
+            id="endTime"
             type="time"
             [(ngModel)]="activity.endTime"
             name="endTime"
             min="06:00"
             max="23:00"
+            aria-required="true"
           />
         </div>
       </div>
       <div class="activities-form__right-sameline">
         <div class="activities-form__upperside">
-          <label>{{ 'create-act.address' | translate}}</label>
-          <input type="text" [(ngModel)]="activity.address" name="address" />
+          <label for="address">{{ 'create-act.address' | translate}}</label>
+          <input id="address" type="text" [(ngModel)]="activity.address" name="address" />
         </div>
       </div>
       <div class="activities-form__right-sameline">
         <div class="activities-form__upperside">
-          <label>{{ 'create-act.description' | translate}}</label>
-          <textarea [(ngModel)]="activity.description" name="description" placeholder="{{ 'create-act.description-textarea' | translate}}"></textarea>
+          <label for="description">{{ 'create-act.description' | translate}}</label>
+          <textarea id="description" [(ngModel)]="activity.description" name="description" placeholder="{{ 'create-act.description-textarea' | translate}}"></textarea>
         </div>
       </div>
       <div class="activities-form__right-sameline">
         <div class="activities-form__right-half">
-          <label>{{ 'create-act.instructions' | translate}}</label>
-          <textarea [(ngModel)]="instructions" name="instructions" placeholder="{{ 'create-act.instructions-textarea' | translate}}"></textarea>
+          <label for="instructions">{{ 'create-act.instructions' | translate}}</label>
+          <textarea id="instructions" [(ngModel)]="instructions" name="instructions" placeholder="{{ 'create-act.instructions-textarea' | translate}}"></textarea>
         </div>
         <div class="activities-form__right-half">
-          <label>{{ 'create-act.purpose' | translate}}</label>
-          <textarea [(ngModel)]="purpose" name="purpose" placeholder="{{ 'create-act.purpose-textarea' | translate}}"></textarea>
+          <label for="purpose">{{ 'create-act.purpose' | translate}}</label>
+          <textarea id="purpose" [(ngModel)]="purpose" name="purpose" placeholder="{{ 'create-act.purpose-textarea' | translate}}"></textarea>
         </div>
       </div>
     </div>

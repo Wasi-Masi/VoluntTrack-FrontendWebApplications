@@ -1,3 +1,9 @@
+/*
+Description: Defines the Notification class and a function to create notifications based on different types with preset titles and messages.
+Author: Ainhoa Castillo
+*/
+
+
 export class Notification {
   constructor(
     public id: string,

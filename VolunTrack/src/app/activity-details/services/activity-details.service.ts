@@ -1,3 +1,11 @@
+/**
+ * Description:
+ * Service to fetch detailed information about activities from the backend API.
+ * Provides a method to get activity data by its ID.
+ *
+ * Author: Victor Ortiz
+ */
+
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';

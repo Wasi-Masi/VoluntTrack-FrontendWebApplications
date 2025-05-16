@@ -1,3 +1,8 @@
+/*
+Description: Styles the login form container and its elements, including layout, colors, and buttons.
+Author: Marcelo Binda
+*/
+
 .login-container {
   width: 320px;
   margin: 100px auto;
@@ -39,7 +44,6 @@ mat-form-field {
   border: 1px solid #9BD0DF;
 }
 
-/* Cambiar color del label cuando está enfocado */
 ::ng-deep .mat-mdc-form-field.mat-focused .mdc-floating-label {
   color: #000000 !important;
 }

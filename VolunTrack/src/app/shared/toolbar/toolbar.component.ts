@@ -1,3 +1,8 @@
+/*
+  Description: Toolbar component for navigation including dashboard, volunteers, profile links, and notifications.
+  Author: Cassius Martel
+*/
+
 import { Component } from '@angular/core';
 import { MatToolbar } from '@angular/material/toolbar';
 import { MatButton, MatIconButton } from '@angular/material/button';

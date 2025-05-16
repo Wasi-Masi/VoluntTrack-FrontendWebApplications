@@ -1,3 +1,12 @@
+/*
+Description:
+This component fetches and displays detailed information about a specific activity,
+including an image gallery and activity details such as title, date, and description.
+
+Author: Victor Ortiz
+*/
+
+
 import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute, RouterLink} from '@angular/router';
 import { ActivityDetailsService } from '../services/activity-details.service';
