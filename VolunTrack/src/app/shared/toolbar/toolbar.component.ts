@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { MatToolbar } from '@angular/material/toolbar';
 import { MatButton, MatIconButton } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
-import {RouterLink, RouterLinkActive} from '@angular/router';
 import { Router } from '@angular/router';
 
 @Component({
@@ -12,7 +11,7 @@ import { Router } from '@angular/router';
     MatToolbar,
     MatButton,
     MatIconModule,
-    MatIconButton
+    MatIconButton,
   ],
   templateUrl: './toolbar.component.html',
   styleUrl: './toolbar.component.css'
@@ -33,6 +32,7 @@ export class ToolbarComponent {
   }
 
   openNotifications() {
-    // Aquí puedes abrir un modal o popup de notificaciones
+    window.dispatchEvent(new Event('openNotifications'));
   }
+
 }

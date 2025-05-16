@@ -17,5 +17,12 @@
     "purpose-textarea": "Un propósito por línea",
     "create": "Crear",
     "discard": "Descartar"
+  },
+
+  "NOTIFICATIONS": {
+    "TITLE": "Notificaciones",
+    "DELETE": "Eliminar",
+    "DELETE_ALL": "Eliminar todas",
+    "EMPTY": "No hay notificaciones por ahora."
   }
 }

@@ -327,21 +327,51 @@
     },
     {
       "id": "12",
-      "title": "a",
-      "dashboardPicture": "https://i.imgur.com/i6fqsMN.jpg",
+      "title": "Adoptemos gatitos !!",
+      "dashboardPicture": "https://i.imgur.com/WFUvBSK.jpg",
       "pictures": [
-        "https://i.imgur.com/i6fqsMN.jpg"
+        "https://i.imgur.com/WFUvBSK.jpg",
+        "https://i.imgur.com/wNet0D1.jpg",
+        "https://i.imgur.com/S8eNmIN.jpg"
       ],
-      "date": "2025-05-17",
-      "startTime": "00:37",
-      "endTime": "00:35",
-      "address": "a",
-      "description": "a",
+      "date": "2025-05-20",
+      "startTime": "08:00",
+      "endTime": "23:00",
+      "address": "Parque Kennedy, Miraflores",
+      "description": "Vengan a adoptar gatitos !!",
       "instructions": [
-        "a"
+        "1. Ir al Parque Kennedy",
+        "2. Adoptar",
+        "3. Llevarlos a casa",
+        "4. Amarlos !!!"
       ],
       "purpose": [
-        "a"
+        "El propósito es que los gatitos consigan casita <3"
+      ],
+      "inscriptionCount": 0,
+      "isInscriptionOpen": true
+    },
+    {
+      "id": "13",
+      "title": "Decoremos árboles divertidos",
+      "dashboardPicture": "https://i.imgur.com/hnFO3lL.jpg",
+      "pictures": [
+        "https://i.imgur.com/hnFO3lL.jpg",
+        "https://i.mgur.com/SCOGqaE.jpg",
+        "https://i.imgur.com/2657hub.jpg"
+      ],
+      "date": "2025-06-18",
+      "startTime": "10:30",
+      "endTime": "18:00",
+      "address": "Parque Kennedy, Miraflores",
+      "description": "Hay que crear ropita y ponerla en los árboles que tienen formas chistosas o similares a humanos.",
+      "instructions": [
+        "1. Idear",
+        "2. Coser",
+        "3. Vestir"
+      ],
+      "purpose": [
+        "Divertirnos!!"
       ],
       "inscriptionCount": 0,
       "isInscriptionOpen": true
@@ -1091,6 +1121,7 @@
       ]
     }
   ],
+  "notifications": [],
   "users": [
     {
       "id": "9969",

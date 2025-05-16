@@ -1,15 +1,27 @@
 <div class="login-container">
   <h2>Login</h2>
-  <div>
-    <label>Username:</label>
-    <input [(ngModel)]="username" type="text" />
-  </div>
-  <div>
-    <label>Password:</label>
-    <input [(ngModel)]="password" type="password" />
-  </div>
-  <div>
-    <button (click)="handleLogin()">Login</button>
-    <button (click)="goToRegister()">Go to Register</button>
+
+  <mat-form-field appearance="outline">
+    <mat-label >Username</mat-label>
+    <input matInput [(ngModel)]="username" type="text" />
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Password</mat-label>
+    <input matInput [type]="hide() ? 'password' : 'text'" [(ngModel)]="password" />
+    <button
+      mat-icon-button
+      matSuffix
+      (click)="clickEvent($event)"
+      [attr.aria-label]="'Toggle password visibility'"
+      [attr.aria-pressed]="!hide()"
+    >
+      <mat-icon>{{ hide() ? 'visibility_off' : 'visibility' }}</mat-icon>
+    </button>
+  </mat-form-field>
+
+  <div class="button-group">
+    <button mat-flat-button color="primary" (click)="handleLogin()">Login</button>
+    <button mat-flat-button class="register" color="accent" (click)="goToRegister()">Register</button>
   </div>
 </div>
