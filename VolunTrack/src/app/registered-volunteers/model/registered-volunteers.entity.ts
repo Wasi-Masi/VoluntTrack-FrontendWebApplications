@@ -1,11 +1,11 @@
 export class RegisteredVolunteersEntity {
   constructor(
-    id: string,
-    activityId: string,
-    volunteerId: string,
-    registrationDate: string,
-    status: string,
-    attendance: string
+    public id: string,
+    public activityId: string,
+    public volunteerId: string,
+    public  registrationDate: string,
+    public status: string,
+    public attendance: string
 
   ) {}
 }

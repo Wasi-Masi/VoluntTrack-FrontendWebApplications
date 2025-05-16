@@ -15,7 +15,7 @@ export class VolunteersService {
     return this.http.get<Volunteer[]>(`${this.apiUrl}/volunteers`);
   }
 
-  getVolunteerById(id: number): Observable<Volunteer> {
+  getVolunteerById(id: string): Observable<Volunteer> {
     return this.http.get<Volunteer>(`${this.apiUrl}/volunteers/${id}`);
   }
 
