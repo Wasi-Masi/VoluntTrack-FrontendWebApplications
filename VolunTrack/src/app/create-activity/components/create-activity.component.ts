@@ -59,24 +59,24 @@ export class CreateActivityComponent {
       const newActivity: Activity = {
         ...this.activity,
         id: maxId + 1,
-      inscriptionCount: 0,
-      isInscriptionOpen: true,
-      instructions: this.instructions
-        .split('\n')
-        .map(line => line.trim())
-        .filter(line => line.length > 0),
-      purpose: this.purpose
-        .split('\n')
-        .map(line => line.trim())
-        .filter(line => line.length > 0),
-      dashboardPicture: pictures[0] || '',  // 👈 la primera será la del dashboard
-      pictures: pictures
-    };
+        inscriptionCount: 0,
+        isInscriptionOpen: true,
+        instructions: this.instructions
+          .split('\n')
+          .map(line => line.trim())
+          .filter(line => line.length > 0),
+        purpose: this.purpose
+          .split('\n')
+          .map(line => line.trim())
+          .filter(line => line.length > 0),
+        dashboardPicture: pictures[0] || '',
+        pictures: pictures
+      }
 
-    this.createService.createActivity(newActivity).subscribe(() => {
-      this.router.navigate(['/dashboard']);
+      this.createService.createActivity(newActivity).subscribe(() => {
+        this.router.navigate(['/dashboard']);
+      });
     });
-
   }
 
   discard() {
