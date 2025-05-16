@@ -2680,6 +2680,16 @@ En este capítulo se expone el progreso logrado durante el Sprint 2 en el desarr
 
 ## 5.2.2.5. Execution Evidence for Sprint Review
 
+Durante el Sprint 2, se desarrollaron 11 historias de usuario enfocadas en la implementación de funcionalidades clave para la plataforma web de VolunTrack. Este sprint tuvo como objetivo principal fortalecer las capacidades del sistema en torno a la gestión de voluntariados, la interacción entre usuarios y organizaciones, y la mejora general de la experiencia de usuario.
+
+Entre las funcionalidades implementadas se destacan la navegación entre oportunidades de voluntariado, la creación y gestión de actividades, el proceso de postulación a actividades y la personalización del perfil del voluntario. Las historias abarcaron tanto el diseño de interfaces intuitivas como la implementación de funcionalidades como la inscripción y visualización de actividades y la interacción mediante el envío de notificaciones y los certificados.
+
+El equipo logró completar satisfactoriamente todas las tareas planificadas. Asimismo, se alcanzó una interfaz intuitiva en todas las secciones críticas de la plataforma, asegurando una experiencia de usuario fluida, accesible y alineada con los objetivos estratégicos de VolunTrack.
+
+### Evidencia visual
+
+A continuación, se presentan capturas de pantalla de las vistas desarrolladas durante este sprint.
+
 ## 5.2.2.6. Services Documentation Evidence for Sprint Review
 
 Se implementó la gestión de solicitudes HTTP desde el frontend hacia una API falsa basada en JSON Server, la cual se estructuró a partir de los datos de `db.json` y sus endpoints simulados.
@@ -2741,6 +2751,9 @@ Se implementó la gestión de solicitudes HTTP desde el frontend hacia una API f
   </tbody>
 </table>
 
+**URL de la API Simulada (Local):** [http://localhost:3000/](http://localhost:3000/)
+
+Se implementó la gestión de solicitudes HTTP desde el frontend hacia una API falsa basada en JSON Server, la cual se estructuró a partir de los datos de `db.json` y sus endpoints simulados.
 ## Conclusiones
 
 El trabajo parcial realizado en el proyecto **VolunTrack** representó un avance sustancial en la materialización de la plataforma destinada a facilitar la gestión de ONGs y la conexión con voluntarios. Durante esta etapa, el equipo logró desarrollar una aplicación web funcional que cumple con los requerimientos básicos planteados inicialmente, permitiendo la gestión eficiente de información y procesos relacionados con las organizaciones no gubernamentales. Esta creación de una aplicación operativa marca un hito importante, ya que traduce en un producto tangible las ideas y diseños elaborados en fases previas del proyecto.
