@@ -1,10 +1,16 @@
-<div class="profile-container">
-  <h1 class="title">Mi Perfil</h1>
+<!--
+  Este componente representa la vista de perfil de usuario en la aplicación.
+  El usuario puede cambiar su informacion y preferencias
+-->
+<div class="page-header">
+  <h2>My Profile</h2>
+</div>
 
+<div class="profile-container">
   <div class="banner">
-    <img class="cover" [src]="user?.banner" alt="Banner">
+    <img class="cover" [src]="user?.banner" alt="Banner" aria-label="Banner image">
     <div class="profile-icon-wrapper">
-      <img class="profile-icon" [src]="user?.pfp" alt="Icono">
+      <img class="profile-icon" [src]="user?.pfp" alt="Icono" aria-label="Profile picture image">
     </div>
     <div class="description-box">
       <strong>Descripción:</strong>
@@ -12,7 +18,7 @@
         <p>{{ user?.description }}</p>
       </div>
       <div *ngIf="editMode">
-        <textarea [(ngModel)]="editedUser.description"></textarea>
+        <textarea [(ngModel)]="editedUser.description" aria-label="Banner image"></textarea>
       </div>
     </div>
   </div>
@@ -21,44 +27,85 @@
     <div class="personal-info">
       <h3>Información Personal</h3>
 
-      <p><strong>Nombre de Usuario:</strong>
+      <mat-divider></mat-divider>
+
+      <h4>Nombre de Usuario:
         <span *ngIf="!editMode">{{ user?.username }}</span>
         <input *ngIf="editMode" [(ngModel)]="editedUser.username">
-      </p>
+      </h4>
 
-      <p><strong>Correo electrónico:</strong>
+      <h4>Correo electrónico:
         <span *ngIf="!editMode">{{ user?.email }}</span>
         <input *ngIf="editMode" [(ngModel)]="editedUser.email">
-      </p>
+      </h4>
 
-      <p><strong>Contraseña:</strong>
+      <h4>Contraseña:
         <span *ngIf="!editMode">**********</span>
         <input *ngIf="editMode" type="password" [(ngModel)]="editedUser.password">
-      </p>
+      </h4>
 
-      <p><strong>Número de teléfono:</strong>
+      <h4>Número de teléfono:
         <span *ngIf="!editMode">{{ user?.phone }}</span>
-        <input *ngIf="editMode" [(ngModel)]="editedUser.phone">
-      </p>
+        <input matInput *ngIf="editMode" [(ngModel)]="editedUser.phone">
+      </h4>
 
-      <p><strong>Plan:</strong>
+      <h4>Plan:
         <span *ngIf="!editMode">{{ user?.plan }}</span>
         <select *ngIf="editMode" [(ngModel)]="editedUser.plan">
           <option value="Gratis">Gratis</option>
           <option value="Premium">Premium</option>
         </select>
-      </p>
+      </h4>
 
-      <div class="button-group">
-        <button *ngIf="!editMode" class="edit-btn" (click)="toggleEdit()">✏️ Editar detalles</button>
-        <div *ngIf="editMode">
-          <button class="edit-btn" (click)="saveChanges()">💾 Guardar</button>
-          <button class="logout-btn" (click)="cancelEdit()">❌ Cancelar</button>
-        </div>
-        <button class="logout-btn" (click)="logout()">⛔ Cerrar Sesión</button>
-      </div>
     </div>
+    <div class="config-info">
+      <h3>Configuration</h3>
 
-    <!-- Configuración omitida por brevedad -->
+      <mat-divider></mat-divider>
+
+      <h4>Idioma:
+        <span *ngIf="!editMode">{{ user?.language }}</span>
+        <select *ngIf="editMode" [(ngModel)]="editedUser.language" aria-label="Langueage switcher">
+          <option value="Español">Español</option>
+          <option value="English">English</option>
+        </select>
+      </h4>
+
+      <h4>Notificaciones:
+        <span *ngIf="!editMode">{{ user?.notifications }}</span>
+        <select *ngIf="editMode" [(ngModel)]="editedUser.notifications" aria-label="Notifications preferences">
+          <option value="All">All</option>
+          <option value="Silenced">Silenced</option>
+          <option value="Mentions">Mentions</option>
+        </select>
+      </h4>
+
+      <h4>Zona horaria:
+        <span *ngIf="!editMode">{{ user?.timezone }}</span>
+        <select *ngIf="editMode" [(ngModel)]="editedUser.timezone" aria-label="Timezone">
+          <option value="GMT-5">GMT-5</option>
+          <option value="GMT-4">GMT-4</option>
+          <option value="GMT-3">GMT-3</option>
+        </select>
+      </h4>
+
+      <h4>Aprobación de inscripciones:
+        <span *ngIf="!editMode">{{ user?.inscriptions }}</span>
+        <select *ngIf="editMode" [(ngModel)]="editedUser.inscriptions" aria-label="Inscriptions approvals">
+          <option value="Manual">Manual</option>
+          <option value="Automatic">Automática</option>
+        </select>
+      </h4>
+    </div>
+  </div>
+
+  <div class="button-group">
+    <button *ngIf="!editMode" class="edit-btn" (click)="toggleEdit()" aria-label="Edit profile settings">✏️ Editar detalles</button>
+    <div *ngIf="editMode">
+      <button class="edit-btn" (click)="saveChanges()" aria-label="Save changes">💾 Guardar</button>
+      <button class="logout-btn" (click)="cancelEdit()" aria-label="Cancel changes">❌ Cancelar</button>
+    </div>
+    <button class="logout-btn" (click)="logout()" aria-label="Log out">⛔ Cerrar Sesión</button>
   </div>
 </div>
+

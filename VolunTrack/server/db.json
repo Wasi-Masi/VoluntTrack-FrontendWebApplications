@@ -2,7 +2,7 @@
   "activities": [
     {
       "id": "1",
-      "title": "playas xd",
+      "title": "Beach Cleanup",
       "description": "Join us for a community-led beach cleanup aimed at preserving our coastal environment. Together, we'll collect litter, remove plastic waste, and learn about the impact of pollution on marine life. It's a great way to contribute to a cleaner ocean and connect with others who care about the planet.",
       "instructions": [
         "Bring gloves and trash bags",
@@ -1099,40 +1099,36 @@
   "notifications": [],
   "users": [
     {
-      "id": "9969",
-      "username": "a",
+      "id": "8b6c",
+      "username": "e",
       "password": "a",
-      "email": "a",
-      "phone": "1",
-      "pfp": "a",
-      "plan": "basic",
-      "banner": "a",
-      "description": "a"
+      "email": "chicos@gmai.com",
+      "phone": "123123123",
+      "pfp": "https://i.imgur.com/K9hEj0v.jpg",
+      "plan": "Premium",
+      "banner": "https://i.imgur.com/UtsAyzE.jpg",
+      "description": "soyese, cree voluntariadoas desde hace 204 años, yo fui el fundador de las ongs, yo cree la onu.",
+      "language": "English",
+      "notifications": "All",
+      "timezone": "GMT-4",
+      "inscriptions": "Automatic"
     },
     {
-      "id": "c00d",
-      "username": "a",
+      "id": "6fbe",
+      "username": "TOmio",
       "password": "a",
-      "email": "a",
-      "phone": "a",
-      "pfp": "a",
+      "email": "a@a.com",
+      "phone": "999888777",
+      "pfp": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQCiW5pVbw2nkJUAWRa2PeHDuIa7ddJIshVeQ&s",
       "plan": "basic",
-      "banner": "a",
-      "description": "a"
-    },
-    {
-      "id": "1ed1",
-      "username": "b",
-      "password": "b",
-      "email": "b",
-      "phone": "b",
-      "pfp": "b",
-      "plan": "basic",
-      "banner": "b",
-      "description": "b"
+      "banner": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQCiW5pVbw2nkJUAWRa2PeHDuIa7ddJIshVeQ&s",
+      "description": "PIZZA",
+      "language": "English",
+      "notifications": "All",
+      "timezone": "GMT-5",
+      "inscriptions": "Automatic"
     }
   ],
-  "userlogin": [],
   "registers": [
     {
       "id": "1",
@@ -1855,6 +1851,7 @@
       "attendance": "asistio"
     }
   ],
+
   "certificates": [
     {
       "id": "385e6be2-ff3f-4e5f-a2db-a270de9ea367",
@@ -1862,12 +1859,7 @@
       "activityTitle": "Community Fitness",
       "text": "Mediante este certificado, se acredita que el voluntario Naiara Manzano Pardo participó satisfactoriamente en la actividad \"Community Fitness\" el 5/31/2025."
     },
-    {
-      "id": "bef7060c-248f-41eb-be02-65939809ed30",
-      "volunteerId": "28",
-      "activityTitle": "Community Fitness",
-      "text": "Mediante este certificado, se acredita que el voluntario Isabel Sánchez López participó satisfactoriamente en la actividad \"Community Fitness\" el 5/31/2025."
-    },
+
     {
       "id": "d1c3fcbf-c2ee-45a0-8de2-fcd7367208af",
       "volunteerId": "11",
@@ -1903,6 +1895,5 @@
       "volunteerId": "45",
       "activityTitle": "Community Fitness",
       "text": "Mediante este certificado, se acredita que el voluntario Ricardo Peña Salazar participó satisfactoriamente en la actividad \"Community Fitness\" el 5/31/2025."
-    }
-  ]
+  "userlogin": []
 }

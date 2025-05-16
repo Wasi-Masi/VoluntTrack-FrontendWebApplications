@@ -9,6 +9,10 @@ export class ProfileEntity {
     public plan: string,
     public banner: string,
     public description: string,
+    public language: string,
+    public notifications: string,
+    public timezone: string,
+    public inscriptions: string
   ) {
   }
 }
