@@ -6,7 +6,12 @@
     </button>
     <button mat-button >Details</button>
     <button mat-button [routerLink]="['/registered', activity.id]" >Registered Volunteers</button>
-    <button mat-icon-button>
+
+    <button
+      mat-icon-button
+      [routerLink]="['/edit-activity', activity.id]"
+      matTooltip="Edit Activity"
+    >
       <mat-icon>edit</mat-icon>
     </button>
   </div>

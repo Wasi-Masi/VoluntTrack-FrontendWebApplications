@@ -1,0 +1,92 @@
+<div class="dashboard-header">
+  <h2 [routerLink]="['/dashboard']">Activity Dashboard</h2>
+  <div class="dashboard-actions">
+    <button class="selected" mat-stroked-button color="primary" [routerLink]="['/create-activity']">
+      <mat-icon class="selected">add</mat-icon> {{ 'create' | translate }}
+    </button>
+    <button [routerLink]="['/calendar']" mat-stroked-button color="accent">
+      <mat-icon>calendar_today</mat-icon> {{ 'calendar' | translate }}
+    </button>
+  </div>
+</div>
+
+<div class="activities-form__container">
+  <form class="activities-form" (ngSubmit)="onSubmit()">
+    <div class="activities-form__left">
+      <div class="activities-form__upperside">
+        <label>{{ 'create-act.add-pictures' | translate }}</label>
+        <textarea [(ngModel)]="picturesInput" name="pictures" placeholder="{{ 'create-act.instructions-pictures' | translate}}"></textarea>
+      </div>
+
+      <div class="activities-form__left-lowerside">
+        <button mat-button type="submit" ><mat-icon>done</mat-icon>{{ 'create-act.update' | translate}}</button>
+        <button mat-button type="button" (click)="discard()"><mat-icon>delete_outline</mat-icon>{{ 'create-act.discard' | translate}}</button>
+      </div>
+    </div>
+
+    <div class="activities-form__right">
+      <div class="activities-form__right-sameline">
+        <div class="activities-form__upperside">
+          <label>{{ 'create-act.title' | translate}}</label>
+          <input type="text" [(ngModel)]="activity.title" name="title" />
+        </div>
+      </div>
+      <div class="activities-form__right-sameline">
+        <div class="activities-form__upperside">
+          <label>{{ 'create-act.date' | translate}}</label>
+          <input
+            type="date"
+            [(ngModel)]="activity.date"
+            name="date"
+            min="2025-05-16"
+            max="2025-12-31"
+          />
+        </div>
+        <div class="activities-form__upperside">
+          <label>{{ 'create-act.startTime' | translate}}</label>
+          <input
+            type="time"
+            [(ngModel)]="activity.startTime"
+            name="startTime"
+            min="06:00"
+            max="18:00"
+          />
+        </div>
+        <div class="activities-form__upperside">
+          <label>{{ 'create-act.endTime' | translate}}</label>
+          <input
+            type="time"
+            [(ngModel)]="activity.endTime"
+            name="endTime"
+            min="06:00"
+            max="23:00"
+          />
+        </div>
+      </div>
+      <div class="activities-form__right-sameline">
+        <div class="activities-form__upperside">
+          <label>{{ 'create-act.address' | translate}}</label>
+          <input type="text" [(ngModel)]="activity.address" name="address" />
+        </div>
+      </div>
+      <div class="activities-form__right-sameline">
+        <div class="activities-form__upperside">
+          <label>{{ 'create-act.description' | translate}}</label>
+          <textarea [(ngModel)]="activity.description" name="description" placeholder="{{ 'create-act.description-textarea' | translate}}"></textarea>
+        </div>
+      </div>
+      <div class="activities-form__right-sameline">
+        <div class="activities-form__right-half">
+          <label>{{ 'create-act.instructions' | translate}}</label>
+          <textarea [(ngModel)]="instructions" name="instructions" placeholder="{{ 'create-act.instructions-textarea' | translate}}"></textarea>
+        </div>
+        <div class="activities-form__right-half">
+          <label>{{ 'create-act.purpose' | translate}}</label>
+          <textarea [(ngModel)]="purpose" name="purpose" placeholder="{{ 'create-act.purpose-textarea' | translate}}"></textarea>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+
+<div style="height: 10%;"></div>

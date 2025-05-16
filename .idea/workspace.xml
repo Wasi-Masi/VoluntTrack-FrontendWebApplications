@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="32d7f7b8-0dc4-4ad3-b13e-38150f113ef0" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/VolunTrack/src/app/edit-activity/components/edit-activity.component.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/VolunTrack/src/app/edit-activity/components/edit-activity.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/VolunTrack/src/app/edit-activity/components/edit-activity.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/VolunTrack/src/app/edit-activity/components/edit-activity.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/VolunTrack/src/app/edit-activity/services/edit-activity.service.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/VolunTrack/src/app/edit-activity/services/edit-activity.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VolunTrack/server/db.json" beforeDir="false" afterPath="$PROJECT_DIR$/VolunTrack/server/db.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VolunTrack/src/app/activity-details/components/activity-details.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/VolunTrack/src/app/activity-details/components/activity-details.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VolunTrack/src/app/app.routes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/VolunTrack/src/app/app.routes.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VolunTrack/src/app/create-activity/services/create-activity.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/VolunTrack/src/app/create-activity/services/create-activity.service.ts" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "git-widget-placeholder": "feature/edit-activity",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "ts.external.directory.path": "C:\\Users\\nortz\\OneDrive\\Escritorio\\voluntrack\\VolunTrack\\node_modules\\typescript\\lib"
+  }
+}]]></component>
+  <component name="TaskManager">
+    <servers />
+  </component>
+</project>
