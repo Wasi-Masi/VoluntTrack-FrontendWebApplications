@@ -1,1 +1,146 @@
-<p>registered-volunteers works!</p>
+
+<!-- HEADER -->
+<div class="details-header" *ngIf="activity">
+  <div class="the-buttons" *ngIf="activity">
+    <button mat-icon-button  [routerLink]="['/dashboard']" matTooltip="Back to Dashboard">
+      <mat-icon>arrow_back</mat-icon>
+    </button>
+    <button mat-button [routerLink]="['/activity', activity.id]">Details</button>
+
+    <button mat-button [routerLink]="['/registered', activity.id]" >Registered Volunteers</button>
+    <button mat-icon-button>
+      <mat-icon>edit</mat-icon>
+    </button>
+  </div>
+</div>
+
+
+<div class="details-container" *ngIf="activity">
+  <div class="details-subpanels">
+
+    <!-- Panel con búsqueda + tabla -->
+    <mat-card class="volunteers-panel mat-elevation-z8">
+      <mat-card-header>
+        <mat-form-field appearance="outline" style="width: 100%;">
+          <mat-label>Buscar voluntario por nombre</mat-label>
+          <input matInput type="text" [(ngModel)]="searchText" (ngModelChange)="applyFilter()">
+          <mat-icon matSuffix>search</mat-icon>
+        </mat-form-field>
+      </mat-card-header>
+
+      <mat-card-content>
+        <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" *ngIf="dataSource.data.length > 0">
+
+          <!-- Columnas... -->
+          <ng-container matColumnDef="fullName">
+            <th mat-header-cell *matHeaderCellDef> Nombre </th>
+            <td mat-cell *matCellDef="let volunteer"> {{volunteer.fullName}} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="age">
+            <th mat-header-cell *matHeaderCellDef> Edad </th>
+            <td mat-cell *matCellDef="let volunteer"> {{volunteer.age}} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="profession">
+            <th mat-header-cell *matHeaderCellDef> Profesión </th>
+            <td mat-cell *matCellDef="let volunteer"> {{volunteer.profession}} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="registrationDate">
+            <th mat-header-cell *matHeaderCellDef> Fecha de inscripción </th>
+            <td mat-cell *matCellDef="let volunteer"> {{volunteer.registrationDate | date:'shortDate'}} </td>
+          </ng-container>
+
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns" (click)="selectVolunteer(row)"
+              [class.selected]="selectedVolunteer === row" style="cursor: pointer;"></tr>        </table>
+
+        <!-- Paginador -->
+        <mat-paginator [pageSizeOptions]="[7]" showFirstLastButtons></mat-paginator>
+
+        <!-- Mensaje cuando no hay datos -->
+        <p *ngIf="dataSource.data.length === 0">
+          No hay voluntarios registrados para esta actividad.
+        </p>
+      </mat-card-content>
+    </mat-card>
+
+    <!-- Subpanel de acciones (vacío por ahora) -->
+    <div class="volunteers-actions-subpanel mat-elevation-z2" style="padding: 16px; display: flex; flex-direction: column; gap: 20px; max-width: 320px;">
+      <!-- Botón Enviar notificación -->
+      <button mat-stroked-button color="primary" style="justify-content: flex-start;" matTooltip="Enviar mensaje a voluntarios">
+        <mat-icon style="margin-right: 8px;">notifications_active</mat-icon>
+        Enviar notificación
+      </button>
+      <p style=" font-size: 0.9rem; color: rgba(0,0,0,0.6);">
+        Toca aquí para enviar un mensaje a los voluntarios de esta actividad. Útil para compartir información o recordatorios.
+      </p>
+
+      <!-- Botón Marcar asistencia -->
+      <button mat-stroked-button color="accent" style="justify-content: flex-start;" matTooltip="Registrar asistencia">
+        <mat-icon style="margin-right: 8px;">check_circle</mat-icon>
+        Marcar asistencia
+      </button>
+      <p style=" font-size: 0.9rem; color: rgba(0,0,0,0.6);">
+        Presiona para registrar quiénes asistieron hoy a la actividad. ¡Lleva un control fácil!
+      </p>
+
+      <!-- Botón Crear certificados -->
+      <button mat-stroked-button color="warn" style="justify-content: flex-start;" matTooltip="Generar certificados">
+        <mat-icon style="margin-right: 8px;">emoji_events</mat-icon>
+        Crear certificados
+      </button>
+      <p style=" font-size: 0.9rem; color: rgba(0,0,0,0.6);">
+        ¿Quieres reconocer a tus voluntarios? Toca para generar certificados de participación.
+      </p>
+
+      <!-- Botón Abrir inscripciones -->
+      <button mat-stroked-button color="primary" style="justify-content: flex-start;" matTooltip="Permitir inscripciones">
+        <mat-icon style="margin-right: 8px;">person_add</mat-icon>
+        Abrir inscripciones
+      </button>
+      <p style=" font-size: 0.9rem; color: rgba(0,0,0,0.6);">
+        ¿Necesitas más voluntarios? Presiona para permitir que más personas se unan a esta actividad.
+      </p>
+    </div>
+
+    <mat-card class="volunteer-details-panel mat-elevation-z2" *ngIf="selectedVolunteer; else noVolunteer">
+      <mat-card-header>
+        <div mat-card-avatar class="volunteer-avatar">
+          <img *ngIf="selectedVolunteer.photoUrl; else defaultAvatar" [src]="selectedVolunteer.photoUrl" alt="Foto perfil" />
+          <ng-template #defaultAvatar>
+            <mat-icon>person</mat-icon>
+          </ng-template>
+        </div>
+        <mat-card-title>{{ selectedVolunteer.fullName }}</mat-card-title>
+        <mat-card-subtitle>{{ selectedVolunteer.registration?.status | titlecase }}</mat-card-subtitle>
+      </mat-card-header>
+
+      <mat-card-content>
+        <p><strong>Asistencia:</strong> {{ selectedVolunteer.registration?.attendance ? 'Sí' : 'No' }}</p>
+      </mat-card-content>
+
+      <mat-card-actions>
+        <button mat-stroked-button color="primary" (click)="toggleRegistrationStatus()">
+          Cambiar estado de inscripción
+        </button>
+        <button mat-stroked-button color="accent" (click)="toggleAttendance()">
+          Marcar asistencia
+        </button>
+      </mat-card-actions>
+    </mat-card>
+
+    <!-- Mensaje si no hay voluntario seleccionado -->
+    <ng-template #noVolunteer>
+      <mat-card class="volunteer-details-panel mat-elevation-z1">
+        <mat-card-content style="text-align: center; padding: 30px;">
+          <mat-icon style="font-size: 48px; color: rgba(0,0,0,0.2);">person_outline</mat-icon>
+          <p style="margin-top: 16px; font-size: 1rem; color: rgba(0,0,0,0.5);">
+            Selecciona un voluntario para ver su información
+          </p>
+        </mat-card-content>
+      </mat-card>
+    </ng-template>
+  </div>
+</div>

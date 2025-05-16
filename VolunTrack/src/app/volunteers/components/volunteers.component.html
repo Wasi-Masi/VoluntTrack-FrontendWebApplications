@@ -5,7 +5,75 @@
   <div class="volunteers-main-panel" [ngClass]="{ 'with-selection': selectedVolunteer }">
     <div class="volunteer-metrics-panel mat-elevation-z4">
       <h3>Métricas</h3>
-      <!-- Aquí irán las métricas en el futuro -->
+      <div class="metrics-cards">
+        <div class="metric-card">
+          <div class="metric-title">Voluntarios por profesión</div>
+          <div class="metric-value profession-list-container">
+            <mat-icon class="metric-icon">work</mat-icon>
+            <ul class="profession-list">
+              <li *ngFor="let profession of getProfessionKeys()">
+                <strong>{{ profession }}:</strong> {{ volunteersByProfession[profession] }}
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Certificados totales emitidos -->
+        <div class="metric-card">
+          <div class="metric-title">Certificados totales emitidos</div>
+          <div class="metric-value">
+            <mat-icon class="metric-icon">verified</mat-icon>
+            <span>{{ totalCertificates }}</span>
+          </div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-title">Voluntarios totales</div>
+          <div class="metric-value">
+            <mat-icon class="metric-icon">group</mat-icon>
+            <span>{{ totalVolunteers }}</span>
+          </div>
+          <div class="metric-change" [ngClass]="{'positive': totalVolunteersChange >= 0, 'negative': totalVolunteersChange < 0}">
+            <mat-icon>
+              {{ totalVolunteersChange >= 0 ? 'arrow_drop_up' : 'arrow_drop_down' }}
+            </mat-icon>
+            {{ totalVolunteersChange | number:'1.1-1' }}%
+            <span class="metric-note">Desde el mes pasado</span>
+          </div>
+        </div>
+
+        <!-- Igual para nuevos este mes -->
+        <div class="metric-card">
+          <div class="metric-title">Nuevos este mes</div>
+          <div class="metric-value">
+            <mat-icon class="metric-icon">favorite</mat-icon>
+            <span>{{ newThisMonth }}</span>
+          </div>
+          <div class="metric-change" [ngClass]="{'positive': newThisMonthChange >= 0, 'negative': newThisMonthChange < 0}">
+            <mat-icon>
+              {{ newThisMonthChange >= 0 ? 'arrow_drop_up' : 'arrow_drop_down' }}
+            </mat-icon>
+            {{ newThisMonthChange | number:'1.1-1' }}%
+            <span class="metric-note">Desde el mes pasado</span>
+          </div>
+        </div>
+
+        <!-- Y para inactivos -->
+        <div class="metric-card">
+          <div class="metric-title">Inactivos</div>
+          <div class="metric-value">
+            <mat-icon class="metric-icon">schedule</mat-icon>
+            <span>{{ inactiveVolunteers }}</span>
+          </div>
+          <div class="metric-change" [ngClass]="{'positive': inactiveVolunteersChange >= 0, 'negative': inactiveVolunteersChange < 0}">
+            <mat-icon>
+              {{ inactiveVolunteersChange >= 0 ? 'arrow_drop_up' : 'arrow_drop_down' }}
+            </mat-icon>
+            {{ inactiveVolunteersChange | number:'1.1-1' }}%
+            <span class="metric-note">Desde el mes pasado</span>
+          </div>
+        </div>
+
+      </div>
     </div>
     <div class="volunteers-table-panel mat-elevation-z4">
       <div class="volunteers-toolbar">
@@ -70,7 +138,6 @@
           <button mat-raised-button color="primary">Ver certificados</button>
           <button mat-raised-button (click)="aproveSendEmail()" color="accent">Enviar correo</button>
           <button mat-raised-button color="warn">Añadir a actividad</button>
-          <button mat-stroked-button color="primary">Destacar</button>
           <button mat-stroked-button color="warn">Dar de baja</button>
         </div>
       </div>

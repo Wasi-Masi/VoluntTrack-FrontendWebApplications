@@ -7,6 +7,9 @@ import {
 } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
+import { CommonModule } from '@angular/common';
+
+
 import { MatTableDataSource, MatTableModule } from '@angular/material/table';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import {MatFormField, MatInput, MatInputModule} from '@angular/material/input';
@@ -39,6 +42,7 @@ import { TranslatePipe} from '@ngx-translate/core';
   selector: 'app-volunteers',
   standalone: true,
   imports: [
+    CommonModule,
     MatInputModule,
     MatTableModule,
     MatFormFieldModule,
@@ -59,6 +63,7 @@ import { TranslatePipe} from '@ngx-translate/core';
   templateUrl: './volunteers.component.html',
   styleUrls: ['./volunteers.component.css']
 })
+
 export class VolunteersComponent implements OnInit, AfterViewInit {
   volunteers: Volunteer[] = [];
   displayedColumns: string[] = ['fullName', 'age', 'profession'];
@@ -97,8 +102,12 @@ export class VolunteersComponent implements OnInit, AfterViewInit {
       this.volunteers = data;
       this.dataSource.data = data;
       this.applyFilters();
+
+      // Calculamos métricas después de cargar los voluntarios
+      this.calculateMetrics();
     });
   }
+
 
   applyFilters(): void {
     this.dataSource.data = this.volunteers.filter(v => {
@@ -146,6 +155,97 @@ export class VolunteersComponent implements OnInit, AfterViewInit {
   }
 
   protected readonly history = history;
+
+
+  // Variables para métricas (puedes inicializarlas)
+  totalVolunteers: number = 0;
+  newThisMonth: number = 0;
+  inactiveVolunteers: number = 0;
+  totalCertificates: number = 0;
+  averageAge: number = 0;
+  volunteersByProfession: Record<string, number> = {};
+
+  // Variables para porcentaje, pueden ser negativas o positivas
+  totalVolunteersChange: number = 0;
+  newThisMonthChange: number = 0;
+  inactiveVolunteersChange: number = 0;
+
+  // Aquí la fecha actual y la del mes pasado
+  currentDate = new Date();
+  lastMonthDate = new Date(new Date().setMonth(new Date().getMonth() - 1));
+
+  // Por ejemplo, podrías recibir estas métricas con la API, pero aquí calculamos localmente
+
+  getProfessionKeys(): string[] {
+    return Object.keys(this.volunteersByProfession);
+  }
+
+  calculateMetrics(): void {
+    this.totalVolunteers = this.volunteers.length;
+    this.inactiveVolunteers = this.volunteers.filter(v => v.status === 'inactive').length;
+
+    // Detectar el mes/año más reciente con registro
+    let maxYear = 0;
+    let maxMonth = -1;
+    this.volunteers.forEach(v => {
+      const d = new Date(v.registrationDate);
+      const y = d.getFullYear();
+      const m = d.getMonth();
+      if (y > maxYear || (y === maxYear && m > maxMonth)) {
+        maxYear = y;
+        maxMonth = m;
+      }
+    });
+
+    // Filtrar los registrados en ese mes/año máximo detectado
+    this.newThisMonth = this.volunteers.filter(v => {
+      const d = new Date(v.registrationDate);
+      return d.getFullYear() === maxYear && d.getMonth() === maxMonth;
+    }).length;
+
+    // Para el mes anterior a ese (último mes - 1)
+    let prevMonth = maxMonth - 1;
+    let prevYear = maxYear;
+    if (prevMonth < 0) {
+      prevMonth = 11;
+      prevYear--;
+    }
+
+    // Nuevos mes pasado (último mes - 1)
+    const newLastMonth = this.volunteers.filter(v => {
+      const d = new Date(v.registrationDate);
+      return d.getFullYear() === prevYear && d.getMonth() === prevMonth;
+    }).length;
+
+    // Total voluntarios mes pasado: todos registrados antes del último mes
+    const totalLastMonth = this.volunteers.filter(v => {
+      const d = new Date(v.registrationDate);
+      return (d.getFullYear() < maxYear) || (d.getFullYear() === maxYear && d.getMonth() < maxMonth);
+    }).length;
+
+    // Inactivos mes pasado: inactivos registrados antes del último mes
+    const inactiveLastMonth = this.volunteers.filter(v => {
+      const d = new Date(v.registrationDate);
+      return ((d.getFullYear() < maxYear) || (d.getFullYear() === maxYear && d.getMonth() < maxMonth))
+        && v.status === 'inactive';
+    }).length;
+
+    // Calcula los cambios porcentuales
+    this.totalVolunteersChange = this.calculatePercentageChange(totalLastMonth, this.totalVolunteers);
+    this.newThisMonthChange = this.calculatePercentageChange(newLastMonth, this.newThisMonth);
+    this.inactiveVolunteersChange = this.calculatePercentageChange(inactiveLastMonth, this.inactiveVolunteers);
+    this.totalCertificates = this.volunteers.reduce((sum, v) => sum + v.certificateIds.length, 0);
+    this.volunteersByProfession = this.volunteers.reduce((acc, v) => {
+      acc[v.profession] = (acc[v.profession] || 0) + 1;
+      return acc;
+    }, {} as Record<string, number>);
+  }
+
+  calculatePercentageChange(oldValue: number, newValue: number): number {
+    if (oldValue === 0) return 0;
+    return ((newValue - oldValue) / oldValue) * 100;
+  }
+
 }
 
 @Component({
