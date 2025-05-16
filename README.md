@@ -2520,59 +2520,226 @@ En este capítulo se expone el progreso logrado durante el Sprint 2 en el desarr
 **Branch: `feature/-images-and-tables`**
 
 <p align="center">
-  <img src="URL_DE_IMAGEN" alt="images-and-tables" width="500">
+  <img src="./assets/feature-image-and-tables.png" alt="images-and-tables" width="700">
 </p>
-<p align="center"><strong>Figura 119.</strong> Evidencia de commits en la rama para imágenes y tablas.</p>
+<p align="center"><strong>Figura 125.</strong> Evidencia de commits en la rama para imágenes y tablas.</p>
+
+<p align="center">
+  <img src="./assets/feature-images-end-tables-2.png" alt="images-and-tables" width="700">
+</p>
+<p align="center"><strong>Figura 126.</strong> Evidencia de commits en la rama para imágenes y tablas.</p>
 
 **Branch: `feature/activities`**
 
 <p align="center">
-  <img src="URL_DE_IMAGEN" alt="activities" width="500">
+  <img src="./assets/feature-activities.png" alt="activities" width="700">
 </p>
-<p align="center"><strong>Figura 120.</strong> Commits asociados a la funcionalidad de actividades.</p>
+<p align="center"><strong>Figura 127.</strong> Commits asociados a la funcionalidad de actividades.</p>
+
+<p align="center">
+  <img src="./assets/feature-activities-2.png" alt="activities" width="700">
+</p>
+<p align="center"><strong>Figura 128.</strong> Commits asociados a la funcionalidad de actividades.</p>
+
+<p align="center">
+  <img src="./assets/feature-activities-3.png" alt="activities" width="700">
+</p>
+<p align="center"><strong>Figura 129.</strong> Commits asociados a la funcionalidad de actividades.</p>
+
+<p align="center">
+  <img src="./assets/feature-activities-4.png" alt="activities" width="700">
+</p>
+<p align="center"><strong>Figura 130.</strong> Commits asociados a la funcionalidad de actividades.</p>
 
 **Branch: `feature/activity-details`**
 
 <p align="center">
-  <img src="URL_DE_IMAGEN" alt="activity-details" width="500">
+  <img src="./assets/feature-activity-details.png" alt="activity-details" width="700">
 </p>
-<p align="center"><strong>Figura 121.</strong> Commits relacionados con la vista de detalles de actividad.</p>
+<p align="center"><strong>Figura 131.</strong> Commits relacionados con la vista de detalles de actividad.</p>
+
+<p align="center">
+  <img src="./assets/feature-activity-details-2.png" alt="activity-details" width="700">
+</p>
+<p align="center"><strong>Figura 132.</strong> Commits relacionados con la vista de detalles de actividad.</p>
 
 **Branch: `feature/calendar`**
 
 <p align="center">
-  <img src="URL_DE_IMAGEN" alt="calendar" width="500">
+  <img src="./assets/feature-calendar.png" alt="calendar" width="700">
 </p>
-<p align="center"><strong>Figura 122.</strong> Evidencia de desarrollo en el calendario de actividades.</p>
+<p align="center"><strong>Figura 133.</strong> Evidencia de desarrollo en el calendario de actividades.</p>
+
+<p align="center">
+  <img src="./assets/feature-calendar-2.png" alt="calendar" width="700">
+</p>
+<p align="center"><strong>Figura 134.</strong> Evidencia de desarrollo en el calendario de actividades.</p>
+
+<p align="center">
+  <img src="./assets/feature-calendar-3.png" alt="calendar" width="700">
+</p>
+<p align="center"><strong>Figura 135.</strong> Evidencia de desarrollo en el calendario de actividades.</p>
+
+<p align="center">
+  <img src="./assets/feature-calendar-4.png" alt="calendar" width="700">
+</p>
+<p align="center"><strong>Figura 136.</strong> Evidencia de desarrollo en el calendario de actividades.</p>
+
+<p align="center">
+  <img src="./assets/feature-calendar-5.png" alt="calendar" width="700">
+</p>
+<p align="center"><strong>Figura 137.</strong> Evidencia de desarrollo en el calendario de actividades.</p>
 
 **Branch: `feature/dashboard`**
 
 <p align="center">
-  <img src="URL_DE_IMAGEN" alt="dashboard" width="500">
+  <img src="./assets/feature-dashboard.png" alt="dashboard" width="700">
 </p>
-<p align="center"><strong>Figura 123.</strong> Commits que implementan mejoras en el dashboard.</p>
+<p align="center"><strong>Figura 138.</strong> Commits que implementan mejoras en el dashboard.</p>
+
+<p align="center">
+  <img src="./assets/feature-dashboard-2.png" alt="dashboard" width="700">
+</p>
+<p align="center"><strong>Figura 139.</strong> Commits que implementan mejoras en el dashboard.</p>
+
+<p align="center">
+  <img src="./assets/feature-dashboard-3.png" alt="dashboard" width="700">
+</p>
+<p align="center"><strong>Figura 140.</strong> Commits que implementan mejoras en el dashboard.</p>
+
+<p align="center">
+  <img src="./assets/feature-dashboard-4.png" alt="dashboard" width="700">
+</p>
+<p align="center"><strong>Figura 141.</strong> Commits que implementan mejoras en el dashboard.</p>
 
 **Branch: `feature/edit-activity`**
 
 <p align="center">
-  <img src="URL_DE_IMAGEN" alt="edit-activity" width="500">
+  <img src="./assets/feature-edit-activity.png" alt="edit-activity" width="700">
 </p>
-<p align="center"><strong>Figura 124.</strong> Desarrollo de funcionalidades para editar actividades.</p>
+<p align="center"><strong>Figura 142.</strong> Desarrollo de funcionalidades para editar actividades.</p>
+
+<p align="center">
+  <img src="./assets/feature-edit-activity-2.png" alt="edit-activity" width="700">
+</p>
+<p align="center"><strong>Figura 143.</strong> Desarrollo de funcionalidades para editar actividades.</p>
+
+<p align="center">
+  <img src="./assets/feature-edit-activity-3.png" alt="edit-activity" width="700">
+</p>
+<p align="center"><strong>Figura 144.</strong> Desarrollo de funcionalidades para editar actividades.</p>
+
+<p align="center">
+  <img src="./assets/feature-edit-activity-4.png" alt="edit-activity" width="700">
+</p>
+<p align="center"><strong>Figura 145.</strong> Desarrollo de funcionalidades para editar actividades.</p>
 
 **Branch: `feature/metrics`**
 
 <p align="center">
-  <img src="URL_DE_IMAGEN" alt="metrics" width="500">
+  <img src="./assets/feature-metrics.png" alt="metrics" width="700">
 </p>
-<p align="center"><strong>Figura 125.</strong> Evidencia de implementación de métricas de voluntariado.</p>
+<p align="center"><strong>Figura 146.</strong> Evidencia de implementación de métricas de voluntariado.</p>
+
+<p align="center">
+  <img src="./assets/feature-metrics-2.png" alt="metrics" width="700">
+</p>
+<p align="center"><strong>Figura 147.</strong> Evidencia de implementación de métricas de voluntariado.</p>
+
+<p align="center">
+  <img src="./assets/feature-metrics-3.png" alt="metrics" width="700">
+</p>
+<p align="center"><strong>Figura 148.</strong> Evidencia de implementación de métricas de voluntariado.</p>
+
+<p align="center">
+  <img src="./assets/feature-metrics-4.png" alt="metrics" width="700">
+</p>
+<p align="center"><strong>Figura 149.</strong> Evidencia de implementación de métricas de voluntariado.</p>
 
 **Branch: `feature/notifications`**
 
 <p align="center">
-  <img src="URL_DE_IMAGEN" alt="notifications" width="500">
+  <img src="./assets/feature-notifications.png" alt="notifications" width="700">
 </p>
-<p align="center"><strong>Figura 126.</strong> Commits relacionados con la sección de notificaciones.</p>
+<p align="center"><strong>Figura 150.</strong> Commits relacionados con la sección de notificaciones.</p>
 
+<p align="center">
+  <img src="./assets/feature-notifications-2.png" alt="notifications" width="700">
+</p>
+<p align="center"><strong>Figura 151.</strong> Commits relacionados con la sección de notificaciones.</p>
+
+<p align="center">
+  <img src="./assets/feature-notifications-3.png" alt="notifications" width="700">
+</p>
+<p align="center"><strong>Figura 152.</strong> Commits relacionados con la sección de notificaciones.</p>
+
+<p align="center">
+  <img src="./assets/feature-notifications-4.png" alt="notifications" width="700">
+</p>
+<p align="center"><strong>Figura 153.</strong> Commits relacionados con la sección de notificaciones.</p>
+
+## 5.2.2.5. Execution Evidence for Sprint Review
+
+## 5.2.2.6. Services Documentation Evidence for Sprint Review
+
+Se implementó la gestión de solicitudes HTTP desde el frontend hacia una API falsa basada en JSON Server, la cual se estructuró a partir de los datos de `db.json` y sus endpoints simulados.
+
+**URL de la API Simulada (Local):** `http://localhost:3000/`
+
+<table border="1" cellspacing="0" cellpadding="6" style="border-collapse: collapse; text-align: center;">
+  <thead style="background-color: #f5e8b0;">
+    <tr>
+      <th>Endpoint Simulado (Fake API)</th>
+      <th>Entidad Principal Gestionada</th>
+      <th>Operaciones CRUD Soportadas (Simuladas) vía JSON Server</th>
+      <th>Futuro Alcance con OpenAPI</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href="http://localhost:3000/activities/">http://localhost:3000/activities/</a></td>
+      <td>Actividades (activities)</td>
+      <td>GET, POST</td>
+      <td>Documentación para obtener información de las actividades, los posts para la creación de las actividades.</td>
+    </tr>
+    <tr>
+      <td><a href="http://localhost:3000/volunteers/">http://localhost:3000/volunteers/</a></td>
+      <td>Voluntarios (volunteers)</td>
+      <td>GET, POST, DELETE</td>
+      <td>Documentación para obtener información de las comunidades, los posts y delete para la creación y eliminación de voluntarios.</td>
+    </tr>
+    <tr>
+      <td><a href="http://localhost:3000/notifications/">http://localhost:3000/notifications/</a></td>
+      <td>Notificaciones (notifications)</td>
+      <td>GET, POST</td>
+      <td>Documentación para obtener información de las actividades, los posts para la creación de las notificaciones.</td>
+    </tr>
+    <tr>
+      <td><a href="http://localhost:3000/users/">http://localhost:3000/users/</a></td>
+      <td>Usuarios (users)</td>
+      <td>GET, POST</td>
+      <td>Documentación para obtener información de los usuarios, los posts para la creación de los usuarios.</td>
+    </tr>
+    <tr>
+      <td><a href="http://localhost:3000/userlogin/">http://localhost:3000/userlogin/</a></td>
+      <td>User logeado (userlogin)</td>
+      <td>GET, POST</td>
+      <td>Documentación para obtener información del usuario logeado, los posts para la creación del usuario logeado.</td>
+    </tr>
+    <tr>
+      <td><a href="http://localhost:3000/registers/">http://localhost:3000/registers/</a></td>
+      <td>Registros (registers)</td>
+      <td>GET, POST</td>
+      <td>Documentación para obtener información de los registros, los posts para la creación de los registros.</td>
+    </tr>
+    <tr>
+      <td><a href="http://localhost:3000/certificates/">http://localhost:3000/certificates/</a></td>
+      <td>Certificados (certificates)</td>
+      <td>GET, POST</td>
+      <td>Documentación para obtener información de los certificados, los posts para la creación de los certificados.</td>
+    </tr>
+  </tbody>
+</table>
 
 ## Conclusiones
 
