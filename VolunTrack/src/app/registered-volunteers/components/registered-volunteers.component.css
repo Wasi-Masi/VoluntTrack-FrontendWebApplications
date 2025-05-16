@@ -72,22 +72,27 @@
   flex-wrap: wrap;
   gap: 30px;
   max-width: 90%;
+  width: 60%;
+
   margin: 20px auto;
   padding: 20px;
   background-color: #9BD0DF50;
   border-radius: 16px;
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
   box-sizing: border-box;
+  align-items: center;
 }
 
 /* Subcontenedor de paneles */
 .details-subpanels {
   display: flex;
-  width: 100%;
+  width: 60%;
   flex-wrap: wrap;
   flex: 1;
   gap: 20px;
   box-sizing: border-box;
+  align-items: center;
+  justify-content: center;
 }
 
 /* Panel tabla voluntarios */

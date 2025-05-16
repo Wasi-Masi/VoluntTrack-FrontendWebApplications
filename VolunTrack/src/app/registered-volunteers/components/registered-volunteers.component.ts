@@ -27,6 +27,7 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatCardModule } from '@angular/material/card';
+import {MatCheckbox} from '@angular/material/checkbox';
 
 @Component({
   selector: 'app-registered-volunteers',
@@ -61,20 +62,83 @@ import { MatCardModule } from '@angular/material/card';
     NgIf,
     MatTooltipModule,
     MatFormFieldModule,
-    MatCardModule
+    MatCardModule,
+    MatCheckbox
 
   ],
   styleUrls: ['./registered-volunteers.component.css']
 })
 export class RegisteredVolunteersComponent implements OnInit {
   activity!: Activity;
-  displayedColumns: string[] = ['fullName', 'age', 'profession', 'registrationDate'];
   dataSource = new MatTableDataSource<any>([]);
   searchText: string = '';
   selectedVolunteer: any = null;
+  isAttendanceMode = false;
+  attendanceMarked: { [id: string]: boolean } = {};
+
+  allColumns = ['fullName', 'age', 'profession', 'registrationDate', 'registrationStatus', 'registrationAttendance'];
+  attendanceColumns = ['fullName', 'attendanceCheckbox'];
+  displayedColumns = this.allColumns;
+
+  toggleAttendanceMode() {
+    this.isAttendanceMode = !this.isAttendanceMode;
+
+    if (this.isAttendanceMode) {
+      this.displayedColumns = this.attendanceColumns;
+
+      // 🔧 Inicializa attendanceMarked por cada voluntario si no está ya presente
+      this.attendanceMarked = {};
+      this.dataSource.data.forEach(volunteer => {
+        // Usar registrationId para la clave, y attendance (boolean) para el valor
+        this.attendanceMarked[volunteer.registrationId] = volunteer.registration?.attendance ?? false;
+      });
+    } else {
+      this.displayedColumns = this.allColumns;
+      this.saveAttendance();
+    }
+  }
+
+  saveAttendance() {
+    const updateCalls = [];
+
+    for (const [registrationId, attended] of Object.entries(this.attendanceMarked)) {
+      const volunteer = this.dataSource.data.find(v => String(v.registrationId) === registrationId);
+      if (volunteer) {
+        const attendanceValue = attended ? 'asistio' : 'no asistio';
+        volunteer.registration.attendance = attendanceValue;
+
+        updateCalls.push(
+          this.regVolunteersService.updateAttendance(registrationId, attendanceValue)
+        );
+      }
+    }
+
+    console.log('Llamadas a actualizar:', updateCalls.length);
+    forkJoin(updateCalls).subscribe({
+      next: () => {
+        console.log('Asistencias actualizadas correctamente');
+        this.dataSource._updateChangeSubscription();
+        if (this.selectedVolunteer) {
+          const updatedVolunteer = this.dataSource.data.find(v => v.registrationId === this.selectedVolunteer.registrationId);
+          if (updatedVolunteer) {
+            this.selectedVolunteer.registration.attendance = updatedVolunteer.registration.attendance;
+          }
+        }
+        this.loadRegistrations(this.activity.id.toString());
+      },
+      error: err => {
+        console.error('Error actualizando asistencias:', err);
+      }
+    });
+  }
+
 
   selectVolunteer(volunteer: any) {
     this.selectedVolunteer = volunteer;
+  }
+
+  onAttendanceChange(registrationId: string, checked: boolean) {
+    this.attendanceMarked[registrationId] = checked;
   }
 
   toggleRegistrationStatus() {
@@ -139,14 +203,17 @@ export class RegisteredVolunteersComponent implements OnInit {
           // Aquí combinamos info de registro + voluntario
           const combinedData = vols.map((vol, i) => ({
             volunteerId: vol.id.toString(),   // id como string
+            registrationId: this.registrations[i].id,   // <-- agregar id del registro
             fullName: vol.fullName,
             age: vol.age,
             profession: vol.profession,
             registrationDate: this.registrations[i].registrationDate,
+            status: this.registrations[i].status,
+            attendance: this.registrations[i].attendance,
             photoUrl: vol.profilePicture,
             registration: {
               status: this.registrations[i].status,
-              attendance: Boolean(this.registrations[i].attendance)
+              attendance: String(this.registrations[i].attendance).toLowerCase() === 'asistio'
             }
           }));
 

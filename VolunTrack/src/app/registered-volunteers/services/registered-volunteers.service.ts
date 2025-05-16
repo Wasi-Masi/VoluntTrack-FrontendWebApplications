@@ -22,4 +22,7 @@ export class RegisteredVolunteersService {
     return this.http.get<Volunteer>(`http://localhost:3000/volunteers/${id}`);
   }
 
+  updateAttendance(registrationId: string, attendance: string): Observable<any> {
+    return this.http.patch(`${this.apiUrl}/${registrationId}`, { attendance });
+  }
 }
