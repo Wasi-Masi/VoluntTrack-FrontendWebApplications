@@ -1,1 +1,52 @@
-<p>calendar works!</p>
+<div class="dashboard-header">
+  <h2 [routerLink]="['/dashboard']">Activity Dashboard</h2>
+  <div class="dashboard-actions">
+    <button mat-stroked-button color="primary" [routerLink]="['/create-activity']">
+      <mat-icon>add</mat-icon> {{ 'create' | translate }}
+    </button>
+    <button class="selected" [routerLink]="['/calendar']" mat-stroked-button color="accent">
+      <mat-icon class="selected">calendar_today</mat-icon> {{ 'calendar' | translate }}
+    </button>
+  </div>
+</div>
+
+<div class="calendar-container">
+  <div class="calendar-main">
+
+    <div class="header">
+      <h1>MONDAY</h1>
+      <h1>TUESDAY</h1>
+      <h1>WEDNESDAY</h1>
+      <h1>THURSDAY</h1>
+      <h1>FRIDAY</h1>
+      <h1>SATURDAY</h1>
+      <h1>SUNDAY</h1>
+    </div>
+
+    <div class="body">
+      <div class="week" *ngFor="let week of weeks">
+        <div class="day" *ngFor="let date of week" [class.outside]="!isCurrentMonth(date)">
+          <p>{{ date.getDate() }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="calendar-sidebar">
+    <div class="year-title">
+      <h1>{{ year }}</h1>
+    </div>
+    <div class="month-selection">
+      <div
+        class="month-button"
+        *ngFor="let monthName of months; let i = index"
+        (click)="goToMonth(i)"
+        [class.active]="i === month"
+      >
+        {{ monthName }}
+      </div>
+    </div>
+  </div>
+</div>
+
+<div style="height: 10%;"></div>
