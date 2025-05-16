@@ -3,7 +3,22 @@ Description: Styles the login form container and its elements, including layout,
 Author: Marcelo Binda
 */
 
+.login-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgb(1, 31, 40); /* Fondo negro semitransparente */
+  z-index: 999; /* Por debajo del login-container */
+}
+
 .login-container {
+  position: fixed;
+  z-index: 1000; /* Encima del backdrop */
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   width: 320px;
   margin: 100px auto;
   padding: 2rem;
