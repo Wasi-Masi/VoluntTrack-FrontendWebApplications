@@ -1115,7 +1115,19 @@
       "description": "a"
     }
   ],
-  "userlogin": [],
+  "userlogin": [
+    {
+      "id": "9969",
+      "username": "a",
+      "password": "a",
+      "email": "a",
+      "phone": "1",
+      "pfp": "a",
+      "plan": "basic",
+      "banner": "a",
+      "description": "a"
+    }
+  ],
   "registers": [
     {
       "id": "1",
