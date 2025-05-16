@@ -2,7 +2,7 @@
   "activities": [
     {
       "id": "1",
-      "title": "playas xd",
+      "title": "Beach Cleanup",
       "description": "Join us for a community-led beach cleanup aimed at preserving our coastal environment. Together, we'll collect litter, remove plastic waste, and learn about the impact of pollution on marine life. It's a great way to contribute to a cleaner ocean and connect with others who care about the planet.",
       "instructions": [
         "Bring gloves and trash bags",
@@ -1104,5 +1104,727 @@
       "description": "a"
     }
   ],
-  "userlogin": []
+  "userlogin": [],
+  "registers": [
+    {
+      "id": 1,
+      "volunteerId": 7,
+      "activityId": 1,
+      "registrationDate": "2025-05-16",
+      "status": "aceptado",
+      "attendance": "asistio"
+    },
+    {
+      "id": 2,
+      "volunteerId": 21,
+      "activityId": 1,
+      "registrationDate": "2025-05-16",
+      "status": "rechazado",
+      "attendance": "no asistio"
+    },
+    {
+      "id": 3,
+      "volunteerId": 33,
+      "activityId": 1,
+      "registrationDate": "2025-05-16",
+      "status": "aceptado",
+      "attendance": "asistio"
+    },
+    {
+      "id": 4,
+      "volunteerId": 12,
+      "activityId": 1,
+      "registrationDate": "2025-05-16",
+      "status": "aceptado",
+      "attendance": "no asistio"
+    },
+    {
+      "id": 5,
+      "volunteerId": 45,
+      "activityId": 1,
+      "registrationDate": "2025-05-16",
+      "status": "rechazado",
+      "attendance": "no asistio"
+    },
+    {
+      "id": 6,
+      "volunteerId": 4,
+      "activityId": 1,
+      "registrationDate": "2025-05-16",
+      "status": "aceptado",
+      "attendance": "asistio"
+    },
+    {
+      "id": 7,
+      "volunteerId": 26,
+      "activityId": 1,
+      "registrationDate": "2025-05-16",
+      "status": "aceptado",
+      "attendance": "asistio"
+    },
+    {
+      "id": 8,
+      "volunteerId": 17,
+      "activityId": 1,
+      "registrationDate": "2025-05-16",
+      "status": "rechazado",
+      "attendance": "no asistio"
+    },
+    {
+      "id": 9,
+      "volunteerId": 38,
+      "activityId": 1,
+      "registrationDate": "2025-05-16",
+      "status": "aceptado",
+      "attendance": "asistio"
+    },
+    {
+      "id": 10,
+      "volunteerId": 10,
+      "activityId": 1,
+      "registrationDate": "2025-05-16",
+      "status": "aceptado",
+      "attendance": "asistio"
+    },
+    {
+      "id": 11,
+      "volunteerId": 49,
+      "activityId": 1,
+      "registrationDate": "2025-05-16",
+      "status": "rechazado",
+      "attendance": "no asistio"
+    },
+    {
+      "id": 12,
+      "volunteerId": 2,
+      "activityId": 1,
+      "registrationDate": "2025-05-16",
+      "status": "aceptado",
+      "attendance": "no asistio"
+    },
+    {
+      "id": 13,
+      "volunteerId": 14,
+      "activityId": 1,
+      "registrationDate": "2025-05-16",
+      "status": "aceptado",
+      "attendance": "asistio"
+    },
+    {
+      "id": 14,
+      "volunteerId": 29,
+      "activityId": 1,
+      "registrationDate": "2025-05-16",
+      "status": "rechazado",
+      "attendance": "no asistio"
+    },
+    {
+      "id": 15,
+      "volunteerId": 41,
+      "activityId": 1,
+      "registrationDate": "2025-05-16",
+      "status": "aceptado",
+      "attendance": "asistio"
+    },
+    {
+      "id": 16,
+      "volunteerId": 5,
+      "activityId": 2,
+      "registrationDate": "2025-05-16",
+      "status": "aceptado",
+      "attendance": "asistio"
+    },
+    {
+      "id": 17,
+      "volunteerId": 18,
+      "activityId": 2,
+      "registrationDate": "2025-05-16",
+      "status": "rechazado",
+      "attendance": "no asistio"
+    },
+    {
+      "id": 18,
+      "volunteerId": 22,
+      "activityId": 2,
+      "registrationDate": "2025-05-16",
+      "status": "aceptado",
+      "attendance": "asistio"
+    },
+    {
+      "id": 19,
+      "volunteerId": 7,
+      "activityId": 2,
+      "registrationDate": "2025-05-16",
+      "status": "aceptado",
+      "attendance": "no asistio"
+    },
+    {
+      "id": 20,
+      "volunteerId": 44,
+      "activityId": 2,
+      "registrationDate": "2025-05-16",
+      "status": "rechazado",
+      "attendance": "no asistio"
+    },
+    {
+      "id": 21,
+      "volunteerId": 15,
+      "activityId": 2,
+      "registrationDate": "2025-05-16",
+      "status": "aceptado",
+      "attendance": "asistio"
+    },
+    {
+      "id": 22,
+      "volunteerId": 27,
+      "activityId": 2,
+      "registrationDate": "2025-05-16",
+      "status": "aceptado",
+      "attendance": "asistio"
+    },
+    {
+      "id": 23,
+      "volunteerId": 30,
+      "activityId": 2,
+      "registrationDate": "2025-05-16",
+      "status": "rechazado",
+      "attendance": "no asistio"
+    },
+    {
+      "id": 24,
+      "volunteerId": 13,
+      "activityId": 2,
+      "registrationDate": "2025-05-16",
+      "status": "aceptado",
+      "attendance": "asistio"
+    },
+    {
+      "id": 25,
+      "volunteerId": 9,
+      "activityId": 2,
+      "registrationDate": "2025-05-16",
+      "status": "aceptado",
+      "attendance": "asistio"
+    },
+    {
+      "id": 26,
+      "volunteerId": 39,
+      "activityId": 2,
+      "registrationDate": "2025-05-16",
+      "status": "rechazado",
+      "attendance": "no asistio"
+    },
+    {
+      "id": 27,
+      "volunteerId": 1,
+      "activityId": 2,
+      "registrationDate": "2025-05-16",
+      "status": "aceptado",
+      "attendance": "no asistio"
+    },
+    {
+      "id": 28,
+      "volunteerId": 34,
+      "activityId": 2,
+      "registrationDate": "2025-05-16",
+      "status": "aceptado",
+      "attendance": "asistio"
+    },
+    {
+      "id": 29,
+      "volunteerId": 24,
+      "activityId": 2,
+      "registrationDate": "2025-05-16",
+      "status": "rechazado",
+      "attendance": "no asistio"
+    },
+    {
+      "id": 30,
+      "volunteerId": 48,
+      "activityId": 2,
+      "registrationDate": "2025-05-16",
+      "status": "aceptado",
+      "attendance": "asistio"
+    },
+    {
+      "id": 31,
+      "volunteerId": 3,
+      "activityId": 3,
+      "registrationDate": "2025-05-16",
+      "status": "aceptado",
+      "attendance": "asistio"
+    },
+    {
+      "id": 32,
+      "volunteerId": 17,
+      "activityId": 3,
+      "registrationDate": "2025-05-16",
+      "status": "rechazado",
+      "attendance": "no asistio"
+    },
+    {
+      "id": 33,
+      "volunteerId": 28,
+      "activityId": 3,
+      "registrationDate": "2025-05-16",
+      "status": "aceptado",
+      "attendance": "asistio"
+    },
+    {
+      "id": 34,
+      "volunteerId": 6,
+      "activityId": 3,
+      "registrationDate": "2025-05-16",
+      "status": "aceptado",
+      "attendance": "no asistio"
+    },
+    {
+      "id": 35,
+      "volunteerId": 40,
+      "activityId": 3,
+      "registrationDate": "2025-05-16",
+      "status": "rechazado",
+      "attendance": "no asistio"
+    },
+    {
+      "id": 36,
+      "volunteerId": 11,
+      "activityId": 3,
+      "registrationDate": "2025-05-16",
+      "status": "aceptado",
+      "attendance": "asistio"
+    },
+    {
+      "id": 37,
+      "volunteerId": 25,
+      "activityId": 3,
+      "registrationDate": "2025-05-16",
+      "status": "aceptado",
+      "attendance": "asistio"
+    },
+    {
+      "id": 38,
+      "volunteerId": 32,
+      "activityId": 3,
+      "registrationDate": "2025-05-16",
+      "status": "rechazado",
+      "attendance": "no asistio"
+    },
+    {
+      "id": 39,
+      "volunteerId": 14,
+      "activityId": 3,
+      "registrationDate": "2025-05-16",
+      "status": "aceptado",
+      "attendance": "asistio"
+    },
+    {
+      "id": 40,
+      "volunteerId": 10,
+      "activityId": 3,
+      "registrationDate": "2025-05-16",
+      "status": "aceptado",
+      "attendance": "asistio"
+    },
+    {
+      "id": 41,
+      "volunteerId": 42,
+      "activityId": 3,
+      "registrationDate": "2025-05-16",
+      "status": "rechazado",
+      "attendance": "no asistio"
+    },
+    {
+      "id": 42,
+      "volunteerId": 2,
+      "activityId": 3,
+      "registrationDate": "2025-05-16",
+      "status": "aceptado",
+      "attendance": "no asistio"
+    },
+    {
+      "id": 43,
+      "volunteerId": 37,
+      "activityId": 3,
+      "registrationDate": "2025-05-16",
+      "status": "aceptado",
+      "attendance": "asistio"
+    },
+    {
+      "id": 44,
+      "volunteerId": 20,
+      "activityId": 3,
+      "registrationDate": "2025-05-16",
+      "status": "rechazado",
+      "attendance": "no asistio"
+    },
+    {
+      "id": 45,
+      "volunteerId": 45,
+      "activityId": 3,
+      "registrationDate": "2025-05-16",
+      "status": "aceptado",
+      "attendance": "asistio"
+    },
+    {
+      "id": 46,
+      "volunteerId": 12,
+      "activityId": 4,
+      "registrationDate": "2025-05-16",
+      "status": "aceptado",
+      "attendance": "asistio"
+    },
+    {
+      "id": 47,
+      "volunteerId": 8,
+      "activityId": 4,
+      "registrationDate": "2025-05-16",
+      "status": "rechazado",
+      "attendance": "no asistio"
+    },
+    {
+      "id": 48,
+      "volunteerId": 35,
+      "activityId": 4,
+      "registrationDate": "2025-05-16",
+      "status": "aceptado",
+      "attendance": "no asistio"
+    },
+    {
+      "id": 49,
+      "volunteerId": 7,
+      "activityId": 4,
+      "registrationDate": "2025-05-16",
+      "status": "aceptado",
+      "attendance": "asistio"
+    },
+    {
+      "id": 50,
+      "volunteerId": 27,
+      "activityId": 4,
+      "registrationDate": "2025-05-16",
+      "status": "rechazado",
+      "attendance": "no asistio"
+    },
+    {
+      "id": 51,
+      "volunteerId": 1,
+      "activityId": 4,
+      "registrationDate": "2025-05-16",
+      "status": "aceptado",
+      "attendance": "asistio"
+    },
+    {
+      "id": 52,
+      "volunteerId": 30,
+      "activityId": 4,
+      "registrationDate": "2025-05-16",
+      "status": "aceptado",
+      "attendance": "asistio"
+    },
+    {
+      "id": 56,
+      "volunteerId": 18,
+      "activityId": 4,
+      "registrationDate": "2025-05-16",
+      "status": "rechazado",
+      "attendance": "no asistio"
+    },
+    {
+      "id": 57,
+      "volunteerId": 22,
+      "activityId": 4,
+      "registrationDate": "2025-05-16",
+      "status": "aceptado",
+      "attendance": "asistio"
+    },
+    {
+      "id": 58,
+      "volunteerId": 46,
+      "activityId": 4,
+      "registrationDate": "2025-05-16",
+      "status": "aceptado",
+      "attendance": "no asistio"
+    },
+    {
+      "id": 59,
+      "volunteerId": 4,
+      "activityId": 4,
+      "registrationDate": "2025-05-16",
+      "status": "rechazado",
+      "attendance": "no asistio"
+    },
+    {
+      "id": 60,
+      "volunteerId": 39,
+      "activityId": 4,
+      "registrationDate": "2025-05-16",
+      "status": "aceptado",
+      "attendance": "asistio"
+    },
+    {
+      "id": 61,
+      "volunteerId": 19,
+      "activityId": 4,
+      "registrationDate": "2025-05-16",
+      "status": "aceptado",
+      "attendance": "asistio"
+    },
+    {
+      "id": 62,
+      "volunteerId": 44,
+      "activityId": 4,
+      "registrationDate": "2025-05-16",
+      "status": "rechazado",
+      "attendance": "no asistio"
+    },
+    {
+      "id": 63,
+      "volunteerId": 13,
+      "activityId": 4,
+      "registrationDate": "2025-05-16",
+      "status": "aceptado",
+      "attendance": "asistio"
+    },
+    {
+      "id": 64,
+      "volunteerId": 3,
+      "activityId": 5,
+      "registrationDate": "2025-05-16",
+      "status": "aceptado",
+      "attendance": "asistio"
+    },
+    {
+      "id": 65,
+      "volunteerId": 25,
+      "activityId": 5,
+      "registrationDate": "2025-05-16",
+      "status": "rechazado",
+      "attendance": "no asistio"
+    },
+    {
+      "id": 66,
+      "volunteerId": 10,
+      "activityId": 5,
+      "registrationDate": "2025-05-16",
+      "status": "aceptado",
+      "attendance": "no asistio"
+    },
+    {
+      "id": 67,
+      "volunteerId": 48,
+      "activityId": 5,
+      "registrationDate": "2025-05-16",
+      "status": "aceptado",
+      "attendance": "asistio"
+    },
+    {
+      "id": 68,
+      "volunteerId": 20,
+      "activityId": 5,
+      "registrationDate": "2025-05-16",
+      "status": "rechazado",
+      "attendance": "no asistio"
+    },
+    {
+      "id": 69,
+      "volunteerId": 37,
+      "activityId": 5,
+      "registrationDate": "2025-05-16",
+      "status": "aceptado",
+      "attendance": "asistio"
+    },
+    {
+      "id": 70,
+      "volunteerId": 15,
+      "activityId": 5,
+      "registrationDate": "2025-05-16",
+      "status": "aceptado",
+      "attendance": "asistio"
+    },
+    {
+      "id": 71,
+      "volunteerId": 32,
+      "activityId": 5,
+      "registrationDate": "2025-05-16",
+      "status": "rechazado",
+      "attendance": "no asistio"
+    },
+    {
+      "id": 72,
+      "volunteerId": 1,
+      "activityId": 5,
+      "registrationDate": "2025-05-16",
+      "status": "aceptado",
+      "attendance": "asistio"
+    },
+    {
+      "id": 73,
+      "volunteerId": 40,
+      "activityId": 5,
+      "registrationDate": "2025-05-16",
+      "status": "aceptado",
+      "attendance": "no asistio"
+    },
+    {
+      "id": 74,
+      "volunteerId": 6,
+      "activityId": 5,
+      "registrationDate": "2025-05-16",
+      "status": "rechazado",
+      "attendance": "no asistio"
+    },
+    {
+      "id": 75,
+      "volunteerId": 27,
+      "activityId": 5,
+      "registrationDate": "2025-05-16",
+      "status": "aceptado",
+      "attendance": "asistio"
+    },
+    {
+      "id": 76,
+      "volunteerId": 43,
+      "activityId": 5,
+      "registrationDate": "2025-05-16",
+      "status": "aceptado",
+      "attendance": "asistio"
+    },
+    {
+      "id": 77,
+      "volunteerId": 19,
+      "activityId": 5,
+      "registrationDate": "2025-05-16",
+      "status": "rechazado",
+      "attendance": "no asistio"
+    },
+    {
+      "id": 78,
+      "volunteerId": 22,
+      "activityId": 5,
+      "registrationDate": "2025-05-16",
+      "status": "aceptado",
+      "attendance": "asistio"
+    },
+    {
+      "id": 79,
+      "volunteerId": 9,
+      "activityId": 6,
+      "registrationDate": "2025-05-16",
+      "status": "aceptado",
+      "attendance": "asistio"
+    },
+    {
+      "id": 80,
+      "volunteerId": 28,
+      "activityId": 6,
+      "registrationDate": "2025-05-16",
+      "status": "rechazado",
+      "attendance": "no asistio"
+    },
+    {
+      "id": 81,
+      "volunteerId": 12,
+      "activityId": 6,
+      "registrationDate": "2025-05-16",
+      "status": "aceptado",
+      "attendance": "no asistio"
+    },
+    {
+      "id": 82,
+      "volunteerId": 44,
+      "activityId": 6,
+      "registrationDate": "2025-05-16",
+      "status": "aceptado",
+      "attendance": "asistio"
+    },
+    {
+      "id": 83,
+      "volunteerId": 21,
+      "activityId": 6,
+      "registrationDate": "2025-05-16",
+      "status": "rechazado",
+      "attendance": "no asistio"
+    },
+    {
+      "id": 84,
+      "volunteerId": 36,
+      "activityId": 6,
+      "registrationDate": "2025-05-16",
+      "status": "aceptado",
+      "attendance": "asistio"
+    },
+    {
+      "id": 85,
+      "volunteerId": 14,
+      "activityId": 6,
+      "registrationDate": "2025-05-16",
+      "status": "aceptado",
+      "attendance": "asistio"
+    },
+    {
+      "id": 86,
+      "volunteerId": 33,
+      "activityId": 6,
+      "registrationDate": "2025-05-16",
+      "status": "rechazado",
+      "attendance": "no asistio"
+    },
+    {
+      "id": 87,
+      "volunteerId": 2,
+      "activityId": 6,
+      "registrationDate": "2025-05-16",
+      "status": "aceptado",
+      "attendance": "asistio"
+    },
+    {
+      "id": 88,
+      "volunteerId": 41,
+      "activityId": 6,
+      "registrationDate": "2025-05-16",
+      "status": "aceptado",
+      "attendance": "no asistio"
+    },
+    {
+      "id": 89,
+      "volunteerId": 7,
+      "activityId": 6,
+      "registrationDate": "2025-05-16",
+      "status": "rechazado",
+      "attendance": "no asistio"
+    },
+    {
+      "id": 90,
+      "volunteerId": 26,
+      "activityId": 6,
+      "registrationDate": "2025-05-16",
+      "status": "aceptado",
+      "attendance": "asistio"
+    },
+    {
+      "id": 91,
+      "volunteerId": 45,
+      "activityId": 6,
+      "registrationDate": "2025-05-16",
+      "status": "aceptado",
+      "attendance": "asistio"
+    },
+    {
+      "id": 92,
+      "volunteerId": 18,
+      "activityId": 6,
+      "registrationDate": "2025-05-16",
+      "status": "rechazado",
+      "attendance": "no asistio"
+    },
+    {
+      "id": 93,
+      "volunteerId": 24,
+      "activityId": 6,
+      "registrationDate": "2025-05-16",
+      "status": "aceptado",
+      "attendance": "asistio"
+    }
+  ]
 }
