@@ -1,12 +1,13 @@
-.login-container,
 .register-container {
-  max-width: 400px;
+  width: 500px;
   margin: 80px auto;
   padding: 30px;
   border-radius: 12px;
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.25);
   background-color: #ffffff;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 h2 {
@@ -15,57 +16,51 @@ h2 {
   color: #333;
 }
 
-label {
-  display: block;
-  margin-bottom: 6px;
-  font-weight: 600;
-  color: #444;
-}
-
-input[type="text"],
-input[type="password"],
-input[type="email"] {
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  margin-bottom: 20px;
   width: 100%;
-  padding: 10px 12px;
-  margin-bottom: 18px;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-  font-size: 14px;
-  transition: border 0.3s;
 }
 
-input:focus {
-  border-color: #4a90e2;
-  outline: none;
-}
-
-button {
+mat-form-field {
   width: 100%;
-  padding: 10px 15px;
-  background-color: #4a90e2;
-  color: white;
-  font-size: 15px;
+}
+
+/* Botones al mismo tamaño que los inputs */
+.button-group {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  width: 100%;
+}
+
+.button-group button {
+  width: 100%;
+  padding: 12px;
+  font-size: 16px;
   font-weight: bold;
-  border: none;
   border-radius: 6px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
+  background-color:#9BD0DF;
+  color: #000000;
 }
 
-button:hover {
-  background-color: #357ac8;
+/* Botón cancelar estilo bordeado */
+.button-group button.cancel {
+  background-color: #ffffff;
+  color: #9BD0DF;
+  border: 1px solid #9BD0DF;
 }
 
-hr {
-  margin: 25px 0;
-  border: none;
-  height: 1px;
-  background-color: #ddd;
+/* Responsivo: una sola columna en pantallas pequeñas */
+@media (max-width: 768px) {
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
-p {
-  text-align: center;
-  font-size: 14px;
-  margin: 10px 0;
-  color: #666;
+/* Cambiar color del label cuando está enfocado */
+::ng-deep .mat-mdc-form-field.mat-focused .mdc-floating-label {
+  color: #000000 !important;
 }

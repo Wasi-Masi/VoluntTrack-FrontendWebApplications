@@ -1,29 +1,52 @@
-<div class="register-form">
+<div class="register-container">
   <h2>Registro de Usuario</h2>
 
-  <label>Nombre de usuario:</label>
-  <input type="text" [(ngModel)]="username" />
+  <div class="form-grid">
+    <mat-form-field appearance="outline">
+      <mat-label>Nombre de usuario</mat-label>
+      <input matInput [(ngModel)]="username" />
+    </mat-form-field>
 
-  <label>Email:</label>
-  <input type="email" [(ngModel)]="email" />
+    <mat-form-field appearance="outline">
+      <mat-label>Email</mat-label>
+      <input matInput type="email" [(ngModel)]="email" />
+    </mat-form-field>
 
-  <label>Teléfono:</label>
-  <input type="text" [(ngModel)]="phone" />
+    <mat-form-field appearance="outline">
+      <mat-label>Teléfono</mat-label>
+      <input matInput [(ngModel)]="phone" />
+    </mat-form-field>
 
-  <label>Ícono (URL):</label>
-  <input type="text" [(ngModel)]="pfp" />
+    <mat-form-field appearance="outline">
+      <mat-label>Ícono (URL)</mat-label>
+      <input matInput [(ngModel)]="pfp" />
+    </mat-form-field>
 
-  <label>Banner (URL):</label>
-  <input type="text" [(ngModel)]="banner" />
+    <mat-form-field appearance="outline">
+      <mat-label>Banner (URL)</mat-label>
+      <input matInput [(ngModel)]="banner" />
+    </mat-form-field>
 
-  <label>Descripcion:</label>
-  <input type="text" [(ngModel)]="description" />
+    <mat-form-field appearance="outline">
+      <mat-label>Descripción</mat-label>
+      <input matInput [(ngModel)]="description" />
+    </mat-form-field>
 
-  <label>Contraseña:</label>
-  <input type="password" [(ngModel)]="password" />
+    <mat-form-field appearance="outline">
+      <mat-label>Contraseña</mat-label>
+      <input matInput type="password" [(ngModel)]="password" />
+    </mat-form-field>
 
-  <label>Confirmar contraseña:</label>
-  <input type="password" [(ngModel)]="confirmPassword" />
+    <mat-form-field appearance="outline">
+      <mat-label>Confirmar contraseña</mat-label>
+      <input matInput type="password" [(ngModel)]="confirmPassword" />
+    </mat-form-field>
+  </div>
 
-  <button (click)="registerUser()">Registrarse</button>
+  <div class="button-group">
+    <button class="cancel" mat-stroked-button (click)="goToLogin()">Cancelar</button>
+    <button mat-flat-button (click)="registerUser()">Registrarse</button>
+  </div>
 </div>
+
+<div style="height: 10%;"></div>
