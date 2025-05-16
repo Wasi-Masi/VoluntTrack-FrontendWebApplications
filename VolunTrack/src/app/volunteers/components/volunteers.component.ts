@@ -143,12 +143,12 @@ export class VolunteersComponent implements OnInit, AfterViewInit {
       }
     });
   }
-  /*
+
   fireNotification() {
     this.notificationsService.createTypedNotification('mail').subscribe(() => {
       window.dispatchEvent(new Event('openNotifications'));
     });
-  }*/
+  }
   aproveSendEmail() {
     this.sendEmail = !this.sendEmail;
     console.log(this.sendEmail);

@@ -15,7 +15,8 @@
           {{ noti.createdAt | date: "'Today, 'EEEE d 'of' MMMM 'of' y, 'at' h:mm 'hours'" }}
         </div>
         <div class="notification-message">
-          {{ noti.message }}
+          <p><strong>{{ noti.title }}</strong></p>
+          <p>{{ noti.message }}</p>
         </div>
       </div>
       <div class="notification-actions">
