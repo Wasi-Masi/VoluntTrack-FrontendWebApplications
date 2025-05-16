@@ -1123,24 +1123,6 @@
   ],
   "notifications": [
     {
-      "id": "1",
-      "title": "Actividad creada",
-      "message": "Has creado una nueva actividad de voluntariado. ¡Comparte para sumar voluntarios!",
-      "createdAt": "2025-05-16T09:50:55.558Z"
-    },
-    {
-      "id": "2",
-      "title": "Correo enviado",
-      "message": "Has enviado correctamente un correo al voluntario seleccionado.",
-      "createdAt": "2025-05-16T11:45:23.435Z"
-    },
-    {
-      "id": "3",
-      "title": "Correo enviado",
-      "message": "Has enviado correctamente un correo al voluntario seleccionado.",
-      "createdAt": "2025-05-16T11:46:30.703Z"
-    },
-    {
       "id": "4",
       "title": "Correo enviado",
       "message": "Has enviado correctamente un correo al voluntario seleccionado.",

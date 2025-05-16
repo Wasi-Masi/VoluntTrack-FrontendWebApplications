@@ -60,9 +60,9 @@ export class NotificationsService {
             title = 'Actividad creada';
             message = 'Has creado una nueva actividad de voluntariado. ¡Comparte para sumar voluntarios!';
             break;
-          case 'volunteer-joined':
-            title = 'Nuevo voluntario';
-            message = 'Un voluntario se ha unido a una de tus actividades. Revisa los detalles.';
+          case 'open-inscriptions':
+            title = 'Inscripciones abiertas';
+            message = 'Acabas de abrir inscripciones para la actividad seleccionada. ¡Sean todos bienvenidos!';
             break;
           case 'certificate':
             title = 'Certificados disponibles';
