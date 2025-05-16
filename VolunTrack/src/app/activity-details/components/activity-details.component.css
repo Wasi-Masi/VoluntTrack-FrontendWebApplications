@@ -14,23 +14,23 @@ h2 {
 }
 
 .details-container {
-  display: flex;
-  gap: 30px;
+  padding: 4rem;
+  border-radius: 20px;
+  box-sizing: border-box;
+  background-color: rgba(155, 208, 223, 0.5);
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.25);
   max-width: 90%;
-  height: 55%;
-  margin: 20px auto;
-  padding: 20px;
-  background-color: #9BD0DF50;
-  border-radius: 16px;
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
-
+  width: 100%;
+  height: 80%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  gap: 6rem;
 }
 
 
-
-
 .left-panel {
-  width: 30%;
+  width: 40%;
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -115,7 +115,7 @@ h2 {
 
 /* PANEL DERECHO: Detalles de la actividad */
 .right-panel {
-  width: 70%;
+  width: 60%;
   height: 100%;
   display: flex;
   flex-direction: column;
