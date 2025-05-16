@@ -36,7 +36,7 @@ import { Volunteer } from '../model/volunteers.entity';
 import {DatePipe, NgClass, NgIf} from '@angular/common';
 
 import { NotificationsService } from '../../notifications/services/notifications.service';
-import { TranslatePipe} from '@ngx-translate/core';
+import {CertificatesDialogComponent} from './certificates-dialog.component';
 
 @Component({
   selector: 'app-volunteers',
@@ -57,8 +57,7 @@ import { TranslatePipe} from '@ngx-translate/core';
     MatButtonModule,
     NgIf,
     DatePipe,
-    NgClass,
-    TranslatePipe
+    NgClass
   ],
   templateUrl: './volunteers.component.html',
   styleUrls: ['./volunteers.component.css']
@@ -109,6 +108,16 @@ export class VolunteersComponent implements OnInit, AfterViewInit {
   }
 
 
+  openCertificatesDialog() {
+    if (!this.selectedVolunteer) return;
+
+    this.dialog.open(CertificatesDialogComponent, {
+      width: '600px',
+      data: { volunteerId: this.selectedVolunteer.id }
+    });
+  }
+
+
   applyFilters(): void {
     this.dataSource.data = this.volunteers.filter(v => {
       const matchesName = this.searchText === '' || v.fullName.toLowerCase().includes(this.searchText.toLowerCase());
@@ -120,6 +129,7 @@ export class VolunteersComponent implements OnInit, AfterViewInit {
     });
     this.dataSource.paginator = this.paginator;
   }
+
 
   openFilterDialog(): void {
     const dialogRef = this.dialog.open(VolunteerFilterDialogComponent, {
@@ -250,7 +260,6 @@ export class VolunteersComponent implements OnInit, AfterViewInit {
 
 @Component({
   selector: 'app-volunteer-filter-dialog',
-  standalone: true,
   imports: [
     MatDialogTitle,
     MatDialogContent,

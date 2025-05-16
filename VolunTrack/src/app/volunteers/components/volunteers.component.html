@@ -134,15 +134,14 @@
           </div>
         </div>
 
-        <div class="actions">
-          <button mat-raised-button color="primary">Ver certificados</button>
-          <button mat-raised-button (click)="aproveSendEmail()" color="accent">Enviar correo</button>
-          <button mat-raised-button color="warn">Añadir a actividad</button>
-          <button mat-stroked-button color="warn">Dar de baja</button>
-        </div>
+      <div class="actions">
+        <button mat-raised-button color="primary" (click)="openCertificatesDialog()">Ver certificados</button>
+        <button mat-raised-button (click)="aproveSendEmail()" color="accent">Enviar correo</button>
+        <button mat-raised-button color="warn">Añadir a actividad</button>
+        <button mat-stroked-button color="warn">Dar de baja</button>
       </div>
       <div class="volunteer-bottom-panel">
-        <div *ngIf="sendEmail === true; else historyPanel" class="volunteer-history-panel mat-elevation-z4">
+        <div *ngIf="sendEmail; else historyPanel" class="volunteer-history-panel mat-elevation-z4">
           <!-- Email form -->
           <div class="volunteer-email-panel mat-elevation-z4">
             <form>
@@ -176,5 +175,5 @@
     </div>
 
   </div>
-
+  </div>
 </div>

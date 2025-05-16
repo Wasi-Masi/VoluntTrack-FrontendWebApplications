@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { NotificationsService } from '../services/notifications.service';
 import { Notification } from '../model/notifications.entity';
-import { MatButton } from '@angular/material/button';
 import { CommonModule, NgForOf } from '@angular/common';
 import { MatIconModule } from '@angular/material/icon';
 import { TranslatePipe } from '@ngx-translate/core';
@@ -10,7 +9,6 @@ import { TranslatePipe } from '@ngx-translate/core';
   selector: 'app-notifications',
   standalone: true,
   imports: [
-    MatButton,
     CommonModule,
     NgForOf,
     MatIconModule,
