@@ -51,9 +51,14 @@ export class CreateActivityComponent {
       .map(url => url.trim())
       .filter(url => url.length > 0);
 
-    const newActivity: Activity = {
-      ...this.activity,
-      id: Date.now(),
+    this.createService.getActivities().subscribe(existingActivities => {
+      const maxId = existingActivities.length > 0
+        ? Math.max(...existingActivities.map(a => a.id))
+        : 0;
+
+      const newActivity: Activity = {
+        ...this.activity,
+        id: maxId + 1,
       inscriptionCount: 0,
       isInscriptionOpen: true,
       instructions: this.instructions
