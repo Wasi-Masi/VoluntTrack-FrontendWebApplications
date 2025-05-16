@@ -133,7 +133,7 @@
             <p><strong>Fecha de inscripción:</strong> {{ selectedVolunteer.registrationDate | date }}</p>
           </div>
         </div>
-
+      </div>
       <div class="actions">
         <button mat-raised-button color="primary" (click)="openCertificatesDialog()">Ver certificados</button>
         <button mat-raised-button (click)="aproveSendEmail()" color="accent">Enviar correo</button>
@@ -166,7 +166,7 @@
           <!-- Vacío por ahora -->
           <div class="volunteer-history-panel mat-elevation-z4">
           <h3>Historial de Actividades</h3>
-            <!-- Email form -->
+            <p>No hay actividades recientes.</p>
 
           </div>
         </ng-template>
@@ -174,6 +174,5 @@
       </div>
     </div>
 
-  </div>
   </div>
 </div>
