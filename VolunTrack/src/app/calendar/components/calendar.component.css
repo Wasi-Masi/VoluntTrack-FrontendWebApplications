@@ -125,12 +125,19 @@
   background-color: #F2F7F8;
   border-radius: 5px;
   display: flex;
+  flex-direction: column;
   text-align: start;
   align-items: start;
 }
 
 .day p {
   margin: 0;
+  line-height: 1em;
+}
+
+.day .activity p {
+  margin-top: 5px;
+  color: #0C7987;
 }
 
 .outside {
