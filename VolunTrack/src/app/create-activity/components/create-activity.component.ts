@@ -1,11 +1,80 @@
 import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+import { Router, RouterLink } from '@angular/router';
+import {TranslateModule} from "@ngx-translate/core";
+import { Activity } from '../../dashboard/model/dashboard.entity';
+import {MatButton} from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+import { CreateActivityService } from '../services/create-activity.service';
 
 @Component({
   selector: 'app-create-activity',
-  imports: [],
+  standalone: true,
   templateUrl: './create-activity.component.html',
-  styleUrl: './create-activity.component.css'
+  styleUrls: ['./create-activity.component.css'],
+  imports: [
+    CommonModule,
+    FormsModule,
+    RouterLink,
+    MatButton,
+    MatIconModule,
+    TranslateModule
+  ]
 })
 export class CreateActivityComponent {
+  activity: Activity = new Activity(
+    0,
+    '',
+    '',
+    [],
+    '',
+    '',
+    '',
+    '',
+    '',
+    [],
+    [],
+    0,
+    true
+  );
 
+  instructions: string = '';
+  purpose: string = '';
+  picturesInput: string = '';
+
+  constructor(private createService: CreateActivityService, private router: Router) {}
+
+  onSubmit() {
+    const pictures = this.picturesInput
+      .split('\n')
+      .map(url => url.trim())
+      .filter(url => url.length > 0);
+
+    const newActivity: Activity = {
+      ...this.activity,
+      id: Date.now(),
+      inscriptionCount: 0,
+      isInscriptionOpen: true,
+      instructions: this.instructions
+        .split('\n')
+        .map(line => line.trim())
+        .filter(line => line.length > 0),
+      purpose: this.purpose
+        .split('\n')
+        .map(line => line.trim())
+        .filter(line => line.length > 0),
+      dashboardPicture: pictures[0] || '',  // 👈 la primera será la del dashboard
+      pictures: pictures
+    };
+
+    this.createService.createActivity(newActivity).subscribe(() => {
+      this.router.navigate(['/dashboard']);
+    });
+
+  }
+
+  discard() {
+    this.router.navigate(['/dashboard']);
+  }
 }

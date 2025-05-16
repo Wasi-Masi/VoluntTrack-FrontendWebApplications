@@ -10,6 +10,7 @@ import {RouterLink} from '@angular/router';
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
+  standalone: true,
   imports: [
     MatButton,
     NgForOf,

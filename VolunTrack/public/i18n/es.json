@@ -1,0 +1,19 @@
+{
+  "create-act": {
+    "add-pictures": "Agregar imágenes",
+    "instructions-pictures": "Una URL por línea, la primera aparecerá en el dashboard",
+    "title": "Título",
+    "date": "Fecha",
+    "startTime": "Hora de inicio",
+    "endTime": "Hora de fin",
+    "address": "Dirección",
+    "description": "Descripción",
+    "description-textarea": "Describe la actividad",
+    "instructions": "Instrucciones",
+    "instructions-textarea": "Una instrucción por línea",
+    "purpose": "Propósito",
+    "purpose-textarea": "Un propósito por línea",
+    "create": "Crear",
+    "discard": "Descartar"
+  }
+}

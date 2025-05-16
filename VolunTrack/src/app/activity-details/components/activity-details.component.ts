@@ -11,6 +11,7 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 @Component({
   selector: 'app-activity-details',
   templateUrl: './activity-details.component.html',
+  standalone: true,
   imports: [
     NgForOf,
     MatIconModule,
@@ -35,9 +36,14 @@ export class ActivityDetailsComponent implements OnInit {
 
   ngOnInit(): void {
     const id = +this.route.snapshot.paramMap.get('id')!;
-    this.activityService.getActivityById(id).subscribe(activity => {
-      this.activity = activity;
-      this.selectedImage = activity.pictures?.[0] || ''; // ✅ Usamos el primer elemento del array
+    this.activityService.getActivityById(id).subscribe({
+      next: activity => {
+        this.activity = activity;
+        this.selectedImage = activity.pictures?.[0] || '';
+      },
+      error: err => {
+        console.error('Error fetching activity:', err);
+      }
     });
   }
 

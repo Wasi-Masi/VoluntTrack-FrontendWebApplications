@@ -1,0 +1,19 @@
+{
+  "create-act": {
+    "add-pictures": "Add pictures",
+    "instructions-pictures": "One URL per line, first one will be shown on dashboard",
+    "title": "Title",
+    "date": "Date",
+    "startTime": "Start time",
+    "endTime": "End time",
+    "address": "Address",
+    "description": "Description",
+    "description-textarea": "Describe the activity",
+    "instructions": "Instructions",
+    "instructions-textarea": "One instruction per line",
+    "purpose": "Purpose",
+    "purpose-textarea": "One purpose per line",
+    "create": "Create",
+    "discard": "Discard"
+  }
+}

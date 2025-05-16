@@ -8,7 +8,7 @@ import { Activity } from '../../dashboard/model/dashboard.entity';
 })
 export class ActivityDetailsService {
 
-  private apiUrl = 'http://localhost:3000/activities'; // Asegúrate de que coincida con tu JSON
+  private apiUrl = 'http://localhost:3000/activities';
 
   constructor(private http: HttpClient) {}
 
