@@ -2690,6 +2690,56 @@ El equipo logró completar satisfactoriamente todas las tareas planificadas. Asi
 
 A continuación, se presentan capturas de pantalla de las vistas desarrolladas durante este sprint.
 
+<p align="center">
+  <img src="./assets/login.png" alt="Login" width="700">
+</p>
+<p align="center"><strong>Figura 154.</strong> Vista de inicio de sesión de la plataforma VolunTrack.</p>
+
+<p align="center">
+  <img src="./assets/register.png" alt="Registro" width="700">
+</p>
+<p align="center"><strong>Figura 155.</strong> Vista del formulario de registro de nuevos usuarios.</p>
+
+<p align="center">
+  <img src="./assets/dashboard-1.png" alt="Dashboard1" width="700">
+</p>
+<p align="center"><strong>Figura 156.</strong> Vista principal del Dashboard de actividades.</p>
+
+<p align="center">
+  <img src="./assets/dashboard-2.png" alt="Dashboard2" width="700">
+</p>
+<p align="center"><strong>Figura 157.</strong> Sección de navegación y métricas dentro del Dashboard.</p>
+
+<p align="center">
+  <img src="./assets/dashboard-3.png" alt="Dashboard3" width="700">
+</p>
+<p align="center"><strong>Figura 158.</strong> Calendario.</p>
+
+<p align="center">
+  <img src="./assets/card.png" alt="CardActividad" width="700">
+</p>
+<p align="center"><strong>Figura 159.</strong> Visualización de tarjeta de actividad.</p>
+
+<p align="center">
+  <img src="./assets/notificaciones-1.png" alt="Notificaciones" width="700">
+</p>
+<p align="center"><strong>Figura 160.</strong> Sistema de gestion de voluntarios.</p>
+
+<p align="center">
+  <img src="./assets/perfil.png" alt="Perfil" width="700">
+</p>
+<p align="center"><strong>Figura 161.</strong> Vista del perfil del usuario con información detallada.</p>
+
+<p align="center">
+  <img src="./assets/notificaiones-perfil.png" alt="NotificacionesPerfil" width="700">
+</p>
+<p align="center"><strong>Figura 162.</strong> Visualización de notificaciones desde la sección de perfil del usuario.</p>
+
+### Video del Sprint 2 Review
+
+[Ver video del Sprint 2 Review](https://drive.google.com/file/d/1pp985R2apsaa4qa8KcvP_UM9SSYTLKDV/view?usp=sharing)
+
+
 ## 5.2.2.6. Services Documentation Evidence for Sprint Review
 
 Se implementó la gestión de solicitudes HTTP desde el frontend hacia una API falsa basada en JSON Server, la cual se estructuró a partir de los datos de `db.json` y sus endpoints simulados.
@@ -2754,6 +2804,66 @@ Se implementó la gestión de solicitudes HTTP desde el frontend hacia una API f
 **URL de la API Simulada (Local):** [http://localhost:3000/](http://localhost:3000/)
 
 Se implementó la gestión de solicitudes HTTP desde el frontend hacia una API falsa basada en JSON Server, la cual se estructuró a partir de los datos de `db.json` y sus endpoints simulados.
+
+## 5.2.2.7  Software Deployment Evidence for Sprint Review
+<p align="center">
+  <img src="./assets/5.2.2.7-1.png" alt="deploy1" width="700">
+</p>
+<p align="center"><strong>Figura 163.</strong> Creación del repositorio en GitHub.</p>
+
+Primero crearemos el repositorio de nuestra fake API, para subirla a la nube mediante Render.
+
+<p align="center">
+  <img src="./assets/5.2.2.7-2.png" alt="deploy1" width="700">
+</p>
+<p align="center"><strong>Figura 164.</strong> Creación del repositorio de la fake API en GitHub.</p>
+
+Con el repositorio listo, ingresamos a Render y creamos un nuevo Web Service, vinculando el repositorio de GitHub que habíamos preparado. Durante la configuración, optamos por una instancia gratuita y seguimos los pasos requeridos para iniciar el proceso de despliegue.
+
+<p align="center">
+  <img src="./assets/5.2.2.7-3.png" alt="deploy2" width="700">
+</p>
+<p align="center"><strong>Figura 165.</strong> Configuración del servicio Web en Render a partir del repositorio.</p>
+
+Tras unos instantes, Render indicó que el servicio estaba "Live", lo que significaba que la API se había desplegado exitosamente y era accesible de forma pública.
+
+<p align="center">
+  <img src="./assets/5.2.2.7-4.png" alt="deploy3" width="700">
+</p>
+<p align="center"><strong>Figura 166.</strong> Servicio desplegado exitosamente en Render (estado “Live”).</p>
+
+Para asegurar el correcto funcionamiento, accedimos a la URL pública proporcionada por Render y probamos los diferentes endpoints. Una vez confirmada su operatividad, actualizamos en nuestro proyecto las direcciones locales de la API simulada por el nuevo enlace público de Render.  
+Este ajuste posibilitó que nuestra aplicación accediera a los datos de forma remota y operativa en cualquier ambiente.
+
+<p align="center">
+  <img src="./assets/5.2.2.7-5.png" alt="deploy4" width="700">
+</p>
+<p align="center"><strong>Figura 167.</strong> Comprobación de endpoints funcionando desde la API desplegada.</p>
+
+### Actividades realizadas:
+
+1. Instalación de Firebase CLI  
+   Se instaló Firebase CLI globalmente en el entorno local para poder gestionar el despliegue.  
+   Comando utilizado: npm install -g firebase-tools
+
+<p align="center">
+  <img src="./assets/instalacion.png" alt="Instalación Firebase CLI" width="700">
+</p>
+<p align="center"><strong>Figura 168.</strong> Instalación de Firebase CLI en el entorno local.</p>
+
+2. Autenticación en Firebase  
+   Se autenticó la cuenta de Firebase utilizando el siguiente comando:  
+   firebase login
+
+3. Inicialización del Proyecto en Firebase  
+   Se inicializó el proyecto Firebase en la raíz del proyecto. Durante la configuración, se especificó el directorio de distribución del build (por ejemplo, `dist`) y se indicó que no se trataba de una single-page application.  
+   Comando utilizado: firebase init hosting
+
+<p align="center">
+  <img src="./assets/inicio.png" alt="Inicialización Firebase" width="700">
+</p>
+<p align="center"><strong>Figura 169.</strong> Proceso de inicialización del hosting en Firebase CLI.</p>
+
 ## Conclusiones
 
 El trabajo parcial realizado en el proyecto **VolunTrack** representó un avance sustancial en la materialización de la plataforma destinada a facilitar la gestión de ONGs y la conexión con voluntarios. Durante esta etapa, el equipo logró desarrollar una aplicación web funcional que cumple con los requerimientos básicos planteados inicialmente, permitiendo la gestión eficiente de información y procesos relacionados con las organizaciones no gubernamentales. Esta creación de una aplicación operativa marca un hito importante, ya que traduce en un producto tangible las ideas y diseños elaborados en fases previas del proyecto.
