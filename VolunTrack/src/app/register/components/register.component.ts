@@ -69,7 +69,7 @@ export class RegisterComponent {
         inscriptions: 'Automatic'
       };
 
-      this.http.post('http://localhost:3000/users', newUser).subscribe({
+      this.http.post('https://voluntrack.onrender.com/users', newUser).subscribe({
         next: () => {
           this.goToLogin();
         },

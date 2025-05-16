@@ -15,7 +15,7 @@ import {Volunteer } from '../../volunteers/model/volunteers.entity'
   providedIn: 'root'
 })
 export class RegisteredVolunteersService {
-  private apiUrl = 'http://localhost:3000/registers';
+  private apiUrl = 'https://voluntrack.onrender.com/registers';
 
   constructor(private http: HttpClient) { }
 
@@ -25,7 +25,7 @@ export class RegisteredVolunteersService {
     return this.http.get<RegisteredVolunteersEntity[]>(this.apiUrl, { params });
   }
   getVolunteerById(id: string): Observable<Volunteer> {
-    return this.http.get<Volunteer>(`http://localhost:3000/volunteers/${id}`);
+    return this.http.get<Volunteer>(`https://voluntrack.onrender.com/volunteers/${id}`);
   }
 
   updateAttendance(registrationId: string, attendance: string): Observable<any> {

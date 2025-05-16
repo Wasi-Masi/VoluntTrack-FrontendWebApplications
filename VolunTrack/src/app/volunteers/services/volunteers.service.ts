@@ -11,7 +11,7 @@ import { Volunteer } from '../model/volunteers.entity';
   providedIn: 'root'
 })
 export class VolunteersService {
-  private apiUrl = 'http://localhost:3000';
+  private apiUrl = 'https://voluntrack.onrender.com';
 
   constructor(private http: HttpClient) {}
 
