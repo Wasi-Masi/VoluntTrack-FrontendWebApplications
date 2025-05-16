@@ -351,7 +351,9 @@
       "profession": "Psicólogo",
       "profilePicture": "https://i.imgur.com/jVyXxXV.jpg",
       "isFeatured": false,
-      "certificateIds": [4]
+      "certificateIds": [
+        4
+      ]
     },
     {
       "id": 3,
@@ -364,7 +366,9 @@
       "profession": "Profesor",
       "profilePicture": "https://i.imgur.com/jVyXxXV.jpg",
       "isFeatured": true,
-      "certificateIds": [6]
+      "certificateIds": [
+        6
+      ]
     },
     {
       "id": 4,
@@ -377,7 +381,10 @@
       "profession": "Abogado",
       "profilePicture": "https://i.imgur.com/jVyXxXV.jpg",
       "isFeatured": false,
-      "certificateIds": [1, 7]
+      "certificateIds": [
+        1,
+        7
+      ]
     },
     {
       "id": 5,
@@ -403,7 +410,10 @@
       "profession": "Diseñador",
       "profilePicture": "https://i.imgur.com/jVyXxXV.jpg",
       "isFeatured": false,
-      "certificateIds": [3, 8]
+      "certificateIds": [
+        3,
+        8
+      ]
     },
     {
       "id": 7,
@@ -416,7 +426,9 @@
       "profession": "Psicólogo",
       "profilePicture": "https://i.imgur.com/jVyXxXV.jpg",
       "isFeatured": false,
-      "certificateIds": [10]
+      "certificateIds": [
+        10
+      ]
     },
     {
       "id": 8,
@@ -429,7 +441,11 @@
       "profession": "Administrador",
       "profilePicture": "https://i.imgur.com/jVyXxXV.jpg",
       "isFeatured": true,
-      "certificateIds": [2, 4, 6]
+      "certificateIds": [
+        2,
+        4,
+        6
+      ]
     },
     {
       "id": 9,
@@ -442,7 +458,9 @@
       "profession": "Estudiante",
       "profilePicture": "https://i.imgur.com/jVyXxXV.jpg",
       "isFeatured": false,
-      "certificateIds": [3]
+      "certificateIds": [
+        3
+      ]
     },
     {
       "id": 10,
@@ -468,7 +486,10 @@
       "profession": "Trabajadora social",
       "profilePicture": "https://i.imgur.com/jVyXxXV.jpg",
       "isFeatured": true,
-      "certificateIds": [1, 4]
+      "certificateIds": [
+        1,
+        4
+      ]
     },
     {
       "id": 12,
@@ -494,7 +515,10 @@
       "profession": "Arquitecto",
       "profilePicture": "https://i.imgur.com/jVyXxXV.jpg",
       "isFeatured": false,
-      "certificateIds": [7, 9]
+      "certificateIds": [
+        7,
+        9
+      ]
     },
     {
       "id": 14,
@@ -507,7 +531,9 @@
       "profession": "Estudiante",
       "profilePicture": "https://i.imgur.com/jVyXxXV.jpg",
       "isFeatured": false,
-      "certificateIds": [3]
+      "certificateIds": [
+        3
+      ]
     },
     {
       "id": 15,
@@ -533,7 +559,10 @@
       "profession": "Ingeniera Ambiental",
       "profilePicture": "https://i.imgur.com/jVyXxXV.jpg",
       "isFeatured": true,
-      "certificateIds": [5, 8]
+      "certificateIds": [
+        5,
+        8
+      ]
     },
     {
       "id": 17,
@@ -546,7 +575,9 @@
       "profession": "Médico",
       "profilePicture": "https://i.imgur.com/jVyXxXV.jpg",
       "isFeatured": false,
-      "certificateIds": [2]
+      "certificateIds": [
+        2
+      ]
     },
     {
       "id": 18,
@@ -572,7 +603,11 @@
       "profession": "Ingeniero",
       "profilePicture": "https://i.imgur.com/jVyXxXV.jpg",
       "isFeatured": false,
-      "certificateIds": [6, 9, 10]
+      "certificateIds": [
+        6,
+        9,
+        10
+      ]
     },
     {
       "id": 20,
@@ -585,7 +620,9 @@
       "profession": "Diseñadora gráfica",
       "profilePicture": "https://i.imgur.com/jVyXxXV.jpg",
       "isFeatured": true,
-      "certificateIds": [1]
+      "certificateIds": [
+        1
+      ]
     },
     {
       "id": 21,
@@ -598,7 +635,10 @@
       "profession": "Abogado",
       "profilePicture": "https://i.imgur.com/jVyXxXV.jpg",
       "isFeatured": false,
-      "certificateIds": [3, 7]
+      "certificateIds": [
+        3,
+        7
+      ]
     },
     {
       "id": 22,
@@ -624,7 +664,10 @@
       "profession": "Ingeniero Civil",
       "profilePicture": "https://i.imgur.com/jVyXxXV.jpg",
       "isFeatured": true,
-      "certificateIds": [2, 5]
+      "certificateIds": [
+        2,
+        5
+      ]
     },
     {
       "id": 24,
@@ -637,7 +680,9 @@
       "profession": "Psicóloga",
       "profilePicture": "https://i.imgur.com/jVyXxXV.jpg",
       "isFeatured": true,
-      "certificateIds": [4]
+      "certificateIds": [
+        4
+      ]
     },
     {
       "id": 25,
@@ -663,7 +708,10 @@
       "profession": "Enfermera",
       "profilePicture": "https://i.imgur.com/jVyXxXV.jpg",
       "isFeatured": false,
-      "certificateIds": [1, 6]
+      "certificateIds": [
+        1,
+        6
+      ]
     },
     {
       "id": 27,
@@ -676,7 +724,9 @@
       "profession": "Mecánico",
       "profilePicture": "https://i.imgur.com/jVyXxXV.jpg",
       "isFeatured": false,
-      "certificateIds": [3]
+      "certificateIds": [
+        3
+      ]
     },
     {
       "id": 28,
@@ -689,7 +739,10 @@
       "profession": "Diseñadora Industrial",
       "profilePicture": "https://i.imgur.com/jVyXxXV.jpg",
       "isFeatured": true,
-      "certificateIds": [7, 8]
+      "certificateIds": [
+        7,
+        8
+      ]
     },
     {
       "id": 29,
@@ -715,7 +768,9 @@
       "profession": "Periodista",
       "profilePicture": "https://i.imgur.com/jVyXxXV.jpg",
       "isFeatured": false,
-      "certificateIds": [10]
+      "certificateIds": [
+        10
+      ]
     },
     {
       "id": 31,
@@ -728,7 +783,10 @@
       "profession": "Arquitecto",
       "profilePicture": "https://i.imgur.com/jVyXxXV.jpg",
       "isFeatured": true,
-      "certificateIds": [2, 4]
+      "certificateIds": [
+        2,
+        4
+      ]
     },
     {
       "id": 32,
@@ -754,7 +812,10 @@
       "profession": "Médico",
       "profilePicture": "https://i.imgur.com/jVyXxXV.jpg",
       "isFeatured": true,
-      "certificateIds": [1, 5]
+      "certificateIds": [
+        1,
+        5
+      ]
     },
     {
       "id": 34,
@@ -767,7 +828,9 @@
       "profession": "Maestra",
       "profilePicture": "https://i.imgur.com/jVyXxXV.jpg",
       "isFeatured": false,
-      "certificateIds": [6]
+      "certificateIds": [
+        6
+      ]
     },
     {
       "id": 35,
@@ -793,7 +856,10 @@
       "profession": "Psicóloga",
       "profilePicture": "https://i.imgur.com/jVyXxXV.jpg",
       "isFeatured": true,
-      "certificateIds": [3, 7]
+      "certificateIds": [
+        3,
+        7
+      ]
     },
     {
       "id": 37,
@@ -806,7 +872,9 @@
       "profession": "Ingeniero Electrónico",
       "profilePicture": "https://i.imgur.com/jVyXxXV.jpg",
       "isFeatured": false,
-      "certificateIds": [2]
+      "certificateIds": [
+        2
+      ]
     },
     {
       "id": 38,
@@ -819,7 +887,10 @@
       "profession": "Diseñadora Gráfica",
       "profilePicture": "https://i.imgur.com/jVyXxXV.jpg",
       "isFeatured": false,
-      "certificateIds": [8, 9]
+      "certificateIds": [
+        8,
+        9
+      ]
     },
     {
       "id": 39,
@@ -845,7 +916,9 @@
       "profession": "Periodista",
       "profilePicture": "https://i.imgur.com/jVyXxXV.jpg",
       "isFeatured": true,
-      "certificateIds": [10]
+      "certificateIds": [
+        10
+      ]
     },
     {
       "id": 41,
@@ -858,7 +931,10 @@
       "profession": "Chef",
       "profilePicture": "https://i.imgur.com/jVyXxXV.jpg",
       "isFeatured": false,
-      "certificateIds": [1, 4]
+      "certificateIds": [
+        1,
+        4
+      ]
     },
     {
       "id": 42,
@@ -884,7 +960,10 @@
       "profession": "Contador",
       "profilePicture": "https://i.imgur.com/jVyXxXV.jpg",
       "isFeatured": true,
-      "certificateIds": [2, 3]
+      "certificateIds": [
+        2,
+        3
+      ]
     },
     {
       "id": 44,
@@ -897,7 +976,9 @@
       "profession": "Ingeniera Civil",
       "profilePicture": "https://i.imgur.com/jVyXxXV.jpg",
       "isFeatured": false,
-      "certificateIds": [5]
+      "certificateIds": [
+        5
+      ]
     },
     {
       "id": 45,
@@ -923,7 +1004,10 @@
       "profession": "Enfermera",
       "profilePicture": "https://i.imgur.com/jVyXxXV.jpg",
       "isFeatured": true,
-      "certificateIds": [6, 7]
+      "certificateIds": [
+        6,
+        7
+      ]
     },
     {
       "id": 47,
@@ -936,7 +1020,9 @@
       "profession": "Profesor",
       "profilePicture": "https://i.imgur.com/jVyXxXV.jpg",
       "isFeatured": false,
-      "certificateIds": [8]
+      "certificateIds": [
+        8
+      ]
     },
     {
       "id": 48,
@@ -949,7 +1035,10 @@
       "profession": "Diseñadora Industrial",
       "profilePicture": "https://i.imgur.com/jVyXxXV.jpg",
       "isFeatured": false,
-      "certificateIds": [9, 10]
+      "certificateIds": [
+        9,
+        10
+      ]
     },
     {
       "id": 49,
@@ -975,7 +1064,11 @@
       "profession": "Psicóloga",
       "profilePicture": "https://i.imgur.com/jVyXxXV.jpg",
       "isFeatured": true,
-      "certificateIds": [1, 2]
+      "certificateIds": [
+        1,
+        2
+      ]
     }
-  ]
+  ],
+  "notifications": []
 }

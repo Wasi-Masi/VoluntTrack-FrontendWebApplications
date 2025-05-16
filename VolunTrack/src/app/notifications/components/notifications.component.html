@@ -1,1 +1,37 @@
-<p>notifications works!</p>
+
+
+<div class="notification-drawer" [class.open]="isDrawerOpen">
+  <div class="drawer-header">
+    <h2>{{ 'NOTIFICATIONS.TITLE' | translate }}</h2>
+    <button class="close-btn" (click)="closeDrawer()">
+      <mat-icon>clear</mat-icon>
+    </button>
+  </div>
+
+  <div class="drawer-body" *ngIf="notifications.length; else noNotis">
+    <div class="notification-item" *ngFor="let noti of notifications">
+      <div class="notification-text-container">
+        <div class="notification-date">
+          {{ noti.createdAt | date: "'Today, 'EEEE d 'of' MMMM 'of' y, 'at' h:mm 'hours'" }}
+        </div>
+        <div class="notification-message">
+          {{ noti.message }}
+        </div>
+      </div>
+      <div class="notification-actions">
+        <mat-icon class="icon" (click)="deleteNotification(noti)">delete_outline
+        </mat-icon>
+      </div>
+    </div>
+
+    <button class="delete-all-btn" (click)="deleteAllNotifications()">
+      {{ 'NOTIFICATIONS.DELETE_ALL' | translate }}
+    </button>
+  </div>
+
+  <ng-template #noNotis>
+    <div class="empty-message">
+      {{ 'NOTIFICATIONS.EMPTY' | translate }}
+    </div>
+  </ng-template>
+</div>
