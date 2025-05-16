@@ -8,6 +8,7 @@ import {CalendarComponent} from './calendar/components/calendar.component';
 import { RegisterComponent } from './register/components/register.component';
 import { LoginComponent } from './login/components/login.component';
 import { ProfileComponent } from './profile/components/profile.component';
+import { EditActivityComponent } from './edit-activity/components/edit-activity.component';
 
 export const routes: Routes = [
   //{ path: '', redirectTo: 'dashboard', pathMatch: 'full' },
@@ -20,6 +21,7 @@ export const routes: Routes = [
   { path: 'activity/:id', component: ActivityDetailsComponent},
   { path: 'registered/:id', component: RegisteredVolunteersComponent},
   { path: 'create-activity', component: CreateActivityComponent },
+  { path: 'edit-activity/:id', component: EditActivityComponent },
   { path: 'calendar', component: CalendarComponent }
 ];
 
