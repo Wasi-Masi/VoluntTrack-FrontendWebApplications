@@ -2488,9 +2488,34 @@ En este capítulo se expone el progreso logrado durante el Sprint 2 en el desarr
 **Branch: `develop`**
 
 <p align="center">
-  <img src="./assets/brach%20develop.png" alt="develop" width="500">
+  <img src="./assets/brach%20develop.png" alt="develop" width="700">
 </p>
 <p align="center"><strong>Figura 119.</strong> Commits de la rama develop.</p>
+
+<p align="center">
+  <img src="./assets/brach%20develop%202.png" alt="develop" width="700">
+</p>
+<p align="center"><strong>Figura 120.</strong> Commits de la rama develop.</p>
+
+<p align="center">
+  <img src="./assets/brach%20develop%203.png" alt="develop" width="700">
+</p>
+<p align="center"><strong>Figura 121.</strong> Commits de la rama develop.</p>
+
+<p align="center">
+  <img src="./assets/brach%20develop%204.png" alt="develop" width="700">
+</p>
+<p align="center"><strong>Figura 122.</strong> Commits de la rama develop.</p>
+
+<p align="center">
+  <img src="./assets/brach%20develop%205.png" alt="develop" width="700">
+</p>
+<p align="center"><strong>Figura 123.</strong> Commits de la rama develop.</p>
+
+<p align="center">
+  <img src="./assets/brach%20develop%206.png" alt="develop" width="700">
+</p>
+<p align="center"><strong>Figura 124.</strong> Commits de la rama develop.</p>
 
 **Branch: `feature/-images-and-tables`**
 
