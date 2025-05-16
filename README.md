@@ -2174,6 +2174,94 @@ En esta imagen se aprecia la sección de “Insights” de Github, donde se pued
 
 Por otro lado, aquí se aprecia los commits realizados en el repositorio de la landing page
 
+### 5.2.2. Sprint 2
+
+#### 5.2.2.1. Sprint Planning 2
+
+
+| **Sprint #**                      | Sprint 2                                                                 |
+|----------------------------------|--------------------------------------------------------------------------|
+| **Sprint Planning Background**   |                                                                          |
+| **Date**                         | 2025-04-07                                                               |
+| **Time**                         | 02:40 PM                                                                 |
+| **Location**                     | Virtual                                                                  |
+| **Prepared By**                  | Martel Andrade Cassius Estefano, Binda Arbañil Marcelo Alejandro         |
+| **Attendees (to planning meeting)** | Ainhoa Lucía Castillo Garay / Marcelo Alejandro Binda Arbañil / Martel Andrade Cassius Estefano / Nakamurakare Teruya Alex Tomio / Ortiz Alarcón Victor Nicolás |
+| **Sprint 1 Review Summary**      | Durante el Sprint, se logró desarrollar y publicar la primera versión funcional de la página de aterrizaje pública de VolunTrack, cumpliendo con el objetivo planteado en el Sprint Planning. Esta versión incluyó las secciones esenciales: “Sobre nosotros”, “Planes” y “Contacto”, permitiendo transmitir la propuesta de valor de manera clara a potenciales organizaciones y voluntarios. El equipo de desarrollo, con contribuciones clave de Tomio y Víctor, destacó que la coordinación efectiva y la claridad de objetivos facilitaron una implementación técnica sólida. La diseñadora UX/UI, Ainhoa Castillo, resaltó el trabajo colaborativo con el equipo técnico, lo que permitió mantener una coherencia visual y funcional alineada con la identidad de VolunTrack. Los product owners, Cassius y Marcelo, expresaron satisfacción con los resultados, subrayando que la página proyecta una imagen profesional y accesible, cumpliendo con el objetivo de aumentar la visibilidad y credibilidad del proyecto en esta etapa inicial. |
+| **Sprint 1 Retrospective Summary** | Durante el Sprint, el equipo destacó como fortalezas la adecuada planificación y el enfoque compartido en la entrega de un producto funcional. La comunicación constante y la claridad en las responsabilidades facilitaron el cumplimiento de los objetivos. Se reconoció como acierto la alineación entre el diseño UX/UI y las necesidades del producto. Sin embargo, se identificaron oportunidades de mejora: algunos textos clave para la página fueron definidos tardíamente, generando pequeños retrasos en la maquetación. Para el siguiente sprint, se plantea anticipar la validación de contenido antes de su integración, aplicar revisiones de accesibilidad básicas y considerar la inclusión de testimonios o casos reales que refuercen el impacto de VolunTrack desde el primer contacto con el usuario. |
+| **Sprint Goal & User Stories**   |                                                                          |
+| **Sprint n Goal**                | Our focus is on developing and implementing the core frontend functionalities of the VolunTrack web application, emphasizing a user-centered interface design and intuitive interaction flows. This includes catalog browsing, the purchase interface, and the login/registration experience. We believe it delivers a robust visual and functional foundation that enhances user engagement and usability from the first interaction. This approach not only improves the initial user experience but also sets a clear path for seamless backend integration in future sprints. This will be confirmed when users are able to smoothly navigate the main interface, browse the activity catalog, access the purchase section, and successfully complete login or registration using the implemented frontend components. |
+| **Sprint n Velocity**            | 15                                                                       |
+| **Sum of Story Points**          | 47                                                                       |
+
+
+#### 5.2.2.2. Aspect Leaders and Collaborators
+
+Durante el desarrollo del Sprint, se han identificado diversos aspectos funcionales relacionados con el diseño y la construcción de la Landing Page de la aplicación web **Livria**. Con el propósito de organizar el trabajo del equipo de forma eficiente, se ha elaborado una matriz de **Liderazgo y Colaboración (LACX)**. En esta matriz, a cada integrante se le asigna el rol de **líder (L)** en uno de los aspectos clave del desarrollo, y el rol de **colaborador (C)** en otros aspectos complementarios.
+
+Los aspectos definidos para este Sprint son los siguientes:
+- User Account
+- Activity Dashboard
+- Volunteers Section
+- Review & Improvements
+- Notifications Section
+- Calendar Section
+- Create Activity Section
+- Login and Register Section
+
+| **Team Member (Last Name, First Name)**        | **User Account** | **Activity Dashboard** | **Volunteers Section** | **Review, Improvements** | **Notification Section** | **Calendar Section** | **Create Activity Section** | **Login and Register Section** |
+|-----------------------------------------------|------------------|-------------------------|-------------------------|---------------------------|---------------------------|----------------------|-----------------------------|--------------------------------|
+| **Castillo Garay, Ainhoa Lucía**              | C                | C                       | C                       | C                         | L                         | C                    | L                           | C                              |
+| **Binda Arbañil, Marcelo Alejandro**          | L                | C                       | C                       | C                         | C                         | C                    | C                           | L                              |
+| **Martel Andrade, Cassius Estefano**          | C                | L                       | L                       | C                         | C                         | C                    | C                           | C                              |
+| **Ortiz Alarcón, Victor Nicolás**             | C                | C                       | C                       | L                         | C                         | C                    | C                           | C                              |
+| **Nakamurake Teruya, Alex Tomio**             | C                | C                       | C                       | C                         | C                         | L                    | C                           | C                              |
+| **George Aldo Galván Cerrón**                 | -                | C                       | -                       | -                         | C                         | -                    | -                           | -                              |
+
+#### 5.2.2.3. Sprint Backlog 2
+
+| **Sprint #** | **Sprint #2** |
+|--------------|---------------|
+
+| **#** | **Work-Item / Task** |
+|------|------------------------|
+
+| **User Story ID** | **Id** | **Description** | **Estimation (Hours)** | **Assigned To** | **Status (To-do / InProcess / To-Review / Done)** |
+|------------------|--------|------------------|-------------------------|------------------|--------------------------------------------------|
+| **US14**         | T01    | Diseñar plantilla de informe de impacto con datos relevantes | 2 | Binda Arbañil, Marcelo Alejandro | Done |
+|                  | T02    | Implementar generación del informe desde perfil del voluntario | 2 | Castillo Garay, Ainhoa Lucía | Done |
+|                  | T03    | Implementar opción de descarga PDF y envío por email | 3 | Binda Arbañil, Marcelo Alejandro | To-do |
+| **US15**         | T01    | Diseñar sección destacada de propuesta de valor en la página principal | 3 | Castillo Garay, Ainhoa Lucía | Done |
+|                  | T02    | Implementar pop-ups o detalles interactivos para beneficios clave | 3 | Binda Arbañil, Marcelo Alejandro | Done |
+|                  | T03    | Incluir casos de éxito o testimonios reales | 3 | Castillo Garay, Ainhoa Lucía | Done |
+| **US16**         | T01    | Implementar búsqueda por intereses con campo destacado | 4 | Ortiz Alarcón, Victor Nicolás | Done |
+|                  | T02    | Mostrar lista de actividades disponibles con filtros | 3 | Ortiz Alarcón, Victor Nicolás | Done |
+| **US17**         | T01    | Mostrar información de contacto visible y accesible | 4 | Martel Andrade, Cassius Estefano | Done |
+|                  | T02    | Crear pantalla de contacto con opciones para registrar ONG o empezar a explorar | 3 | Nakamurake Teruya, Alex Tomio | Done |
+|                  | T03    | Implementar redirección a formulario para registrar ONG con campos e instrucciones claras | 3 | Martel Andrade, Cassius Estefano | Done |
+| **US18**         | T01    | Diseñar sección de planes y precios clara y atractiva | 3 | Nakamurake Teruya, Alex Tomio | Done |
+|                  | T02    | Implementar visualización de detalles por plan seleccionado | 4 | Ortiz Alarcón, Victor Nicolás | Done |
+|                  | T03    | Añadir opción de contacto o formulario para consultas sobre planes | 2 | Ortiz Alarcón, Victor Nicolás | Done |
+| **US19**         | T01    | Crear endpoint POST para nuevas actividades con validación | 1 | Martel Andrade, Cassius Estefano | Done |
+|                  | T02    | Crear endpoint GET para leer detalles de actividades | 1 | Nakamurake Teruya, Alex Tomio | Done |
+|                  | T03    | Crear endpoint PUT para actualizar actividades | 1 | Binda Arbañil, Marcelo Alejandro | Done |
+| **US20**         | T01    | Crear endpoint POST para registrar voluntarios | 1 | Castillo Garay, Ainhoa Lucía | Done |
+|                  | T02    | Crear endpoint GET para obtener perfil de voluntario | 1 | Martel Andrade, Cassius Estefano | Done |
+|                  | T03    | Crear endpoint PUT para actualizar información del voluntario | 1 | Nakamurake Teruya, Alex Tomio | Done |
+| **US21**         | T01    | Crear endpoint POST para inscripción en actividades | 1 | Binda Arbañil, Marcelo Alejandro | Done |
+|                  | T02    | Crear endpoint GET para listar voluntarios inscritos | 1 | Castillo Garay, Ainhoa Lucía | Done |
+|                  | T03    | Crear endpoint PUT para registrar asistencia | 1 | Ortiz Alarcón, Victor Nicolás | Done |
+|                  | T04    | Crear endpoint DELETE para eliminar inscripción | 1 | Ortiz Alarcón, Victor Nicolás | Done |
+| **US22**         | T01    | Implementar vista de lista de voluntarios con información relevante | 3 | Martel Andrade, Cassius Estefano | Done |
+|                  | T02    | Añadir funcionalidades de búsqueda y filtrado en la lista de voluntarios | 2 | Nakamurake Teruya, Alex Tomio | Done |
+|                  | T03    | Mostrar detalles y opciones de gestión para voluntarios | 2 | Martel Andrade, Cassius Estefano | Done |
+| **US23**         | T01    | Crear vista de calendario interactivo para actividades | 3 | Nakamurake Teruya, Alex Tomio | Done |
+|                  | T02    | Implementar función para agregar nueva actividad desde el calendario | 3 | Binda Arbañil, Marcelo Alejandro | Done |
+| **US24**         | T01    | Implementar redirección al dashboard tras login | 2 | Castillo Garay, Ainhoa Lucía | Done |
+|                  | T02    | Mostrar próximas actividades programadas en dashboard | 3 | Martel Andrade, Cassius Estefano | Done |
+|                  | T03    | Agregar botones de acción rápida (crear actividad, etc.) | 3 | Nakamurake Teruya, Alex Tomio | Done |
+
+
 # Conclusiones
 
 El proyecto VolunTrack demostró la capacidad del equipo para aplicar un enfoque integral en el desarrollo de una solución de software, abarcando desde la investigación de usuarios y el análisis de requerimientos hasta el diseño de la arquitectura y la implementación del landing page. Se logró crear una base sólida para el futuro desarrollo de la plataforma completa.
