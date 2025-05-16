@@ -2,7 +2,7 @@
   "activities": [
     {
       "id": "1",
-      "title": "Beach Cleanup",
+      "title": "playas xd",
       "description": "Join us for a community-led beach cleanup aimed at preserving our coastal environment. Together, we'll collect litter, remove plastic waste, and learn about the impact of pollution on marine life. It's a great way to contribute to a cleaner ocean and connect with others who care about the planet.",
       "instructions": [
         "Bring gloves and trash bags",
@@ -26,6 +26,11 @@
         "https://i.imgur.com/ghM4wNw.jpg",
         "https://i.imgur.com/rnDhpGF.jpg",
         "https://i.imgur.com/24uxlSk.jpg",
+        "https://imgur.com/jjlSB1I.jpg",
+        "https://imgur.com/Gv9JVZ8.jpg",
+        "https://imgur.com/CYDFDvv.jpg",
+        "https://imgur.com/tvuHIeJ.jpg",
+        "https://imgur.com/wtYSQ5I.jpg",
         "https://i.imgur.com/iApwiHo.jpg"
       ],
       "date": "2025-05-20",
@@ -66,25 +71,25 @@
     },
     {
       "id": "3",
-      "title": "Community Fitness",
-      "description": "Start your day with an energizing group workout in the park! This free fitness session is open to all ages and abilities, focused on promoting healthy lifestyles through fun, inclusive exercise routines. Meet your neighbors and get moving together.",
+      "title": "5. Animal Shelter Support",
+      "description": "Assist with daily care of shelter animals including feeding, cleaning, and socializing with pets waiting for adoption.\n\n",
       "instructions": [
-        "Bring water and a towel",
-        "Wear workout clothes and running shoes",
-        "Arrive 10 minutes early to stretch",
-        "Follow the instructor's guidance",
-        "Respect everyone's pace and space"
+        "Wear appropriate clothing",
+        "Follow animal handling protocols",
+        "Report any health concerns",
+        "Clean assigned areas thoroughly",
+        "Engage with animals kindly and gently"
       ],
       "purpose": [
-        "Health and fitness",
-        "Active lifestyle encouragement",
-        "Community bonding",
-        "Mental well-being",
-        "Accessible exercise opportunities"
+        "Improve animal welfare",
+        "Prepare animals for adoption",
+        "Support shelter operations",
+        "Educate public about responsible pet ownership",
+        "Foster compassion and empathy"
       ],
-      "dashboardPicture": "https://i.imgur.com/iApwiHo.jpg",
+      "dashboardPicture": "https://imgur.com/jjlSB1I.jpg",
       "pictures": [
-        "https://i.imgur.com/j7Vz1BP.jpg"
+        "https://imgur.com/jjlSB1I.jpg"
       ],
       "date": "2025-06-01",
       "startTime": "07:00",
@@ -111,9 +116,9 @@
         "Foster community solidarity",
         "Encourage generosity and sharing"
       ],
-      "dashboardPicture": "https://i.imgur.com/rnDhpGF.jpg",
+      "dashboardPicture": "https://i.imgur.com/24uxlSk.jpg",
       "pictures": [
-        "https://i.imgur.com/j7Vz1BP.jpg"
+        "https://i.imgur.com/24uxlSk.jpg"
       ],
       "date": "2025-06-05",
       "startTime": "10:00",
@@ -124,25 +129,25 @@
     },
     {
       "id": "5",
-      "title": "Street Art Festival",
-      "description": "Celebrate urban creativity at our Street Art Festival! Watch live mural painting, meet local artists, enjoy music, and discover how art transforms public spaces into vibrant community stories. All ages welcome!",
+      "title": "Senior Care Visits",
+      "description": "Spend time with elderly residents, engage in conversations, play games, and provide companionship to those who may feel isolated.",
       "instructions": [
-        "Wear comfortable clothes and walking shoes",
-        "Bring your camera or sketchbook",
-        "Respect the artists and their work",
-        "Stay hydrated throughout the event",
-        "Participate in interactive workshops"
+        "Be punctual and respectful",
+        "Follow facility’s health protocols",
+        "Prepare simple games or stories",
+        "Listen actively and empathetically",
+        "Keep visits positive and encouraging"
       ],
       "purpose": [
-        "Art appreciation",
-        "Cultural exchange",
-        "Public space revitalization",
-        "Community engagement through art",
-        "Support for local artists"
+        "Reduce loneliness and isolation",
+        "Improve emotional well-being",
+        "Build intergenerational connections",
+        "Support community health",
+        "Promote respect for elders"
       ],
-      "dashboardPicture": "https://i.imgur.com/MrPkr79.jpg",
+      "dashboardPicture": "https://imgur.com/Gv9JVZ8.jpg",
       "pictures": [
-        "https://i.imgur.com/j7Vz1BP.jpg"
+        "https://imgur.com/Gv9JVZ8.jpg"
       ],
       "date": "2025-06-10",
       "startTime": "12:00",
@@ -327,51 +332,21 @@
     },
     {
       "id": "12",
-      "title": "Adoptemos gatitos !!",
-      "dashboardPicture": "https://i.imgur.com/WFUvBSK.jpg",
+      "title": "a",
+      "dashboardPicture": "https://i.imgur.com/i6fqsMN.jpg",
       "pictures": [
-        "https://i.imgur.com/WFUvBSK.jpg",
-        "https://i.imgur.com/wNet0D1.jpg",
-        "https://i.imgur.com/S8eNmIN.jpg"
+        "https://i.imgur.com/i6fqsMN.jpg"
       ],
-      "date": "2025-05-20",
-      "startTime": "08:00",
-      "endTime": "23:00",
-      "address": "Parque Kennedy, Miraflores",
-      "description": "Vengan a adoptar gatitos !!",
+      "date": "2025-05-17",
+      "startTime": "00:37",
+      "endTime": "00:35",
+      "address": "a",
+      "description": "a",
       "instructions": [
-        "1. Ir al Parque Kennedy",
-        "2. Adoptar",
-        "3. Llevarlos a casa",
-        "4. Amarlos !!!"
+        "a"
       ],
       "purpose": [
-        "El propósito es que los gatitos consigan casita <3"
-      ],
-      "inscriptionCount": 0,
-      "isInscriptionOpen": true
-    },
-    {
-      "id": "13",
-      "title": "Decoremos árboles divertidos",
-      "dashboardPicture": "https://i.imgur.com/hnFO3lL.jpg",
-      "pictures": [
-        "https://i.imgur.com/hnFO3lL.jpg",
-        "https://i.mgur.com/SCOGqaE.jpg",
-        "https://i.imgur.com/2657hub.jpg"
-      ],
-      "date": "2025-06-18",
-      "startTime": "10:30",
-      "endTime": "18:00",
-      "address": "Parque Kennedy, Miraflores",
-      "description": "Hay que crear ropita y ponerla en los árboles que tienen formas chistosas o similares a humanos.",
-      "instructions": [
-        "1. Idear",
-        "2. Coser",
-        "3. Vestir"
-      ],
-      "purpose": [
-        "Divertirnos!!"
+        "a"
       ],
       "inscriptionCount": 0,
       "isInscriptionOpen": true
@@ -1157,19 +1132,7 @@
       "description": "b"
     }
   ],
-  "userlogin": [
-    {
-      "id": "9969",
-      "username": "a",
-      "password": "a",
-      "email": "a",
-      "phone": "1",
-      "pfp": "a",
-      "plan": "basic",
-      "banner": "a",
-      "description": "a"
-    }
-  ],
+  "userlogin": [],
   "registers": [
     {
       "id": "1",

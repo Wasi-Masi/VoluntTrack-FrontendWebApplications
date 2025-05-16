@@ -36,10 +36,12 @@ import { MatCardModule } from '@angular/material/card';
 import {MatCheckbox} from '@angular/material/checkbox';
 import {CertificatesService} from '../../volunteers/services/certificats.service';
 import {MatSnackBar} from '@angular/material/snack-bar';
+import { NotificationsService} from '../../notifications/services/notifications.service';
 
 @Component({
   selector: 'app-registered-volunteers',
   templateUrl: './registered-volunteers.component.html',
+  standalone: true,
   imports: [
     RouterLink,
     MatIconModule,
@@ -149,9 +151,8 @@ export class RegisteredVolunteersComponent implements OnInit {
     private regVolunteersService: RegisteredVolunteersService,
     private volunteerService: VolunteersService,
     private certificatesService: CertificatesService,
-    private snackBar: MatSnackBar  // <-- aquí
-
-
+    private snackBar: MatSnackBar,  // <-- aquí
+    private notificationsService: NotificationsService
 
   ) {}
 
@@ -169,6 +170,18 @@ export class RegisteredVolunteersComponent implements OnInit {
 
     this.dataSource.filterPredicate = (data: any, filter: string) =>
       data.fullName.toLowerCase().includes(filter);
+  }
+
+  fireNoti() {
+    this.notificationsService.createTypedNotification('open-inscriptions').subscribe(() => {
+      window.dispatchEvent(new Event('openNotifications'));
+    });
+  }
+
+  toNotify() {
+    this.notificationsService.createTypedNotification('reminder').subscribe(() => {
+      window.dispatchEvent(new Event('openNotifications'));
+    });
   }
 
   applyFilter() {

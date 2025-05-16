@@ -40,7 +40,6 @@
   padding: 20px;
   max-width: 90%;
   width: 100%;
-  height: 85%;
   background-color: rgba(155, 208, 223, 0.5);
   border-radius: 8px;
   box-shadow: 0 0 8px rgba(0,0,0,0.1);
@@ -80,7 +79,7 @@
   padding: 16px;
   background-color: #e0f2f5;
   box-sizing: border-box;
-  height: 50%;
+  height: 60%;
   justify-content: space-between;
   border-radius: 16px;
 }

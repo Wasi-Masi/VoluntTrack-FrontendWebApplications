@@ -99,7 +99,7 @@ Author: Your Name
     <!-- Subpanel de acciones -->
     <div class="volunteers-actions-subpanel mat-elevation-z2" style="padding: 16px; display: flex; flex-direction: column; gap: 20px; max-width: 320px;" role="region" aria-label="Volunteer actions panel">
       <!-- Botón Enviar notificación -->
-      <button mat-stroked-button color="primary" style="justify-content: flex-start;" matTooltip="Enviar mensaje a voluntarios" aria-label="Send notification to volunteers">
+      <button mat-stroked-button (click)="toNotify()" color="primary" style="justify-content: flex-start;" matTooltip="Enviar mensaje a voluntarios" aria-label="Send notification to volunteers">
         <mat-icon style="margin-right: 8px;">notifications_active</mat-icon>
         Enviar notificación
       </button>
@@ -137,7 +137,7 @@ Author: Your Name
       </p>
 
       <!-- Botón Abrir inscripciones -->
-      <button mat-stroked-button color="primary" style="justify-content: flex-start;" matTooltip="Permitir inscripciones" aria-label="Open registrations">
+      <button mat-stroked-button (click)="fireNoti()" color="primary" style="justify-content: flex-start;" matTooltip="Permitir inscripciones" aria-label="Open registrations">
         <mat-icon style="margin-right: 8px;">person_add</mat-icon>
         Abrir inscripciones
       </button>
