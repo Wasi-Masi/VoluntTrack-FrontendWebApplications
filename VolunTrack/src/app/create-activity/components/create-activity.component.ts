@@ -24,7 +24,7 @@ import { CreateActivityService } from '../services/create-activity.service';
 })
 export class CreateActivityComponent {
   activity: Activity = new Activity(
-    0,
+     '',
     '',
     '',
     [],
@@ -51,16 +51,15 @@ export class CreateActivityComponent {
       .map(url => url.trim())
       .filter(url => url.length > 0);
 
-
     this.createService.getActivities().subscribe(existingActivities => {
-
-      const maxId = existingActivities.length > 0
-        ? Math.max(...existingActivities.map(a => a.id))
+      // Convertimos las ids de string a número para calcular el máximo
+      const maxIdNumber = existingActivities.length > 0
+        ? Math.max(...existingActivities.map(a => Number(a.id)))
         : 0;
 
       const newActivity: Activity = {
         ...this.activity,
-        id: maxId + 1,
+        id: (maxIdNumber + 1).toString(),  // Convertimos de vuelta a string
         inscriptionCount: 0,
         isInscriptionOpen: true,
         instructions: this.instructions
