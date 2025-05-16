@@ -2481,6 +2481,73 @@ Los aspectos definidos para este Sprint son los siguientes:
   </tbody>
 </table>
 
+## 5.2.2.4. Development Evidence for Sprint Review
+
+En este capítulo se expone el progreso logrado durante el Sprint 2 en el desarrollo de la aplicación web. Gracias al trabajo colaborativo del equipo y al enfoque ágil adoptado, se avanzó significativamente en la implementación de funcionalidades clave y en la mejora de la interfaz de usuario. Este sprint ha permitido consolidar una base técnica robusta que facilitará el desarrollo futuro y garantizará el cumplimiento de los objetivos planteados.
+
+**Branch: `develop`**
+
+<p align="center">
+  <img src="./assets/brach%20develop.png" alt="develop" width="500">
+</p>
+<p align="center"><strong>Figura 119.</strong> Commits de la rama develop.</p>
+
+**Branch: `feature/-images-and-tables`**
+
+<p align="center">
+  <img src="URL_DE_IMAGEN" alt="images-and-tables" width="500">
+</p>
+<p align="center"><strong>Figura 119.</strong> Evidencia de commits en la rama para imágenes y tablas.</p>
+
+**Branch: `feature/activities`**
+
+<p align="center">
+  <img src="URL_DE_IMAGEN" alt="activities" width="500">
+</p>
+<p align="center"><strong>Figura 120.</strong> Commits asociados a la funcionalidad de actividades.</p>
+
+**Branch: `feature/activity-details`**
+
+<p align="center">
+  <img src="URL_DE_IMAGEN" alt="activity-details" width="500">
+</p>
+<p align="center"><strong>Figura 121.</strong> Commits relacionados con la vista de detalles de actividad.</p>
+
+**Branch: `feature/calendar`**
+
+<p align="center">
+  <img src="URL_DE_IMAGEN" alt="calendar" width="500">
+</p>
+<p align="center"><strong>Figura 122.</strong> Evidencia de desarrollo en el calendario de actividades.</p>
+
+**Branch: `feature/dashboard`**
+
+<p align="center">
+  <img src="URL_DE_IMAGEN" alt="dashboard" width="500">
+</p>
+<p align="center"><strong>Figura 123.</strong> Commits que implementan mejoras en el dashboard.</p>
+
+**Branch: `feature/edit-activity`**
+
+<p align="center">
+  <img src="URL_DE_IMAGEN" alt="edit-activity" width="500">
+</p>
+<p align="center"><strong>Figura 124.</strong> Desarrollo de funcionalidades para editar actividades.</p>
+
+**Branch: `feature/metrics`**
+
+<p align="center">
+  <img src="URL_DE_IMAGEN" alt="metrics" width="500">
+</p>
+<p align="center"><strong>Figura 125.</strong> Evidencia de implementación de métricas de voluntariado.</p>
+
+**Branch: `feature/notifications`**
+
+<p align="center">
+  <img src="URL_DE_IMAGEN" alt="notifications" width="500">
+</p>
+<p align="center"><strong>Figura 126.</strong> Commits relacionados con la sección de notificaciones.</p>
+
 
 ## Conclusiones
 
