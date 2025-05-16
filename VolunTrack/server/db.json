@@ -350,6 +350,31 @@
       ],
       "inscriptionCount": 0,
       "isInscriptionOpen": true
+    },
+    {
+      "id": "13",
+      "title": "Decoremos árboles divertidos",
+      "dashboardPicture": "https://i.imgur.com/hnFO3lL.jpg",
+      "pictures": [
+        "https://i.imgur.com/hnFO3lL.jpg",
+        "https://i.mgur.com/SCOGqaE.jpg",
+        "https://i.imgur.com/2657hub.jpg"
+      ],
+      "date": "2025-06-18",
+      "startTime": "10:30",
+      "endTime": "18:00",
+      "address": "Parque Kennedy, Miraflores",
+      "description": "Hay que crear ropita y ponerla en los árboles que tienen formas chistosas o similares a humanos.",
+      "instructions": [
+        "1. Idear",
+        "2. Coser",
+        "3. Vestir"
+      ],
+      "purpose": [
+        "Divertirnos!!"
+      ],
+      "inscriptionCount": 0,
+      "isInscriptionOpen": true
     }
   ],
   "volunteers": [
@@ -1101,7 +1126,7 @@
       "id": "1",
       "title": "Actividad creada",
       "message": "Has creado una nueva actividad de voluntariado. ¡Comparte para sumar voluntarios!",
-      "createdAt": "2025-05-16T09:38:12.788Z"
+      "createdAt": "2025-05-16T09:50:55.558Z"
     }
   ]
 }

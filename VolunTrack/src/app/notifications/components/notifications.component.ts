@@ -27,7 +27,11 @@ export class NotificationsComponent {
 
   ngOnInit() {
     this.loadNotifications();
-    window.addEventListener('openNotifications', () => this.isDrawerOpen = true);
+    window.addEventListener('openNotifications', () => {
+        this.isDrawerOpen = true;
+        this.loadNotifications();
+      }
+    );
     window.addEventListener('closeNotifications', () => this.isDrawerOpen = false);
   }
 
