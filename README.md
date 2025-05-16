@@ -2481,29 +2481,30 @@ Los aspectos definidos para este Sprint son los siguientes:
 </table>
 
 
-# Conclusiones
+## Conclusiones
 
-El proyecto VolunTrack demostró la capacidad del equipo para aplicar un enfoque integral en el desarrollo de una solución de software, abarcando desde la investigación de usuarios y el análisis de requerimientos hasta el diseño de la arquitectura y la implementación del landing page. Se logró crear una base sólida para el futuro desarrollo de la plataforma completa.
+El trabajo parcial realizado en el proyecto **VolunTrack** representó un avance sustancial en la materialización de la plataforma destinada a facilitar la gestión de ONGs y la conexión con voluntarios. Durante esta etapa, el equipo logró desarrollar una aplicación web funcional que cumple con los requerimientos básicos planteados inicialmente, permitiendo la gestión eficiente de información y procesos relacionados con las organizaciones no gubernamentales. Esta creación de una aplicación operativa marca un hito importante, ya que traduce en un producto tangible las ideas y diseños elaborados en fases previas del proyecto.
 
-La aplicación de metodologías y técnicas de Lean UX, como la formulación de hipótesis, la creación de user personas y el mapeo de la experiencia del usuario, permitió al equipo comprender profundamente las necesidades de los usuarios y diseñar una solución centrada en sus requerimientos.
+La implementación del flujo de trabajo basado en la metodología **gitflow** fue fundamental para el éxito del desarrollo colaborativo. Este enfoque permitió que los integrantes del equipo trabajaran de manera organizada y sincronizada, gestionando de forma efectiva las ramas de desarrollo, características y corrección de errores. La disciplina en el manejo de gitflow facilitó la integración continua, la revisión de código y la resolución ágil de conflictos, promoviendo un ambiente colaborativo en el que se respetaron las buenas prácticas de programación y se fortaleció la comunicación entre todos los miembros.
 
-El desarrollo del landing page de VolunTrack demostró la capacidad del equipo para comunicar de manera efectiva la propuesta de valor de la plataforma, enfocándose en la necesidad de una herramienta que facilite la conexión entre ONGs y voluntarios. El diseño y el contenido del landing page lograron transmitir la funcionalidad y los beneficios del sistema a potenciales usuarios.
+Por otro lado, el despliegue de la aplicación web en **Firebase** constituyó un paso crucial para validar la funcionalidad y accesibilidad del sistema en un entorno real de producción. Esta experiencia no solo permitió que la plataforma estuviera disponible para pruebas y uso inicial, sino que también brindó al equipo conocimientos prácticos en la administración de servicios en la nube, configuración de hosting y manejo de bases de datos en tiempo real. El uso de Firebase aportó escalabilidad y seguridad, aspectos indispensables para el crecimiento futuro de la aplicación.
 
-El diseño de la arquitectura del sistema, basado en principios de Domain-Driven Design y una estructura de componentes en servicios, sentó las bases para la creación de una aplicación escalable y mantenible. La definición de la arquitectura y el diseño orientado a objetos facilitaron la planificación del desarrollo futuro.
+El desarrollo de la aplicación web, guiado por una **arquitectura modular y orientada a servicios**, aseguró que la plataforma fuera escalable, mantenible y flexible ante futuros cambios o ampliaciones. El diseño estructurado facilitó la división de tareas y permitió implementar funcionalidades específicas de manera independiente, optimizando el proceso de desarrollo y facilitando la detección y solución de posibles errores.
 
-El proyecto VolunTrack proporcionó una valiosa experiencia en todas las etapas del ciclo de vida del desarrollo de software, desde la concepción de la idea hasta la implementación parcial, fortaleciendo las habilidades técnicas y blandas de los miembros del equipo, incluyendo la colaboración, la comunicación y la resolución de problemas.
+Finalmente, este trabajo parcial fortaleció significativamente las competencias técnicas del equipo, abarcando aspectos clave como el desarrollo frontend, backend, control de versiones y despliegue en la nube. Asimismo, se potenció el desarrollo de habilidades blandas, tales como el trabajo en equipo, la comunicación efectiva, la planificación conjunta y la capacidad para enfrentar y resolver problemas de manera colaborativa. El logro alcanzado en esta etapa refleja el compromiso, la coordinación y el esfuerzo conjunto del equipo, estableciendo una base sólida para la continuación y culminación exitosa del proyecto **VolunTrack**.
 
-# Recomendaciones
 
-Se recomienda priorizar la implementación de la aplicación web y móvil de VolunTrack, siguiendo la arquitectura y el diseño definidos en este informe. El enfoque debe estar en el desarrollo de las funcionalidades clave que permitan a las ONGs gestionar sus actividades de voluntariado y a los voluntarios encontrar y registrarse en ellas.
+## Recomendaciones
 
-Se sugiere realizar pruebas de usabilidad exhaustivas con usuarios reales (ONGs y voluntarios) durante el desarrollo de la aplicación, para validar las decisiones de diseño y asegurar que la interfaz sea intuitiva y fácil de usar.
+Se recomienda continuar priorizando la implementación y mejora tanto de la **aplicación web como de una futura versión móvil** de VolunTrack, manteniendo el enfoque en la arquitectura y diseño sólidos ya definidos y aplicados en esta fase del proyecto. Es fundamental centrar los esfuerzos en desarrollar y optimizar las funcionalidades clave que permitan a las ONGs gestionar eficientemente sus actividades de voluntariado, así como facilitar a los voluntarios la búsqueda, registro y participación en dichas actividades de manera sencilla y segura.
 
-Se aconseja implementar un sistema de gestión de la base de datos robusto y eficiente, que garantice la integridad y la seguridad de la información de los usuarios y las ONGs.
+Asimismo, se sugiere realizar **pruebas de usabilidad rigurosas y continuas** con usuarios reales, tanto representantes de ONGs como voluntarios, a lo largo del proceso de desarrollo. Estas pruebas permitirán validar las decisiones de diseño adoptadas, identificar posibles dificultades en la navegación o interacción, y asegurar que la interfaz sea intuitiva, accesible y fácil de usar, mejorando así la experiencia de usuario y la adopción de la plataforma.
 
-Se recomienda establecer un proceso de desarrollo iterativo e incremental, utilizando metodologías ágiles como Scrum, para facilitar la adaptación a los cambios y la entrega continua de valor.
+Es importante implementar un **sistema de gestión de base de datos robusto, eficiente y escalable**, que garantice la integridad, privacidad y seguridad de la información almacenada. Este sistema debe cumplir con las mejores prácticas en protección de datos, especialmente considerando la naturaleza sensible de la información personal de los usuarios y las ONGs involucradas.
 
-Se sugiere continuar invirtiendo en la formación del equipo en las últimas tecnologías y mejores prácticas de desarrollo de software, para asegurar la calidad y la innovación en el desarrollo de VolunTrack.
+Se recomienda establecer y mantener un **proceso de desarrollo iterativo e incremental** basado en metodologías ágiles como Scrum o Kanban. Esto permitirá que el equipo se adapte rápidamente a cambios o nuevas necesidades, mejore la comunicación interna y entregue valor de forma continua mediante ciclos cortos de desarrollo, facilitando la retroalimentación constante y la mejora progresiva de la aplicación.
+
+Finalmente, se sugiere seguir **invirtiendo en la capacitación y actualización constante del equipo** en tecnologías emergentes, herramientas de desarrollo, control de versiones y buenas prácticas de ingeniería de software. Esto no solo asegurará la calidad técnica y funcional del proyecto, sino que también fomentará la innovación, el uso eficiente de recursos y la sostenibilidad a largo plazo de la plataforma **VolunTrack**.
 
 # Bibliografía
 
