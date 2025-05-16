@@ -1,12 +1,16 @@
+<!--
+  Este componente representa la vista de perfil de usuario en la aplicación.
+  El usuario puede cambiar su informacion y preferencias
+-->
 <div class="page-header">
   <h2>My Profile</h2>
 </div>
 
 <div class="profile-container">
   <div class="banner">
-    <img class="cover" [src]="user?.banner" alt="Banner">
+    <img class="cover" [src]="user?.banner" alt="Banner" aria-label="Banner image">
     <div class="profile-icon-wrapper">
-      <img class="profile-icon" [src]="user?.pfp" alt="Icono">
+      <img class="profile-icon" [src]="user?.pfp" alt="Icono" aria-label="Profile picture image">
     </div>
     <div class="description-box">
       <strong>Descripción:</strong>
@@ -14,7 +18,7 @@
         <p>{{ user?.description }}</p>
       </div>
       <div *ngIf="editMode">
-        <textarea [(ngModel)]="editedUser.description"></textarea>
+        <textarea [(ngModel)]="editedUser.description" aria-label="Banner image"></textarea>
       </div>
     </div>
   </div>
@@ -61,7 +65,7 @@
 
       <h4>Idioma:
         <span *ngIf="!editMode">{{ user?.language }}</span>
-        <select *ngIf="editMode" [(ngModel)]="editedUser.language">
+        <select *ngIf="editMode" [(ngModel)]="editedUser.language" aria-label="Langueage switcher">
           <option value="Español">Español</option>
           <option value="English">English</option>
         </select>
@@ -69,7 +73,7 @@
 
       <h4>Notificaciones:
         <span *ngIf="!editMode">{{ user?.notifications }}</span>
-        <select *ngIf="editMode" [(ngModel)]="editedUser.notifications">
+        <select *ngIf="editMode" [(ngModel)]="editedUser.notifications" aria-label="Notifications preferences">
           <option value="All">All</option>
           <option value="Silenced">Silenced</option>
           <option value="Mentions">Mentions</option>
@@ -78,7 +82,7 @@
 
       <h4>Zona horaria:
         <span *ngIf="!editMode">{{ user?.timezone }}</span>
-        <select *ngIf="editMode" [(ngModel)]="editedUser.timezone">
+        <select *ngIf="editMode" [(ngModel)]="editedUser.timezone" aria-label="Timezone">
           <option value="GMT-5">GMT-5</option>
           <option value="GMT-4">GMT-4</option>
           <option value="GMT-3">GMT-3</option>
@@ -87,7 +91,7 @@
 
       <h4>Aprobación de inscripciones:
         <span *ngIf="!editMode">{{ user?.inscriptions }}</span>
-        <select *ngIf="editMode" [(ngModel)]="editedUser.inscriptions">
+        <select *ngIf="editMode" [(ngModel)]="editedUser.inscriptions" aria-label="Inscriptions approvals">
           <option value="Manual">Manual</option>
           <option value="Automatic">Automática</option>
         </select>
@@ -96,12 +100,12 @@
   </div>
 
   <div class="button-group">
-    <button *ngIf="!editMode" class="edit-btn" (click)="toggleEdit()">✏️ Editar detalles</button>
+    <button *ngIf="!editMode" class="edit-btn" (click)="toggleEdit()" aria-label="Edit profile settings">✏️ Editar detalles</button>
     <div *ngIf="editMode">
-      <button class="edit-btn" (click)="saveChanges()">💾 Guardar</button>
-      <button class="logout-btn" (click)="cancelEdit()">❌ Cancelar</button>
+      <button class="edit-btn" (click)="saveChanges()" aria-label="Save changes">💾 Guardar</button>
+      <button class="logout-btn" (click)="cancelEdit()" aria-label="Cancel changes">❌ Cancelar</button>
     </div>
-    <button class="logout-btn" (click)="logout()">⛔ Cerrar Sesión</button>
+    <button class="logout-btn" (click)="logout()" aria-label="Log out">⛔ Cerrar Sesión</button>
   </div>
 </div>
 
