@@ -27,7 +27,12 @@
       <div class="week" *ngFor="let week of weeks">
         <div class="day" *ngFor="let date of week" [class.outside]="!isCurrentMonth(date)">
           <p>{{ date.getDate() }}</p>
+
+          <div class="activity" *ngFor="let activity of getEvents(date)">
+            <p>{{ activity.title }}</p>
+          </div>
         </div>
+
       </div>
     </div>
   </div>
