@@ -1,0 +1,320 @@
+.page-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 92%;
+  background: #ffffff;
+}
+
+.page-header {
+  width: 100%;
+  max-width: 90%;
+  padding: 20px;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: flex-start; /* alinea contenido a la izquierda */
+  align-items: center;
+  margin: 0 auto;
+}
+
+/* DEFAULT: 40% cada uno cuando no hay selección */
+.volunteers-table-panel,
+.volunteer-metrics-panel {
+  transition: width 0.3s ease;
+}
+
+
+.volunteers-main-panel {
+  display: flex;
+  justify-content: flex-start; /* para que queden lado a lado */
+  padding: 20px;
+  max-width: 90%;
+  width: 100%;
+  height: 85%; /* Full height minus header */
+  background-color: rgba(155, 208, 223, 0.5); /* 50% opacity */
+  border-radius: 8px;
+  box-shadow: 0 0 8px rgba(0,0,0,0.1);
+  align-items: flex-start; /* que el contenido empiece arriba */
+  margin: 0 auto;
+  overflow: hidden;
+  box-sizing: border-box;
+  gap: 20px; /* espacio entre paneles */
+}
+
+.volunteers-table-panel {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 12px 16px;
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-sizing: border-box;
+  width: 70%; /* aumento para aprovechar más espacio */
+}
+
+
+
+
+/* PANEL LATERAL VERTICAL */
+.volunteer-side-panel {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  gap: 12px;
+  height: 100%;
+}
+
+/* PANEL DE DETALLES */
+.volunteer-detail-panel {
+  flex: 1;
+  padding: 16px;
+  background-color: #fdfdfd;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+
+/* PANEL DE HISTORIAL */
+.volunteer-history-panel {
+  flex: 1;
+  padding: 16px;
+  background-color: #ffffff;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  height: 50%;
+}
+
+
+
+.volunteers-main-panel.with-selection .volunteer-side-panel {
+  display: flex;
+}
+
+.profile-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  gap: 20px;
+}
+
+.profile-header img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 2px solid #0C7987;
+}
+
+.profile-header .info {
+  flex-grow: 1;
+}
+
+.profile-header .info h3 {
+  margin: 0 0 10px 0;
+  color: #0C7987;
+  font-weight: bolder;
+}
+
+.profile-header .info p {
+  margin: 4px 0;
+  font-size: 14px;
+  color: #333;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: space-between;
+}
+
+.actions button {
+  flex: 1 1 45%;
+  min-width: 120px;
+}
+
+.volunteers-toolbar {
+  flex: 0 0 auto;  /* no crecer ni reducir */
+  margin-bottom: 5%;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Campo de búsqueda con tamaño adecuado */
+.search-input {
+  flex-grow: 1;
+  max-width: 300px;
+  margin: 0; /* sin márgenes extras */
+  height: 36px;
+}
+
+.volunteers-table-container {
+  flex: 1 1 auto; /* crecer y ocupar todo el espacio disponible */
+  overflow-y: auto;
+  margin-bottom: 8px;
+}
+
+.selected-row {
+  background-color: rgba(12, 121, 135, 0.2) !important;
+}
+
+/* Asegúrate que el paginador no se superponga */
+mat-paginator {
+  flex-shrink: 0;
+}
+
+table.mat-table {
+  width: 100%;
+  min-width: 0; /* evitar scroll horizontal innecesario */
+}
+
+.mat-header-cell, .mat-cell {
+  padding: 8px 12px;
+  font-size: 14px;
+}
+
+h2 {
+  margin: 0;
+  font-size: 32px;
+  color: #0C7987;
+  font-weight: bolder;
+}
+
+.volunteer-metrics-panel {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 12px 16px;
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-sizing: border-box;
+  width: 30%;
+  margin-left: 20px;
+}
+
+
+/* Transiciones suaves para paneles y contenedores */
+.volunteers-table-panel,
+.volunteer-metrics-panel,
+.volunteer-detail-panel,
+.volunteer-history-panel,
+.volunteer-side-panel {
+  transition: all 0.3s ease;
+}
+
+/* Botones: animaciones en hover y active */
+.actions button {
+  transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.actions button:hover {
+  background-color: #0C7987;
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.actions button:active {
+  transform: scale(0.97);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Paneles con efecto hover */
+.volunteers-table-panel:hover,
+.volunteer-metrics-panel:hover,
+.volunteer-detail-panel:hover,
+.volunteer-history-panel:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Filas de tabla con efecto hover */
+table.mat-table tr:hover {
+  background-color: rgba(12, 121, 135, 0.1);
+  transition: background-color 0.2s ease;
+}
+
+/* Entrada de paneles (animación sutil de aparición) */
+.volunteers-main-panel.with-selection .volunteer-side-panel {
+  animation: fadeInUp 0.4s ease;
+}
+
+/* Animación */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Inputs: foco con efecto */
+.search-input:focus {
+  outline: none;
+  border: 2px solid #0C7987;
+  box-shadow: 0 0 4px rgba(12, 121, 135, 0.4);
+  transition: all 0.2s ease;
+}
+
+.mat-cell, .mat-header-cell {
+}
+
+/* Títulos con animación de entrada */
+h2 {
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+h2:hover {
+  color: #095e66;
+  transform: scale(1.03);
+}
+
+/* Añadir cursor pointer a botones */
+.actions button,
+.volunteers-toolbar button {
+  cursor: pointer;
+}
+
+
+/* Efecto visual para fila seleccionada */
+.selected-row {
+  background-color: rgba(12, 121, 135, 0.2) !important;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  box-shadow: inset 0 0 0 1px #0C7987;
+}
+
+/* Efecto al pasar el mouse por filas */
+table.mat-table tr:hover {
+  background-color: rgba(12, 121, 135, 0.1);
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+mat-dialog-content {
+  background-color: red;
+}
+
+/* (Opcional) Animación suave al abrir diálogos */
+.mat-dialog-container {
+  animation: fadeInScale 0.3s ease;
+}
+
+@keyframes fadeInScale {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
