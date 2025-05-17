@@ -432,7 +432,7 @@ Aspectos psicográficos:
 * Estilo de vida: Profesional, orientados al desarrollo de proyectos sociales, gestión y optimización de equipos.
 * Actitudes: Enfocados en la mejora continua, con interés en herramientas tecnológicas para facilitar su labor y mejorar la experiencia de los voluntarios.
 
-**Segmento objetivo #2: Clientes de gimnasios**
+**Segmento objetivo #2:  Voluntarios existentes y potenciales**
 
 Personas que están activamente involucradas o interesadas en participar en actividades de voluntariado dentro de ONGs, buscando una experiencia organizada y efectiva que les permita contribuir a causas sociales de manera significativa.
 
