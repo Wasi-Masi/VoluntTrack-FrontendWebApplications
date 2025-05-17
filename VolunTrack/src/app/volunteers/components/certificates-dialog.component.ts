@@ -16,10 +16,12 @@ import {CertificatesService} from '../services/certificats.service';
 import {MatCard, MatCardContent, MatCardHeader, MatCardTitle} from '@angular/material/card';
 import {MatButton} from '@angular/material/button';
 import {NgForOf} from '@angular/common';
+import { TranslatePipe } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-certificates-dialog',
   templateUrl: './certificates-dialog.component.html',
+  standalone: true,
   imports: [
     MatDialogContent,
     MatDialogActions,
@@ -30,7 +32,8 @@ import {NgForOf} from '@angular/common';
     MatDialogTitle,
     MatDialogClose,
     MatButton,
-    NgForOf
+    NgForOf,
+    TranslatePipe
   ],
   styleUrls: ['./certificates-dialog.component.css']
 })

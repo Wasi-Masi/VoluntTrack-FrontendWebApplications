@@ -15,7 +15,7 @@ import {NgForOf, NgIf} from '@angular/common';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButton, MatIconButton } from '@angular/material/button';
 import { MatTooltipModule } from '@angular/material/tooltip';
-
+import {TranslatePipe} from "@ngx-translate/core";
 
 @Component({
   selector: 'app-activity-details',
@@ -28,7 +28,8 @@ import { MatTooltipModule } from '@angular/material/tooltip';
     MatIconButton,
     NgIf,
     RouterLink,
-    MatTooltipModule
+    MatTooltipModule,
+    TranslatePipe
   ],
   styleUrls: ['./activity-details.component.css']
 })

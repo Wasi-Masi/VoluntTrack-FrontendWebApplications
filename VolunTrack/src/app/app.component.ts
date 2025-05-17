@@ -20,7 +20,5 @@ export class AppComponent {
     this.translate.setDefaultLang('en');
     this.translate.use('en');
   }
-  useLanguage(language: string): void {
-    this.translate.use(language);
-  }
+
 }

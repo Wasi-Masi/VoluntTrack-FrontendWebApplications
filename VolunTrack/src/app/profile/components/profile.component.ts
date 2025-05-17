@@ -9,12 +9,13 @@ import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatButtonModule } from '@angular/material/button';
 import {MatDividerModule} from '@angular/material/divider';
-
+import {TranslatePipe} from '@ngx-translate/core';
 
 
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',
+  standalone: true,
   imports: [
     NgIf,
     FormsModule,
@@ -23,7 +24,8 @@ import {MatDividerModule} from '@angular/material/divider';
     MatInputModule,
     MatButtonModule,
     MatSelectModule,
-    MatDividerModule
+    MatDividerModule,
+    TranslatePipe
   ],
   styleUrls: ['./profile.component.css']
 })

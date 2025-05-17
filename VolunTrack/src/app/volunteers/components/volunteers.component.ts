@@ -41,6 +41,7 @@ import {DatePipe, NgClass, NgIf} from '@angular/common';
 
 import { NotificationsService } from '../../notifications/services/notifications.service';
 import {CertificatesDialogComponent} from './certificates-dialog.component';
+import { TranslatePipe } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-volunteers',
@@ -61,7 +62,8 @@ import {CertificatesDialogComponent} from './certificates-dialog.component';
     MatButtonModule,
     NgIf,
     DatePipe,
-    NgClass
+    NgClass,
+    TranslatePipe
   ],
   templateUrl: './volunteers.component.html',
   styleUrls: ['./volunteers.component.css']
