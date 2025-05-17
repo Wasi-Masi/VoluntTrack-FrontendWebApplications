@@ -1,18 +1,8 @@
-<<<<<<< Updated upstream
 <!--
 Description: Displays an activity dashboard with a calendar view showing weeks and days, and allows navigation between months.
 Author: Your Name
 -->
 
-<div class="dashboard-header" role="banner" aria-label="Activity Dashboard Header">
-  <h2 [routerLink]="['/dashboard']" tabindex="0" aria-label="Navigate to dashboard">Activity Dashboard</h2>
-  <div class="dashboard-actions" role="navigation" aria-label="Dashboard actions">
-    <button mat-stroked-button color="primary" [routerLink]="['/create-activity']" aria-label="Create new activity">
-      <mat-icon aria-hidden="true">add</mat-icon> {{ 'create' | translate }}
-    </button>
-    <button class="selected" [routerLink]="['/calendar']" mat-stroked-button color="accent" aria-current="page" aria-label="View calendar">
-      <mat-icon class="selected" aria-hidden="true">calendar_today</mat-icon> {{ 'calendar' | translate }}
-=======
 <div class="dashboard-header">
   <h2 [routerLink]="['/dashboard']">{{ 'ACTIVITY.DASHBOARD_TITLE' | translate }}</h2>
   <div class="dashboard-actions">
@@ -21,24 +11,12 @@ Author: Your Name
     </button>
     <button class="selected" [routerLink]="['/calendar']" mat-stroked-button color="accent">
       <mat-icon class="selected">calendar_today</mat-icon> {{ 'ACTIVITY.CALENDAR' | translate }}
->>>>>>> Stashed changes
     </button>
   </div>
 </div>
 
-<div class="calendar-container" role="main" aria-label="Activity calendar">
+<div class="calendar-container">
   <div class="calendar-main">
-<<<<<<< Updated upstream
-
-    <div class="header" role="row" aria-label="Weekday headers">
-      <h1 role="columnheader" tabindex="0">MONDAY</h1>
-      <h1 role="columnheader" tabindex="0">TUESDAY</h1>
-      <h1 role="columnheader" tabindex="0">WEDNESDAY</h1>
-      <h1 role="columnheader" tabindex="0">THURSDAY</h1>
-      <h1 role="columnheader" tabindex="0">FRIDAY</h1>
-      <h1 role="columnheader" tabindex="0">SATURDAY</h1>
-      <h1 role="columnheader" tabindex="0">SUNDAY</h1>
-=======
     <div class="header">
       <h1>{{ 'DAYS.MONDAY' | translate }}</h1>
       <h1>{{ 'DAYS.TUESDAY' | translate }}</h1>
@@ -47,7 +25,6 @@ Author: Your Name
       <h1>{{ 'DAYS.FRIDAY' | translate }}</h1>
       <h1>{{ 'DAYS.SATURDAY' | translate }}</h1>
       <h1>{{ 'DAYS.SUNDAY' | translate }}</h1>
->>>>>>> Stashed changes
     </div>
 
     <div class="body">
@@ -63,9 +40,9 @@ Author: Your Name
     </div>
   </div>
 
-  <div class="calendar-sidebar" role="complementary" aria-label="Calendar sidebar">
+  <div class="calendar-sidebar">
     <div class="year-title">
-      <h1 tabindex="0" aria-label="Year">{{ year }}</h1>
+      <h1>{{ year }}</h1>
     </div>
     <div class="month-selection">
       <div

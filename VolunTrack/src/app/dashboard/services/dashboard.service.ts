@@ -8,7 +8,7 @@ import { Activity } from '../model/dashboard.entity';
   providedIn: 'root'
 })
 export class DashboardService {
-  private apiUrl = 'http://localhost:3000';
+  private apiUrl = 'https://voluntrack.onrender.com';
 
   constructor(private http: HttpClient) {}
 

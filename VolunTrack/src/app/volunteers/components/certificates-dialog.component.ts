@@ -15,12 +15,8 @@ import {
 import {CertificatesService} from '../services/certificats.service';
 import {MatCard, MatCardContent, MatCardHeader, MatCardTitle} from '@angular/material/card';
 import {MatButton} from '@angular/material/button';
-<<<<<<< Updated upstream
 import {NgForOf} from '@angular/common';
-=======
-import {NgForOf} from '@angular/common'; // Asegúrate de que la ruta es correcta
-import {TranslatePipe} from '@ngx-translate/core';
->>>>>>> Stashed changes
+import { TranslatePipe } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-certificates-dialog',

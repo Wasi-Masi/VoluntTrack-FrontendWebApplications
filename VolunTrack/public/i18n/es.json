@@ -24,6 +24,11 @@
     "SATURDAY": "SÁBADO",
     "SUNDAY": "DOMINGO"
   },
+  "dashboard": {
+    "title": "Panel de Actividades",
+    "create": "Crear",
+    "calendar": "Calendario"
+  },
   "create-act": {
     "dashboard-title": "Panel de Actividades",
     "add-pictures": "Agregar imágenes",
@@ -40,7 +45,8 @@
     "purpose": "Propósito",
     "purpose-textarea": "Un propósito por línea",
     "create": "Crear",
-    "discard": "Descartar"
+    "discard": "Descartar",
+    "update": "Actualizar"
   },
 
   "NOTIFICATIONS": {
@@ -61,7 +67,10 @@
 
   "profile": {
     "title": "Mi Perfil",
-    "description": "Descripción",
+    "banner": "Imagen de banner",
+    "pfp": "Foto de perfil",
+    "description-label": "Descripción",
+    "edit-description": "Editar descripción",
     "personal-info": "Información Personal",
     "username": "Nombre de Usuario",
     "email": "Correo electrónico",
@@ -70,10 +79,24 @@
     "plan": "Plan",
     "free": "Gratis",
     "premium": "Premium",
-    "edit": "Editar detalles",
-    "save": "Guardar",
-    "cancel": "Cancelar",
-    "logout": "Cerrar Sesión"
+    "config": "Configuración",
+    "language": "Idioma",
+    "notifications": "Notificaciones",
+    "timezone": "Zona horaria",
+    "inscriptions": "Aprobación de inscripciones",
+    "notif-all": "Todas",
+    "notif-silenced": "Silenciadas",
+    "notif-mentions": "Menciones",
+    "manual": "Manual",
+    "automatic": "Automática",
+    "edit-profile": "Editar configuración del perfil",
+    "edit-btn": "Editar detalles",
+    "save-profile": "Guardar cambios del perfil",
+    "save-btn": "Guardar",
+    "cancel-profile": "Cancelar edición del perfil",
+    "cancel-btn": "Cancelar",
+    "logout": "Cerrar sesión de tu cuenta",
+    "logout-btn": "Cerrar Sesión"
   },
 
   "register": {
@@ -149,7 +172,7 @@
   },
 
   "toolbar": {
-    "dashboard": "Dashboard",
+    "dashboard": "Panel",
     "volunteers": "Mis Voluntarios",
     "notifications": "Notificaciones",
     "profile": "Perfil"

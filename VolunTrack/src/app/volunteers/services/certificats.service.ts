@@ -10,7 +10,7 @@ import {Certificate} from '../../registered-volunteers/model/registered-voluntee
   providedIn: 'root'
 })
 export class CertificatesService {
-  private apiUrl = 'http://localhost:3000/certificates'; // Cambia al endpoint real
+  private apiUrl = 'https://voluntrack.onrender.com/certificates'; // Cambia al endpoint real
 
   constructor(private http: HttpClient) {}
 

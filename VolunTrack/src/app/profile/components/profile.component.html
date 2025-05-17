@@ -1,29 +1,25 @@
-<<<<<<< Updated upstream
 <!--
   Este componente representa la vista de perfil de usuario en la aplicación.
-  El usuario puede cambiar su informacion y preferencias
+  El usuario puede cambiar su información y preferencias
 -->
+
 <div class="page-header">
-  <h2>My Profile</h2>
+  <h2>{{ 'profile.title' | translate }}</h2>
 </div>
-=======
-<div class="profile-container">
-  <h1 class="title">{{ 'profile.title' | translate }}</h1>
->>>>>>> Stashed changes
 
 <div class="profile-container">
   <div class="banner">
-    <img class="cover" [src]="user?.banner" alt="Banner" aria-label="Banner image">
+    <img class="cover" [src]="user?.banner" alt="Banner">
     <div class="profile-icon-wrapper">
-      <img class="profile-icon" [src]="user?.pfp" alt="Icono" aria-label="Profile picture image">
+      <img class="profile-icon" [src]="user?.pfp" alt="Icono">
     </div>
     <div class="description-box">
-      <strong>{{ 'profile.description' | translate }}:</strong>
+      <strong>{{ 'profile.description-label' | translate }}:</strong>
       <div *ngIf="!editMode">
         <p>{{ user?.description }}</p>
       </div>
       <div *ngIf="editMode">
-        <textarea [(ngModel)]="editedUser.description" aria-label="Banner image"></textarea>
+        <textarea [(ngModel)]="editedUser.description"></textarea>
       </div>
     </div>
   </div>
@@ -31,122 +27,91 @@
   <div class="profile-content">
     <div class="personal-info">
       <h3>{{ 'profile.personal-info' | translate }}</h3>
-
-<<<<<<< Updated upstream
       <mat-divider></mat-divider>
 
-      <h4>Nombre de Usuario:
-=======
-      <p><strong>{{ 'profile.username' | translate }}:</strong>
->>>>>>> Stashed changes
+      <h4>{{ 'profile.username' | translate }}:
         <span *ngIf="!editMode">{{ user?.username }}</span>
         <input *ngIf="editMode" [(ngModel)]="editedUser.username">
       </h4>
 
-<<<<<<< Updated upstream
-      <h4>Correo electrónico:
-=======
-      <p><strong>{{ 'profile.email' | translate }}:</strong>
->>>>>>> Stashed changes
+      <h4>{{ 'profile.email' | translate }}:
         <span *ngIf="!editMode">{{ user?.email }}</span>
         <input *ngIf="editMode" [(ngModel)]="editedUser.email">
       </h4>
 
-<<<<<<< Updated upstream
-      <h4>Contraseña:
-=======
-      <p><strong>{{ 'profile.password' | translate }}:</strong>
->>>>>>> Stashed changes
+      <h4>{{ 'profile.password' | translate }}:
         <span *ngIf="!editMode">**********</span>
         <input *ngIf="editMode" type="password" [(ngModel)]="editedUser.password">
       </h4>
 
-<<<<<<< Updated upstream
-      <h4>Número de teléfono:
-=======
-      <p><strong>{{ 'profile.phone' | translate }}:</strong>
->>>>>>> Stashed changes
+      <h4>{{ 'profile.phone' | translate }}:
         <span *ngIf="!editMode">{{ user?.phone }}</span>
         <input matInput *ngIf="editMode" [(ngModel)]="editedUser.phone">
       </h4>
 
-<<<<<<< Updated upstream
-      <h4>Plan:
-=======
-      <p><strong>{{ 'profile.plan' | translate }}:</strong>
->>>>>>> Stashed changes
+      <h4>{{ 'profile.plan' | translate }}:
         <span *ngIf="!editMode">{{ user?.plan }}</span>
         <select *ngIf="editMode" [(ngModel)]="editedUser.plan">
           <option value="Gratis">{{ 'profile.free' | translate }}</option>
           <option value="Premium">{{ 'profile.premium' | translate }}</option>
         </select>
       </h4>
-
-<<<<<<< Updated upstream
-=======
-      <div class="button-group">
-        <button *ngIf="!editMode" class="edit-btn" (click)="toggleEdit()">
-          ✏️ {{ 'profile.edit' | translate }}
-        </button>
-        <div *ngIf="editMode">
-          <button class="edit-btn" (click)="saveChanges()">💾 {{ 'profile.save' | translate }}</button>
-          <button class="logout-btn" (click)="cancelEdit()">❌ {{ 'profile.cancel' | translate }}</button>
-        </div>
-        <button class="logout-btn" (click)="logout()">⛔ {{ 'profile.logout' | translate }}</button>
-      </div>
->>>>>>> Stashed changes
     </div>
-    <div class="config-info">
-      <h3>Configuration</h3>
 
-<<<<<<< Updated upstream
+    <div class="config-info">
+      <h3>{{ 'profile.config' | translate }}</h3>
       <mat-divider></mat-divider>
 
-      <h4>Idioma:
+      <h4>{{ 'profile.language' | translate }}:
         <span *ngIf="!editMode">{{ user?.language }}</span>
-        <select *ngIf="editMode" [(ngModel)]="editedUser.language" aria-label="Langueage switcher">
+        <select *ngIf="editMode" [(ngModel)]="editedUser.language">
           <option value="Español">Español</option>
           <option value="English">English</option>
         </select>
       </h4>
 
-      <h4>Notificaciones:
+      <h4>{{ 'profile.notifications' | translate }}:
         <span *ngIf="!editMode">{{ user?.notifications }}</span>
-        <select *ngIf="editMode" [(ngModel)]="editedUser.notifications" aria-label="Notifications preferences">
-          <option value="All">All</option>
-          <option value="Silenced">Silenced</option>
-          <option value="Mentions">Mentions</option>
+        <select *ngIf="editMode" [(ngModel)]="editedUser.notifications">
+          <option value="All">{{ 'profile.notif-all' | translate }}</option>
+          <option value="Silenced">{{ 'profile.notif-silenced' | translate }}</option>
+          <option value="Mentions">{{ 'profile.notif-mentions' | translate }}</option>
         </select>
       </h4>
 
-      <h4>Zona horaria:
+      <h4>{{ 'profile.timezone' | translate }}:
         <span *ngIf="!editMode">{{ user?.timezone }}</span>
-        <select *ngIf="editMode" [(ngModel)]="editedUser.timezone" aria-label="Timezone">
+        <select *ngIf="editMode" [(ngModel)]="editedUser.timezone">
           <option value="GMT-5">GMT-5</option>
           <option value="GMT-4">GMT-4</option>
           <option value="GMT-3">GMT-3</option>
         </select>
       </h4>
 
-      <h4>Aprobación de inscripciones:
+      <h4>{{ 'profile.inscriptions' | translate }}:
         <span *ngIf="!editMode">{{ user?.inscriptions }}</span>
-        <select *ngIf="editMode" [(ngModel)]="editedUser.inscriptions" aria-label="Inscriptions approvals">
-          <option value="Manual">Manual</option>
-          <option value="Automatic">Automática</option>
+        <select *ngIf="editMode" [(ngModel)]="editedUser.inscriptions" >
+          <option value="Manual">{{ 'profile.manual' | translate }}</option>
+          <option value="Automatic">{{ 'profile.automatic' | translate }}</option>
         </select>
       </h4>
     </div>
   </div>
 
   <div class="button-group">
-    <button *ngIf="!editMode" class="edit-btn" (click)="toggleEdit()" aria-label="Edit profile settings">✏️ Editar detalles</button>
+    <button *ngIf="!editMode" class="edit-btn" (click)="toggleEdit()" >
+      ✏️ {{ 'profile.edit-btn' | translate }}
+    </button>
     <div *ngIf="editMode">
-      <button class="edit-btn" (click)="saveChanges()" aria-label="Save changes">💾 Guardar</button>
-      <button class="logout-btn" (click)="cancelEdit()" aria-label="Cancel changes">❌ Cancelar</button>
+      <button class="edit-btn" (click)="saveChanges()" >
+        💾 {{ 'profile.save-btn' | translate }}
+      </button>
+      <button class="logout-btn" (click)="cancelEdit()" >
+        ❌ {{ 'profile.cancel-btn' | translate }}
+      </button>
     </div>
-    <button class="logout-btn" (click)="logout()" aria-label="Log out">⛔ Cerrar Sesión</button>
-=======
->>>>>>> Stashed changes
+    <button class="logout-btn" (click)="logout()" >
+      ⛔ {{ 'profile.logout-btn' | translate }}
+    </button>
   </div>
 </div>
-

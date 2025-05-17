@@ -1,60 +1,9 @@
-<<<<<<< Updated upstream
 <!--
 Description: User registration form with fields for username, email, phone, profile icon URL, banner URL, description, password, and password confirmation.
 Author: Marcelo Binda
 -->
+<div class="login-backdrop"></div>
 
-<div class="register-container" role="form" aria-labelledby="register-title">
-  <h2 id="register-title">Registro de Usuario</h2>
-
-  <div class="form-grid">
-    <mat-form-field appearance="outline">
-      <mat-label>Nombre de usuario</mat-label>
-      <input matInput [(ngModel)]="username" aria-required="true" aria-describedby="username-desc" />
-      <span id="username-desc" class="sr-only"></span>
-    </mat-form-field>
-
-    <mat-form-field appearance="outline">
-      <mat-label>Email</mat-label>
-      <input matInput type="email" [(ngModel)]="email" aria-required="true" aria-describedby="email-desc" />
-      <span id="email-desc" class="sr-only"></span>
-    </mat-form-field>
-
-    <mat-form-field appearance="outline">
-      <mat-label>Teléfono</mat-label>
-      <input matInput [(ngModel)]="phone" aria-describedby="phone-desc" />
-      <span id="phone-desc" class="sr-only"></span>
-    </mat-form-field>
-
-    <mat-form-field appearance="outline">
-      <mat-label>Ícono (URL)</mat-label>
-      <input matInput [(ngModel)]="pfp" aria-describedby="pfp-desc" />
-      <span id="pfp-desc" class="sr-only"></span>
-    </mat-form-field>
-
-    <mat-form-field appearance="outline">
-      <mat-label>Banner (URL)</mat-label>
-      <input matInput [(ngModel)]="banner" aria-describedby="banner-desc" />
-      <span id="banner-desc" class="sr-only"></span>
-    </mat-form-field>
-
-    <mat-form-field appearance="outline">
-      <mat-label>Descripción</mat-label>
-      <input matInput [(ngModel)]="description" aria-describedby="description-desc" />
-      <span id="description-desc" class="sr-only"></span>
-    </mat-form-field>
-
-    <mat-form-field appearance="outline">
-      <mat-label>Contraseña</mat-label>
-      <input matInput type="password" [(ngModel)]="password" aria-required="true" aria-describedby="password-desc" />
-      <span id="password-desc" class="sr-only"></span>
-    </mat-form-field>
-
-    <mat-form-field appearance="outline">
-      <mat-label>Confirmar contraseña</mat-label>
-      <input matInput type="password" [(ngModel)]="confirmPassword" aria-required="true" aria-describedby="confirm-password-desc" />
-      <span id="confirm-password-desc" class="sr-only"></span>
-=======
 <div class="register-container">
   <h2>{{ 'register.title' | translate }}</h2>
 
@@ -97,23 +46,18 @@ Author: Marcelo Binda
     <mat-form-field appearance="outline">
       <mat-label>{{ 'register.confirm-password' | translate }}</mat-label>
       <input matInput type="password" [(ngModel)]="confirmPassword" />
->>>>>>> Stashed changes
     </mat-form-field>
   </div>
 
   <div class="button-group">
-<<<<<<< Updated upstream
-    <button class="cancel" mat-stroked-button (click)="goToLogin()" aria-label="Cancel registration and go back to login">Cancelar</button>
-    <button mat-flat-button (click)="registerUser()" aria-label="Submit registration form">Registrarse</button>
-=======
     <button class="cancel" mat-stroked-button (click)="goToLogin()">
       {{ 'register.cancel' | translate }}
     </button>
     <button mat-flat-button (click)="registerUser()">
       {{ 'register.submit' | translate }}
     </button>
->>>>>>> Stashed changes
   </div>
 </div>
 
 <div style="height: 10%;"></div>
+

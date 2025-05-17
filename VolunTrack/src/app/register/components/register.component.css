@@ -5,7 +5,22 @@ Styles for the user registration form container, including layout, colors, butto
 Author: Victor Ortiz
 */
 
+.login-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgb(1, 31, 40); /* Fondo negro semitransparente */
+  z-index: 999; /* Por debajo del login-container */
+}
+
 .register-container {
+  position: fixed;
+  z-index: 1000; /* Encima del backdrop */
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   width: 500px;
   margin: 80px auto;
   padding: 30px;

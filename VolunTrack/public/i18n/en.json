@@ -27,6 +27,11 @@
     "SATURDAY": "SATURDAY",
     "SUNDAY": "SUNDAY"
   },
+  "dashboard": {
+    "title": "Activity Dashboard",
+    "create": "Create",
+    "calendar": "Calendar"
+  },
   "create-act": {
     "create": "Create",
     "add-pictures": "Add pictures",
@@ -43,7 +48,8 @@
     "purpose": "Purpose",
     "purpose-textarea": "One purpose per line",
     "create": "Create",
-    "discard": "Discard"
+    "discard": "Discard",
+    "update": "Update"
   },
 
   "NOTIFICATIONS": {
@@ -65,19 +71,36 @@
 
   "profile": {
     "title": "My Profile",
-    "description": "Description",
+    "banner": "Banner image",
+    "pfp": "Profile picture",
+    "description-label": "Description",
+    "edit-description": "Edit description",
     "personal-info": "Personal Information",
     "username": "Username",
     "email": "Email",
     "password": "Password",
-    "phone": "Phone Number",
+    "phone": "Phone number",
     "plan": "Plan",
     "free": "Free",
     "premium": "Premium",
-    "edit": "Edit Details",
-    "save": "Save",
-    "cancel": "Cancel",
-    "logout": "Log Out"
+    "config": "Configuration",
+    "language": "Language",
+    "notifications": "Notifications",
+    "timezone": "Time zone",
+    "inscriptions": "Registration approval",
+    "notif-all": "All",
+    "notif-silenced": "Silenced",
+    "notif-mentions": "Mentions",
+    "manual": "Manual",
+    "automatic": "Automatic",
+    "edit-profile": "Edit profile settings",
+    "edit-btn": "Edit details",
+    "save-profile": "Save profile changes",
+    "save-btn": "Save",
+    "cancel-profile": "Cancel profile editing",
+    "cancel-btn": "Cancel",
+    "logout": "Log out of your account",
+    "logout-btn": "Log out"
   },
 
   "volunteers": {

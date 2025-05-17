@@ -3,8 +3,6 @@
     <h2>{{ 'volunteers.title' | translate }}</h2>
   </div>
   <div class="volunteers-main-panel" [ngClass]="{ 'with-selection': selectedVolunteer }">
-
-    <!-- Panel de métricas -->
     <div class="volunteer-metrics-panel mat-elevation-z4">
       <h3>{{ 'volunteers.metrics' | translate }}</h3>
       <div class="metrics-cards">
@@ -77,16 +75,13 @@
       </div>
     </div>
 
-<<<<<<< Updated upstream
-    <!-- Tabla de voluntarios -->
-=======
->>>>>>> Stashed changes
     <div class="volunteers-table-panel mat-elevation-z4">
       <div class="volunteers-toolbar">
         <mat-form-field appearance="outline" class="search-input">
           <mat-label>{{ 'volunteers.search' | translate }}</mat-label>
           <input matInput [(ngModel)]="searchText" (input)="applyFilters()" [placeholder]="'volunteers.searchPlaceholder' | translate" />
         </mat-form-field>
+
         <button mat-icon-button color="primary" (click)="openFilterDialog()">
           <mat-icon>filter_list</mat-icon>
         </button>
@@ -95,26 +90,6 @@
       <div class="volunteers-table-container">
         <table mat-table [dataSource]="dataSource" class="mat-elevation-z1" style="width: 100%; cursor: pointer;">
           <ng-container matColumnDef="fullName">
-<<<<<<< Updated upstream
-            <th mat-header-cell *matHeaderCellDef>Nombre</th>
-            <td mat-cell *matCellDef="let volunteer" (click)="selectVolunteer(volunteer)">
-              {{ volunteer.fullName }}
-            </td>
-          </ng-container>
-
-          <ng-container matColumnDef="age">
-            <th mat-header-cell *matHeaderCellDef>Edad</th>
-            <td mat-cell *matCellDef="let volunteer" (click)="selectVolunteer(volunteer)">
-              {{ volunteer.age }}
-            </td>
-          </ng-container>
-
-          <ng-container matColumnDef="profession">
-            <th mat-header-cell *matHeaderCellDef>Profesión</th>
-            <td mat-cell *matCellDef="let volunteer" (click)="selectVolunteer(volunteer)">
-              {{ volunteer.profession }}
-            </td>
-=======
             <th mat-header-cell *matHeaderCellDef>{{ 'volunteers.name' | translate }}</th>
             <td mat-cell *matCellDef="let volunteer" (click)="selectVolunteer(volunteer)">{{ volunteer.fullName }}</td>
           </ng-container>
@@ -127,7 +102,6 @@
           <ng-container matColumnDef="profession">
             <th mat-header-cell *matHeaderCellDef>{{ 'volunteers.profession' | translate }}</th>
             <td mat-cell *matCellDef="let volunteer" (click)="selectVolunteer(volunteer)">{{ volunteer.profession }}</td>
->>>>>>> Stashed changes
           </ng-container>
 
           <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
@@ -143,10 +117,6 @@
       <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
     </div>
 
-<<<<<<< Updated upstream
-    <!-- Panel lateral con detalles del voluntario -->
-=======
->>>>>>> Stashed changes
     <div *ngIf="selectedVolunteer" class="volunteer-side-panel">
       <div class="volunteer-detail-panel mat-elevation-z4">
         <div class="profile-header">
@@ -159,46 +129,6 @@
             <p><strong>{{ 'volunteers.registrationDate' | translate }}:</strong> {{ selectedVolunteer.registrationDate | date }}</p>
           </div>
         </div>
-<<<<<<< Updated upstream
-
-        <div class="actions">
-          <button mat-raised-button color="primary" (click)="openCertificatesDialog()">Ver certificados</button>
-          <button mat-raised-button color="accent" (click)="sendEmail = true">Enviar correo</button>
-          <button mat-raised-button color="warn">Añadir a actividad</button>
-          <button mat-stroked-button color="warn">Dar de baja</button>
-        </div>
-      </div>
-
-      <!-- Panel inferior con historial o formulario -->
-      <div class="volunteer-bottom-panel">
-        <div *ngIf="sendEmail; else historyPanel" class="volunteer-email-panel mat-elevation-z4">
-          <form>
-            <div class="line">
-              <h3 style="color:#24344C; font-size: 2rem">Nuevo correo</h3>
-            </div>
-            <div class="line">
-              <p><strong>Para: {{ selectedVolunteer.email }}</strong></p>
-            </div>
-            <div class="line">
-              <label>Asunto</label>
-              <input type="text">
-            </div>
-            <div class="line">
-              <label>Mensaje</label>
-              <textarea name="description"></textarea>
-            </div>
-            <div class="line">
-              <button mat-raised-button (click)="fireNotification()" color="accent">Enviar correo</button>
-              <button mat-stroked-button (click)="sendEmail = false" style="margin-left: 8px;">Cancelar</button>
-            </div>
-          </form>
-        </div>
-
-        <ng-template #historyPanel>
-          <div class="volunteer-history-panel mat-elevation-z4">
-            <h3>Historial de Actividades</h3>
-            <p>No hay actividades recientes.</p>
-=======
       </div>
       <div class="actions">
         <button mat-raised-button color="primary" (click)="openCertificatesDialog()">{{ 'volunteers.viewCertificates' | translate }}</button>
@@ -232,12 +162,10 @@
           <div class="volunteer-history-panel mat-elevation-z4">
             <h3>{{ 'volunteers.activityHistory' | translate }}</h3>
             <p>{{ 'volunteers.noActivity' | translate }}</p>
->>>>>>> Stashed changes
           </div>
         </ng-template>
       </div>
     </div>
+
   </div>
 </div>
-<div style="height: 10%;"></div>
-

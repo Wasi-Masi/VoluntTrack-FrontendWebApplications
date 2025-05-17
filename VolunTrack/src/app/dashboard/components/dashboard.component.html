@@ -1,18 +1,8 @@
-<<<<<<< Updated upstream
 <!--
 Description: Displays a dashboard with a list of activities, including images, titles, dates, and navigation buttons for creating activities and viewing a calendar.
 Author: Cassius Martel
 -->
 
-<div class="dashboard-header" role="banner" aria-label="Activity Dashboard Header">
-  <h2 tabindex="0">Activity Dashboard</h2>
-  <div class="dashboard-actions" role="navigation" aria-label="Dashboard actions">
-    <button mat-stroked-button color="primary" [routerLink]="['/create-activity']" aria-label="Create new activity">
-      <mat-icon>add</mat-icon> {{ 'create' | translate }}
-    </button>
-    <button [routerLink]="['/calendar']" mat-stroked-button color="accent" aria-label="View calendar">
-      <mat-icon>calendar_today</mat-icon> {{ 'calendar' | translate }}
-=======
 <div class="dashboard-header">
   <h2>{{ 'ACTIVITY.DASHBOARD_TITLE' | translate }}</h2>
   <div class="dashboard-actions">
@@ -21,29 +11,20 @@ Author: Cassius Martel
     </button>
     <button [routerLink]="['/calendar']" mat-stroked-button color="accent">
       <mat-icon>calendar_today</mat-icon> {{ 'ACTIVITY.CALENDAR' | translate }}
->>>>>>> Stashed changes
     </button>
   </div>
 </div>
 
-<div class="dashboard-card" role="main" aria-label="List of activities">
+<div class="dashboard-card">
   <div class="activities-container">
-    <div class="activity-row" *ngFor="let activity of activities" role="listitem" tabindex="0">
+    <div class="activity-row" *ngFor="let activity of activities">
       <div class="activity-card">
-<<<<<<< Updated upstream
-      <img [src]="activity.dashboardPicture" alt="{{ activity.title }}" class="activity-image" />
-=======
         <img [src]="activity.dashboardPicture" alt="{{ activity.title }}" class="activity-image" />
->>>>>>> Stashed changes
         <div class="activity-info">
           <h3>{{ activity.title }}</h3>
           <p>{{ activity.date }} — {{ activity.startTime }} {{ 'ACTIVITY.TO' | translate }} {{ activity.endTime }}</p>
           <button mat-button color="primary" [routerLink]="['/activity', activity.id]">
-<<<<<<< Updated upstream
-          View More <mat-icon>arrow_forward</mat-icon>
-=======
             {{ 'ACTIVITY.VIEW_MORE' | translate }} <mat-icon>arrow_forward</mat-icon>
->>>>>>> Stashed changes
           </button>
         </div>
       </div>
@@ -52,3 +33,4 @@ Author: Cassius Martel
 </div>
 
 <div style="height: 10%;"></div>
+

@@ -13,7 +13,7 @@ import { forkJoin, switchMap } from 'rxjs';
   providedIn: 'root'
 })
 export class NotificationsService {
-  private apiUrl = 'http://localhost:3000/notifications';
+  private apiUrl = 'https://voluntrack.onrender.com/notifications';
 
   constructor(private http: HttpClient) { }
 

@@ -12,7 +12,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
-import {TranslateModule} from "@ngx-translate/core";
+import {TranslatePipe} from '@ngx-translate/core';
 
 @Component({
   selector: 'app-login',
@@ -26,7 +26,7 @@ import {TranslateModule} from "@ngx-translate/core";
     MatInputModule,
     MatButtonModule,
     MatIconModule,
-    TranslateModule
+    TranslatePipe
   ],
 })
 export class LoginComponent {
@@ -43,10 +43,10 @@ export class LoginComponent {
 
   async clearLogin(): Promise<void> {
     try {
-      const users = await this.http.get<any[]>('http://localhost:3000/userlogin').toPromise();
+      const users = await this.http.get<any[]>('https://voluntrack.onrender.com/userlogin').toPromise();
       if (users?.length) {
         await Promise.all(users.map(user =>
-          this.http.delete(`http://localhost:3000/userlogin/${user.id}`).toPromise()
+          this.http.delete(`https://voluntrack.onrender.com/userlogin/${user.id}`).toPromise()
         ));
       }
     } catch (error) {
@@ -56,7 +56,7 @@ export class LoginComponent {
 
   async validateLogin(username: string, password: string): Promise<any | null> {
     try {
-      const users = await this.http.get<any[]>('http://localhost:3000/users').toPromise();
+      const users = await this.http.get<any[]>('https://voluntrack.onrender.com/users').toPromise();
       return users?.find(u => u.username === username && u.password === password) ?? null;
     } catch (error) {
       console.error('Error validating login:', error);
@@ -66,7 +66,7 @@ export class LoginComponent {
 
   async createLogin(user: any): Promise<void> {
     try {
-      await this.http.post('http://localhost:3000/userlogin', user).toPromise();
+      await this.http.post('https://voluntrack.onrender.com/userlogin', user).toPromise();
     } catch (error) {
       console.error('Error saving login session:', error);
     }

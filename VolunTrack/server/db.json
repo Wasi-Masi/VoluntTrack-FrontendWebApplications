@@ -71,7 +71,7 @@
     },
     {
       "id": "3",
-      "title": "5. Animal Shelter Support",
+      "title": "Animal Shelter ",
       "description": "Assist with daily care of shelter animals including feeding, cleaning, and socializing with pets waiting for adoption.\n\n",
       "instructions": [
         "Wear appropriate clothing",
@@ -100,7 +100,7 @@
     },
     {
       "id": "4",
-      "title": "Food Drive",
+      "title": "Food Truck",
       "description": "Help us support families in need by donating non-perishable food items. All contributions will be distributed to local shelters and community kitchens. Together, we can fight hunger and make a real difference.",
       "instructions": [
         "Bring canned or dry food items",
@@ -123,7 +123,7 @@
       "date": "2025-06-05",
       "startTime": "10:00",
       "endTime": "13:00",
-      "address": "Barranco, Lima",
+      "address": "San MIguel, Lima",
       "inscriptionsCount": 120,
       "inscriptionsOpen": true
     },
@@ -1097,61 +1097,70 @@
     }
   ],
   "notifications": [],
-<<<<<<< Updated upstream
   "users": [
     {
-      "id": "9969",
-      "username": "a",
-      "password": "a",
-      "email": "a",
-      "phone": "1",
-      "pfp": "a",
+      "id": "4707",
+      "username": "Cassius",
+      "password": "123",
+      "email": "c@gmail.com",
+      "phone": "123123123",
+      "pfp": "https://i.imgur.com/SR3tsva.jpg",
       "plan": "basic",
-      "banner": "a",
-      "description": "a"
+      "banner": "https://i.imgur.com/Yw0YBXt.jpg",
+      "description": "Mbappe",
+      "language": "English",
+      "notifications": "All",
+      "timezone": "GMT-5",
+      "inscriptions": "Automatic"
     },
     {
-      "id": "c00d",
-      "username": "a",
-      "password": "a",
-      "email": "a",
-      "phone": "a",
-      "pfp": "a",
+      "id": "09c2",
+      "username": "Estefano",
+      "password": "123",
+      "email": "estefano@gmail.com",
+      "phone": "999 888 777",
+      "pfp": "https://i.imgur.com/SR3tsva.jpg",
       "plan": "basic",
-      "banner": "a",
-      "description": "a"
+      "banner": "https://i.imgur.com/Yw0YBXt.jpg",
+      "description": "Voluntariado de rescate animal",
+      "language": "English",
+      "notifications": "All",
+      "timezone": "GMT-5",
+      "inscriptions": "Automatic"
     },
     {
-      "id": "1ed1",
-      "username": "b",
-      "password": "b",
-      "email": "b",
-      "phone": "b",
-      "pfp": "b",
+      "id": "f4ae",
+      "username": "Gerardo",
+      "password": "123",
+      "email": "gerardo@gmail.com",
+      "phone": "999888999",
+      "pfp": "https://i.imgur.com/SR3tsva.jpg",
       "plan": "basic",
-      "banner": "b",
-      "description": "b"
-    },
-    {
-      "id": "4af5",
-      "username": "a",
-      "password": "a",
-      "email": "a",
-      "phone": "a",
-      "pfp": "a",
-      "plan": "basic",
-      "banner": "a",
-      "description": "a",
+      "banner": "https://i.imgur.com/Yw0YBXt.jpg",
+      "description": "Voluntariado de rescate animal",
       "language": "English",
       "notifications": "All",
       "timezone": "GMT-5",
       "inscriptions": "Automatic"
     }
   ],
-=======
-  "users": [],
->>>>>>> Stashed changes
-  "userlogin": [],
+  "userlogin": [
+    {
+      "id": "09c2",
+      "username": "Estefano",
+      "password": "123",
+      "email": "estefano@gmail.com",
+      "phone": "999 888 777",
+      "pfp": "https://i.imgur.com/SR3tsva.jpg",
+      "plan": "basic",
+      "banner": "https://i.imgur.com/Yw0YBXt.jpg",
+      "description": "Voluntariado de rescate animal",
+      "language": "English",
+      "notifications": "All",
+      "timezone": "GMT-5",
+      "inscriptions": "Automatic"
+    }
+  ],
   "registers": [
     {
       "id": "1",
@@ -1399,7 +1408,7 @@
       "activityId": 3,
       "registrationDate": "2025-05-16",
       "status": "aceptado",
-      "attendance": "asistio"
+      "attendance": "no asistio"
     },
     {
       "id": "32",
@@ -1423,7 +1432,7 @@
       "activityId": 3,
       "registrationDate": "2025-05-16",
       "status": "aceptado",
-      "attendance": "no asistio"
+      "attendance": "asistio"
     },
     {
       "id": "35",
@@ -1431,7 +1440,7 @@
       "activityId": 3,
       "registrationDate": "2025-05-16",
       "status": "rechazado",
-      "attendance": "no asistio"
+      "attendance": "asistio"
     },
     {
       "id": "36",
@@ -1519,7 +1528,7 @@
       "activityId": 4,
       "registrationDate": "2025-05-16",
       "status": "aceptado",
-      "attendance": "asistio"
+      "attendance": "no asistio"
     },
     {
       "id": "47",
@@ -1527,7 +1536,7 @@
       "activityId": 4,
       "registrationDate": "2025-05-16",
       "status": "rechazado",
-      "attendance": "no asistio"
+      "attendance": "asistio"
     },
     {
       "id": "48",
@@ -1535,7 +1544,7 @@
       "activityId": 4,
       "registrationDate": "2025-05-16",
       "status": "aceptado",
-      "attendance": "no asistio"
+      "attendance": "asistio"
     },
     {
       "id": "49",
@@ -1924,52 +1933,112 @@
       "text": "Mediante este certificado, se acredita que el voluntario Ricardo Peña Salazar participó satisfactoriamente en la actividad \"Community Fitness\" el 5/31/2025."
     },
     {
-      "id": "ce487905-a78a-4e91-bf1a-4aefba4b785a",
-      "volunteerId": "7",
-      "activityTitle": "Beach Cleanup",
-      "text": "Mediante este certificado, se acredita que el voluntario Valentín Plaza March participó satisfactoriamente en la actividad \"Beach Cleanup\" el 19/5/2025."
+      "id": "ba523fcd-35c8-48ac-be90-e8e69b9f8544",
+      "volunteerId": "28",
+      "activityTitle": "Animal Shelter ",
+      "text": "Mediante este certificado, se acredita que el voluntario Isabel Sánchez López participó satisfactoriamente en la actividad \"Animal Shelter \" el 5/31/2025."
     },
     {
-      "id": "c80b6701-6688-4f76-a5a7-1fa88b22c40c",
-      "volunteerId": "21",
-      "activityTitle": "Beach Cleanup",
-      "text": "Mediante este certificado, se acredita que el voluntario Javier Molina Ruiz participó satisfactoriamente en la actividad \"Beach Cleanup\" el 19/5/2025."
+      "id": "e72d1a60-8abc-4a4b-a657-db97ef48ab83",
+      "volunteerId": "45",
+      "activityTitle": "Animal Shelter ",
+      "text": "Mediante este certificado, se acredita que el voluntario Ricardo Peña Salazar participó satisfactoriamente en la actividad \"Animal Shelter \" el 5/31/2025."
     },
     {
-      "id": "88042ea6-0935-482b-94d7-5e013af8e18c",
-      "volunteerId": "4",
-      "activityTitle": "Beach Cleanup",
-      "text": "Mediante este certificado, se acredita que el voluntario Ernestina Berenguer Collado participó satisfactoriamente en la actividad \"Beach Cleanup\" el 19/5/2025."
+      "id": "a33107c6-a6b9-4d7d-97ac-f58da5d915a2",
+      "volunteerId": "6",
+      "activityTitle": "Animal Shelter ",
+      "text": "Mediante este certificado, se acredita que el voluntario Cristóbal Amador Martí participó satisfactoriamente en la actividad \"Animal Shelter \" el 5/31/2025."
     },
     {
-      "id": "0704d33c-c3ae-4803-87d4-0375f25c5225",
-      "volunteerId": "26",
-      "activityTitle": "Beach Cleanup",
-      "text": "Mediante este certificado, se acredita que el voluntario Natalia Morales Vega participó satisfactoriamente en la actividad \"Beach Cleanup\" el 19/5/2025."
+      "id": "ec0c5873-a4c6-423d-94f1-f9dab9e83caa",
+      "volunteerId": "40",
+      "activityTitle": "Animal Shelter ",
+      "text": "Mediante este certificado, se acredita que el voluntario Claudia Vega Torres participó satisfactoriamente en la actividad \"Animal Shelter \" el 5/31/2025."
     },
     {
-      "id": "49018f73-f7b2-4dee-b720-b95a2a5d743b",
-      "volunteerId": "38",
-      "activityTitle": "Beach Cleanup",
-      "text": "Mediante este certificado, se acredita que el voluntario Marina Ortega Luna participó satisfactoriamente en la actividad \"Beach Cleanup\" el 19/5/2025."
+      "id": "14164332-e063-4da5-97f5-40600e7d0a42",
+      "volunteerId": "11",
+      "activityTitle": "Animal Shelter ",
+      "text": "Mediante este certificado, se acredita que el voluntario Jimena Carrasco Reina participó satisfactoriamente en la actividad \"Animal Shelter \" el 5/31/2025."
     },
     {
-      "id": "fae7ac6d-160e-475c-b86a-e0fb38b1b097",
-      "volunteerId": "10",
-      "activityTitle": "Beach Cleanup",
-      "text": "Mediante este certificado, se acredita que el voluntario Fermín Arias Chacón participó satisfactoriamente en la actividad \"Beach Cleanup\" el 19/5/2025."
+      "id": "bfc35ea1-89cf-4869-aa7c-bd4241c15de9",
+      "volunteerId": "25",
+      "activityTitle": "Animal Shelter ",
+      "text": "Mediante este certificado, se acredita que el voluntario Diego Ramírez Fuentes participó satisfactoriamente en la actividad \"Animal Shelter \" el 5/31/2025."
     },
     {
-      "id": "eff9cd87-5bb0-4b21-bc16-5dba64cb3a25",
+      "id": "2e57940d-77ad-427c-928f-69087e2f58eb",
       "volunteerId": "14",
-      "activityTitle": "Beach Cleanup",
-      "text": "Mediante este certificado, se acredita que el voluntario Lucía Vargas Godoy participó satisfactoriamente en la actividad \"Beach Cleanup\" el 19/5/2025."
+      "activityTitle": "Animal Shelter ",
+      "text": "Mediante este certificado, se acredita que el voluntario Lucía Vargas Godoy participó satisfactoriamente en la actividad \"Animal Shelter \" el 5/31/2025."
     },
     {
-      "id": "4aacaed0-089b-4372-b34d-88e8bc8e1fe6",
-      "volunteerId": "41",
-      "activityTitle": "Beach Cleanup",
-      "text": "Mediante este certificado, se acredita que el voluntario Felipe Calderón Suárez participó satisfactoriamente en la actividad \"Beach Cleanup\" el 19/5/2025."
+      "id": "d814b0a0-44d8-41b1-8ec9-d82c5ae3e690",
+      "volunteerId": "10",
+      "activityTitle": "Animal Shelter ",
+      "text": "Mediante este certificado, se acredita que el voluntario Fermín Arias Chacón participó satisfactoriamente en la actividad \"Animal Shelter \" el 5/31/2025."
+    },
+    {
+      "id": "f41a9b23-81bc-494c-9db4-974d8902d50f",
+      "volunteerId": "37",
+      "activityTitle": "Animal Shelter ",
+      "text": "Mediante este certificado, se acredita que el voluntario Andrés Salinas Vega participó satisfactoriamente en la actividad \"Animal Shelter \" el 5/31/2025."
+    },
+    {
+      "id": "e3c8332f-58a4-416b-923d-778f20753708",
+      "volunteerId": "8",
+      "activityTitle": "Food Truck",
+      "text": "Mediante este certificado, se acredita que el voluntario Montserrat Iglesias Valenzuela participó satisfactoriamente en la actividad \"Food Truck\" el 6/4/2025."
+    },
+    {
+      "id": "e005522d-fa25-42b3-aa48-a1493bec8ab8",
+      "volunteerId": "35",
+      "activityTitle": "Food Truck",
+      "text": "Mediante este certificado, se acredita que el voluntario Jorge Castro Jiménez participó satisfactoriamente en la actividad \"Food Truck\" el 6/4/2025."
+    },
+    {
+      "id": "63651143-ee4c-41cc-89c6-20aaa2a0c261",
+      "volunteerId": "7",
+      "activityTitle": "Food Truck",
+      "text": "Mediante este certificado, se acredita que el voluntario Valentín Plaza March participó satisfactoriamente en la actividad \"Food Truck\" el 6/4/2025."
+    },
+    {
+      "id": "813a89c0-12e0-4707-b17b-accd853a82da",
+      "volunteerId": "1",
+      "activityTitle": "Food Truck",
+      "text": "Mediante este certificado, se acredita que el voluntario Albano Llopis Hierro participó satisfactoriamente en la actividad \"Food Truck\" el 6/4/2025."
+    },
+    {
+      "id": "c27ddf41-e635-4b72-bdf3-d6745739bd10",
+      "volunteerId": "30",
+      "activityTitle": "Food Truck",
+      "text": "Mediante este certificado, se acredita que el voluntario Verónica Herrera Silva participó satisfactoriamente en la actividad \"Food Truck\" el 6/4/2025."
+    },
+    {
+      "id": "25aab9a8-4a78-4734-9a48-5e4b39b82771",
+      "volunteerId": "22",
+      "activityTitle": "Food Truck",
+      "text": "Mediante este certificado, se acredita que el voluntario Clara Fernández Soto participó satisfactoriamente en la actividad \"Food Truck\" el 6/4/2025."
+    },
+    {
+      "id": "20cde917-5cf7-4fff-9376-06836fb09245",
+      "volunteerId": "39",
+      "activityTitle": "Food Truck",
+      "text": "Mediante este certificado, se acredita que el voluntario Rafael Mendoza Paredes participó satisfactoriamente en la actividad \"Food Truck\" el 6/4/2025."
+    },
+    {
+      "id": "5b348b3f-f1c8-4746-8530-d4614aacf0fe",
+      "volunteerId": "19",
+      "activityTitle": "Food Truck",
+      "text": "Mediante este certificado, se acredita que el voluntario Andrés Bueno Lozano participó satisfactoriamente en la actividad \"Food Truck\" el 6/4/2025."
+    },
+    {
+      "id": "2c13e1d1-c868-48aa-a65e-6ddcf8554432",
+      "volunteerId": "13",
+      "activityTitle": "Food Truck",
+      "text": "Mediante este certificado, se acredita que el voluntario Pablo Palacios Aguado participó satisfactoriamente en la actividad \"Food Truck\" el 6/4/2025."
     }
   ]
 }

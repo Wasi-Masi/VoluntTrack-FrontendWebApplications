@@ -17,7 +17,8 @@ import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import {CommonModule} from '@angular/common';
-import {TranslateModule} from "@ngx-translate/core";
+import {TranslatePipe} from '@ngx-translate/core';
+
 
 @Component({
   selector: 'app-register',
@@ -30,7 +31,7 @@ import {TranslateModule} from "@ngx-translate/core";
     MatInputModule,
     MatButtonModule,
     MatIconModule,
-    TranslateModule
+    TranslatePipe
   ],
   styleUrls: ['./register.component.css']
 })
@@ -72,7 +73,7 @@ export class RegisterComponent {
         inscriptions: 'Automatic'
       };
 
-      this.http.post('http://localhost:3000/users', newUser).subscribe({
+      this.http.post('https://voluntrack.onrender.com/users', newUser).subscribe({
         next: () => {
           this.goToLogin();
         },
