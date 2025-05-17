@@ -5,17 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="32d7f7b8-0dc4-4ad3-b13e-38150f113ef0" name="Changes" comment="add to gitignore">
-      <change beforePath="$PROJECT_DIR$/VolunTrack/src/app/activity-details/services/activity-details.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/VolunTrack/src/app/activity-details/services/activity-details.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/VolunTrack/src/app/create-activity/services/create-activity.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/VolunTrack/src/app/create-activity/services/create-activity.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/VolunTrack/src/app/dashboard/services/dashboard.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/VolunTrack/src/app/dashboard/services/dashboard.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/VolunTrack/src/app/login/components/login.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/VolunTrack/src/app/login/components/login.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/VolunTrack/src/app/notifications/services/notifications.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/VolunTrack/src/app/notifications/services/notifications.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/VolunTrack/src/app/profile/components/profile.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/VolunTrack/src/app/profile/components/profile.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/VolunTrack/src/app/profile/services/profile.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/VolunTrack/src/app/profile/services/profile.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/VolunTrack/src/app/register/components/register.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/VolunTrack/src/app/register/components/register.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/VolunTrack/src/app/registered-volunteers/services/registered-volunteers.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/VolunTrack/src/app/registered-volunteers/services/registered-volunteers.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/VolunTrack/src/app/volunteers/services/certificats.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/VolunTrack/src/app/volunteers/services/certificats.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/VolunTrack/src/app/volunteers/services/volunteers.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/VolunTrack/src/app/volunteers/services/volunteers.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,20 +23,20 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;feature/user&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/alext/appweb/FitManager&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;npm.start.executor&quot;: &quot;Run&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;C:\\Users\\alext\\open\\VoluntTrack-FrontendWebApplications\\VolunTrack\\node_modules\\typescript\\lib&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "hotfix",
+    "last_opened_file_path": "C:/Users/alext/appweb/FitManager",
+    "node.js.detected.package.eslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "npm.start.executor": "Run",
+    "ts.external.directory.path": "C:\\Users\\alext\\open\\VoluntTrack-FrontendWebApplications\\VolunTrack\\node_modules\\typescript\\lib",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RunManager">
     <configuration name="start" type="js.build_tools.npm" nameIsGenerated="true">
       <package-json value="$PROJECT_DIR$/VolunTrack/package.json" />
@@ -76,6 +66,7 @@
       <updated>1747393907478</updated>
       <workItem from="1747393910390" duration="30000" />
       <workItem from="1747393941513" duration="2106000" />
+      <workItem from="1747509948496" duration="1271000" />
     </task>
     <servers />
   </component>
