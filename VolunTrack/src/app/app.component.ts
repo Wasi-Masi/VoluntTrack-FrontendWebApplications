@@ -15,10 +15,4 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 })
 export class AppComponent {
   title = 'VolunTrack';
-  constructor(private translate: TranslateService) {
-    this.translate.addLangs(['en', 'es']);
-    this.translate.setDefaultLang('en');
-    this.translate.use('en');
-  }
-
 }
