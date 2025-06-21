@@ -26,12 +26,14 @@
 |-------------|------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------|
 | 1.0 (TB1)   | 27/04/2024 | - Binda Arbañil, Marcelo Alejandro<br>- Castillo Garay, Ainhoa Lucía<br>- Martel Andrade, Cassius Estefano<br>- Nakamurakare Teruya, Alex Tomio<br>- Ortiz Alarcón, Víctor Nicolás<br>- George Galván Cerrón | Capítulo I: Introducción<br>Capítulo II: Requirements Elicitation & Analysis<br>Capítulo III: Requirements Specification<br>Capítulo IV: Product Design<br>Capítulo V: Product Implementation, Validation & Deployment |
 | 2.0 (TP)    | 16/05/2025 | - Binda Arbañil, Marcelo Alejandro<br>- Castillo Garay, Ainhoa Lucía<br>- Martel Andrade, Cassius Estefano<br>- Nakamurakare Teruya, Alex Tomio<br>- Ortiz Alarcón, Víctor Nicolás<br>- Galván Cerrón, George | Correcciones de la TB1<br>Capítulo V: Product Implementation, Validation & Deployment                                                |
+| 3.0 (TB2)    | 22/06/2025 | - Binda Arbañil, Marcelo Alejandro<br>- Castillo Garay, Ainhoa Lucía<br>- Martel Andrade, Cassius Estefano<br>- Nakamurakare Teruya, Alex Tomio<br>- Ortiz Alarcón, Víctor Nicolás<br>- Galván Cerrón, George | Correcciones del TP<br>Sprint 3<br>Desarrollo del Backend<br>Entrevistas de validación                                               |
 
 # Project Report Collaboration Insights
 
 Repositorio donde está el project report: https://github.com/Wasi-Masi/VoluntTrack-FrontendWebApplications
 
-Para la elaboración del informe, inicialmente trabajamos en un documento compartido de Google Docs y posteriormente trasladamos el contenido al README del repositorio principal. A cada miembro del equipo se le asignó la responsabilidad de subir un capítulo.
+Para el desarrollo del informe hemos trabajado en un google docs, y luego hemos pasado el contenido al readme del repositorio principal.
+Para esta entrega, se actualizo el readme, se agregó el sprint 3 y se hicieron entrevistas de validación de producto que permiteron realizar evaluaciones heurísticas.
 
 <p align="center">
   <img src="https://github.com/user-attachments/assets/f296fcd2-46ba-4952-8e70-4b49724622d4" alt="Insights readme">
@@ -1042,43 +1044,9 @@ Algunos lectores no usan plataformas digitales simplemente por desconocimiento o
 | **Acceptance Criteria #2** | Dado que el visitante visualiza la información de planes y precios<br>Cuando selecciona un plan específico<br>Entonces el sistema debe mostrar más detalles sobre ese plan, incluyendo características específicas, beneficios adicionales y cualquier restricción o requisito relacionado con el plan. |
 | **Acceptance Criteria #3** | Dado que el visitante está interesado en obtener más información sobre los planes<br>Cuando hace clic en un enlace de "Más información" o "Contacto para consultas"<br>Entonces el sistema debe redirigir al visitante a una página de contacto o a una sección donde pueda enviar preguntas o recibir asistencia personalizada para evaluar mejor el plan que más le convenga. |
 
-**Tabla 23. Historia de usuario US19 - Endpoint para crear y gestionar actividades.**
+**Tabla 23. Historia de usuario US19 - Ver y gestionar voluntarios.**
 
 | **User Story ID** | US19 |
-|-------------------|------|
-| **Epic ID**        | E07 |
-| **Title**          | Endpoint para crear y gestionar actividades |
-| **Description**    | Como desarrollador, quiero crear un endpoint de API RESTful que permita a las ONGs crear nuevas actividades de voluntariado, así como leer, actualizar y eliminar la información de las actividades existentes en la base de datos. |
-| **Acceptance Criteria #1** | Dado que el desarrollador ha creado el endpoint de la API<br>Cuando una ONG realiza una solicitud POST para crear una nueva actividad<br>Entonces el sistema debe validar los datos enviados (como la descripción, fecha, hora y número de voluntarios), y si son correctos, debe crear la nueva actividad en la base de datos, respondiendo con un código 201 y los detalles de la actividad creada. |
-| **Acceptance Criteria #2** | Dado que el desarrollador ha creado el endpoint de la API<br>Cuando una ONG realiza una solicitud GET para leer los detalles de una actividad existente<br>Entonces el sistema debe devolver los detalles de la actividad solicitada, respondiendo con un código 200 y la información de la actividad en formato JSON. |
-| **Acceptance Criteria #3** | Dado que el desarrollador ha creado el endpoint de la API<br>Cuando una ONG realiza una solicitud PUT para actualizar la información de una actividad existente<br>Entonces el sistema debe validar los datos actualizados y, si son correctos, debe actualizar la actividad en la base de datos, respondiendo con un código 200 y los detalles de la actividad actualizada. |
-
-**Tabla 24. Historia de usuario US20 - Endpoint para registrar y gestionar voluntarios.**
-
-| **User Story ID** | US20 |
-|-------------------|------|
-| **Epic ID**        | E07 |
-| **Title**          | Endpoint para registrar y gestionar voluntarios |
-| **Description**    | Como desarrollador, quiero crear un endpoint de API RESTful que permita a los voluntarios registrarse en la plataforma y a las ONGs leer, actualizar y gestionar la información de los voluntarios (perfil, historial de participación, etc.). |
-| **Acceptance Criteria #1** | Dado que el desarrollador ha creado el endpoint de la API<br>Cuando un voluntario realiza una solicitud POST para registrarse en la plataforma<br>Entonces el sistema debe validar los datos enviados (como nombre, correo electrónico, intereses, etc.), y si son correctos, debe crear el perfil del voluntario en la base de datos, respondiendo con un código 201 y los detalles del voluntario registrado. |
-| **Acceptance Criteria #2** | Dado que el desarrollador ha creado el endpoint de la API<br>Cuando una ONG realiza una solicitud GET para leer la información del perfil de un voluntario<br>Entonces el sistema debe devolver los detalles completos del perfil del voluntario solicitado (nombre, historial de participación, actividades inscritas, etc.), respondiendo con un código 200 y los datos en formato JSON. |
-| **Acceptance Criteria #3** | Dado que el desarrollador ha creado el endpoint de la API<br>Cuando una ONG realiza una solicitud PUT para actualizar la información de un voluntario (como su perfil o historial de participación)<br>Entonces el sistema debe validar los datos actualizados y, si son correctos, debe actualizar la información del voluntario en la base de datos, respondiendo con un código 200 y los detalles del voluntario actualizado. |
-
-**Tabla 25. Historia de usuario US21 - Endpoint para la inscripción y asistencia a actividades.**
-
-| **User Story ID** | US21 |
-|-------------------|------|
-| **Epic ID**        | E07 |
-| **Title**          | Endpoint para la inscripción y asistencia a actividades |
-| **Description**    | Como desarrollador, quiero crear un endpoint de API RESTful que permita a los voluntarios inscribirse en actividades específicas y a las ONGs registrar la asistencia de los voluntarios a dichas actividades. |
-| **Acceptance Criteria #1** | Dado que el desarrollador ha creado el endpoint de la API<br>Cuando un voluntario realiza una solicitud POST para inscribirse en una actividad específica<br>Entonces el sistema debe verificar que la actividad esté disponible y que haya plazas disponibles, luego registrar la inscripción del voluntario en la actividad, respondiendo con un código 201 y los detalles de la inscripción. |
-| **Acceptance Criteria #2** | Dado que el desarrollador ha creado el endpoint de la API<br>Cuando una ONG realiza una solicitud GET para ver los voluntarios inscritos en una actividad<br>Entonces el sistema debe devolver la lista de voluntarios inscritos, junto con sus detalles (nombre, correo electrónico, horas asignadas, etc.), respondiendo con un código 200 y los datos en formato JSON. |
-| **Acceptance Criteria #3** | Dado que el desarrollador ha creado el endpoint de la API<br>Cuando una ONG realiza una solicitud PUT para registrar la asistencia de un voluntario a una actividad (por ejemplo, al marcar "asistió")<br>Entonces el sistema debe actualizar el estado de la asistencia del voluntario y responder con un código 200 y la confirmación de que la asistencia ha sido registrada correctamente. |
-| **Acceptance Criteria #4** | Dado que el desarrollador ha creado el endpoint de la API<br>Cuando una ONG realiza una solicitud DELETE para eliminar la inscripción de un voluntario a una actividad<br>Entonces el sistema debe eliminar la inscripción del voluntario en la actividad y responder con un código 204 sin contenido. |
-
-**Tabla 26. Historia de usuario US22 - Ver y gestionar voluntarios.**
-
-| **User Story ID** | US22 |
 |-------------------|------|
 | **Epic ID**        | E05 |
 | **Title**          | Ver y gestionar voluntarios |
@@ -1087,9 +1055,9 @@ Algunos lectores no usan plataformas digitales simplemente por desconocimiento o
 | **Acceptance Criteria #2** | Dado que el coordinador está visualizando la lista de voluntarios<br>Cuando realiza una búsqueda o aplica filtros (por nombre, actividad, estado, etc.)<br>Entonces el sistema debe actualizar la lista de voluntarios para mostrar solo aquellos que coinciden con los criterios de búsqueda o filtro seleccionados. |
 | **Acceptance Criteria #3** | Dado que el coordinador está viendo la lista de voluntarios<br>Cuando selecciona un voluntario específico<br>Entonces el sistema debe mostrar los detalles completos de ese voluntario, incluyendo su perfil, historial de actividades y cualquier otra información relevante, permitiendo al coordinador gestionar su información (editar, eliminar, etc.). |
 
-**Tabla 27. Historia de usuario US23 - Visualizar calendario de actividades.**
+**Tabla 24. Historia de usuario US20 - Visualizar calendario de actividades.**
 
-| **User Story ID** | US23 |
+| **User Story ID** | US20 |
 |-------------------|------|
 | **Epic ID**        | E01 |
 | **Title**          | Visualizar Calendario de Actividades |
@@ -1099,9 +1067,9 @@ Algunos lectores no usan plataformas digitales simplemente por desconocimiento o
 | **Acceptance Criteria #3** | Dado que el coordinador ve el calendario<br>Cuando hay un conflicto de programación (actividades que se superponen en el mismo horario)<br>Entonces el sistema resalta las actividades en conflicto y muestra una advertencia o notificación para que el coordinador pueda identificar y resolver el conflicto de manera eficiente. |
 | **Acceptance Criteria #4** | Dado que el coordinador desea agregar una nueva actividad<br>Cuando selecciona una fecha en el calendario y completa los campos necesarios para crear una nueva actividad<br>Entonces el sistema agrega la actividad al calendario y actualiza la vista para reflejar la nueva programación. |
 
-**Tabla 28. Historia de usuario US24 - Dashboard de actividades.**
+**Tabla 25. Historia de usuario US21 - Dashboard de actividades.**
 
-| **User Story ID** | US24 |
+| **User Story ID** | US21 |
 |-------------------|------|
 | **Epic ID**        | E01 |
 | **Title**          | Dashboard de Actividades |
@@ -1111,7 +1079,79 @@ Algunos lectores no usan plataformas digitales simplemente por desconocimiento o
 | **Acceptance Criteria #3** | Dado que el coordinador ha iniciado sesión<br>Cuando visualiza los elementos del dashboard<br>Entonces se muestra un pequeño calendario integrado que permite acceder rápidamente a la vista completa del calendario de actividades de la ONG. |
 | **Acceptance Criteria #4** | Dado que el coordinador ha iniciado sesión<br>Cuando visualiza los elementos del dashboard<br>Entonces se muestran botones o enlaces claramente identificados para las acciones más comunes de la ONG, como crear actividades. |
 
-### 3.2.3. Epicas
+### 3.2.3. Technical Stories
+
+| **User Story ID**     | TS01 |
+|------------------------|------|
+| **Epic ID**            | E07 |
+| **Title**              | Gestión Completa de Voluntarios en la API |
+| **Description**        | Como desarrollador, quiero que la RESTful API me permita gestionar completamente los voluntarios, para interactuar de forma eficiente con el sistema de voluntariado. |
+| **Acceptance Criteria #1** | Dado que el desarrollador se encuentra en una aplicación cliente para la gestión de voluntarios<br>Cuando realiza una solicitud POST a /api/v1/volunteers con los datos completos y válidos<br>Entonces el sistema debe crear un nuevo voluntario, devolver 201 Created y los datos recién creados. |
+| **Acceptance Criteria #2** | Dado que el desarrollador está en una aplicación cliente<br>Cuando realiza una solicitud GET a /api/v1/volunteers<br>Entonces el sistema devuelve 200 OK y una lista de todos los voluntarios registrados. |
+| **Acceptance Criteria #3** | Dado que existe un voluntario con un ID específico<br>Cuando se envía una solicitud PUT a /api/v1/volunteers/{volunteerId}<br>Entonces el sistema actualiza los datos y devuelve 200 OK con el voluntario actualizado. |
+| **Acceptance Criteria #4** | Dado que existe un voluntario con un ID específico<br>Cuando se envía una solicitud DELETE a /api/v1/volunteers/{volunteerId}<br>Entonces el sistema elimina al voluntario, devuelve 204 No Content y ya no aparece en búsquedas. |
+
+| **User Story ID**     | TS02 |
+|------------------------|------|
+| **Epic ID**            | E07 |
+| **Title**              | Gestión Completa de Actividades en la API |
+| **Description**        | Como desarrollador, quiero que la RESTful API me permita gestionar completamente las actividades, para poder organizar y administrar eventos de voluntariado. |
+| **Acceptance Criteria #1** | Dado que el desarrollador se encuentra en una aplicación cliente<br>Cuando realiza POST a /api/v1/activities con los datos válidos<br>Entonces el sistema crea la actividad, devuelve 201 Created y los datos creados. |
+| **Acceptance Criteria #2** | Dado que el desarrollador está en una aplicación cliente<br>Cuando realiza GET a /api/v1/activities<br>Entonces recibe 200 OK y una lista de todas las actividades registradas. |
+| **Acceptance Criteria #3** | Dado que existe una actividad con un ID<br>Cuando se envía GET a /api/v1/activities/{activityId}<br>Entonces el sistema devuelve 200 OK con los datos solicitados. |
+| **Acceptance Criteria #4** | Dado que existe una actividad con un ID<br>Cuando se envía PUT a /api/v1/activities/{activityId} con datos actualizados<br>Entonces se actualiza la actividad, devuelve 200 OK y los datos actualizados. |
+| **Acceptance Criteria #5** | Dado que existe una actividad con un ID<br>Cuando se envía DELETE a /api/v1/activities/{activityId}<br>Entonces se elimina la actividad, devuelve 204 No Content y no aparece en búsquedas posteriores. |
+
+| **User Story ID**     | TS03 |
+|------------------------|------|
+| **Epic ID**            | E07 |
+| **Title**              | Gestión de Certificados en la API |
+| **Description**        | Como desarrollador, quiero que la RESTful API me permita gestionar los certificados, para poder emitir y consultar reconocimientos a los participantes. |
+| **Acceptance Criteria #1** | Dado que el desarrollador está en una aplicación cliente<br>Cuando realiza POST a /api/v1/certificates con participationId y descripción<br>Entonces el sistema crea el certificado, devuelve 201 Created y los datos del certificado. |
+| **Acceptance Criteria #2** | Dado que se necesita consultar los certificados de un voluntario<br>Cuando se envía GET a /api/v1/certificates/by-volunteer/{volunteerId}<br>Entonces se devuelve 200 OK con todos los certificados de ese voluntario. |
+
+| **User Story ID**     | TS04 |
+|------------------------|------|
+| **Epic ID**            | E07 |
+| **Title**              | Gestión Completa de Organizaciones en la API |
+| **Description**        | Como desarrollador, quiero que la RESTful API me permita gestionar completamente las organizaciones, para poder administrar las entidades que colaboran con el voluntariado. |
+| **Acceptance Criteria #1** | Dado que el desarrollador está en una aplicación cliente<br>Cuando realiza POST a /api/v1/organizations con datos válidos<br>Entonces se crea la organización, devuelve 201 Created y los datos correspondientes. |
+| **Acceptance Criteria #2** | Dado que existe una organización con un ID<br>Cuando se realiza GET a /api/v1/organizations/{organizationId}<br>Entonces se devuelve 200 OK y los datos de esa organización. |
+| **Acceptance Criteria #3** | Dado que existe una organización con un ID<br>Cuando se realiza PUT a /api/v1/organizations/{organizationId} con datos actualizados<br>Entonces se actualiza y devuelve 200 OK con los datos modificados. |
+| **Acceptance Criteria #4** | Dado que existe una organización con un ID<br>Cuando se envía DELETE a /api/v1/organizations/{organizationId}<br>Entonces se elimina, devuelve 204 No Content y no aparece más. |
+
+| **User Story ID**     | TS05 |
+|------------------------|------|
+| **Epic ID**            | E07 |
+| **Title**              | Gestión Completa de Inscripciones en la API |
+| **Description**        | Como desarrollador, quiero que la RESTful API me permita gestionar completamente las inscripciones, para administrar la participación de voluntarios en actividades. |
+| **Acceptance Criteria #1** | Dado que el desarrollador está en una aplicación cliente<br>Cuando realiza POST a /api/v1/inscriptions con datos válidos<br>Entonces se crea una inscripción, devuelve 201 Created y los datos. |
+| **Acceptance Criteria #2** | Dado que el desarrollador está en una aplicación cliente<br>Cuando realiza GET a /api/v1/inscriptions<br>Entonces recibe 200 OK y una lista de inscripciones. |
+| **Acceptance Criteria #3** | Dado que existe una inscripción con un ID<br>Cuando realiza GET a /api/v1/inscriptions/{inscriptionId}<br>Entonces el sistema devuelve 200 OK y los datos solicitados. |
+| **Acceptance Criteria #4** | Dado que existe una inscripción con un ID<br>Cuando realiza PUT a /api/v1/inscriptions/{inscriptionId} con datos nuevos<br>Entonces actualiza la inscripción, devuelve 200 OK y los datos actualizados. |
+| **Acceptance Criteria #5** | Dado que existe una inscripción con un ID<br>Cuando realiza DELETE a /api/v1/inscriptions/{inscriptionId}<br>Entonces elimina el registro, devuelve 204 No Content y no aparece más. |
+| **Acceptance Criteria #6** | Dado que se desea consultar inscripciones por actividad<br>Cuando realiza GET a /api/v1/inscriptions/byActivity/{activityId}<br>Entonces devuelve 200 OK con la lista de inscripciones para esa actividad. |
+
+| **User Story ID**     | TS06 |
+|------------------------|------|
+| **Epic ID**            | E07 |
+| **Title**              | Gestión Completa de Notificaciones en la API |
+| **Description**        | Como desarrollador, quiero que la RESTful API me permita gestionar completamente las notificaciones, para poder enviar y administrar comunicados en el sistema. |
+| **Acceptance Criteria #1** | Dado que el desarrollador está en una aplicación cliente<br>Cuando realiza POST a /api/v1/notifications con datos válidos<br>Entonces se crea una notificación, devuelve 201 Created y los datos. |
+| **Acceptance Criteria #2** | Dado que el desarrollador está en una aplicación cliente<br>Cuando realiza GET a /api/v1/notifications<br>Entonces recibe 200 OK y una lista de notificaciones. |
+| **Acceptance Criteria #3** | Dado que se quiere consultar por destinatario<br>Cuando se realiza GET a /api/v1/notifications/byRecipient/{recipientType}/{recipientId}<br>Entonces devuelve 200 OK con las notificaciones correspondientes. |
+| **Acceptance Criteria #4** | Dado que existe una notificación con ID<br>Cuando realiza DELETE a /api/v1/notifications/{notificationId}<br>Entonces se elimina, devuelve 204 No Content y no aparece más. |
+
+| **User Story ID**     | TS07 |
+|------------------------|------|
+| **Epic ID**            | E07 |
+| **Title**              | Gestión de Participaciones en la API |
+| **Description**        | Como desarrollador, quiero que la RESTful API me permita gestionar las participaciones, para registrar y consultar las inscripciones de voluntarios en actividades. |
+| **Acceptance Criteria #1** | Dado que el desarrollador está en una aplicación cliente<br>Cuando realiza POST a /api/v1/participations con datos válidos<br>Entonces se crea una participación, devuelve 201 Created y los datos. |
+| **Acceptance Criteria #2** | Dado que se desea consultar participaciones por voluntario<br>Cuando realiza GET a /api/v1/participations/by-volunteer/{volunteerId}<br>Entonces devuelve 200 OK con todas las participaciones de ese voluntario. |
+| **Acceptance Criteria #3** | Dado que se desea consultar participaciones por actividad<br>Cuando realiza GET a /api/v1/participations/by-activity/{activityId}<br>Entonces devuelve 200 OK con todas las participaciones de esa actividad. |
+
+### 3.2.4. Epicas
 
 **Tabla 29. Agrupación de historias de usuario por épicas temáticas del sistema VolunTrack.**
 
@@ -1122,8 +1162,8 @@ Algunos lectores no usan plataformas digitales simplemente por desconocimiento o
 | US01 | Registrar nueva ONG |
 | US03 | Crear nueva actividad |
 | US10 | Editar detalles de una actividad |
-| US23 | Visualizar Calendario de Actividades |
-| US24 | Dashboard de actividades |
+| US20 | Visualizar Calendario de Actividades |
+| US21 | Dashboard de actividades |
 
 | **EPIC 02:** | Exploración y Registro de Voluntarios |
 |:------------:|:--------------------------------------|
@@ -1155,7 +1195,7 @@ Algunos lectores no usan plataformas digitales simplemente por desconocimiento o
 | US05 | Ver lista de voluntarios por actividad |
 | US12 | Gestionar el estado de inscripción de un voluntario |
 | US14 | Generar informes de impacto para voluntarios |
-| US22 | Ver y gestionar voluntarios |
+| US19 | Ver y gestionar voluntarios |
 
 | **EPIC 06:** | Experiencia en Landing Page |
 |:------------:|:----------------------------|
@@ -1166,13 +1206,17 @@ Algunos lectores no usan plataformas digitales simplemente por desconocimiento o
 | US17 | Encontrar información de contacto y cómo empezar |
 | US18 | Conocer los planes y precios para ONGs |
 
-| **EPIC 07:** | API para Gestión de Voluntarios, Actividades, Inscripción y Asistencia |
+| **EPIC 07:** | RESTful API |
 |:------------:|:-----------------------------------------------------------------------|
-| | Como desarrollador, quiero tener un API RESTful robusto que me permita integrar las funcionalidades principales de gestión de ONGs, actividades, voluntarios e inscripciones con otros sistemas, para facilitar la extensibilidad y la interoperabilidad de VolunTrack. |
+| | Como desarrollador, quiero implementar y mantener los endpoints del RESTful API necesarios para las funciones clave de la plataforma, como gestión de voluntarios, inscripciones, notificaciones y actividades para asegurar la operatividad y escalabilidad del sistema. |
 | **User Story ID** | **Título** |
-| US19 | Endpoint para crear y gestionar actividades |
-| US20 | Endpoint para registrar y gestionar voluntarios |
-| US21 | Endpoint para la inscripción y asistencia a actividades |
+| TS01 | Gestión Completa de Voluntarios en la API |
+| TS02 | Gestión Completa de Actividades en la API |
+| TS03 | Gestión de Certificados en la API |
+| TS04 | Gestión Completa de Organizaciones en la API |
+| TS05 | Gestión Completa de Inscripciones en la API |
+| TS06 | Gestión Completa de Notificaciones en la API |
+| TS07 | Gestión de Participaciones en la API |
 
 ## 3.3. Impact Mapping
 **Business Goals**
@@ -1210,7 +1254,7 @@ Algunos lectores no usan plataformas digitales simplemente por desconocimiento o
 **Tabla 30. Product Backlog priorizado con historias de usuario y estimaciones en Story Points.**
 
 | # Orden | User Story ID | Descripción | Story Points (1/2/3/5/8) |
-|:-------:|:-------------:|:------------|:-----------------------:|
+|:-------:|:-------------:|-------------|:------------------------:|
 | 1 | US01 | Como coordinador de una ONG, quiero poder registrar mi organización en VolunTrack para empezar a gestionar a mis voluntarios y actividades en un solo lugar. | 3 |
 | 2 | US03 | Como coordinador de una ONG, quiero poder crear nuevas actividades de voluntariado en VolunTrack, especificando detalles como la descripción, fecha, hora, ubicación y número de voluntarios necesarios. | 5 |
 | 3 | US02 | Como voluntario, quiero poder explorar las diferentes actividades de voluntariado disponibles en VolunTrack para encontrar oportunidades que se ajusten a mis intereses y disponibilidad. | 5 |
@@ -1220,21 +1264,25 @@ Algunos lectores no usan plataformas digitales simplemente por desconocimiento o
 | 7 | US05 | Como coordinador de una ONG, quiero poder ver la lista de voluntarios inscritos en cada actividad para tener una visión clara de quién participará. | 3 |
 | 8 | US07 | Como coordinador de una ONG, quiero poder marcar la asistencia de los voluntarios en una actividad para llevar un registro de su participación. | 3 |
 | 9 | US06 | Como voluntario, quiero poder recibir notificaciones sobre nuevas actividades que coincidan con mis intereses o recordatorios de las actividades en las que me he inscrito. | 5 |
-| 10 | US08 | Como voluntario, quiero poder ver un historial de todas las actividades en las que he participado a través de VolunTrack. | 3 |
-| 11 | US09 | Como coordinador de una ONG, quiero poder generar certificados de participación para los voluntarios que completaron una actividad. | 5 |
-| 12 | US12 | Como coordinador de una ONG, quiero poder aprobar o rechazar la inscripción de un voluntario a una actividad, o incluso dar de baja a un voluntario si es necesario. | 3 |
-| 13 | US11 | Como coordinador de una ONG, quiero poder enviar mensajes o notificaciones a los voluntarios inscritos en una actividad específica para compartir información importante o recordatorios. | 3 |
-| 14 | US13 | Como coordinador de una ONG, quiero poder ver un resumen del historial de participación de un voluntario específico, incluyendo las actividades en las que ha participado y las horas dedicadas. | 3 |
-| 15 | US14 | Como coordinador de una ONG, quiero poder generar informes personalizados para cada voluntario que muestren su contribución en términos de horas dedicadas, tareas realizadas e incluso un estimado del impacto que han generado para que se sientan valorados y vean el resultado de su esfuerzo. | 3 |
-| 16 | US10 | Como coordinador de una ONG, quiero poder editar los detalles de una actividad existente (como fecha, hora, descripción o número de voluntarios necesarios) para mantener la información actualizada. | 3 |
-| 17 | US22 | Como coordinador de una ONG, quiero poder ver una lista completa de todos los voluntarios registrados en la plataforma junto con información relevante, para poder administrar nuestra base de voluntarios de manera eficiente. | 5 |
-| 18 | US15 | Como visitante (líder o coordinador de una ONG), quiero poder entender claramente en la página principal de VolunTrack cómo esta plataforma puede ayudar a mi organización a gestionar el voluntariado de manera más eficiente y efectiva, destacando los beneficios clave como la centralización, el ahorro de tiempo y la mejora del impacto social. | 2 |
-| 19 | US16 | Como visitante, quiero poder identificar fácilmente en la página principal de VolunTrack las funcionalidades que me permitirán encontrar y participar en actividades de voluntariado de forma sencilla, como la búsqueda por intereses, la visualización de actividades disponibles y el proceso de registro. | 2 |
-| 20 | US17 | Como visitante, quiero poder encontrar fácilmente la información de contacto de VolunTrack y saber cuáles son los siguientes pasos para registrar mi ONG o comenzar a explorar las oportunidades de voluntariado en la plataforma. | 2 |
-| 21 | US18 | Como visitante, quiero poder encontrar de forma clara y accesible en la Landing Page de VolunTrack la información sobre los diferentes planes de suscripción y sus respectivos precios, para evaluar si se ajustan al presupuesto y las necesidades de mi organización. | 2 |
-| 22 | US19 | Como desarrollador, quiero crear un endpoint de API RESTful que permita a las ONGs crear nuevas actividades de voluntariado, así como leer, actualizar y eliminar la información de las actividades existentes en la base de datos. | 5 |
-| 23 | US20 | Como desarrollador, quiero crear un endpoint de API RESTful que permita a los voluntarios registrarse en la plataforma y a las ONGs leer, actualizar y gestionar la información de los voluntarios (perfil, historial de participación, etc.). | 5 |
-| 24 | US21 | Como desarrollador, quiero crear un endpoint de API RESTful que permita a los voluntarios inscribirse en actividades específicas y a las ONGs registrar la asistencia de los voluntarios a dichas actividades. | 8 |
+| 10 | TS04 | Como desarrollador, quiero que la RESTful API me permita gestionar completamente las organizaciones, para poder administrar las entidades que colaboran con el voluntariado. | 2 |
+| 11 | US08 | Como voluntario, quiero poder ver un historial de todas las actividades en las que he participado a través de VolunTrack. | 3 |
+| 12 | TS05 | Como desarrollador, quiero que la RESTful API me permita gestionar completamente las inscripciones, para administrar la participación de voluntarios en actividades. | 2 |
+| 13 | TS02 | Como desarrollador, quiero que la RESTful API me permita gestionar completamente las actividades, para poder organizar y administrar eventos de voluntariado. | 2 |
+| 14 | US09 | Como coordinador de una ONG, quiero poder generar certificados de participación para los voluntarios que completaron una actividad. | 5 |
+| 15 | TS01 | Como desarrollador, quiero que la RESTful API me permita gestionar completamente los voluntarios, para interactuar de forma eficiente con el sistema de voluntariado. | 3 |
+| 16 | US12 | Como coordinador de una ONG, quiero poder aprobar o rechazar la inscripción de un voluntario a una actividad, o incluso dar de baja a un voluntario si es necesario. | 3 |
+| 17 | US11 | Como coordinador de una ONG, quiero poder enviar mensajes o notificaciones a los voluntarios inscritos en una actividad específica para compartir información importante o recordatorios. | 3 |
+| 18 | US13 | Como coordinador de una ONG, quiero poder ver un resumen del historial de participación de un voluntario específico, incluyendo las actividades en las que ha participado y las horas dedicadas. | 3 |
+| 19 | TS06 | Como desarrollador, quiero que la RESTful API me permita gestionar completamente las notificaciones, para poder enviar y administrar comunicados en el sistema. | 2 |
+| 20 | TS07 | Como desarrollador, quiero que la RESTful API me permita gestionar las participaciones, para registrar y consultar las inscripciones de voluntarios en actividades. | 2 |
+| 21 | US14 | Como coordinador de una ONG, quiero poder generar informes personalizados para cada voluntario que muestren su contribución en términos de horas dedicadas, tareas realizadas e incluso un estimado del impacto que han generado para que se sientan valorados y vean el resultado de su esfuerzo. | 3 |
+| 22 | US10 | Como coordinador de una ONG, quiero poder editar los detalles de una actividad existente (como fecha, hora, descripción o número de voluntarios necesarios) para mantener la información actualizada. | 3 |
+| 23 | US22 | Como coordinador de una ONG, quiero poder ver una lista completa de todos los voluntarios registrados en la plataforma junto con información relevante, para poder administrar nuestra base de voluntarios de manera eficiente. | 5 |
+| 24 | TS03 | Como desarrollador, quiero que la RESTful API me permita gestionar los certificados, para poder emitir y consultar reconocimientos a los participantes. | 2 |
+| 25 | US15 | Como visitante (líder o coordinador de una ONG), quiero poder entender claramente en la página principal de VolunTrack cómo esta plataforma puede ayudar a mi organización a gestionar el voluntariado de manera más eficiente y efectiva, destacando los beneficios clave como la centralización, el ahorro de tiempo y la mejora del impacto social. | 2 |
+| 26 | US16 | Como visitante, quiero poder identificar fácilmente en la página principal de VolunTrack las funcionalidades que me permitirán encontrar y participar en actividades de voluntariado de forma sencilla, como la búsqueda por intereses, la visualización de actividades disponibles y el proceso de registro. | 2 |
+| 27 | US17 | Como visitante, quiero poder encontrar fácilmente la información de contacto de VolunTrack y saber cuáles son los siguientes pasos para registrar mi ONG o comenzar a explorar las oportunidades de voluntariado en la plataforma. | 2 |
+| 28 | US18 | Como visitante, quiero poder encontrar de forma clara y accesible en la Landing Page de VolunTrack la información sobre los diferentes planes de suscripción y sus respectivos precios, para evaluar si se ajustan al presupuesto y las necesidades de mi organización. | 2 |
 
 # CAPÍTULO 4: PRODUCT UX/UI DESIGN
 ## 4.1. Style Guidelines
@@ -1863,7 +1911,7 @@ En nuestro proyecto VolunTrack, adoptamos los principios de la Domain-Driven Sof
 ### 4.8.1. Database Diagram
 
 <p align="center">
-  <img src="https://imgur.com/xbCRPHT.png" alt="Database" width="500">
+  <img src="https://github.com/user-attachments/assets/56aae29b-331c-4b6e-aeff-3cd495aa5862" alt="Database" width="500">
 </p>
 <p align="center"><strong>Figura 93.</strong> Diagrama de la base de datos de VolunTrack.</p>
 
@@ -2031,7 +2079,7 @@ A continuación, se presenta la tabla correspondiente al Sprint Planning:
 | Sprint n Velocity              | 13                                                                                                                                                        |
 | Sum of Story Points            | 43                                                                                                                                                        |
 
-#### 5.2.1.2. Aspect Leaders and Collaborators
+#### 5. Aspect Leaders and Collaborators
 
 **Tabla 33.** Asignación de líderes y colaboradores por área de trabajo en el equipo VolunTrack.
 
