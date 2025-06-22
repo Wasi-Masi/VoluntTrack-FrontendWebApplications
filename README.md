@@ -3319,34 +3319,178 @@ Evidencia de commits por integrante del grupo
 
 ### 5.3.1. Diseño de Entrevistas
 
-## 🧑‍💼 Segmento 1: 
+## 🧑‍💼 Segmento 1: Líderes y coordinadores de ONGs
 
 #### 👤 Perfil del Entrevistado
-- 
+- ¿Cuál es tu nombre y tu rol dentro de la organización?
+- ¿Qué herramientas utilizas actualmente para gestionar el voluntariado?
+- ¿Con cuántos voluntarios sueles trabajar regularmente?
 
 #### 🖥️ Tras mostrar la Landing Page
-- 
+- ¿Qué entendiste que ofrece VolunTrack?
+- ¿Crees que esta solución está pensada para alguien con tu rol?
+- ¿Qué mejorarías o cambiarías de la página?
 
 #### 💻 Tras la demostración de la Aplicación Web
-- 
+- ¿Cuál fue tu impresión general sobre la plataforma?
+- ¿Te parece útil para organizar y coordinar actividades de voluntariado?
+- ¿Qué tan fácil te resultó entender cómo funciona?
+- ¿Qué funcionalidades te parecen más valiosas?
+- ¿Qué agregarías o cambiarías?
 
 #### ✅ Cierre
-- 
+- ¿Qué fue lo que más te gustó de VolunTrack?
+- ¿Considerarías usar esta herramienta en tu organización?
 
 ---
 
-## 🧘 Segmento 2: 
+## 🧘 Segmento 2: Voluntarios existentes y potenciales
 
 #### 👤 Perfil del Entrevistado
-- 
+- ¿Cuál es tu nombre y ocupación actual?
+- ¿Has participado previamente en actividades de voluntariado? ¿Cómo fue tu experiencia?
+- ¿Qué tan fácil o difícil fue enterarte y registrarte en dichas actividades?
 
 #### 💻 Tras la demostración de la Aplicación Web
-- 
-
+- ¿Qué entendiste que ofrece VolunTrack?
+- ¿Sientes que esta solución está pensada para ti como voluntario/a?
+- ¿Qué te llamó más la atención de la página?
+- ¿Te sentirías más motivado a participar en actividades con una herramienta así?
+- ¿Qué cosas mejorarías o agregarías?
+  
 #### ✅ Cierre
-- 
+- ¿Qué fue lo que más te gustó de VolunTrack?
+- ¿Te gustaría usar esta herramienta para tus actividades de voluntariado?
 
 ### 5.3.2. Registro de Entrevistas
+
+## Segmento #1: Líderes y coordinadores de ONGs
+
+### Entrevistado N.º 1: Claudio Astocondor
+
+* **Edad:** 24
+* **Distrito:** Pueblo Libre
+* **Link:**: [entrevistas](https://upcedupe-my.sharepoint.com/:v:/g/personal/u20201f855_upc_edu_pe/EZ7MI0p2IulKpwaKCloYIU8BjS7shK3gboRZVDlMciMDAQ?e=Y4RcjH)
+* **Instante en el que inicia:** 0:01
+* **Duración:** 14:50
+
+<p align="center">
+  <img src="https://imgur.com/kF2lybv.png" alt="ent1">
+</p>
+
+**Acerca de la entrevista:**
+Claudio, un coordinador de voluntarios que actualmente gestiona a sus participantes mediante herramientas como Google Forms, Excel y WhatsApp, tuvo una **impresión sumamente positiva** al conocer la landing page de VolunTrack. Percibió que la plataforma está **intuitivamente diseñada para facilitar la organización** del voluntariado, valorando su diseño amigable y la facilidad para familiarizarse con ella, además de mostrar interés en los planes disponibles.
+
+Su percepción general de la aplicación web fue **excelente**, destacando su **simplicidad y el nivel de detalle, sin resultar abrumadora**. Considera que todas las funcionalidades implementadas son **perfectas para su rol**, encontrándola **extremadamente útil para organizar y gestionar actividades**, además de ser sencilla de usar e intuitiva. Entre las características más valiosas, mencionó la **marcación de asistencia**, el **registro de voluntarios**, el **panel de notificaciones** y la capacidad de **enviar mensajes directamente desde la app**. Por el momento, Claudio cree que VolunTrack posee todas las funcionalidades necesarias, aunque sugirió hacer el botón de idioma más visual, quizás con íconos de banderas.
+
+En síntesis, lo que más cautivó a Claudio de VolunTrack fue su **diseño sobrio pero integral**, y las **funcionalidades que optimizan significativamente la gestión y comunicación** con los voluntarios. Dada su experiencia favorable, consideraría seriamente integrar esta herramienta en su organización.
+
+---
+
+### Entrevistado N.º 2: Renato Tafur
+
+* **Edad:** 20
+* **Distrito:** Pueblo Libre
+* **Link:** [entrevistas](https://upcedupe-my.sharepoint.com/:v:/g/personal/u20201f855_upc_edu_pe/EZ7MI0p2IulKpwaKCloYIU8BjS7shK3gboRZVDlMciMDAQ?e=Y4RcjH)
+* **Instante en el que inicia:** 14:51
+* **Duración:** 14:54
+
+<p align="center">
+  <img src="https://imgur.com/IkD7enk.png" alt="ent2">
+</p>
+
+**Acerca de la entrevista:**
+Renato, líder de un pequeño voluntariado enfocado en ayudar a perros callejeros, compartió sus **desafíos en la gestión de actividades**, recurriendo a herramientas como Excel al carecer de una plataforma que simplifique estos procesos.
+
+En su primera impresión, la landing page de VolunTrack le pareció **muy bien explicada**, proporcionando información **pertinente y clara** sobre laida y las ofertas de la plataforma. Respecto a la aplicación web, la encontró **bastante completa**, con una variedad de funcionalidades que le permitirían **gestionar múltiples procesos** de sus actividades. Aunque su organización no cuenta con un gran número de voluntarios, Renato destacó que las características de VolunTrack para su manejo serían de **gran ayuda**. Su funcionalidad favorita fue el **Calendario**, ya que le permitiría optimizar la organización de su tiempo y el de las actividades propuestas.
+
+En resumen, Renato expresó su **agrado por VolunTrack y sus ofrecimientos**, manifestando su **disposición a probarla** para su propio voluntariado.
+
+---
+
+### Entrevistado N.º 3: Angie Yalán
+
+* **Edad:** 19
+* **Distrito:** Surco
+* **Link:** [entrevistas](https://upcedupe-my.sharepoint.com/:v:/g/personal/u20201f855_upc_edu_pe/EZ7MI0p2IulKpwaKCloYIU8BjS7shK3gboRZVDlMciMDAQ?e=Y4RcjH)
+* **Instante en el que inicia:** 29:46
+* **Duración:** 13:14
+
+<p align="center">
+  <img src="https://imgur.com/yVoQOrJ.png" alt="ent3">
+</p>
+
+**Acerca de la entrevista:**
+Angie, estudiante, modelo y líder de un voluntariado, describió sus **dificultades para ser eficiente** en la gestión de diversas actividades para los participantes. Actualmente, se organiza utilizando herramientas como Excel o WhatsApp, lo que le **consume tiempo y le genera inconvenientes**.
+
+En relación con la landing page, Angie la consideró **muy bien desarrollada**, ya que le permitía acceder a todo tipo de información sobre VolunTrack de manera **sencilla y organizada**. Sugirió la **incorporación de una sección de Testimonios**, donde los usuarios de VolunTrack pudieran compartir sus comentarios positivos sobre la plataforma. Por otro lado, la aplicación web le pareció diseñada con **gran orden y armonía visual**. Resaltó en repetidas ocasiones la **excelente elección de colores y tipografía**, factores que le facilitaban una **rápida comprensión** de VolunTrack. Una de sus funcionalidades más apreciadas fue la de **Marcar Asistencia**, considerándola un servicio **bastante completo** para la gestión de actividades y voluntarios.
+
+En síntesis, Angie manifestó su **disposición a utilizar VolunTrack**, ya que la cautivó desde el inicio con su diseño y le garantizó **eficiencia y orden** gracias a las funcionalidades propuestas.
+
+---
+
+## Segmento #2: Voluntarios existentes y potenciales
+
+### Entrevistado N.º 4: Tatiana Nakamurakare
+
+* **Edad:** 20
+* **Distrito:** San Isidro
+* **Link:** [entrevistas](https://upcedupe-my.sharepoint.com/:v:/g/personal/u20201f855_upc_edu_pe/EZ7MI0p2IulKpwaKCloYIU8BjS7shK3gboRZVDlMciMDAQ?e=Y4RcjH)
+* **Instante en el que inicia:** 43:01
+* **Duración:** 9:09
+
+<p align="center">
+  <img src="https://imgur.com/pUguQMG.png" alt="ent4">
+</p>
+
+**Acerca de la entrevista:**
+Tatiana, una voluntaria experimentada, compartió su **experiencia positiva** en voluntariados anteriores, enfatizando cómo se enteró por el "boca a boca" y que, sin ello, habría perdido una valiosa oportunidad de aprendizaje. Tras visualizar la landing page de VolunTrack, quedó **impresionada por su diseño y la estructura informativa**, percibiendo que la plataforma ofrecería a los voluntarios una **mayor visibilidad digital**, un aspecto que valoró enormemente.
+
+La aplicación web de VolunTrack fue **muy bien recibida** por Tatiana, quien la calificó de **completa y fácil de usar**, con **información detallada que simplifica enormemente la gestión** de voluntariados. Destacó positivamente el **calendario de eventos disponibles** y el **historial de actividades de los voluntarios**, funcionalidades que, según ella, la motivarían a participar con mayor asiduidad. Como sugerencia, propuso la adición de una sección para que los voluntarios pudieran **subir fotografías de los eventos**, lo cual serviría de inspiración para otros.
+
+En general, lo que más agradó a Tatiana de VolunTrack fue su **capacidad para organizar y centralizar la información** de voluntariado, junto con las herramientas que **mejoran la visibilidad y el seguimiento**. Manifestó un **claro interés en utilizar la herramienta** para sus futuras actividades de voluntariado.
+
+---
+
+### Entrevistado N.º 5: Mateo Castillo
+
+* **Edad:** 16
+* **Distrito:** Lince
+* **Link:** [entrevistas](https://upcedupe-my.sharepoint.com/:v:/g/personal/u20201f855_upc_edu_pe/EZ7MI0p2IulKpwaKCloYIU8BjS7shK3gboRZVDlMciMDAQ?e=Y4RcjH)
+* **Instante en el que inicia:** 43:02
+* **Duración:** 16:11
+
+<p align="center">
+  <img src="https://imgur.com/z9sAOQZ.png" alt="ent5">
+</p>
+
+**Acerca de la entrevista:**
+Mateo, un estudiante de secundaria con experiencia en diversas actividades de voluntariado, relató sus vivencias al registrarse y asistir a estas. Considera que, debido a la ausencia de una plataforma específica que gestione estos procesos, **enterarse de las actividades e inscribirse se torna complicado**.
+
+En cuanto a la landing page, Mateo la encontró **bien explicada y segmentada**, lo que le facilitó la comprensión de lo que VolunTrack ofrecía. Piensa que esta es una **característica valiosa** por su capacidad para facilitar la adquisición de información relevante.
+
+Por otro lado, la aplicación web le pareció una **manera innovadora de apoyar a los voluntariados** a generar un impacto positivo. Como voluntario, aprecia las funcionalidades del **Calendario**, que le permite organizar mejor sus días, y la **especificación de Detalles por cada actividad**, ya que le proporciona la información más importante para decidir si inscribirse o no en una actividad.
+
+En resumen, a Mateo le agradó VolunTrack por su **organización y eficiencia al presentar datos e información**, por lo cual, **estaría dispuesto a utilizarla** como herramienta en su entorno de voluntariado.
+
+---
+
+### Entrevistado N.º 6: Piero Ramirez
+
+* **Edad:** 20
+* **Distrito:** Magdalena del Mar
+* **Link:** [entrevistas](https://upcedupe-my.sharepoint.com/:v:/g/personal/u20201f855_upc_edu_pe/EZ7MI0p2IulKpwaKCloYIU8BjS7shK3gboRZVDlMciMDAQ?e=Y4RcjH)
+* **Instante en el que inicia:** 59:14
+* **Duración:** 15:17
+
+<p align="center">
+  <img src="https://imgur.com/IX2PcyR.png" alt="ent6">
+</p>
+
+**Acerca de la entrevista:**
+Piero, estudiante de la Universidad Peruana de Ciencias Aplicadas y voluntario en la organización "Hazlo por tu playa", compartió que su organización se gestiona mediante Excel y WhatsApp. Aunque estas herramientas son útiles, considera que el **proceso de inscripción, por ejemplo, puede ser complicado** debido a la dificultad para encontrar el número de WhatsApp o la página web de la organización.
+
+Tras ver la landing page, Piero destacó que la **interfaz, el fácil acceso y el logo** fueron lo que más captó su atención, resaltando la **facilidad de navegación** para el ojo humano. Al revisar la aplicación web, mencionó que la capacidad de **gestionar actividades y voluntarios**, como dar de baja o enviar un correo electrónico, le pareció **muy útil**. Volvió a enfatizar la **facilidad de navegación** y la **interfaz amigable** para el usuario. Además, sugirió la inclusión de una opción para **agregar actividades por tiempo limitado** y que el voluntariado en Perú recibiera mayor publicidad.
 
 ### 5.3.3. Evaluaciones según Heurísticas
 
@@ -3360,33 +3504,135 @@ Evidencia de commits por integrante del grupo
 - **Auditor:** VolunTrack  
 
 ## **Cliente(s):**
--
+- Claudio Astocondor
+- Renato Tafur
+- Angie Yalán
+- Tatiana Nakamurakare
+- Mateo Castillo
+- Piero Ramirez
+
+### SITE O APP A EVALUAR: VolunTrack
+
+### TAREAS A EVALUAR:
+El alcance de esta evaluación se centra en la revisión de la usabilidad de las siguientes tareas clave:
+
+* **Gestión de Actividades**: Evaluar la facilidad con la que los usuarios pueden crear, editar y organizar eventos o tareas de voluntariado.
+* **Gestión de Voluntarios**: Analizar la eficiencia del proceso para añadir, editar, visualizar y gestionar la información de los voluntarios.
+* **Opciones de personalización del perfil de usuario**: Revisar la accesibilidad y claridad de las opciones disponibles para que los usuarios configuren sus propios perfiles.
+* **Notificaciones**: Evaluar la funcionalidad y claridad de las alertas y mensajes que recibe el usuario.
+* **Sección de calendario**: Determinar la usabilidad del calendario para programar y visualizar actividades.
+* **Inscripción de voluntarios**: Observar la fluidez y simplicidad del proceso que siguen los voluntarios para registrarse en actividades.
+
+**No están incluidas** en esta versión de la evaluación las siguientes tareas, posponiéndose para futuras iteraciones:
+
+* Gestión de roles y permisos avanzados para voluntarios.
+* Implementación de integración con redes sociales para el registro de voluntarios.
+* Funcionalidad de gamificación (recompensas, niveles o puntos por participación).
+
+### ESCALA DE SEVERIDAD:
+Los errores identificados durante la evaluación serán puntuados utilizando la siguiente escala de severidad:
+
+| Nivel | Descripción                                                                                                                                                             |
+| :---- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **1** | **Problema superficial**: Puede ser fácilmente superado por el usuario o ocurre con muy poca frecuencia. No necesita ser arreglado a no ser que exista disponibilidad de tiempo. |
+| **2** | **Problema menor**: Puede ocurrir un poco más frecuentemente o es un poco más difícil de superar para el usuario. Se le debería asignar una prioridad baja resolverlo de cara al siguiente *release*. |
+| **3** | **Problema mayor**: Ocurre frecuentemente o los usuarios no son capaces de resolverlos. Es importante que sean corregidos y se les debe asignar una prioridad alta.         |
+| **4** | **Problema muy grave**: Un error de gran impacto que impide al usuario continuar con el uso de la herramienta. Es imperativo que sea corregido antes del lanzamiento.   |
 
 ---
 
-## **Site o App a Evaluar:** VolunTrack
+## Tabla Resumen de Problemas de Usabilidad
 
-### **Tareas a Evaluar:**
-El alcance de esta evaluación incluye la revisión de la usabilidad de las siguientes tareas:
+| # | Problema | Escala de Severidad | Heurística/Principio violada(o) |
+|---|---|---|---|
+| 1 | Dificultad para encontrar funcionalidades clave (ej. botón de idioma, añadir actividades temporales). | **2** | **Visibilidad del estado del sistema** |
+| 2 | La opción para dar de baja a un voluntario no es intuitiva (color del botón similar al fondo). | **1** | **Visibilidad del estado del sistema** |
+| 3 | Inconsistencia en la estructura de la información entre la *landing page* y la aplicación web. | **2** | **Consistencia y estándares** |
+| 4 | Ciertas secciones de la aplicación web podrían mejorar su organización visual. | **1** | **Diseño visual y minimalismo** |
+| 5 | Falta de secciones como Testimonios, lo que dificulta la confianza de los usuarios en la plataforma. | **3** | **Proveer retroalimentación de manera adecuada** |
+| 6 | El botón de idioma no es lo suficientemente visible para todos los usuarios. | **2** | **Accesibilidad** |
 
-**No están incluidas** en esta versión de la evaluación las siguientes tareas:  
+### PROBLEMA #1
+* **Severidad:** 2 (Problema menor)
+* **Heurística violada:** **Visibilidad del estado del sistema**
+* **Descripción:** Algunos usuarios expresaron dificultades para localizar ciertas funcionalidades cruciales, como el botón para **cambiar el idioma** de la interfaz y la opción para **añadir actividades temporales**. Esto sugiere que estas características no son tan evidentes como deberían.
+* **Entrevistas relevantes:** Claudio y Piero.
+* **Recomendación:** Es fundamental **garantizar que todas las funcionalidades clave sean fácilmente accesibles y visualmente prominentes** en la interfaz. Se podría considerar el uso de iconos más destacados, etiquetas de texto más claras o una ubicación más intuitiva para estos elementos.
+* **Figura:**
+
+  <p align="center">
+  <img src="https://imgur.com/JyR3WnW.png" alt="HEU1">
+</p>
 
 ---
 
-## **Escala de Severidad**
+### PROBLEMA #2
+* **Severidad:** 1 (Problema superficial)
+* **Heurística violada:** **Visibilidad del estado del sistema**
+* **Descripción:** A pesar de la apreciación general por la gestión de actividades y voluntarios, algunos entrevistados, como Piero, señalaron que la opción para **dar de baja a un voluntario** carece de la intuición necesaria. Específicamente, el color del botón para esta acción es **demasiado similar al fondo**, lo que puede inducir a confusión al usuario.
+* **Entrevistas relevantes:** Piero Ramírez.
+* **Recomendación:** Se sugiere **mejorar la visibilidad de la opción para dar de baja a los voluntarios**. Esto podría lograrse cambiando el color del botón para que contraste más con el fondo, o añadiendo un contorno o sombreado que lo haga destacar claramente en la vista de detalles de cada voluntario.
+* **Figura:**
 
-| **Nivel** | **Descripción** |
-|:---------:|-----------------|
-| **1** | Problema superficial: puede ser fácilmente superado por el usuario o ocurre con muy poca frecuencia. No necesita ser arreglado a no ser que exista disponibilidad de tiempo. |
-| **2** | Problema menor: puede ocurrir un poco más frecuentemente o es un poco más difícil de superar para el usuario. Se le debería asignar una prioridad baja para el siguiente lanzamiento. |
-| **3** | Problema mayor: ocurre frecuentemente o los usuarios no son capaces de resolverlo. Es importante corregirlo y se le debe asignar una prioridad alta. |
-| **4** | Problema muy grave: error de gran impacto que impide al usuario continuar con el uso de la herramienta. Debe ser corregido antes del lanzamiento. |
+  <p align="center">
+  <img src="https://imgur.com/Rptnx9M.png" alt="HEU2">
+</p>
 
 ---
 
-## **Tabla Resumen de Problemas Detectados**
+### PROBLEMA #3
+* **Severidad:** 2 (Problema menor)
+* **Heurística violada:** **Consistencia y estándares**
+* **Descripción:** Si bien el diseño general de la *landing page* y la aplicación web recibió una acogida favorable, algunos usuarios observaron que la **estructura de la información carece de consistencia** en ciertos puntos específicos, generando una experiencia de usuario ligeramente fragmentada.
+* **Entrevistas relevantes:** Tatiana, Renato.
+* **Recomendación:** Es crucial **reforzar la consistencia del diseño** entre la *landing page* y la aplicación web. Esto implica asegurar que todas las secciones del producto sigan un **patrón visual uniforme y unificado**, creando una experiencia de usuario más cohesionada y predecible.
+* **Figura:**
 
-#### PROBLEMA #1 
+    <p align="center">
+  <img src="https://imgur.com/jwyHp1H.png" alt="HEU3">
+</p>
+
+---
+
+### PROBLEMA #4
+* **Severidad:** 1 (Problema superficial)
+* **Heurística violada:** **Diseño visual y minimalismo**
+* **Descripción:** Aunque la aplicación web fue elogiada por su **simplicidad y limpieza**, algunos usuarios, como Angie, indicaron que ciertas secciones podrían beneficiarse de una **mayor organización visual** para evitar la sobrecarga de información.
+* **Entrevistas relevantes:** Angie.
+* **Recomendación:** Para mejorar la percepción visual, se recomienda **optimizar la distribución de la información** en la aplicación web. Esto podría lograrse implementando más **espacio en blanco (whitespace)** o utilizando **separadores visuales** más definidos entre los elementos, lo que ayudaría a prevenir que las páginas se perciban desordenadas o abrumadoras.
+* **Figura:**
+
+    <p align="center">
+  <img src="https://imgur.com/WioJ1H8.png" alt="HEU4">
+</p>
+
+---
+
+### PROBLEMA #5
+* **Severidad:** 3 (Problema mayor)
+* **Heurística violada:** **Proveer retroalimentación de manera adecuada**
+* **Descripción:** Varios usuarios manifestaron que la **ausencia de secciones como "Testimonios"** o información clara sobre las experiencias de otros voluntarios les generaba cierta **dificultad para depositar plena confianza** en la plataforma. La falta de prueba social impacta la credibilidad.
+* **Entrevistas relevantes:** Angie, Renato.
+* **Recomendación:** Es altamente recomendable **añadir una sección dedicada a testimonios o experiencias de usuarios previos**. Esta "retroalimentación social" es vital para **generar confianza y credibilidad** en la plataforma, mostrando a los nuevos usuarios el valor que otros han encontrado.
+* **Figura:**
+
+    <p align="center">
+  <img src="https://imgur.com/yfelrCF.png" alt="HEU5">
+</p>
+
+---
+
+### PROBLEMA #6
+* **Severidad:** 2 (Problema menor)
+* **Heurística violada:** **Accesibilidad**
+* **Descripción:** Algunos usuarios expresaron que el **botón para seleccionar el idioma no era suficientemente visible**, lo cual resultaba especialmente problemático para aquellos con menor familiaridad con interfaces digitales o que esperaban un ícono universalmente reconocido.
+* **Entrevistas relevantes:** Claudio, Renato.
+* **Recomendación:** Se sugiere **mejorar la visibilidad del botón de idioma** mediante un **diseño más intuitivo y estándar**. Considerar la utilización de **iconos reconocibles internacionalmente**, como banderas o un globo terráqueo, podría facilitar su identificación y uso por parte de una audiencia más amplia.
+* **Figura:**
+
+    <p align="center">
+  <img src="https://imgur.com/8MK1SDm.png" alt="HEU6">
+</p>
 
 ## 5.4. Video About-the-Product
 
@@ -3450,6 +3696,8 @@ Programa de Voluntarios de las Naciones Unidas. (2022). Capítulo 2: El voluntar
 Anexo A. Entrevistas
 
 Entrevistas VolunTrack. https://upcedupe-my.sharepoint.com/:v:/g/personal/u20201f855_upc_edu_pe/EccjEo0rS0FCiWl1pw3HLI8Bxj4PJLi6KG8Q-ZWwZvwyzw?e=YNaKTr
+
+Entrevistas validación Voluntrack. https://upcedupe-my.sharepoint.com/:v:/g/personal/u20201f855_upc_edu_pe/EZ7MI0p2IulKpwaKCloYIU8BjS7shK3gboRZVDlMciMDAQ?e=Y4RcjH
 
 Anexo B. Videos del proyecto
 
