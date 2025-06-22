@@ -2956,7 +2956,7 @@ Durante este Sprint, el equipo se centró en la implementación de las funcional
 #### Histograma de contribuciones en el tiempo:
 [Ver histograma en Google Drive](https://drive.google.com/drive/folders/1R20lekxhffWaysbl4PmnwoOmCMK34kw_?usp=sharing)
 
-### 5.2.3. Sprint 3Add commentMore actions
+### 5.2.3. Sprint 3
 
 #### 5.2.3.1. Sprint Planning
 
@@ -2982,6 +2982,34 @@ Durante el Sprint 3 del desarrollo de VolunTrack, el equipo se ha embarcado en l
 #### 5.2.3.4. Development Evidence for Sprint Review
 
 #### 5.2.3.5. Execution Evidence for Sprint Review.
+
+En el Sprint 3, se llevó a cabo el desarrollo integral de la lógica de negocio de la aplicación, estructurándola en cuatro Bounded Contexts bien definidos: ActivityRegistration, Notifications, Participation y VolunteerRegistration. Cada uno de estos contextos fue implementado siguiendo una arquitectura modular y por capas.
+Este diseño permitió una clara separación de responsabilidades dentro de cada contexto. A nivel de Dominio, se definieron las entidades y la lógica de negocio central. La capa de Aplicación se encargó de coordinar las operaciones a través de comandos y queries, y de orquestar los servicios específicos de cada contexto. La Infraestructura proporcionó las implementaciones necesarias, como la persistencia de datos (aunque no se especifica la tecnología aquí, en un contexto real se ubicarían las implementaciones de repositorios). Finalmente, las Interfaces REST expusieron la funcionalidad a través de controladores, manejando la entrada y salida de datos (DTOs).
+Este enfoque no solo facilitó el desarrollo simultáneo y el mantenimiento del sistema, sino que también aseguró la adherencia a principios de diseño robustos, promoviendo la cohesión y el bajo acoplamiento. Como resultado, se culminó con la exposición de una API RESTful que fue completamente documentada con Swagger para su consumo eficiente, proporcionando una guía clara y usable para los desarrolladores que interactúen con el sistema.
+
+- Estructura del proyecto demostrando el uso de bounded contexts:
+
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/1f8403e8-6c24-4d30-9298-27e95324fc5d" alt="VolunTrack backend structure">
+</p>
+
+- Base de datos en MYSQL creada a partir del código:
+
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/1ed73ff4-752a-46c4-80d4-f9d40a2eb332" alt="MySQL Database">
+</p>
+
+- Endpoints implementados visibles en Swagger:
+
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/94ec84bf-c586-4e44-8246-27c99addd9ec" alt="Endpoints p1">
+</p>
+
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/d48bf256-0e1f-46fc-9ca4-a7634e7126e8" alt="Endpoints p2">
+</p>
+
+Link del video de Execution Evidence for Sprint Review:
 
 #### 5.2.3.6. Services Documentation Evidence for Sprint Review
 
