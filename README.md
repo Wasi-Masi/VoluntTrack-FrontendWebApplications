@@ -2979,6 +2979,36 @@ Durante el Sprint 3 del desarrollo de VolunTrack, el equipo se ha embarcado en l
 
 #### 5.2.3.3 Sprint Backlog 3
 
+| **Sprint** | **User Story ID** | **Task ID** | **Descripción**                                                                                         | **Estimación (hrs)** | **Asignado a**                             | **Estado** |
+|------------|-------------------|-------------|----------------------------------------------------------------------------------------------------------|----------------------|---------------------------------------------|------------|
+| Sprint #3  | TS01              | T01         | Crear voluntario                                                                                         | 2                    | Binda Arbañil, Marcelo Alejandro            | Done       |
+|            |                   | T02         | Consultar todos los voluntarios                                                                          | 3                    | Castillo Garay, Ainhoa Lucía                | Done       |
+|            |                   | T03         | Actualizar información de un voluntario                                                                  | 3                    | Binda Arbañil, Marcelo Alejandro            | Done       |
+|            |                   | T04         | Eliminar un voluntario                                                                                   | 1                    | Martel Andrade, Cassius Estefano            | Done       |
+| Sprint #3  | TS02              | T01         | Crear una nueva actividad                                                                                | 2                    | Castillo Garay, Ainhoa Lucía                | Done       |
+|            |                   | T02         | Consultar todas las actividades                                                                          | 3                    | Binda Arbañil, Marcelo Alejandro            | Done       |
+|            |                   | T03         | Consultar una actividad por ID                                                                           | 3                    | Binda Arbañil, Marcelo Alejandro            | Done       |
+|            |                   | T04         | Actualizar información de una actividad                                                                  | 3                    | Galván Cerrón, George                       | Done       |
+|            |                   | T05         | Eliminar una actividad                                                                                   | 1                    | Martel Andrade, Cassius Estefano            | Done       |
+| Sprint #3  | TS03              | T01         | Crear certificado                                                                                        | 2                    | Nakamurake Teruya, Alex Tomio               | Done       |
+|            |                   | T02         | Consultar todos los certificados de un voluntario en específico mediante su ID                           | 3                    | Nakamurake Teruya, Alex Tomio               | Done       |
+| Sprint #3  | TS04              | T01         | Crear una organización                                                                                   | 2                    | Galván Cerrón, George                       | Done       |
+|            |                   | T02         | Consultar una organización en específico por su ID                                                       | 3                    | Nakamurake Teruya, Alex Tomio               | Done       |
+|            |                   | T03         | Actualizar la información de una organización                                                            | 3                    | Martel Andrade, Cassius Estefano            | Done       |
+|            |                   | T04         | Eliminar una organización                                                                                | 1                    | Martel Andrade, Cassius Estefano            | Done       |
+| Sprint #3  | TS05              | T01         | Crear una inscripción                                                                                    | 2                    | Nakamurake Teruya, Alex Tomio               | Done       |
+|            |                   | T02         | Consultar todas las inscripciones                                                                        | 3                    | Galván Cerrón, George                       | Done       |
+|            |                   | T03         | Consultar una inscripción en específico por su ID                                                        | 3                    | Ortiz Alarcón, Victor Nicolás               | Done       |
+|            |                   | T04         | Actualizar la información de una inscripción                                                             | 3                    | Ortiz Alarcón, Victor Nicolás               | Done       |
+|            |                   | T05         | Eliminar una inscripción                                                                                 | 1                    | Ortiz Alarcón, Victor Nicolás               | Done       |
+|            |                   | T06         | Consultar todas las inscripciones de una actividad mediante su ID                                        | 3                    | Galván Cerrón, George                       | Done       |
+| Sprint #3  | TS06              | T01         | Crear una notificación                                                                                   | 2                    | Castillo Garay, Ainhoa Lucía                | Done       |
+|            |                   | T02         | Consultar todas las notificaciones                                                                       | 3                    | Castillo Garay, Ainhoa Lucía                | Done       |
+|            |                   | T03         | Consultar todas notificaciones de un destinatario por su ID                                              | 3                    | Castillo Garay, Ainhoa Lucía                | Done       |
+| Sprint #3  | TS07              | T01         | Crear una participación                                                                                  | 2                    | Castillo Garay, Ainhoa Lucía                | Done       |
+|            |                   | T02         | Consultar todas las participaciones de un voluntario mediante su ID                                      | 3                    | Martel Andrade, Cassius Estefano            | Done       |
+|            |                   | T03         | Consultar todas las participaciones en una actividad por su ID                                           | 3                    | Galván Cerrón, George                       | Done       |
+
 #### 5.2.3.4. Development Evidence for Sprint Review
 
 #### 5.2.3.5. Execution Evidence for Sprint Review.
