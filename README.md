@@ -3026,7 +3026,7 @@ Durante el Sprint 3 del desarrollo de VolunTrack, el equipo se ha embarcado en l
 
 #### 5.2.3.4. Development Evidence for Sprint Review
 <p align="center">
-  <img src="./assets/dockerfile.jpg" alt=dockerfile" width="700">
+  <img src="./assets/dockerfile.png" alt=dockerfile" width="700">
 </p>
 <p align="center"><strong>Figura 171.</strong> Implementación del archivo docker para la configuración del deploy mediante Render</p>
 
