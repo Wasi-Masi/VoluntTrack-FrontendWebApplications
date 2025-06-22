@@ -3075,7 +3075,7 @@ Este enfoque no solo facilitó el desarrollo simultáneo y el mantenimiento del 
   <img src="https://github.com/user-attachments/assets/d48bf256-0e1f-46fc-9ca4-a7634e7126e8" alt="Endpoints p2">
 </p>
 
-Link del video de Execution Evidence for Sprint Review:
+Link del video de Execution Evidence for Sprint Review: https://upcedupe-my.sharepoint.com/:v:/g/personal/u20201f855_upc_edu_pe/Edy2FnqV-A5Mr6FxVXD_iekBLGNNL507SKO8-1Akm7n69w?e=MKo7IV
 
 #### 5.2.3.6. Services Documentation Evidence for Sprint Review
 
@@ -3356,6 +3356,10 @@ Web applications prototyping. https://youtu.be/SiFnEpgN64c
 
 Execution Evidence for Sprint 1 Review. https://upcedupe-my.sharepoint.com/:v:/g/personal/u20201f855_upc_edu_pe/ER9RtTS-0HVDv4bMDrQhPz4B_w3sbIZzUJxeNgIRZPjieA?e=3WasT5
 
+Execution Evidence for Sprint 2 Review. https://drive.google.com/file/d/1pp985R2apsaa4qa8KcvP_UM9SSYTLKDV/view?usp=sharing
+
+Execution Evidence for Sprint 3 Review. https://upcedupe-my.sharepoint.com/:v:/g/personal/u20201f855_upc_edu_pe/Edy2FnqV-A5Mr6FxVXD_iekBLGNNL507SKO8-1Akm7n69w?e=MKo7IV
+
 Exposición TB1. https://upcedupe-my.sharepoint.com/:v:/g/personal/u20201f855_upc_edu_pe/EYo4bWjuiZJIto67pij-UGIBvCjIbIDt9vEwSGJBnFQTQQ?e=ZL7e0W
 
 Anexo C. UI
@@ -3364,7 +3368,7 @@ Prototipo Voluntrack. https://www.figma.com/proto/krPEYNc7KDEvZbax5LxfrA/VolunTr
 
 Anexo D. Pivotal Tracker
 
-VolunTrack. https://www.pivotaltracker.com/n/projects/2740950
+VolunTrack. https://app.litetracker.com/n/projects/da8585
 
 Anexo E. Lean UX Canvas
 
