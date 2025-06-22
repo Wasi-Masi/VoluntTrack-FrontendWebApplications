@@ -3013,6 +3013,60 @@ Link del video de Execution Evidence for Sprint Review:
 
 #### 5.2.3.6. Services Documentation Evidence for Sprint Review
 
+- Creación de una organización utilizando el método POST.
+
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/22ca5663-964b-48d4-9c64-35c1bdc3cd39" alt="Organizations POST">
+</p>
+
+- Consulta de una organización por su ID mediante el método GET.
+
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/62b945d0-1679-4b13-b99b-1361094d5998" alt="Organizations GET by id">
+</p>
+
+- Creación de Voluntario mediante el método POST. Para ello, previamente debe existir una organización.
+
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/6b7b4c2c-49cc-421d-acee-7daca17fbaf8" alt="Volunteers POST">
+</p>
+
+- Consulta de voluntarios mediante el método GET.
+
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/bca4406f-e820-4b64-b002-751f655344b9" alt="Volunteers GET">
+</p>
+
+- Creación de actividad mediante el método POST. Para ello ya debe existir una organización.
+
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/7c0ccd5e-ed4e-45da-b4cc-77b5de22f4cb" alt="Activity POST">
+</p>
+
+- Consulta de todas las actividades mediante el método GET.
+
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/0587c69c-f909-4348-868d-fc34463457b2" alt="Activity GET">
+</p>
+
+- Registro de una inscripción mediante el método POST. Para ello ya deben existir al menos un voluntario y una actividad.
+
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/d27a263c-7bca-4484-89d3-fdf8e1bba75e" alt="Inscription POST">
+</p>
+
+- Consulta de inscripciones realizadas en una actividad mediante el método GET.
+
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/be125dbf-dabb-4035-9213-fc5ef5ffa613" alt="Inscription GET">
+</p>
+
+- Consulta de notificaciones de una organización en espefíco. Los parámetros de esta consulta consideran que elijas entre una organización o un voluntario en específico. Se aprecian las notificaciones relevantes para la organización, como la creación de una actividad o la inscripción de un voluntario a una actividad.
+
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/6212e79b-46e7-421c-a7a4-206bb8513a18" alt="Notifications GET">
+</p>
+
 #### 5.2.3.7. Software Deployment Evidence for Sprint Review
 
 #### 5.2.3.8. Team Collaboration Insights during Sprint
