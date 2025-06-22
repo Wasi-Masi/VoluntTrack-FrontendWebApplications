@@ -3083,15 +3083,51 @@ Durante el Sprint 3 del desarrollo de VolunTrack, el equipo se ha embarcado en l
 </p>
 
 #### 5.2.3.4. Development Evidence for Sprint Review
-<p align="center">
-  <img src="./assets/dockerfile.png" alt=dockerfile" width="700">
-</p>
-<p align="center"><strong>Figura 171.</strong> Implementación del archivo docker para la configuración del deploy mediante Render</p>
 
-<p align="center">
-  <img src="./assets/docker-file.jpg" alt=properties" width="700">
-</p>
-<p align="center"><strong>Figura 172.</strong> Implementación de Application-Properties dedicado para producción en Render con las variables de entorno pre-configuradas </p>
+| Repository              | Branch              | Commit ID                                | Commit Message                                                                                     | Committed on   |
+|:------------------------|:--------------------|:------------------------------------------|:----------------------------------------------------------------------------------------------------|:---------------|
+| VolunTrack-WebServices  | develop             | bd2447bed4121cc9e82d45adb6e194af736b558e  | Initial Commit                                                                                      | Jun 16, 2025   |
+| VolunTrack-WebServices  | develop             | 1f9c14ef707975a50068b142773093ad1ff0507a  | Add VolunteerRegistration entities                                                                  | Jun 16, 2025   |
+| VolunTrack-WebServices  | develop             | 874be9270cdcf033fe192ef2da677582faf92189  | Implement base repository and unit of work infrastructure                                           | Jun 16, 2025   |
+| VolunTrack-WebServices  | develop             | fd3766c85ea1d7a92587de63a261ad7dc71e22a4  | Add domain repository interfaces                                                                    | Jun 16, 2025   |
+| VolunTrack-WebServices  | feature/volunteers  | 640ab8c9ccbf36472ddf6490f81aa85e6c35e3c4  | Implement volunteer domain service                                                                  | Jun 16, 2025   |
+| VolunTrack-WebServices  | feature/volunteers  | 4e14794bdda0b74470b66e4f7e19d4ea6a446958  | Define volunteer commands                                                                           | Jun 16, 2025   |
+| VolunTrack-WebServices  | feature/volunteers  | bff855f4007c539581acaa089c901dae409c09d4  | Define domain query objects                                                                         | Jun 16, 2025   |
+| VolunTrack-WebServices  | feature/volunteers  | 8e7c990906cdc462bf0aa049255f4ab13ac30f5d  | Implement volunteer command service and query services                                              | Jun 16, 2025   |
+| VolunTrack-WebServices  | feature/volunteers  | d09f30a3eadd5eb0849475cfd2a39bbc8d0cee52  | Define REST API resource DTOs                                                                       | Jun 16, 2025   |
+| VolunTrack-WebServices  | feature/volunteers  | 43c7bbc76ffe849a57a80579795569399503701e  | Implement Organization and Volunteer REST controllers                                               | Jun 16, 2025   |
+| VolunTrack-WebServices  | feature/volunteers  | 967b0c0838757aa18dddb66ab7436824613875ac  | Implement complete Volunteer Management Bounded Context                                             | Jun 16, 2025   |
+| VolunTrack-WebServices  | feature/participation| ba1d5fa2ab956a147bfa6a7644af97012711239c | Add the first “Activity” section                                                                    | Jun 17, 2025   |
+| VolunTrack-WebServices  | feature/participation| 1a024d04636dd1bbe75ebe25935d30759b8b8d0f | Add Commands and Queries for Activities                                                             | Jun 17, 2025   |
+| VolunTrack-WebServices  | feature/participation| 639920418c362d4c967838d02a813f48f5b464d5 | Add Repositories and Transform for Activities                                                       | Jun 17, 2025   |
+| VolunTrack-WebServices  | feature/participation| 9cb2a6b934cd8d6a8282371281aa0883b19a9d99 | Add the first “Inscription” section                                                                 | Jun 17, 2025   |
+| VolunTrack-WebServices  | feature/participation| 412c8621e4400ab73eae615fa8c075bf5e969095 | Add Commands and Queries for “Inscription”                                                          | Jun 17, 2025   |
+| VolunTrack-WebServices  | feature/participation| 6c3ee762243e450fc20752fba17a1d2dac5c4be3 | Add Repository and Service for “Inscription”                                                        | Jun 17, 2025   |
+| VolunTrack-WebServices  | feature/participation| 0056d62570334eb847243f5bab5b43ac4e842579 | Add Interfaces for “Inscription”                                                                    | Jun 17, 2025   |
+| VolunTrack-WebServices  | develop             | b676b5d85becf1af35ce774c8e7f9eaa61f2bc2b  | Update VolunTrackDemoApplication                                                                    | Jun 17, 2025   |
+| VolunTrack-WebServices  | feature/participation| 9bcd613393ae958bce61ba55bb46a255a9190361 | Create Initial Participation                                                                        | Jun 18, 2025   |
+| VolunTrack-WebServices  | feature/activities  | 366e342af0fbab76c1370cb36a6f6d5989568d9e  | Implement core domain entities and relationships                                                    | Jun 18, 2025   |
+| VolunTrack-WebServices  | feature/activities  | 9592f1a97294e6f5650fd79485d2ee99c9accab3  | Implement domain service interfaces                                                                 | Jun 18, 2025   |
+| VolunTrack-WebServices  | feature/activities  | 2d379c88eefdde1883d452b8089c1bf23460c635  | Implement domain services                                                                           | Jun 18, 2025   |
+| VolunTrack-WebServices  | feature/activities  | aa7369b615c20a596bdd904b7784a76d5d4b7084  | Implement application layer services                                                                | Jun 18, 2025   |
+| VolunTrack-WebServices  | feature/activities  | e64b1d3b52ed84cd4d365b9394dd7409800ed6e8  | Implement REST API transformation layer                                                             | Jun 18, 2025   |
+| VolunTrack-WebServices  | feature/activities  | 9c52b82fdcc622ae11e5b1b7e22954d1578f71ae  | Implement REST API controllers                                                                      | Jun 18, 2025   |
+| VolunTrack-WebServices  | feature/activities  | db42c26b48db643c648d6218cf9398075a360a85  | Update Organization Commands                                                                        | Jun 19, 2025   |
+| VolunTrack-WebServices  | feature/activities  | 952a7022a34de64a089578632fc91091091613b7  | Update Organization and Inscription Repositories and Services                                       | Jun 19, 2025   |
+| VolunTrack-WebServices  | feature/activities  | 5d6de475554a9fc69cb81eb983d1155149bc7136  | Add org org org                                                                                     | Jun 19, 2025   |
+| VolunTrack-WebServices  | develop             | 9f02b84a1287fcb8f9ef3ec5393d20e10c0ee336  | Merge branch ‘feature/activities’ into develop                                                      | Jun 19, 2025   |
+| VolunTrack-WebServices  | feature/notifications| 5ccdf753d48e16be604a431be186d8a83850cefa | Add Notifications Commands and Queries                                                              | Jun 19, 2025   |
+| VolunTrack-WebServices  | feature/notifications| a7efa7e97ef2094b6c5a10bde5bd8de88e2d0286 | Add Notifications Resources and Services                                                            | Jun 19, 2025   |
+| VolunTrack-WebServices  | feature/notifications| a1a3b24f068a4d85a0be651d8ffa9723b49927c3 | Update CommandServices and Controllers                                                              | Jun 19, 2025   |
+| VolunTrack-WebServices  | feature/notifications| 7c3f4b466e78d8e5e71195b00b72db6f04d84ea4 | Update in Notifications                                                                             | Jun 21, 2025   |
+| VolunTrack-WebServices  | feature/notifications| 49974f19e12425c87e276985cf2d1984d538101a | Fix translations of Notification Type                                                               | Jun 21, 2025   |
+| VolunTrack-WebServices  | feature/notifications| 811800fb8c5f33a7174d1fd9c17a801f7d48b2d0 | Updates in Participation repositories                                                               | Jun 21, 2025   |
+| VolunTrack-WebServices  | develop             | 495a2fe10f17c0caa9d44825b80601f687e31387  | Merge branch ‘feautre/participation’ into develop                                                   | Jun 21, 2025   |
+| VolunTrack-WebServices  | develop             | dcd47ecceb6b5899e76f0b52f0d608223c4f4c00  | Fix Typo                                                                                            | Jun 21, 2025   |
+| VolunTrack-WebServices  | feature/deployment  | aabf4ae22e75d1fd7efa99be23290317969d9de9  | Merge branch ‘develop’ of https://github.com/Wasi-Masi/VolunTrack-WebServices into develop         | Jun 21, 2025   |
+| VolunTrack-WebServices  | feature/activities  | 3381186f974146280afca5aa868e01da3ddc7ed6  | Add comments to ActivityRegistration and Notifications                                              | Jun 21, 2025   |
+| VolunTrack-WebServices  | develop             | b7d5eb11ddd79c316ac93f4cba1008a6728c482e  | Fix Typo                                                                                            | Jun 21, 2025   |
+| VolunTrack-WebServices  | feature/deployment  | 610cf747226b00712f8d762ab2e81468133313ae  | Merge pull request #3 Wasi-Masi/origin/feature/deployment                                           | Jun 21, 2025   |
 
 #### 5.2.3.5. Execution Evidence for Sprint Review.
 
@@ -3215,10 +3251,19 @@ Durante el Sprint 3, el equipo de desarrollo documentó exhaustivamente los Web 
 #### 5.2.3.7. Software Deployment Evidence for Sprint Review
 
 <p align="center">
+  <img src="./assets/dockerfile.png" alt=dockerfile" width="700">
+</p>
+<p align="center"><strong>Figura 171.</strong> Implementación del archivo docker para la configuración del deploy mediante Render</p>
+
+<p align="center">
+  <img src="./assets/docker-file.jpg" alt=properties" width="700">
+</p>
+<p align="center"><strong>Figura 172.</strong> Implementación de Application-Properties dedicado para producción en Render con las variables de entorno pre-configuradas </p>
+
+<p align="center">
   <img src="./assets/database-rail.png" alt=database" width="700">
 </p>
 <p align="center"><strong>Figura 172.</strong> Deployment del database mediante RailWay para que esté preparado y con los permisos necesarios para que Render pueda trabajar sin errores con las tablas</p>
-
 
 <p align="center">
   <img src="./assets/config-back.jpg" alt=configback" width="700">
