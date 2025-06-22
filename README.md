@@ -3024,6 +3024,18 @@ Durante el Sprint 3 del desarrollo de VolunTrack, el equipo se ha embarcado en l
 |            |                   | T02         | Consultar todas las participaciones de un voluntario mediante su ID                                      | 3                    | Martel Andrade, Cassius Estefano            | Done       |
 |            |                   | T03         | Consultar todas las participaciones en una actividad por su ID                                           | 3                    | Galván Cerrón, George                       | Done       |
 
+- Historias de usuario a desarrollar en este sprint
+
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/6f48856f-4f47-4197-b240-1de208848172" alt="User Stories">
+</p>
+
+- Ejemplo de tareas y descripción de una historia
+
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/82649060-0135-4d1a-954e-6788b5d32a99" alt="Tasks and Description">
+</p>
+
 #### 5.2.3.4. Development Evidence for Sprint Review
 <p align="center">
   <img src="./assets/dockerfile.png" alt=dockerfile" width="700">
@@ -3158,6 +3170,26 @@ Link del video de Execution Evidence for Sprint Review:
 
 
 #### 5.2.3.8. Team Collaboration Insights during Sprint
+
+Durante el Sprint 3, el equipo VolunTrack prosiguió con la implementación de la metodología ágil Scrum y las herramientas de colaboración establecidas, esta vez enfocándose en el desarrollo del backend y la lógica de negocio de la aplicación web. Este sprint se distinguió por un esfuerzo intensivo y coordinado en la construcción de una arquitectura robusta, materializada en cuatro Bounded Contexts principales: VolunteerRegistration, ActivityRegistration, Notifications y Participation. La comunicación se mantuvo fluida y constante a través de nuestro grupo de Whatsapp y Discord, complementada con reuniones realizadas en días libres para una sincronización efectiva, mientras que la gestión y seguimiento de las tareas continuó centralizada en Pivotal Tracker.
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/f8c36ef2-bb18-4497-ac8b-740c09efad22" alt="pivotal tracker">
+</p>
+
+Uso de Herramientas de Colaboración (GitHub): 
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/3eb8c21d-7e80-4365-abeb-62d6a45bd71e" alt="herramientas de colaboración">
+</p>
+
+Evidencia de las ramas
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/c803bf37-38aa-4cff-91b2-335439e1d2c9" alt="ramas del repositorio">
+</p>
+
+Evidencia de commits por integrante del grupo
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/7e4c3303-af1a-4d31-8244-5726e50e4e58" alt="commits por integrante">
+</p>
 
 ## 5.3. Validation Interviews
 
