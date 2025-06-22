@@ -147,6 +147,20 @@ Como se puede ver, todos hemos participado en los commits del readme. Si bien pa
       - [5.2.2.6. Services Documentation Evidence for Sprint Review](#5226-services-documentation-evidence-for-sprint-review)
       - [5.2.2.7. Software Deployment Evidence for Sprint Review](#5227-software-deployment-evidence-for-sprint-review)
       - [5.2.2.8. Team Collaboration Insights during Sprint](#5228-team-collaboration-insights-during-sprint)
+    + [5.2.3. Sprint 3](#523-sprint-3)
+      - [5.2.3.1. Sprint Planning](#5231-sprint-planning)
+      - [5.2.3.2. Aspect Leaders and Collaborators](#5232-aspect-leaders-and-collaborators)
+      - [5.2.3.3 Sprint Backlog 2](#5233-sprint-backlog-3)
+      - [5.2.3.4. Development Evidence for Sprint Review](#5234-development-evidence-for-sprint-review)
+      - [5.2.3.5. Execution Evidence for Sprint Review](#5235-execution-evidence-for-sprint-review)
+      - [5.2.3.6. Services Documentation Evidence for Sprint Review](#5236-services-documentation-evidence-for-sprint-review)
+      - [5.2.3.7. Software Deployment Evidence for Sprint Review](#5237-software-deployment-evidence-for-sprint-review)
+      - [5.2.3.8. Team Collaboration Insights during Sprint](#5238-team-collaboration-insights-during-sprint)
+  * [5.3. Validation Interviews](#53-validation-interviews)
+    + [5.3.1. Diseño de Entrevistas](#531-diseño-de-entrevistas)
+    + [5.3.2. Registro de Entrevistas](#532-registro-de-entrevistas)
+    + [5.3.3. Evaluaciones según Heurísticas](#533-evaluaciones-según-heurísticas)
+  * [5.4. Video About-the-Product](#54-video-about-the-product)
 - [Conclusiones](#conclusiones)
   
 - [Recomendaciones](#recomendaciones)
@@ -2941,6 +2955,98 @@ Durante este Sprint, el equipo se centró en la implementación de las funcional
 #### Histograma de contribuciones en el tiempo:
 [Ver histograma en Google Drive](https://drive.google.com/drive/folders/1R20lekxhffWaysbl4PmnwoOmCMK34kw_?usp=sharing)
 
+### 5.2.3. Sprint 3
+
+#### 5.2.3.1. Sprint Planning
+
+#### 5.2.3.2. Aspect Leaders and Collaborators
+
+#### 5.2.3.3 Sprint Backlog 3
+
+#### 5.2.3.4. Development Evidence for Sprint Review
+
+#### 5.2.3.5. Execution Evidence for Sprint Review.
+
+#### 5.2.3.6. Services Documentation Evidence for Sprint Review
+
+#### 5.2.3.7. Software Deployment Evidence for Sprint Review
+
+#### 5.2.3.8. Team Collaboration Insights during Sprint
+
+## 5.3. Validation Interviews
+
+### 5.3.1. Diseño de Entrevistas
+
+## 🧑‍💼 Segmento 1: 
+
+#### 👤 Perfil del Entrevistado
+- 
+
+#### 🖥️ Tras mostrar la Landing Page
+- 
+
+#### 💻 Tras la demostración de la Aplicación Web
+- 
+
+#### ✅ Cierre
+- 
+
+---
+
+## 🧘 Segmento 2: 
+
+#### 👤 Perfil del Entrevistado
+- 
+
+#### 💻 Tras la demostración de la Aplicación Web
+- 
+
+#### ✅ Cierre
+- 
+
+### 5.3.2. Registro de Entrevistas
+
+### 5.3.3. Evaluaciones según Heurísticas
+
+# **UX Heuristics & Principles Evaluation**  
+**Usability – Inclusive Design – Information Architecture**
+
+- **Carrera:** Ingeniería de Software  
+- **Curso:** Desarrollo de Aplicaciones Open Source  
+- **Sección:** 4388  
+- **Profesores:** Alex Humberto Sánchez Ponce  
+- **Auditor:** VolunTrack  
+
+## **Cliente(s):**
+-
+
+---
+
+## **Site o App a Evaluar:** VolunTrack
+
+### **Tareas a Evaluar:**
+El alcance de esta evaluación incluye la revisión de la usabilidad de las siguientes tareas:
+
+**No están incluidas** en esta versión de la evaluación las siguientes tareas:  
+
+---
+
+## **Escala de Severidad**
+
+| **Nivel** | **Descripción** |
+|:---------:|-----------------|
+| **1** | Problema superficial: puede ser fácilmente superado por el usuario o ocurre con muy poca frecuencia. No necesita ser arreglado a no ser que exista disponibilidad de tiempo. |
+| **2** | Problema menor: puede ocurrir un poco más frecuentemente o es un poco más difícil de superar para el usuario. Se le debería asignar una prioridad baja para el siguiente lanzamiento. |
+| **3** | Problema mayor: ocurre frecuentemente o los usuarios no son capaces de resolverlo. Es importante corregirlo y se le debe asignar una prioridad alta. |
+| **4** | Problema muy grave: error de gran impacto que impide al usuario continuar con el uso de la herramienta. Debe ser corregido antes del lanzamiento. |
+
+---
+
+## **Tabla Resumen de Problemas Detectados**
+
+#### PROBLEMA #1 
+
+## 5.4. Video About-the-Product
 
 ## Conclusiones
 
