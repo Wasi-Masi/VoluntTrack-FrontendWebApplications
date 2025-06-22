@@ -2961,6 +2961,21 @@ Durante este Sprint, el equipo se centró en la implementación de las funcional
 
 #### 5.2.3.2. Aspect Leaders and Collaborators
 
+Durante el Sprint 3 del desarrollo de VolunTrack, el equipo se ha embarcado en la fase crucial de construcción del backend de la aplicación. Este sprint está enfocado en establecer una base sólida y funcional para el sistema, sentando las bases para las interacciones con el frontend y el correcto funcionamiento de la plataforma de voluntariado. El trabajo se ha estructurado alrededor del desarrollo intensivo de los siguientes bounded contexts clave:
+- VolunteerRegistration
+- ActivityRegistration
+- Notifications
+- Participation
+
+| **Team Member (Last Name, First Name)** | **VolunteerRegistration** | **ActivityRegistration** | **Notifications** | **Participation** |
+|----------------------------------------|----------------------------|---------------------------|--------------------|--------------------|
+| Castillo Garay, Ainhoa Lucía           | C                          | C                         | C                  | C                  |
+| Binda Arbañil, Marcelo Alejandro       | C                          | L                         | L                  | C                  |
+| Martel Andrade, Cassius Estefano       | L                          | C                         | C                  | L                  |
+| Ortiz Alarcón, Victor Nicolás          | C                          | C                         | C                  | C                  |
+| Nakamurake Teruya, Alex Tomio          | C                          | C                         | C                  | C                  |
+| Galván Cerrón, George                  | C                          | C                         | C                  | C                  |
+
 #### 5.2.3.3 Sprint Backlog 3
 
 #### 5.2.3.4. Development Evidence for Sprint Review
@@ -3120,3 +3135,5 @@ Anexo F. Link del video del trabajo parcial. https://upcedupe-my.sharepoint.com/
 Anexo G. Link del video del Sprint 2 Review. https://drive.google.com/file/d/1pp985R2apsaa4qa8KcvP_UM9SSYTLKDV/view?usp=sharing
 
 Anexo H. Link del Web Application. https://voluntrackbywasimasi.netlify.app/ 
+
+Anexo I. Link de la Landing Page. https://wasi-masi.github.io/Voluntrack-LandingPage/
