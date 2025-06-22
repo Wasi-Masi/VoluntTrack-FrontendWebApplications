@@ -140,32 +140,18 @@ Como se puede ver, todos hemos participado en los commits del readme. Si bien pa
       - [5.2.1.8. Team Collaboration Insights during Sprint](#5218-team-collaboration-insights-during-sprint)
     + [5.2.2. Sprint 2](#522-sprint-2)
       - [5.2.2.1. Sprint Planning 2](#5221-sprint-planning-2)
-      - [5.2.2.2. Aspect Leaders and Collaborators](#5222-aspect-leaders-and-collaborators)
+      - [5.2.2.2. 5.2.1.2.](#5222-aspect-leaders-and-collaborators)
       - [5.2.2.3. Sprint Backlog 2](#5223-sprint-backlog-2)
       - [5.2.2.4. Development Evidence for Sprint Review](#5224-development-evidence-for-sprint-review)
       - [5.2.2.5. Execution Evidence for Sprint Review](#5225-execution-evidence-for-sprint-review)
       - [5.2.2.6. Services Documentation Evidence for Sprint Review](#5226-services-documentation-evidence-for-sprint-review)
       - [5.2.2.7. Software Deployment Evidence for Sprint Review](#5227-software-deployment-evidence-for-sprint-review)
       - [5.2.2.8. Team Collaboration Insights during Sprint](#5228-team-collaboration-insights-during-sprint)
-    + [5.2.3. Sprint 3](#523-sprint-3)
-      - [5.2.3.1. Sprint Planning](#5231-sprint-planning)
-      - [5.2.3.2. Aspect Leaders and Collaborators](#5232-aspect-leaders-and-collaborators)
-      - [5.2.3.3 Sprint Backlog 2](#5233-sprint-backlog-3)
-      - [5.2.3.4. Development Evidence for Sprint Review](#5234-development-evidence-for-sprint-review)
-      - [5.2.3.5. Execution Evidence for Sprint Review](#5235-execution-evidence-for-sprint-review)
-      - [5.2.3.6. Services Documentation Evidence for Sprint Review](#5236-services-documentation-evidence-for-sprint-review)
-      - [5.2.3.7. Software Deployment Evidence for Sprint Review](#5237-software-deployment-evidence-for-sprint-review)
-      - [5.2.3.8. Team Collaboration Insights during Sprint](#5238-team-collaboration-insights-during-sprint)
-  * [5.3. Validation Interviews](#53-validation-interviews)
-    + [5.3.1. Diseño de Entrevistas](#531-diseño-de-entrevistas)
-    + [5.3.2. Registro de Entrevistas](#532-registro-de-entrevistas)
-    + [5.3.3. Evaluaciones según Heurísticas](#533-evaluaciones-según-heurísticas)
-  * [5.4. Video About-the-Product](#54-video-about-the-product)
 - [Conclusiones](#conclusiones)
   
 - [Recomendaciones](#recomendaciones)
   
-- [Bibliografía](#bibliografÍa)
+- [Bibliografia](#bibliografia)
   
 - [Anexos](#anexos)
 
@@ -500,7 +486,7 @@ Este análisis competitivo permite entender las fortalezas, debilidades, estrate
 |               | Amenazas | Competidores con más trayectoria, cambios en políticas de privacidad, baja adopción sin buena difusión. | Competidores accesibles y reducción de presupuestos en ONGs. | Nuevas plataformas más modernas y apps móviles más fuertes. | Modelos insostenibles si no monetizan, cambios en políticas de app stores. |
 
 
-### 2.1.2. Estrategias y tácticas frente a competidores
+### 2.1.2. Estrategias y tácticas frente a los competidores
 VolunTrack se posicionará como una plataforma digital inclusiva y accesible, enfocada en organizaciones con recursos técnicos limitados, como ONGs y museos pequeños. A diferencia de soluciones más complejas o costosas, VolunTrack prioriza la facilidad de uso, la escalabilidad progresiva y el soporte a voluntarios con diferentes niveles de alfabetización digital. Para enfrentar la competencia de plataformas consolidadas o desarrollos internos improvisados, se implementarán las siguientes estrategias:
 
 **#1 Posicionamiento como plataforma inclusiva y de fácil adopción para ONGs pequeñas y medianas**
@@ -2093,7 +2079,7 @@ A continuación, se presenta la tabla correspondiente al Sprint Planning:
 | Sprint n Velocity              | 13                                                                                                                                                        |
 | Sum of Story Points            | 43                                                                                                                                                        |
 
-#### 5. Aspect Leaders and Collaborators
+#### 5.2.1.2. Aspect Leaders and Collaborators
 
 **Tabla 33.** Asignación de líderes y colaboradores por área de trabajo en el equipo VolunTrack.
 
@@ -2875,7 +2861,8 @@ Se implementó la gestión de solicitudes HTTP desde el frontend hacia una API f
 
 Se implementó la gestión de solicitudes HTTP desde el frontend hacia una API falsa basada en JSON Server, la cual se estructuró a partir de los datos de `db.json` y sus endpoints simulados.
 
-## 5.2.2.7  Software Deployment Evidence for Sprint Review
+#### 5.2.2.7. Software Deployment Evidence for Sprint Review
+
 <p align="center">
   <img src="./assets/5.2.2.7-1.png" alt="deploy1" width="700">
 </p>
@@ -2955,113 +2942,6 @@ Durante este Sprint, el equipo se centró en la implementación de las funcional
 #### Histograma de contribuciones en el tiempo:
 [Ver histograma en Google Drive](https://drive.google.com/drive/folders/1R20lekxhffWaysbl4PmnwoOmCMK34kw_?usp=sharing)
 
-### 5.2.3. Sprint 3
-
-#### 5.2.3.1. Sprint Planning
-
-#### 5.2.3.2. Aspect Leaders and Collaborators
-
-Durante el Sprint 3 del desarrollo de VolunTrack, el equipo se ha embarcado en la fase crucial de construcción del backend de la aplicación. Este sprint está enfocado en establecer una base sólida y funcional para el sistema, sentando las bases para las interacciones con el frontend y el correcto funcionamiento de la plataforma de voluntariado. El trabajo se ha estructurado alrededor del desarrollo intensivo de los siguientes bounded contexts clave:
-- VolunteerRegistration
-- ActivityRegistration
-- Notifications
-- Participation
-
-| **Team Member (Last Name, First Name)** | **VolunteerRegistration** | **ActivityRegistration** | **Notifications** | **Participation** |
-|----------------------------------------|----------------------------|---------------------------|--------------------|--------------------|
-| Castillo Garay, Ainhoa Lucía           | C                          | C                         | C                  | C                  |
-| Binda Arbañil, Marcelo Alejandro       | C                          | L                         | L                  | C                  |
-| Martel Andrade, Cassius Estefano       | L                          | C                         | C                  | L                  |
-| Ortiz Alarcón, Victor Nicolás          | C                          | C                         | C                  | C                  |
-| Nakamurake Teruya, Alex Tomio          | C                          | C                         | C                  | C                  |
-| Galván Cerrón, George                  | C                          | C                         | C                  | C                  |
-
-#### 5.2.3.3 Sprint Backlog 3
-
-#### 5.2.3.4. Development Evidence for Sprint Review
-
-#### 5.2.3.5. Execution Evidence for Sprint Review.
-
-#### 5.2.3.6. Services Documentation Evidence for Sprint Review
-
-#### 5.2.3.7. Software Deployment Evidence for Sprint Review
-
-#### 5.2.3.8. Team Collaboration Insights during Sprint
-
-## 5.3. Validation Interviews
-
-### 5.3.1. Diseño de Entrevistas
-
-## 🧑‍💼 Segmento 1: 
-
-#### 👤 Perfil del Entrevistado
-- 
-
-#### 🖥️ Tras mostrar la Landing Page
-- 
-
-#### 💻 Tras la demostración de la Aplicación Web
-- 
-
-#### ✅ Cierre
-- 
-
----
-
-## 🧘 Segmento 2: 
-
-#### 👤 Perfil del Entrevistado
-- 
-
-#### 💻 Tras la demostración de la Aplicación Web
-- 
-
-#### ✅ Cierre
-- 
-
-### 5.3.2. Registro de Entrevistas
-
-### 5.3.3. Evaluaciones según Heurísticas
-
-# **UX Heuristics & Principles Evaluation**  
-**Usability – Inclusive Design – Information Architecture**
-
-- **Carrera:** Ingeniería de Software  
-- **Curso:** Desarrollo de Aplicaciones Open Source  
-- **Sección:** 4388  
-- **Profesores:** Alex Humberto Sánchez Ponce  
-- **Auditor:** VolunTrack  
-
-## **Cliente(s):**
--
-
----
-
-## **Site o App a Evaluar:** VolunTrack
-
-### **Tareas a Evaluar:**
-El alcance de esta evaluación incluye la revisión de la usabilidad de las siguientes tareas:
-
-**No están incluidas** en esta versión de la evaluación las siguientes tareas:  
-
----
-
-## **Escala de Severidad**
-
-| **Nivel** | **Descripción** |
-|:---------:|-----------------|
-| **1** | Problema superficial: puede ser fácilmente superado por el usuario o ocurre con muy poca frecuencia. No necesita ser arreglado a no ser que exista disponibilidad de tiempo. |
-| **2** | Problema menor: puede ocurrir un poco más frecuentemente o es un poco más difícil de superar para el usuario. Se le debería asignar una prioridad baja para el siguiente lanzamiento. |
-| **3** | Problema mayor: ocurre frecuentemente o los usuarios no son capaces de resolverlo. Es importante corregirlo y se le debe asignar una prioridad alta. |
-| **4** | Problema muy grave: error de gran impacto que impide al usuario continuar con el uso de la herramienta. Debe ser corregido antes del lanzamiento. |
-
----
-
-## **Tabla Resumen de Problemas Detectados**
-
-#### PROBLEMA #1 
-
-## 5.4. Video About-the-Product
 
 ## Conclusiones
 
@@ -3074,6 +2954,8 @@ Por otro lado, el despliegue de la aplicación web en **Firebase** constituyó u
 El desarrollo de la aplicación web, guiado por una **arquitectura modular y orientada a servicios**, aseguró que la plataforma fuera escalable, mantenible y flexible ante futuros cambios o ampliaciones. El diseño estructurado facilitó la división de tareas y permitió implementar funcionalidades específicas de manera independiente, optimizando el proceso de desarrollo y facilitando la detección y solución de posibles errores.
 
 Finalmente, este trabajo parcial fortaleció significativamente las competencias técnicas del equipo, abarcando aspectos clave como el desarrollo frontend, backend, control de versiones y despliegue en la nube. Asimismo, se potenció el desarrollo de habilidades blandas, tales como el trabajo en equipo, la comunicación efectiva, la planificación conjunta y la capacidad para enfrentar y resolver problemas de manera colaborativa. El logro alcanzado en esta etapa refleja el compromiso, la coordinación y el esfuerzo conjunto del equipo, estableciendo una base sólida para la continuación y culminación exitosa del proyecto **VolunTrack**.
+
+Esta entrega (TB2) marcó un avance fundamental para VolunTrack con la culminación del backend, desarrollado íntegramente en Java bajo un enfoque de Design-Driven Development. La exitosa implementación y despliegue de este componente, junto con la exposición y documentación interactiva de sus APIs mediante Swagger, establece una base lógica robusta y validada que servirá como pilar para la inminente integración con el frontend.
 
 
 ## Recomendaciones
@@ -3088,7 +2970,9 @@ Se recomienda establecer y mantener un **proceso de desarrollo iterativo e incre
 
 Finalmente, se sugiere seguir **invirtiendo en la capacitación y actualización constante del equipo** en tecnologías emergentes, herramientas de desarrollo, control de versiones y buenas prácticas de ingeniería de software. Esto no solo asegurará la calidad técnica y funcional del proyecto, sino que también fomentará la innovación, el uso eficiente de recursos y la sostenibilidad a largo plazo de la plataforma **VolunTrack**.
 
-# Bibliografía
+Se recomienda enfáticamente capitalizar la sólida base del backend en Java desarrollado con Design-Driven Development y desplegado con Swagger en esta etapa. Este fundamento técnico debe ser el pilar para la continuación del desarrollo de la aplicación web y una futura versión móvil, priorizando una gestión de base de datos robusta, eficiente y escalable para asegurar la integridad y seguridad de la información. Asimismo, es crucial iniciar pruebas de usabilidad rigurosas y continuas en las fases de integración con el frontend, manteniendo un proceso de desarrollo iterativo para la entrega de valor constante y la inversión en capacitación del equipo, garantizando así la evolución innovadora y la sostenibilidad a largo plazo de VolunTrack.
+
+# Bibliografia
 
 León Malca, S. J. (2023). Análisis de la relación entre la experiencia del voluntariado y las habilidades de empleabilidad: Un estudio de caso en la Asociación CEDRO [Tesis de licenciatura, Pontificia Universidad Católica del Perú]. Repositorio Institucional PUCP. https://tesis.pucp.edu.pe/items/7a5ab914-1eb0-46eb-8097-ae2d2df5b4f6
 
@@ -3135,5 +3019,3 @@ Anexo F. Link del video del trabajo parcial. https://upcedupe-my.sharepoint.com/
 Anexo G. Link del video del Sprint 2 Review. https://drive.google.com/file/d/1pp985R2apsaa4qa8KcvP_UM9SSYTLKDV/view?usp=sharing
 
 Anexo H. Link del Web Application. https://voluntrackbywasimasi.netlify.app/ 
-
-Anexo I. Link de la Landing Page. https://wasi-masi.github.io/Voluntrack-LandingPage/
