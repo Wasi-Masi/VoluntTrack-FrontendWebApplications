@@ -3025,6 +3025,15 @@ Durante el Sprint 3 del desarrollo de VolunTrack, el equipo se ha embarcado en l
 |            |                   | T03         | Consultar todas las participaciones en una actividad por su ID                                           | 3                    | Galván Cerrón, George                       | Done       |
 
 #### 5.2.3.4. Development Evidence for Sprint Review
+<p align="center">
+  <img src="./assets/dockerfile.jpg" alt=dockerfile" width="700">
+</p>
+<p align="center"><strong>Figura 171.</strong> Implementación del archivo docker para la configuración del deploy mediante Render</p>
+
+<p align="center">
+  <img src="./assets/docker-file.jpg" alt=properties" width="700">
+</p>
+<p align="center"><strong>Figura 172.</strong> Implementación de Application-Properties dedicado para producción en Render con las variables de entorno pre-configuradas </p>
 
 #### 5.2.3.5. Execution Evidence for Sprint Review.
 
@@ -3113,6 +3122,40 @@ Link del video de Execution Evidence for Sprint Review:
 </p>
 
 #### 5.2.3.7. Software Deployment Evidence for Sprint Review
+
+<p align="center">
+  <img src="./assets/database-rail.png" alt=database" width="700">
+</p>
+<p align="center"><strong>Figura 172.</strong> Deployment del database mediante RailWay para que esté preparado y con los permisos necesarios para que Render pueda trabajar sin errores con las tablas</p>
+
+
+<p align="center">
+  <img src="./assets/config-back.jpg" alt=configback" width="700">
+</p>
+<p align="center"><strong>Figura 172.</strong> Configuración del back mediante git bash para que esté preparado y con los permisos necesarios para que Render pueda trabajar sin errores</p>
+
+<p align="center">
+  <img src="./assets/config-branch.jpg" alt=configbranch" width="700">
+</p>
+<p align="center"><strong>Figura 173.</strong> Configuración de Render y la rama Develop para que coincida con la producción hecha</p>
+
+<p align="center">
+  <img src="./assets/deploy-1.jpg" alt=deploy1" width="700">
+</p>
+<p align="center"><strong>Figura 174.</strong> Building del backend en Render</p>
+
+<p align="center">
+  <img src="./assets/deploy-3.jpg" alt=deploy2" width="700">
+</p>
+<p align="center"><strong>Figura 175.</strong> Backend desplegado correctamente en Render</p>
+
+<p align="center">
+  <img src="./assets/back-deploy.jpg" alt=dockerfile" width="700">
+</p>
+<p align="center"><strong>Figura 176.</strong> Backend funcionando correctamente mediante la URL </p>
+
+[URL del Backend funcional](https://voluntrack-webservices.onrender.com/swagger-ui/index.html)
+
 
 #### 5.2.3.8. Team Collaboration Insights during Sprint
 
