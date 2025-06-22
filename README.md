@@ -1494,7 +1494,7 @@ Estos metatags son esenciales para optimizar la visibilidad y la funcionalidad d
 </p>
 <p align="center"><strong>Figura 38.</strong> Título optimizado para SEO en el encabezado de la landing page.</p>
 
-Estos metatags optimizan la página "Crear Nueva Actividad" de VolunTrack: el <title> y la <meta name="description'> mejoran el SEO y la comprensión de la página, la <meta name="keywords'> aumenta la visibilidad en búsquedas y la <meta name="author'> atribuye la creación al equipo de desarrollo.
+Estos metatags optimizan la página "Crear Nueva Actividad" de VolunTrack: el &lt;title&gt; y la &lt;meta name="description"&gt; mejoran el SEO y la comprensión de la página, la &lt;meta name="keywords"&gt; aumenta la visibilidad en búsquedas y la &lt;meta name="author"&gt; atribuye la creación al equipo de desarrollo.
 
 ### 4.2.4. Searching Systems
 
