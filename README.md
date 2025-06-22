@@ -2960,6 +2960,21 @@ Durante este Sprint, el equipo se centró en la implementación de las funcional
 
 #### 5.2.3.1. Sprint Planning
 
+| **Sprint #**                    | Sprint 3 |
+|--------------------------------|----------|
+|                                | **Sprint Planning Background** |
+| **Date**                       | 2025-06-21 |
+| **Time**                       | 12:40 PM |
+| **Location**                   | Virtual |
+| **Prepared By**                | Castillo Garay Ainhoa Lucía |
+| **Attendees (to planning meeting)** | Ainhoa Lucía Castillo Garay / Marcelo Alejandro Binda Arbañil / Martel Andrade Cassius Estefano / Nakamurakare Teruya Alex Tomio / Ortiz Alarcón Victor Nicolás / George Galván Cerrón |
+| **Sprint 2 Review Summary**    | Durante el Sprint 2, el equipo desarrolló exitosamente el frontend de la aplicación web VolunTrack, centrándose en las secciones clave para la gestión de voluntarios, actividades, organizaciones y participaciones. Este sprint también introdujo un soporte fundamental para la accesibilidad y la internacionalización, permitiendo que la interfaz se adapte a diferentes idiomas y tecnologías de asistencia. Las vistas creadas son ahora completamente navegables e interactivas, ofreciendo a los coordinadores y administradores de ONGs una primera versión funcional de la plataforma para gestionar sus programas de voluntariado y recursos operativos. Adicionalmente, se implementaron APIs simuladas (fake APIs) para simular las interacciones de datos, sentando las bases para la futura integración con los servicios de backend. |
+| **Sprint 2 Retrospective Summary** | Durante la revisión del Sprint 2, el equipo de VolunTrack destacó un sólido progreso en la transformación de los diseños UX/UI en interfaces funcionales para la gestión de voluntarios, actividades, organizaciones y participaciones. Se hizo un énfasis particular en alinear el desarrollo frontend con los estándares arquitectónicos del proyecto, así como en la implementación de soporte fundamental para la accesibilidad y la internacionalización. El uso de APIs simuladas (fake APIs) demostró ser muy valioso para probar e iterar componentes en un contexto realista. Los miembros del equipo valoraron la mejora en los flujos de comunicación y una mayor alineación entre diseño y desarrollo en comparación con el Sprint 1. No obstante, se identificaron desafíos menores en el mantenimiento de una estructura de código consistente y en asegurar el cumplimiento total de la accesibilidad en todas las vistas. Para el futuro, el equipo acordó establecer guías de codificación más estrictas y realizar revisiones de accesibilidad en etapas más tempranas del desarrollo. |
+|                                | **Sprint Goal & User Stories** |
+| **Sprint 3 Goal**              | Our primary focus in Sprint 3 has been the development and implementation of the core backend functionalities of the VolunTrack web application. We have emphasized robust data management, the construction of secure API endpoints, and the implementation of efficient business logic for the key domains. This includes the management of VolunteerRegistration, ActivityRegistration, Participation, and Notifications. <br><br>We believe this approach provides a solid data and logic foundation that ensures the system's reliability and scalability. This focus not only enhances the application's fundamental ability to process information but also lays the groundwork for seamless integration with user interfaces that will be developed in upcoming sprints. <br><br>This will be confirmed when frontend developers (or automated integration tests) are able to consistently create, retrieve, update, and delete data through the implemented API endpoints for the main domains. |
+| **Sprint 3 Velocity**          | 15 |
+| **Sum of Story Points**        | 15 |
+
 #### 5.2.3.2. Aspect Leaders and Collaborators
 
 Durante el Sprint 3 del desarrollo de VolunTrack, el equipo se ha embarcado en la fase crucial de construcción del backend de la aplicación. Este sprint está enfocado en establecer una base sólida y funcional para el sistema, sentando las bases para las interacciones con el frontend y el correcto funcionamiento de la plataforma de voluntariado. El trabajo se ha estructurado alrededor del desarrollo intensivo de los siguientes bounded contexts clave:
