@@ -3390,6 +3390,16 @@ El alcance de esta evaluación incluye la revisión de la usabilidad de las sigu
 
 ## 5.4. Video About-the-Product
 
+En esta sección se encuentra el video 'About-the-Product' de VolunTrack, que detalla el modelo de negocio y las funcionalidades principales del software. Este recurso está diseñado para ayudar tanto a los visitantes de la Landing Page a comprender la solución que ofrecemos, como a los usuarios de nuestras aplicaciones a familiarizarse con las tareas y procesos que la plataforma soporta.
+
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/9ef66ab7-e3d9-4635-b918-3720e483bb73" alt="About-the-Product Screenshot">
+</p>
+
+Link (Microsoft Stream): https://upcedupe-my.sharepoint.com/:v:/g/personal/u202312287_upc_edu_pe/ER7knyPZhxxNutfOYOZln24BT1-Z8-MXBlkFiYdrpf_cZg?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=SuFYws
+
+Link (Youtube): https://www.youtube.com/watch?v=AgB866MPlBY
+
 ## Conclusiones
 
 El trabajo parcial realizado en el proyecto **VolunTrack** representó un avance sustancial en la materialización de la plataforma destinada a facilitar la gestión de ONGs y la conexión con voluntarios. Durante esta etapa, el equipo logró desarrollar una aplicación web funcional que cumple con los requerimientos básicos planteados inicialmente, permitiendo la gestión eficiente de información y procesos relacionados con las organizaciones no gubernamentales. Esta creación de una aplicación operativa marca un hito importante, ya que traduce en un producto tangible las ideas y diseños elaborados en fases previas del proyecto.
@@ -3470,3 +3480,5 @@ Anexo F. Link del video del trabajo parcial. https://upcedupe-my.sharepoint.com/
 Anexo G. Link del video del Sprint 2 Review. https://drive.google.com/file/d/1pp985R2apsaa4qa8KcvP_UM9SSYTLKDV/view?usp=sharing
 
 Anexo H. Link del Web Application. https://voluntrackbywasimasi.netlify.app/ 
+
+Anexo I. About-The-Product. https://upcedupe-my.sharepoint.com/:v:/g/personal/u202312287_upc_edu_pe/ER7knyPZhxxNutfOYOZln24BT1-Z8-MXBlkFiYdrpf_cZg?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=SuFYws
