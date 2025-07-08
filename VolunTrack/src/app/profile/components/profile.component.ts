@@ -9,12 +9,13 @@ import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatButtonModule } from '@angular/material/button';
 import {MatDividerModule} from '@angular/material/divider';
-
+import {TranslatePipe} from '@ngx-translate/core';
 
 
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',
+  standalone: true,
   imports: [
     NgIf,
     FormsModule,
@@ -23,7 +24,8 @@ import {MatDividerModule} from '@angular/material/divider';
     MatInputModule,
     MatButtonModule,
     MatSelectModule,
-    MatDividerModule
+    MatDividerModule,
+    TranslatePipe
   ],
   styleUrls: ['./profile.component.css']
 })
@@ -35,7 +37,7 @@ export class ProfileComponent implements OnInit {
   constructor(private http: HttpClient, private router: Router) {}
 
   ngOnInit(): void {
-    this.http.get<any[]>('http://localhost:3000/userlogin').subscribe(
+    this.http.get<any[]>('https://voluntrack.onrender.com/userlogin').subscribe(
       (res) => {
         if (res.length > 0) {
           this.user = res[0];
@@ -49,9 +51,9 @@ export class ProfileComponent implements OnInit {
   }
 
   logout(): void {
-    this.http.get<any[]>('http://localhost:3000/userlogin').subscribe(users => {
+    this.http.get<any[]>('https://voluntrack.onrender.com/userlogin').subscribe(users => {
       const deleteRequests = users.map(user =>
-        this.http.delete(`http://localhost:3000/userlogin/${user.id}`).toPromise()
+        this.http.delete(`https://voluntrack.onrender.com/userlogin/${user.id}`).toPromise()
       );
       Promise.all(deleteRequests).then(() => {
         this.router.navigate(['/login']);
@@ -73,9 +75,9 @@ export class ProfileComponent implements OnInit {
     const userId = this.user.id;
 
     // Actualiza en /users
-    this.http.put(`http://localhost:3000/users/${userId}`, this.editedUser).subscribe(() => {
+    this.http.put(`https://voluntrack.onrender.com/users/${userId}`, this.editedUser).subscribe(() => {
       // Luego actualiza en /userlogin
-      this.http.put(`http://localhost:3000/userlogin/${userId}`, this.editedUser).subscribe(() => {
+      this.http.put(`https://voluntrack.onrender.com/userlogin/${userId}`, this.editedUser).subscribe(() => {
         this.user = { ...this.editedUser };
         this.editMode = false;
       });

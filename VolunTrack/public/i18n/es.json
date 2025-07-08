@@ -1,7 +1,36 @@
 {
-  "create": "Create",
-  "calendar": "Calendario",
+  "ACTIVITY": {
+    "BACK_TO_DASHBOARD": "Volver al panel",
+    "DETAILS": "Detalles",
+    "REGISTERED_VOLUNTEERS": "Voluntarios inscritos",
+    "EDIT_ACTIVITY": "Editar actividad",
+    "SELECTED_IMAGE_ALT": "Imagen seleccionada de la actividad",
+    "THUMBNAIL_ALT": "Miniatura de actividad",
+    "DESCRIPTION": "Descripción",
+    "INSTRUCTIONS": "Instrucciones",
+    "PURPOSE": "Propósito",
+    "DASHBOARD_TITLE": "Panel de Actividades",
+    "CREATE": "Crear",
+    "CALENDAR": "Calendario",
+    "VIEW_MORE": "Ver más",
+    "TO": "a"
+  },
+  "DAYS": {
+    "MONDAY": "LUNES",
+    "TUESDAY": "MARTES",
+    "WEDNESDAY": "MIÉRCOLES",
+    "THURSDAY": "JUEVES",
+    "FRIDAY": "VIERNES",
+    "SATURDAY": "SÁBADO",
+    "SUNDAY": "DOMINGO"
+  },
+  "dashboard": {
+    "title": "Panel de Actividades",
+    "create": "Crear",
+    "calendar": "Calendario"
+  },
   "create-act": {
+    "dashboard-title": "Panel de Actividades",
     "add-pictures": "Agregar imágenes",
     "instructions-pictures": "Una URL por línea, la primera aparecerá en el dashboard",
     "title": "Título",
@@ -16,7 +45,8 @@
     "purpose": "Propósito",
     "purpose-textarea": "Un propósito por línea",
     "create": "Crear",
-    "discard": "Descartar"
+    "discard": "Descartar",
+    "update": "Actualizar"
   },
 
   "NOTIFICATIONS": {
@@ -24,5 +54,133 @@
     "DELETE": "Eliminar",
     "DELETE_ALL": "Eliminar todas",
     "EMPTY": "No hay notificaciones por ahora."
+  },
+
+  "login": {
+    "title": "Iniciar sesión",
+    "username": "Nombre de usuario",
+    "password": "Contraseña",
+    "toggle-password": "Mostrar u ocultar la contraseña",
+    "login-button": "Entrar",
+    "register-button": "Registrarse"
+  },
+
+  "profile": {
+    "title": "Mi Perfil",
+    "banner": "Imagen de banner",
+    "pfp": "Foto de perfil",
+    "description-label": "Descripción",
+    "edit-description": "Editar descripción",
+    "personal-info": "Información Personal",
+    "username": "Nombre de Usuario",
+    "email": "Correo electrónico",
+    "password": "Contraseña",
+    "phone": "Número de teléfono",
+    "plan": "Plan",
+    "free": "Gratis",
+    "premium": "Premium",
+    "config": "Configuración",
+    "language": "Idioma",
+    "notifications": "Notificaciones",
+    "timezone": "Zona horaria",
+    "inscriptions": "Aprobación de inscripciones",
+    "notif-all": "Todas",
+    "notif-silenced": "Silenciadas",
+    "notif-mentions": "Menciones",
+    "manual": "Manual",
+    "automatic": "Automática",
+    "edit-profile": "Editar configuración del perfil",
+    "edit-btn": "Editar detalles",
+    "save-profile": "Guardar cambios del perfil",
+    "save-btn": "Guardar",
+    "cancel-profile": "Cancelar edición del perfil",
+    "cancel-btn": "Cancelar",
+    "logout": "Cerrar sesión de tu cuenta",
+    "logout-btn": "Cerrar Sesión"
+  },
+
+  "register": {
+    "title": "Registro de Usuario",
+    "username": "Nombre de usuario",
+    "email": "Email",
+    "phone": "Teléfono",
+    "pfp": "Ícono (URL)",
+    "banner": "Banner (URL)",
+    "description": "Descripción",
+    "password": "Contraseña",
+    "confirm-password": "Confirmar contraseña",
+    "cancel": "Cancelar",
+    "submit": "Registrarse"
+  },
+  "volunteers": {
+    "backDashboard": "Volver al Dashboard",
+    "details": "Detalles",
+    "registered": "Voluntarios Registrados",
+    "editActivity": "Editar Actividad",
+    "searchLabel": "Buscar voluntario por nombre",
+    "name": "Nombre",
+    "age": "Edad",
+    "profession": "Profesión",
+    "registrationDate": "Fecha de inscripción",
+    "status": "Estado",
+    "attended": "Asistencia",
+    "attendance": "Asistió",
+    "yes": "Sí",
+    "no": "No",
+    "noData": "No hay voluntarios registrados para esta actividad.",
+    "sendNotification": "Enviar notificación",
+    "sendNotificationTooltip": "Enviar mensaje a voluntarios",
+    "sendNotificationHint": "Toca aquí para enviar un mensaje a los voluntarios de esta actividad. Útil para compartir información o recordatorios.",
+    "markAttendance": "Marcar asistencia",
+    "saveAttendance": "Guardar asistencia",
+    "attendanceTooltip": "Registrar asistencia",
+    "markAttendanceHint": "Presiona para registrar quiénes asistieron hoy a la actividad. ¡Lleva un control fácil!",
+    "saveAttendanceHint": "Presiona nuevamente para guardar los registros de asistencia.",
+    "generateCertificates": "Crear certificados",
+    "generateCertificatesTooltip": "Generar certificados",
+    "generateCertificatesHint": "¿Quieres reconocer a tus voluntarios? Toca para generar certificados de participación.",
+    "openRegistrations": "Abrir inscripciones",
+    "openRegistrationsTooltip": "Permitir inscripciones",
+    "openRegistrationsHint": "¿Necesitas más voluntarios? Presiona para permitir que más personas se unan a esta actividad.",
+    "title": "Mis Voluntarios",
+    "metrics": "Métricas",
+    "byProfession": "Voluntarios por profesión",
+    "totalCertificates": "Certificados totales emitidos",
+    "totalVolunteers": "Voluntarios totales",
+    "sinceLastMonth": "Desde el mes pasado",
+    "newThisMonth": "Nuevos este mes",
+    "inactive": "Inactivos",
+    "search": "Buscar",
+    "searchPlaceholder": "Nombre...",
+    "name": "Nombre",
+    "age": "Edad",
+    "profession": "Profesión",
+    "email": "Correo",
+    "phone": "Teléfono",
+    "status": "Estado",
+    "registrationDate": "Fecha de inscripción",
+    "viewCertificates": "Ver certificados",
+    "sendEmail": "Enviar correo",
+    "addToActivity": "Añadir a actividad",
+    "deactivate": "Dar de baja",
+    "newEmail": "Nuevo Correo",
+    "to": "Para",
+    "subject": "Asunto",
+    "send": "Enviar correo",
+    "activityHistory": "Historial de Actividades",
+    "noActivity": "No hay actividades recientes."
+  },
+
+  "toolbar": {
+    "dashboard": "Panel",
+    "volunteers": "Mis Voluntarios",
+    "notifications": "Notificaciones",
+    "profile": "Perfil"
+  },
+
+  "certificatesDialog": {
+    "title": "Certificados",
+    "close": "Cerrar"
   }
+
 }

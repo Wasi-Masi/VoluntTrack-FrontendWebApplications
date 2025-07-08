@@ -16,7 +16,7 @@ import { Activity } from '../../dashboard/model/dashboard.entity';
   providedIn: 'root'
 })
 export class CreateActivityService {
-  private apiUrl = 'http://localhost:3000/activities';
+  private apiUrl = 'https://voluntrack.onrender.com/activities';
 
   constructor(private http: HttpClient) {}
 

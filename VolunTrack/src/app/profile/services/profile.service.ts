@@ -8,7 +8,7 @@ import { ProfileEntity } from '../model/profile.entity';
   providedIn: 'root'
 })
 export class ProfileService {
-  private apiUrl = 'http://localhost:3000';
+  private apiUrl = 'https://voluntrack.onrender.com';
 
   constructor(private http: HttpClient) {}
 

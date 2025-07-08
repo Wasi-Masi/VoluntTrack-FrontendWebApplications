@@ -2,48 +2,40 @@
 Description: Login form with username and password inputs, including a toggle button for password visibility with appropriate ARIA attributes for accessibility.
 Author: Your Name
 -->
+<div class="login-backdrop"></div>
 
-<div class="login-container" role="form" aria-labelledby="login-title">
-  <h2 id="login-title">Login</h2>
+<div class="login-container">
+  <h2>{{ 'login.title' | translate }}</h2>
 
   <mat-form-field appearance="outline">
-    <mat-label>Username</mat-label>
-    <input
-      matInput
-      [(ngModel)]="username"
-      type="text"
-      aria-required="true"
-      aria-describedby="username-desc"
-      id="username-input"
-    />
-    <span id="username-desc" class="sr-only"></span>
+    <mat-label>{{ 'login.username' | translate }}</mat-label>
+    <input matInput [(ngModel)]="username" type="text" />
   </mat-form-field>
 
   <mat-form-field appearance="outline">
-    <mat-label>Password</mat-label>
+    <mat-label>{{ 'login.password' | translate }}</mat-label>
     <input
       matInput
       [type]="hide() ? 'password' : 'text'"
       [(ngModel)]="password"
-      aria-required="true"
-      aria-describedby="password-desc"
-      id="password-input"
     />
     <button
       mat-icon-button
       matSuffix
       (click)="clickEvent($event)"
-      [attr.aria-label]="'Toggle password visibility'"
+      [attr.aria-label]="'login.toggle-password' | translate"
       [attr.aria-pressed]="!hide()"
-      type="button"
     >
       <mat-icon>{{ hide() ? 'visibility_off' : 'visibility' }}</mat-icon>
     </button>
-    <span id="password-desc" class="sr-only"></span>
   </mat-form-field>
 
   <div class="button-group">
-    <button mat-flat-button color="primary" (click)="handleLogin()" aria-label="Login">Login</button>
-    <button mat-flat-button class="register" color="accent" (click)="goToRegister()" aria-label="Go to Register">Register</button>
+    <button mat-flat-button color="primary" (click)="handleLogin()">
+      {{ 'login.login-button' | translate }}
+    </button>
+    <button mat-flat-button class="register" color="accent" (click)="goToRegister()">
+      {{ 'login.register-button' | translate }}
+    </button>
   </div>
 </div>
