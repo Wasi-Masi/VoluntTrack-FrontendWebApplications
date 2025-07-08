@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="32d7f7b8-0dc4-4ad3-b13e-38150f113ef0" name="Changes" comment="add to gitignore">
+    <list default="true" id="32d7f7b8-0dc4-4ad3-b13e-38150f113ef0" name="Changes" comment="Add initial backend connection configuration">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/VolunTrack/src/app/app.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/VolunTrack/src/app/app.component.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -74,11 +73,24 @@
       <workItem from="1747393910390" duration="30000" />
       <workItem from="1747393941513" duration="2106000" />
       <workItem from="1752015076100" duration="1239000" />
-      <workItem from="1752016427524" duration="778000" />
+      <workItem from="1752016427524" duration="1996000" />
     </task>
+    <task id="LOCAL-00001" summary="Add initial backend connection configuration">
+      <option name="closed" value="true" />
+      <created>1752017275264</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1752017275264</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Add initial backend connection configuration" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add initial backend connection configuration" />
   </component>
 </project>

@@ -15,10 +15,10 @@ import { VolunteerService } from './shared/services/volunteer.service';
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
-export class AppComponent implements OnInit {
+export class AppComponent /*implements OnInit*/ {
   title = 'VolunTrack';
 
-  constructor(private volunteerService: VolunteerService) { }
+  /*constructor(private volunteerService: VolunteerService) { }
 
   ngOnInit(): void {
     console.log('AppComponent: Iniciando llamada al servicio de voluntarios...');
@@ -33,5 +33,5 @@ export class AppComponent implements OnInit {
         console.log('AppComponent: Solicitud de voluntarios completada.');
       }
     });
-  }
+  }*/
 }
