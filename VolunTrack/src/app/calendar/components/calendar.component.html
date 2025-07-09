@@ -42,12 +42,13 @@ Author: Tomio Nakamurakare
 
   <div class="calendar-sidebar">
     <div class="year-navigation">
-      <button mat-icon-button (click)="prevMonth()">
+      <button mat-icon-button (click)="prevYear()">
         <mat-icon>chevron_left</mat-icon>
       </button>
       <div class="year-title">
-        <h1>{{ months[month] }} {{ year }}</h1> </div>
-      <button mat-icon-button (click)="nextMonth()">
+        <h1>{{ year }}</h1>
+      </div>
+      <button mat-icon-button (click)="nextYear()">
         <mat-icon>chevron_right</mat-icon>
       </button>
     </div>
@@ -55,11 +56,11 @@ Author: Tomio Nakamurakare
     <div class="month-selection">
       <div
         class="month-button"
-        *ngFor="let monthName of months; let i = index"
+        *ngFor="let monthKey of monthTranslationKeys; let i = index"
         (click)="goToMonth(i)"
         [class.active]="i === month"
       >
-        {{ monthName }}
+        {{ monthKey | translate }}
       </div>
     </div>
   </div>

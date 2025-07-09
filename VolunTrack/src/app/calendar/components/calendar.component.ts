@@ -27,7 +27,11 @@ export class CalendarComponent implements OnInit {
 
   weeks: Date[][] = [];
 
-  get months(): string[] { return this.calendarService.months; }
+  monthTranslationKeys = [
+    'MONTHS.JANUARY', 'MONTHS.FEBRUARY', 'MONTHS.MARCH', 'MONTHS.APRIL', 'MONTHS.MAY', 'MONTHS.JUNE',
+    'MONTHS.JULY', 'MONTHS.AUGUST', 'MONTHS.SEPTEMBER', 'MONTHS.OCTOBER', 'MONTHS.NOVEMBER', 'MONTHS.DECEMBER'
+  ];
+
   get yearOptions(): number[] { return this.calendarService.generateYearOptions(); }
   get year(): number { return this.calendarService.year; }
   get month(): number { return this.calendarService.month; }
@@ -63,12 +67,12 @@ export class CalendarComponent implements OnInit {
     this.weeks = this.calendarService.goToMonth(index);
   }
 
-  prevMonth(): void {
-    this.weeks = this.calendarService.prevMonth();
+  prevYear(): void {
+    this.weeks = this.calendarService.prevYear();
   }
 
-  nextMonth(): void {
-    this.weeks = this.calendarService.nextMonth();
+  nextYear(): void {
+    this.weeks = this.calendarService.nextYear();
   }
 
   groupActivitiesByDate(): void {

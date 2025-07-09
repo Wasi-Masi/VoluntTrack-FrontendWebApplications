@@ -18,11 +18,6 @@ export class CalendarService {
     return this.currentMonth;
   }
 
-  readonly months = [
-    'January', 'February', 'March', 'April', 'May', 'June',
-    'July', 'August', 'September', 'October', 'November', 'December'
-  ];
-
   generateCalendar(year: number, month: number): Date[][] {
     this.currentYear = year;
     this.currentMonth = month;
@@ -66,6 +61,17 @@ export class CalendarService {
     } else {
       this.currentMonth++;
     }
+    return this.generateCalendar(this.currentYear, this.currentMonth);
+  }
+
+  // New methods for year navigation
+  prevYear(): Date[][] {
+    this.currentYear--;
+    return this.generateCalendar(this.currentYear, this.currentMonth);
+  }
+
+  nextYear(): Date[][] {
+    this.currentYear++;
     return this.generateCalendar(this.currentYear, this.currentMonth);
   }
 

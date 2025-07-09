@@ -58,7 +58,7 @@ Author: Tomio Nakamurakare
 }
 
 .calendar-sidebar {
-  width: 200px;
+  width: 250px;
   height: auto;
   display: flex;
   flex-direction: column;
@@ -66,9 +66,14 @@ Author: Tomio Nakamurakare
   align-items: end;
 }
 
+.year-navigation {
+  display: flex;
+  justify-content: flex-end;
+}
+
 .year-title h1{
   font-weight: bold;
-  font-size: 2.2em;
+  font-size: 2.5em;
   color: #0C7987;
   margin-top: 0;
   margin-bottom: 10px;

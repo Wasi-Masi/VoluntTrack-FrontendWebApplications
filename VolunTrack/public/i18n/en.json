@@ -28,6 +28,20 @@
     "SATURDAY": "SATURDAY",
     "SUNDAY": "SUNDAY"
   },
+  "MONTHS": {
+    "JANUARY": "January",
+    "FEBRUARY": "February",
+    "MARCH": "March",
+    "APRIL": "April",
+    "MAY": "May",
+    "JUNE": "June",
+    "JULY": "July",
+    "AUGUST": "August",
+    "SEPTEMBER": "September",
+    "OCTOBER": "October",
+    "NOVEMBER": "November",
+    "DECEMBER": "December"
+  },
   "dashboard": {
     "title": "Activity Dashboard",
     "create": "Create",
@@ -45,9 +59,9 @@
     "description": "Description",
     "description-textarea": "Describe the activity",
     "instructions": "Instructions",
-    "instructions-textarea": "One instruction per line",
+    "instructions-textarea": "Instructions for the activity",
     "purpose": "Purpose",
-    "purpose-textarea": "One purpose per line",
+    "purpose-textarea": "Purpose of the activity",
     "create": "Create",
     "discard": "Discard",
     "update": "Update"

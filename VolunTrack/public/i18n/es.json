@@ -24,6 +24,20 @@
     "SATURDAY": "SÁBADO",
     "SUNDAY": "DOMINGO"
   },
+  "MONTHS": {
+    "JANUARY": "Enero",
+    "FEBRUARY": "Febrero",
+    "MARCH": "Marzo",
+    "APRIL": "Abril",
+    "MAY": "Mayo",
+    "JUNE": "Junio",
+    "JULY": "Julio",
+    "AUGUST": "Agosto",
+    "SEPTEMBER": "Septiembre",
+    "OCTOBER": "Octubre",
+    "NOVEMBER": "Noviembre",
+    "DECEMBER": "Diciembre"
+  },
   "dashboard": {
     "title": "Panel de Actividades",
     "create": "Crear",
@@ -41,9 +55,9 @@
     "description": "Descripción",
     "description-textarea": "Describe la actividad",
     "instructions": "Instrucciones",
-    "instructions-textarea": "Una instrucción por línea",
+    "instructions-textarea": "Instrucciones de la actividad",
     "purpose": "Propósito",
-    "purpose-textarea": "Un propósito por línea",
+    "purpose-textarea": "Propósito de la actividad",
     "create": "Crear",
     "discard": "Descartar",
     "update": "Actualizar"
