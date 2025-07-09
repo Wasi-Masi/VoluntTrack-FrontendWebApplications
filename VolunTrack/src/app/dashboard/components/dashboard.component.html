@@ -19,7 +19,7 @@ Author: Cassius Martel
   <div class="activities-container">
     <div class="activity-row" *ngFor="let activity of activities">
       <div class="activity-card">
-        <img [src]="activity.dashboardPicture" alt="{{ activity.titulo }}" class="activity-image" />
+        <img [src]="activity.imagenes[0]" alt="{{ activity.titulo }}" class="activity-image" />
         <div class="activity-info">
           <h3>{{ activity.titulo }}</h3>
           <p>{{ activity.fecha }} — {{ activity.horaInicio }} {{ 'ACTIVITY.TO' | translate }} {{ activity.horaFin }}</p>
