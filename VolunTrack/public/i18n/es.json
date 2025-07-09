@@ -188,7 +188,39 @@
     "subject": "Asunto",
     "send": "Enviar correo",
     "activityHistory": "Historial de Actividades",
-    "noActivity": "No hay actividades recientes."
+    "noActivity": "No hay actividades recientes.",
+    "createVolunteer": "Crear Voluntario",
+    "firstName": "Nombre",
+    "lastName": "Apellido",
+    "dni": "DNI",
+    "email": "Correo Electrónico",
+    "phoneNumber": "Número de Teléfono",
+    "profession": "Profesión",
+    "dateOfBirth": "Fecha de Nacimiento",
+    "address": "Dirección",
+    "firstNameRequired": "El nombre es obligatorio.",
+    "lastNameRequired": "El apellido es obligatorio.",
+    "dniRequired": "El DNI es obligatorio.",
+    "dniInvalid": "El DNI debe tener 8 dígitos.",
+    "emailRequired": "El correo electrónico es obligatorio.",
+    "emailInvalid": "Formato de correo electrónico inválido.",
+    "phoneNumberRequired": "El número de teléfono es obligatorio.",
+    "dateOfBirthRequired": "La fecha de nacimiento es obligatoria.",
+    "addressRequired": "La dirección es obligatoria.",
+    "statusActive": "Activo",
+    "statusInactive": "Inactivo",
+    "organization": "Organización",
+    "filterVolunteers": "Filtrar Voluntarios",
+    "minAge": "Edad Mínima",
+    "maxAge": "Edad Máxima",
+    "allProfessions": "Todas las Profesiones"
+  },
+
+  "common": {
+    "cancel": "Cancelar",
+    "create": "Crear",
+    "clearFilters": "Limpiar Filtros",
+    "applyFilters": "Aplicar Filtros"
   },
 
   "toolbar": {

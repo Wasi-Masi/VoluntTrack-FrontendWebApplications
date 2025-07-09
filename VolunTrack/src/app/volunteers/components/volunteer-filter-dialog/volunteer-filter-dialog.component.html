@@ -1,39 +1,27 @@
 <h2 mat-dialog-title>{{ 'volunteers.filterVolunteers' | translate }}</h2>
 <mat-dialog-content>
   <form class="filter-form">
+    <!-- Filtro por Edad Mínima -->
     <mat-form-field appearance="outline" style="width: 100%;">
-      <mat-label>{{ 'volunteers.firstName' | translate }}</mat-label>
-      <input matInput [(ngModel)]="filterCriteria.firstName" name="firstName">
+      <mat-label>{{ 'volunteers.minAge' | translate }}</mat-label>
+      <input matInput type="number" [(ngModel)]="filterCriteria.minAge" name="minAge" min="0">
     </mat-form-field>
 
+    <!-- Filtro por Edad Máxima -->
     <mat-form-field appearance="outline" style="width: 100%;">
-      <mat-label>{{ 'volunteers.lastName' | translate }}</mat-label>
-      <input matInput [(ngModel)]="filterCriteria.lastName" name="lastName">
+      <mat-label>{{ 'volunteers.maxAge' | translate }}</mat-label>
+      <input matInput type="number" [(ngModel)]="filterCriteria.maxAge" name="maxAge" min="0">
     </mat-form-field>
 
-    <mat-form-field appearance="outline" style="width: 100%;">
-      <mat-label>{{ 'volunteers.dni' | translate }}</mat-label>
-      <input matInput [(ngModel)]="filterCriteria.dni" name="dni">
-    </mat-form-field>
-
-    <mat-form-field appearance="outline" style="width: 100%;">
-      <mat-label>{{ 'volunteers.email' | translate }}</mat-label>
-      <input matInput type="email" [(ngModel)]="filterCriteria.email" name="email">
-    </mat-form-field>
-
-    <mat-form-field appearance="outline" style="width: 100%;">
-      <mat-label>{{ 'volunteers.phoneNumber' | translate }}</mat-label>
-      <input matInput [(ngModel)]="filterCriteria.phoneNumber" name="phoneNumber">
-    </mat-form-field>
-
+    <!-- Filtro por Profesión (Selector) -->
     <mat-form-field appearance="outline" style="width: 100%;">
       <mat-label>{{ 'volunteers.profession' | translate }}</mat-label>
-      <input matInput [(ngModel)]="filterCriteria.profession" name="profession">
-    </mat-form-field>
-
-    <mat-form-field appearance="outline" style="width: 100%;">
-      <mat-label>{{ 'volunteers.organizationId' | translate }}</mat-label>
-      <input matInput type="number" [(ngModel)]="filterCriteria.organizationId" name="organizationId" min="1">
+      <mat-select [(ngModel)]="filterCriteria.profession" name="profession">
+        <mat-option [value]="null">{{ 'volunteers.allProfessions' | translate }}</mat-option>
+        <mat-option *ngFor="let profession of availableProfessions" [value]="profession">
+          {{ profession }}
+        </mat-option>
+      </mat-select>
     </mat-form-field>
 
   </form>

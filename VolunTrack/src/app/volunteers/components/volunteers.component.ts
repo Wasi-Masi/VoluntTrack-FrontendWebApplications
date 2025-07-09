@@ -63,12 +63,9 @@ export class VolunteersComponent implements OnInit, AfterViewInit {
 
   searchText: string = '';
   currentFilterCriteria: VolunteerFilterPayload = {
-    firstName: '',
-    lastName: '',
-    dni: '',
-    email: '',
-    phoneNumber: '',
-    profession: '',
+    minAge: null,
+    maxAge: null,
+    profession: null,
     organizationId: null
   };
 
@@ -141,6 +138,7 @@ export class VolunteersComponent implements OnInit, AfterViewInit {
         if (this.paginator) {
           this.paginator.firstPage(); // Vuelve a la primera página
           this.dataSource.paginator = this.paginator; // Reasigna el paginator para forzar refresh
+          this.cdr.detectChanges();
         }
       },
       error: (error) => { // Manejo de error para el subscribe
@@ -170,8 +168,6 @@ export class VolunteersComponent implements OnInit, AfterViewInit {
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
         console.log('Diálogo de creación cerrado. Recargando voluntarios...');
-        // Recargar la lista de voluntarios para mostrar el nuevo
-        // Asegurarse de recargar con los filtros actuales (incluyendo organizationId)
         this.loadVolunteers(this.currentFilterCriteria);
         this.notificationsService.createTypedNotification('success', 'Voluntario creado exitosamente.').subscribe(() => {
           window.dispatchEvent(new Event('openNotifications'));
@@ -186,58 +182,61 @@ export class VolunteersComponent implements OnInit, AfterViewInit {
     console.log('applyLocalFilters: searchText:', this.searchText);
     console.log('applyLocalFilters: currentFilterCriteria:', this.currentFilterCriteria);
 
-    // --- NUEVOS LOGS DE DEPURACIÓN ---
-    console.log('DEBUG: currentFilterCriteria.organizationId:', this.currentFilterCriteria.organizationId, 'Type:', typeof this.currentFilterCriteria.organizationId);
 
-
-    const filteredData = this.volunteers.filter(v => {
+    let filteredData = this.volunteers.filter(v => {
       const volunteerFullName = `${v.firstName} ${v.lastName}`;
       const matchesSearchText = this.searchText === '' || volunteerFullName.toLowerCase().includes(this.searchText.toLowerCase());
 
-      const matchesFirstName = !this.currentFilterCriteria.firstName || v.firstName.toLowerCase().includes(this.currentFilterCriteria.firstName.toLowerCase());
-      const matchesLastName = !this.currentFilterCriteria.lastName || v.lastName.toLowerCase().includes(this.currentFilterCriteria.lastName.toLowerCase());
-      const matchesDni = !this.currentFilterCriteria.dni || v.dni.toLowerCase().includes(this.currentFilterCriteria.dni.toLowerCase());
-      const matchesEmail = !this.currentFilterCriteria.email || v.email.toLowerCase().includes(this.currentFilterCriteria.email.toLowerCase());
-      const matchesPhoneNumber = !this.currentFilterCriteria.phoneNumber || v.phoneNumber.toLowerCase().includes(this.currentFilterCriteria.phoneNumber.toLowerCase());
-      const matchesProfession = !this.currentFilterCriteria.profession || v.profession.toLowerCase().includes(this.currentFilterCriteria.profession.toLowerCase());
+      // Filtro por Edad Mínima
+      const volunteerAge = this.calculateAge(v.dateOfBirth);
+      const matchesMinAge = this.currentFilterCriteria.minAge === null || this.currentFilterCriteria.minAge === undefined ||
+        (volunteerAge !== null && volunteerAge >= this.currentFilterCriteria.minAge);
 
-      // Este filtro de organizationId debería ser redundante si el backend ya lo filtra,
-      // pero lo mantenemos por seguridad.
-      // --- MODIFICACIÓN DEPURACIÓN: Asegurar que ambos son números para la comparación ---
-      const matchesOrganization = (this.currentFilterCriteria.organizationId === null || this.currentFilterCriteria.organizationId === undefined) ||
-        (Number(v.organizationId) === Number(this.currentFilterCriteria.organizationId));
+      // Filtro por Edad Máxima
+      const matchesMaxAge = this.currentFilterCriteria.maxAge === null || this.currentFilterCriteria.maxAge === undefined ||
+        (volunteerAge !== null && volunteerAge <= this.currentFilterCriteria.maxAge);
 
+      // Filtro por Profesión
+      const matchesProfession = this.currentFilterCriteria.profession === null || this.currentFilterCriteria.profession === undefined || this.currentFilterCriteria.profession === '' ||
+        (v.profession && v.profession.toLowerCase() === this.currentFilterCriteria.profession.toLowerCase());
 
-      const result = matchesSearchText && matchesFirstName && matchesLastName && matchesDni &&
-        matchesEmail && matchesPhoneNumber && matchesProfession && matchesOrganization;
-
-
-
-      return result;
+      return matchesSearchText && matchesMinAge && matchesMaxAge && matchesProfession;
     });
 
     this.dataSource.data = filteredData;
-    // Depuración: Logear los datos después del filtro
-    this.dataSource.paginator = this.paginator; // Reasigna el paginator para forzar refresh
+    this.dataSource.paginator = this.paginator;
     if (this.paginator) {
-      this.paginator.firstPage(); // Vuelve a la primera página después de aplicar filtros
+      this.paginator.firstPage();
     }
   }
 
 
   openFilterDialog(): void {
+    const uniqueProfessions = Array.from(new Set(this.volunteers
+      .map(v => v.profession)
+      .filter(p => p !== null && p !== undefined && p !== ''))).sort();
+
     const dialogRef = this.dialog.open(VolunteerFilterDialogComponent, {
       width: '600px',
-      data: { ...this.currentFilterCriteria }
+      data: {
+        filterCriteria: { // Pasa los criterios de filtro actuales al diálogo
+          minAge: this.currentFilterCriteria.minAge,
+          maxAge: this.currentFilterCriteria.maxAge,
+          profession: this.currentFilterCriteria.profession
+        },
+        professions: uniqueProfessions // Pasa la lista de profesiones disponibles
+      }
     });
 
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
-        // Asegurarse de que la organizationId del usuario logueado persista
-        // incluso si el diálogo de filtro no la devuelve o la resetea.
-        result.organizationId = this.loginService.getOrganizationId(); // Forzar la organizationId
-        this.currentFilterCriteria = result;
-        this.loadVolunteers(this.currentFilterCriteria);
+        // Actualiza los criterios de filtro del componente con los resultados del diálogo
+        this.currentFilterCriteria.minAge = result.minAge;
+        this.currentFilterCriteria.maxAge = result.maxAge;
+        this.currentFilterCriteria.profession = result.profession;
+
+        // Después de actualizar los criterios, aplica los filtros LOCALMENTE
+        this.applyLocalFilters();
       }
     });
   }

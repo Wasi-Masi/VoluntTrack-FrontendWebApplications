@@ -44,15 +44,9 @@ export interface UpdateVolunteerPayload {
 }
 
 export interface VolunteerFilterPayload {
-  firstName?: string;
-  lastName?: string;
-  dni?: string;
-  email?: string;
-  phoneNumber?: string;
-  profession?: string;
+  minAge?: number | null;
+  maxAge?: number | null;
+  profession?: string | null;
   organizationId?: number | null;
-
 }
 
-// Enum or type for Volunteer Status if applicable (from your backend if any)
-// export type VolunteerStatus = 'ACTIVE' | 'INACTIVE' | 'PENDING';
