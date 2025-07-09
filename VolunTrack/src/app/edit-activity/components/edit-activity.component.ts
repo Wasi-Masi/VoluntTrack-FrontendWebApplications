@@ -1,14 +1,9 @@
-/**
- * Description: Component to edit an existing activity, allowing update of details such as instructions, purpose, and pictures.
- * Author: Victor Ortiz
- */
-
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { TranslateModule } from '@ngx-translate/core';
-import { MatButton } from '@angular/material/button';
+import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { Activity } from '../../dashboard/model/dashboard.entity';
 import { CreateActivityService } from '../../create-activity/services/create-activity.service';
@@ -22,13 +17,28 @@ import { CreateActivityService } from '../../create-activity/services/create-act
     CommonModule,
     FormsModule,
     RouterLink,
-    MatButton,
+    MatButtonModule,
     MatIconModule,
     TranslateModule
   ]
 })
 export class EditActivityComponent implements OnInit {
-  activity: Activity = new Activity('', '', '', [], '', '', '', '', '', [], [], 0, true);
+  activity: Activity = new Activity(
+    0,
+    '',
+    '',
+    '',
+    '',
+    '',
+    '',
+    '',
+    0,
+    '',
+    'Inactiva',
+    0,
+    []
+  );
+
   instructions: string = '';
   purpose: string = '';
   picturesInput: string = '';
@@ -40,31 +50,51 @@ export class EditActivityComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    const id = this.route.snapshot.paramMap.get('id');
-    if (id) {
+    const idParam = this.route.snapshot.paramMap.get('id');
+    const id = idParam ? parseInt(idParam, 10) : null;
+
+    if (id !== null && !isNaN(id)) {
       this.activityService.getActivities().subscribe(activities => {
-        const existing = activities.find(a => a.id === id);
-        if (existing) {
-          this.activity = existing;
-          this.instructions = existing.instructions.join('\n');
-          this.purpose = existing.purpose.join('\n');
-          this.picturesInput = existing.pictures.join('\n');
-        }
-      });
+          const existing = activities.find(a => a.actividad_id === id);
+          if (existing) {
+            this.activity = existing;
+            this.instructions = existing.instrucciones;
+            this.purpose = existing.proposito;
+            this.picturesInput = existing.imagenes.join('\n');
+          } else {
+            console.warn(`Activity with ID ${id} not found.`);
+            this.router.navigate(['/dashboard']);
+          }
+        },
+        error => {
+          console.error('Error fetching activities:', error);
+        });
+    } else {
+      console.error('Invalid or missing activity ID in route parameters.');
+      this.router.navigate(['/dashboard']);
     }
   }
 
   onSubmit(): void {
+    const parsedPictures = this.picturesInput
+      .split('\n')
+      .map(url => url.trim())
+      .filter(url => url.length > 0);
+
     const updatedActivity: Activity = {
       ...this.activity,
-      instructions: this.instructions.split('\n').map(i => i.trim()).filter(Boolean),
-      purpose: this.purpose.split('\n').map(p => p.trim()).filter(Boolean),
-      pictures: this.picturesInput.split('\n').map(p => p.trim()).filter(Boolean),
-      dashboardPicture: this.picturesInput.split('\n')[0] || ''
-    };
+      instrucciones: this.instructions,
+      proposito: this.purpose,
+      imagenes: parsedPictures,
+    } as Activity;
 
-    this.activityService.updateActivity(updatedActivity).subscribe(() => {
-      this.router.navigate(['/dashboard']);
+    this.activityService.updateActivity(updatedActivity).subscribe({
+      next: () => {
+        this.router.navigate(['/dashboard']);
+      },
+      error: (err) => {
+        console.error('Error updating activity:', err);
+      }
     });
   }
 

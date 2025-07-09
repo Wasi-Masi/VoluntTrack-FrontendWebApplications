@@ -1,12 +1,3 @@
-/*
-Description:
-This component fetches and displays detailed information about a specific activity,
-including an image gallery and activity details such as title, date, and description.
-
-Author: Victor Ortiz
-*/
-
-
 import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute, RouterLink} from '@angular/router';
 import { ActivityDetailsService } from '../services/activity-details.service';
@@ -34,7 +25,21 @@ import {TranslatePipe} from "@ngx-translate/core";
   styleUrls: ['./activity-details.component.css']
 })
 export class ActivityDetailsComponent implements OnInit {
-  activity!: Activity;
+  activity: Activity = new Activity(
+    0,
+    '',
+    '',
+    '',
+    '',
+    '',
+    '',
+    '',
+    0,
+    '',
+    '',
+    0,
+    []
+  );
   selectedImage: string = '';
   currentIndex: number = 0;
 
@@ -45,20 +50,25 @@ export class ActivityDetailsComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    const id = this.route.snapshot.paramMap.get('id')!;
-    this.activityService.getActivityById(id).subscribe({
-      next: activity => {
-        this.activity = activity;
-        this.selectedImage = activity.pictures?.[0] || '';
-      },
-      error: err => {
-        console.error('Error fetching activity:', err);
-      }
-    });
+    const idParam = this.route.snapshot.paramMap.get('id');
+    const id = idParam ? parseInt(idParam, 10) : null;
+
+    if (id !== null && !isNaN(id)) {
+      this.activityService.getActivityById(id).subscribe({
+        next: activity => {
+          this.activity = activity;
+          this.selectedImage = activity.imagenes?.[0] || '';
+        },
+        error: err => {
+          console.error('Error fetching activity:', err);
+        }
+      });
+    } else {
+      console.error('Invalid or missing activity ID in route parameters.');
+    }
   }
 
   selectImage(img: string) {
     this.selectedImage = img;
   }
-
 }

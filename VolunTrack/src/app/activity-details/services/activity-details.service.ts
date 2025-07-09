@@ -16,12 +16,12 @@ import { Activity } from '../../dashboard/model/dashboard.entity';
 })
 export class ActivityDetailsService {
 
-  private apiUrl = 'https://voluntrack.onrender.com/activities';
+  private apiUrl = 'http://localhost:8080/api/v1/';
 
   constructor(private http: HttpClient) {}
 
-  getActivityById(id: string): Observable<Activity> {
-    return this.http.get<Activity>(`${this.apiUrl}/${id}`);
+  getActivityById(id: number): Observable<Activity> {
+    return this.http.get<Activity>(`${this.apiUrl}activities/${id}`);
   }
 
 }

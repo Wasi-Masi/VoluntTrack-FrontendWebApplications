@@ -51,8 +51,7 @@ Author: Ainhoa Castillo
           <input
             id="titleInput"
             type="text"
-            [(ngModel)]="activity.title"
-            name="title"
+            [(ngModel)]="activity.titulo" name="title"
             required
           />
         </div>
@@ -64,8 +63,7 @@ Author: Ainhoa Castillo
           <input
             id="dateInput"
             type="date"
-            [(ngModel)]="activity.date"
-            name="date"
+            [(ngModel)]="activity.fecha" name="date"
             min="2025-05-16"
             max="2025-12-31"
             required
@@ -76,8 +74,7 @@ Author: Ainhoa Castillo
           <input
             id="startTimeInput"
             type="time"
-            [(ngModel)]="activity.startTime"
-            name="startTime"
+            [(ngModel)]="activity.horaInicio" name="startTime"
             min="06:00"
             max="18:00"
             required
@@ -88,8 +85,7 @@ Author: Ainhoa Castillo
           <input
             id="endTimeInput"
             type="time"
-            [(ngModel)]="activity.endTime"
-            name="endTime"
+            [(ngModel)]="activity.horaFin" name="endTime"
             min="06:00"
             max="23:00"
             required
@@ -103,8 +99,7 @@ Author: Ainhoa Castillo
           <input
             id="addressInput"
             type="text"
-            [(ngModel)]="activity.address"
-            name="address"
+            [(ngModel)]="activity.ubicacion" name="address"
             required
           />
         </div>
@@ -115,8 +110,7 @@ Author: Ainhoa Castillo
           <label for="descriptionInput">{{ 'create-act.description' | translate }}</label>
           <textarea
             id="descriptionInput"
-            [(ngModel)]="activity.description"
-            name="description"
+            [(ngModel)]="activity.descripcion" name="description"
             placeholder="{{ 'create-act.description-textarea' | translate }}"
             aria-multiline="true"
           ></textarea>

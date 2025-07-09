@@ -79,7 +79,9 @@ import { TranslatePipe} from '@ngx-translate/core';
   styleUrls: ['./registered-volunteers.component.css']
 })
 export class RegisteredVolunteersComponent implements OnInit {
-  activity!: Activity;
+  activity: Activity = new Activity(
+    0, '', '', '', '', '', '', '', 0, '', '', 0, []
+  );
   dataSource = new MatTableDataSource<any>([]);
   searchText: string = '';
   selectedVolunteer: any = null;
@@ -90,6 +92,42 @@ export class RegisteredVolunteersComponent implements OnInit {
   attendanceColumns = ['fullName', 'attendanceCheckbox'];
   displayedColumns = this.allColumns;
 
+  @ViewChild(MatPaginator) paginator!: MatPaginator;
+
+  registrations: RegisteredVolunteersEntity[] = [];
+
+  constructor(
+    private route: ActivatedRoute,
+    private activityService: ActivityDetailsService,
+    private regVolunteersService: RegisteredVolunteersService,
+    private volunteerService: VolunteersService,
+    private certificatesService: CertificatesService,
+    private snackBar: MatSnackBar,
+    private notificationsService: NotificationsService
+  ) {}
+
+  ngOnInit(): void {
+    const idParam = this.route.snapshot.paramMap.get('id');
+    const activityId = idParam ? parseInt(idParam, 10) : null;
+
+    if (activityId !== null && !isNaN(activityId)) {
+      this.activityService.getActivityById(activityId).subscribe({
+        next: activity => {
+          this.activity = activity;
+          this.loadRegistrations(activityId);
+        },
+        error: err => {
+          console.error('Error fetching activity:', err);
+        }
+      });
+    } else {
+      console.error('Invalid activity ID provided in route.');
+    }
+
+    this.dataSource.filterPredicate = (data: any, filter: string) =>
+      data.fullName.toLowerCase().includes(filter);
+  }
+
   toggleAttendanceMode() {
     this.isAttendanceMode = !this.isAttendanceMode;
 
@@ -98,7 +136,7 @@ export class RegisteredVolunteersComponent implements OnInit {
 
       this.attendanceMarked = {};
       this.dataSource.data.forEach(volunteer => {
-        this.attendanceMarked[volunteer.registrationId] = volunteer.registration?.attendance ?? false;
+        this.attendanceMarked[volunteer.registrationId] = String(volunteer.attendance).toLowerCase() === 'asistio';
       });
     } else {
       this.displayedColumns = this.allColumns;
@@ -113,75 +151,44 @@ export class RegisteredVolunteersComponent implements OnInit {
       const volunteer = this.dataSource.data.find(v => String(v.registrationId) === registrationId);
       if (volunteer) {
         const attendanceValue = attended ? 'asistio' : 'no asistio';
-        volunteer.registration.attendance = attendanceValue;
+        volunteer.attendance = attendanceValue;
 
         updateCalls.push(
-          this.regVolunteersService.updateAttendance(registrationId, attendanceValue)
+          this.regVolunteersService.updateAttendance(String(registrationId), attendanceValue)
         );
       }
     }
 
-    console.log('Llamadas a actualizar:', updateCalls.length);
     forkJoin(updateCalls).subscribe({
       next: () => {
-        console.log('Asistencias actualizadas correctamente');
         this.dataSource._updateChangeSubscription();
-        if (this.selectedVolunteer) {
-          const updatedVolunteer = this.dataSource.data.find(v => v.registrationId === this.selectedVolunteer.registrationId);
-          if (updatedVolunteer) {
-            this.selectedVolunteer.registration.attendance = updatedVolunteer.registration.attendance;
-          }
-        }
-        this.loadRegistrations(this.activity.id.toString());
+        this.loadRegistrations(this.activity.actividad_id);
       },
       error: err => {
-        console.error('Error actualizando asistencias:', err);
+        console.error('Error updating attendance:', err);
       }
     });
   }
+
   onAttendanceChange(registrationId: string, checked: boolean) {
     this.attendanceMarked[registrationId] = checked;
   }
-  @ViewChild(MatPaginator) paginator!: MatPaginator;
-
-  registrations: RegisteredVolunteersEntity[] = [];
-
-  constructor(
-    private route: ActivatedRoute,
-    private activityService: ActivityDetailsService,
-    private regVolunteersService: RegisteredVolunteersService,
-    private volunteerService: VolunteersService,
-    private certificatesService: CertificatesService,
-    private snackBar: MatSnackBar,  // <-- aquí
-    private notificationsService: NotificationsService
-
-  ) {}
-
-  ngOnInit(): void {
-    const id = this.route.snapshot.paramMap.get('id')!;
-    this.activityService.getActivityById(id).subscribe({
-      next: activity => {
-        this.activity = activity;
-        this.loadRegistrations(id);
-      },
-      error: err => {
-        console.error('Error fetching activity:', err);
-      }
-    });
-
-    this.dataSource.filterPredicate = (data: any, filter: string) =>
-      data.fullName.toLowerCase().includes(filter);
-  }
 
   fireNoti() {
-    this.notificationsService.createTypedNotification('open-inscriptions').subscribe(() => {
-      window.dispatchEvent(new Event('openNotifications'));
+    this.notificationsService.createTypedNotification('open-inscriptions').subscribe({
+      next: () => {
+        window.dispatchEvent(new Event('openNotifications'));
+      },
+      error: err => console.error('Error sending notification:', err)
     });
   }
 
   toNotify() {
-    this.notificationsService.createTypedNotification('reminder').subscribe(() => {
-      window.dispatchEvent(new Event('openNotifications'));
+    this.notificationsService.createTypedNotification('reminder').subscribe({
+      next: () => {
+        window.dispatchEvent(new Event('openNotifications'));
+      },
+      error: err => console.error('Error sending notification:', err)
     });
   }
 
@@ -190,75 +197,82 @@ export class RegisteredVolunteersComponent implements OnInit {
     this.dataSource.filter = filterValue;
   }
 
-  loadRegistrations(activityId: string) {
+  loadRegistrations(activityId: number) {
     this.regVolunteersService.getRegistrationsByActivity(activityId).subscribe({
       next: regs => {
         this.registrations = regs;
 
-        // Creamos un arreglo de observables para obtener los voluntarios
         const volunteersRequests = regs.map(reg =>
           this.volunteerService.getVolunteerById(reg.volunteerId)
         );
 
         forkJoin(volunteersRequests).subscribe(vols => {
-          // Aquí combinamos info de registro + voluntario
-          const combinedData = vols.map((vol, i) => ({
-            volunteerId: vol.id.toString(),   // id como string
-            registrationId: this.registrations[i].id,   // <-- agregar id del registro
-            fullName: vol.fullName,
-            age: vol.age,
-            profession: vol.profession,
-            registrationDate: this.registrations[i].registrationDate,
-            status: this.registrations[i].status,
-            attendance: this.registrations[i].attendance,
-            photoUrl: vol.profilePicture,
-            registration: {
-              status: this.registrations[i].status,
-              attendance: String(this.registrations[i].attendance).toLowerCase() === 'asistio'
-            }
-          }));
+          const combinedData = vols.map((vol, i) => {
+            const reg = this.registrations[i];
+            return {
+              volunteerId: vol.id,
+              registrationId: reg.id,
+              fullName: vol.fullName,
+              age: vol.age,
+              profession: vol.profession,
+              registrationDate: reg.registrationDate,
+              status: reg.status,
+              attendance: reg.attendance,
+              photoUrl: vol.profilePicture
+            };
+          });
 
           this.dataSource = new MatTableDataSource(combinedData);
           if (this.paginator) {
             this.dataSource.paginator = this.paginator;
             this.paginator.pageSize = 7;
           }
-        });
+        }, error => console.error('Error fetching volunteers for registrations:', error));
       },
       error: err => console.error('Error loading registrations:', err)
     });
   }
-  generateCertificates() {
-    if (!this.activity) return;
 
-    const certificados: Certificate[] = this.dataSource.data
-      .filter(v => v.registration?.attendance)
+  generateCertificates() {
+    if (!this.activity) {
+      this.snackBar.open('No activity selected to generate certificates.', 'Cerrar', { duration: 3000 });
+      return;
+    }
+
+    const certificates: Certificate[] = this.dataSource.data
+      .filter(v => String(v.attendance).toLowerCase() === 'asistio')
       .map(v => new Certificate(
         crypto.randomUUID(),
         v.volunteerId,
-        this.activity.title,
-        `Mediante este certificado, se acredita que el voluntario ${v.fullName} participó satisfactoriamente en la actividad "${this.activity.title}" el ${new Date(this.activity.date).toLocaleDateString()}.`
+        this.activity.titulo,
+        `Mediante este certificado, se acredita que el voluntario ${v.fullName} participó satisfactoriamente en la actividad "${this.activity.titulo}" el ${new Date(this.activity.fecha).toLocaleDateString()}.`
       ));
 
-    certificados.forEach(cert => {
-      this.certificatesService.postCertificate(cert).subscribe({
-        next: () => {
-          console.log(`Certificado para ${cert.volunteerId} generado y enviado.`);
-        },
-        error: err => {
-          console.error('Error enviando certificado:', err);
-        }
-      });
-    });
+    if (certificates.length === 0) {
+      this.snackBar.open('No volunteers with attendance marked to generate certificates.', 'Cerrar', { duration: 3000 });
+      return;
+    }
 
-    this.snackBar.open('Certificados generados correctamente', 'Cerrar', {
-      duration: 4000,
-      horizontalPosition: 'right',
-      verticalPosition: 'top',
-      panelClass: ['snack-bar-success']
+    const certificateCalls = certificates.map(cert => this.certificatesService.postCertificate(cert));
+
+    forkJoin(certificateCalls).subscribe({
+      next: () => {
+        this.snackBar.open('Certificates generated successfully!', 'Cerrar', {
+          duration: 4000,
+          horizontalPosition: 'right',
+          verticalPosition: 'top',
+          panelClass: ['snack-bar-success']
+        });
+      },
+      error: err => {
+        console.error('Error generating one or more certificates:', err);
+        this.snackBar.open('Error generating certificates.', 'Cerrar', {
+          duration: 4000,
+          horizontalPosition: 'right',
+          verticalPosition: 'top',
+          panelClass: ['snack-bar-error']
+        });
+      }
     });
   }
-
-
-
 }

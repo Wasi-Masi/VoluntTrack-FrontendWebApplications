@@ -1,6 +1,6 @@
 <!--
 Description: Displays an activity dashboard with a calendar view showing weeks and days, and allows navigation between months.
-Author: Your Name
+Author: Tomio Nakamurakare
 -->
 
 <div class="dashboard-header">
@@ -33,7 +33,7 @@ Author: Your Name
           <p>{{ date.getDate() }}</p>
 
           <div class="activity" *ngFor="let activity of getEvents(date)">
-            <p>{{ activity.title }}</p>
+            <p>{{ activity.titulo }}</p>
           </div>
         </div>
       </div>
@@ -41,9 +41,17 @@ Author: Your Name
   </div>
 
   <div class="calendar-sidebar">
-    <div class="year-title">
-      <h1>{{ year }}</h1>
+    <div class="year-navigation">
+      <button mat-icon-button (click)="prevMonth()">
+        <mat-icon>chevron_left</mat-icon>
+      </button>
+      <div class="year-title">
+        <h1>{{ months[month] }} {{ year }}</h1> </div>
+      <button mat-icon-button (click)="nextMonth()">
+        <mat-icon>chevron_right</mat-icon>
+      </button>
     </div>
+
     <div class="month-selection">
       <div
         class="month-button"

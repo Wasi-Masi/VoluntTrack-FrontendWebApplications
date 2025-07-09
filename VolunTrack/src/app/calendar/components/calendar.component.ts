@@ -1,23 +1,19 @@
-/*
-Description: Component that displays a calendar view with activities grouped by date, allowing month navigation.
-Author: Tomio Nakamurakare
-*/
-
-import { Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import {MatButton} from '@angular/material/button';
+import {MatButtonModule} from '@angular/material/button';
 import {RouterLink} from '@angular/router';
 import { MatIconModule } from '@angular/material/icon';
 import {TranslatePipe} from '@ngx-translate/core';
 import { DashboardService } from '../../dashboard/services/dashboard.service';
 import { Activity } from '../../dashboard/model/dashboard.entity';
+import { CalendarService } from '../services/calendar.service';
 
 @Component({
   selector: 'app-calendar',
   standalone: true,
   imports: [
     CommonModule,
-    MatButton,
+    MatButtonModule,
     RouterLink,
     MatIconModule,
     TranslatePipe
@@ -27,81 +23,58 @@ import { Activity } from '../../dashboard/model/dashboard.entity';
 })
 export class CalendarComponent implements OnInit {
   activities: Activity[] = [];
+  eventsByDate: { [key: string]: Activity[] } = {};
 
-  constructor(private dashboardService: DashboardService) {}
+  weeks: Date[][] = [];
+
+  get months(): string[] { return this.calendarService.months; }
+  get yearOptions(): number[] { return this.calendarService.generateYearOptions(); }
+  get year(): number { return this.calendarService.year; }
+  get month(): number { return this.calendarService.month; }
+
+
+  constructor(
+    private dashboardService: DashboardService,
+    private calendarService: CalendarService
+  ) {}
 
   ngOnInit(): void {
     this.dashboardService.getActivities().subscribe({
       next: (data) => {
         this.activities = data;
         this.groupActivitiesByDate();
+        this.weeks = this.calendarService.generateCalendar(this.year, this.month);
       },
       error: (err) => {
         console.error('Error al cargar actividades:', err);
       }
     });
-
-    this.generateCalendar(this.year, this.month);
-  }
-
-  year: number = new Date().getFullYear();
-  month: number = new Date().getMonth();
-
-  weeks: Date[][] = [];
-
-  readonly months = [
-    'January', 'February', 'March', 'April', 'May', 'June',
-    'July', 'August', 'September', 'October', 'November', 'December'
-  ];
-
-  yearOptions: number[] = [];
-
-  ngOnChanges(changes: SimpleChanges): void {
-    if (changes['year'] || changes['month']) {
-      this.generateCalendar(this.year, this.month);
-    }
-  }
-
-  generateCalendar(year: number, month: number) {
-    const firstDay = new Date(year, month, 1);
-    const startDate = new Date(firstDay);
-    startDate.setDate(startDate.getDate() - ((startDate.getDay() + 6) % 7)); // Lunes como primer día
-
-    const weeks: Date[][] = [];
-    let currentDate = new Date(startDate);
-
-    for (let week = 0; week < 6; week++) {
-      const weekDays: Date[] = [];
-      for (let day = 0; day < 7; day++) {
-        weekDays.push(new Date(currentDate));
-        currentDate.setDate(currentDate.getDate() + 1);
-      }
-      weeks.push(weekDays);
-    }
-
-    this.weeks = weeks;
   }
 
   isCurrentMonth(date: Date): boolean {
-    return date.getMonth() === this.month;
+    return this.calendarService.isCurrentMonth(date);
   }
 
-  goToMonth(index: number) {
-    this.month = index;
-    this.generateCalendar(this.year, this.month);
+  hasEvents(date: Date): boolean {
+    return this.getEvents(date).length > 0;
   }
 
-  generateYearOptions() {
-    const range = 10;
-    this.yearOptions = Array.from({ length: 2 * range + 1 }, (_, i) => this.year - range + i);
+  goToMonth(index: number): void {
+    this.weeks = this.calendarService.goToMonth(index);
   }
 
-  eventsByDate: { [key: string]: Activity[] } = {};
+  prevMonth(): void {
+    this.weeks = this.calendarService.prevMonth();
+  }
+
+  nextMonth(): void {
+    this.weeks = this.calendarService.nextMonth();
+  }
 
   groupActivitiesByDate(): void {
     this.eventsByDate = {};
     for (let activity of this.activities) {
-      const dateKey = activity.date; // debe ser formato "YYYY-MM-DD"
+      const dateKey = activity.fecha;
       if (!this.eventsByDate[dateKey]) {
         this.eventsByDate[dateKey] = [];
       }
@@ -110,7 +83,7 @@ export class CalendarComponent implements OnInit {
   }
 
   getEvents(date: Date): Activity[] {
-    const key = date.toISOString().split('T')[0]; // "YYYY-MM-DD"
+    const key = date.toISOString().split('T')[0];
     return this.eventsByDate[key] || [];
   }
 

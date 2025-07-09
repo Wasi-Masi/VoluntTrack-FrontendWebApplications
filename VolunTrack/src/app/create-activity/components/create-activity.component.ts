@@ -13,7 +13,7 @@ import { FormsModule } from '@angular/forms';
 import { Router, RouterLink } from '@angular/router';
 import {TranslateModule} from "@ngx-translate/core";
 import { Activity } from '../../dashboard/model/dashboard.entity';
-import {MatButton} from '@angular/material/button';
+import {MatButtonModule} from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { CreateActivityService } from '../services/create-activity.service';
 import { NotificationsService} from '../../notifications/services/notifications.service';
@@ -27,26 +27,26 @@ import { NotificationsService} from '../../notifications/services/notifications.
     CommonModule,
     FormsModule,
     RouterLink,
-    MatButton,
+    MatButtonModule,
     MatIconModule,
     TranslateModule
   ]
 })
 export class CreateActivityComponent {
   activity: Activity = new Activity(
-    '',
-    '',
-    '',
-    [],
-    '',
-    '',
-    '',
-    '',
-    '',
-    [],
-    [],
     0,
-    true
+    '',
+    '',
+    '',
+    '',
+    '',
+    '',
+    '',
+    0,
+    '',
+    'Activa',
+    1,
+    []
   );
 
   instructions: string = '';
@@ -60,42 +60,39 @@ export class CreateActivityComponent {
   ) {}
 
   onSubmit() {
-    const pictures = this.picturesInput
+    const parsedPictures = this.picturesInput
       .split('\n')
       .map(url => url.trim())
       .filter(url => url.length > 0);
 
-    this.createService.getActivities().subscribe(existingActivities => {
-      const maxIdNumber = existingActivities.length > 0
-        ? Math.max(...existingActivities.map(a => Number(a.id)))
-        : 0;
+    const activityToSend = {
+      actividad_id: 0,
+      fecha: this.activity.fecha,
+      horaInicio: this.activity.horaInicio,
+      horaFin: this.activity.horaFin,
+      titulo: this.activity.titulo,
+      descripcion: this.activity.descripcion,
+      instrucciones: this.instructions,
+      proposito: this.purpose,
+      cupos: 50,
+      ubicacion: this.activity.ubicacion,
+      estado: 'Activa',
+      organizacion_id: 1,
+      imagenes: parsedPictures,
+    } as Activity;
 
-      const newActivity: Activity = {
-        ...this.activity,
-        id: (maxIdNumber + 1).toString(),
-        inscriptionCount: 0,
-        isInscriptionOpen: true,
-        instructions: this.instructions
-          .split('\n')
-          .map(line => line.trim())
-          .filter(line => line.length > 0),
-        purpose: this.purpose
-          .split('\n')
-          .map(line => line.trim())
-          .filter(line => line.length > 0),
-        dashboardPicture: pictures[0] || '',
-        pictures: pictures
-      };
-
-      this.createService.createActivity(newActivity).subscribe(() => {
+    this.createService.createActivity(activityToSend).subscribe({
+      next: (createdActivity) => {
         this.notificationsService.createTypedNotification('new-activity').subscribe(() => {
           window.dispatchEvent(new Event('openNotifications'));
         });
         this.router.navigate(['/dashboard']);
-      });
+      },
+      error: (err) => {
+        console.error('Error al crear actividad:', err);
+      }
     });
   }
-
 
   discard() {
     this.router.navigate(['/dashboard']);

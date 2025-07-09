@@ -37,7 +37,7 @@ Author: Victor Ortiz
       <div class="activities-form__right-sameline">
         <div class="activities-form__upperside">
           <label>{{ 'create-act.title' | translate }}</label>
-          <input type="text" [(ngModel)]="activity.title" name="title" />
+          <input type="text" [(ngModel)]="activity.titulo" name="title" />
         </div>
       </div>
       <div class="activities-form__right-sameline">
@@ -45,7 +45,7 @@ Author: Victor Ortiz
           <label>{{ 'create-act.date' | translate }}</label>
           <input
             type="date"
-            [(ngModel)]="activity.date"
+            [(ngModel)]="activity.fecha"
             name="date"
             min="2025-05-16"
             max="2025-12-31"
@@ -55,7 +55,7 @@ Author: Victor Ortiz
           <label>{{ 'create-act.startTime' | translate }}</label>
           <input
             type="time"
-            [(ngModel)]="activity.startTime"
+            [(ngModel)]="activity.horaInicio"
             name="startTime"
             min="06:00"
             max="18:00"
@@ -65,7 +65,7 @@ Author: Victor Ortiz
           <label>{{ 'create-act.endTime' | translate }}</label>
           <input
             type="time"
-            [(ngModel)]="activity.endTime"
+            [(ngModel)]="activity.horaFin"
             name="endTime"
             min="06:00"
             max="23:00"
@@ -75,13 +75,13 @@ Author: Victor Ortiz
       <div class="activities-form__right-sameline">
         <div class="activities-form__upperside">
           <label>{{ 'create-act.address' | translate }}</label>
-          <input type="text" [(ngModel)]="activity.address" name="address" />
+          <input type="text" [(ngModel)]="activity.ubicacion" name="address" />
         </div>
       </div>
       <div class="activities-form__right-sameline">
         <div class="activities-form__upperside">
           <label>{{ 'create-act.description' | translate }}</label>
-          <textarea [(ngModel)]="activity.description" name="description" placeholder="{{ 'create-act.description-textarea' | translate }}"></textarea>
+          <textarea [(ngModel)]="activity.descripcion" name="description" placeholder="{{ 'create-act.description-textarea' | translate }}"></textarea>
         </div>
       </div>
       <div class="activities-form__right-sameline">

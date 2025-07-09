@@ -9,8 +9,8 @@ Author: Your Name
     <button mat-icon-button [routerLink]="['/dashboard']" matTooltip="{{ 'volunteers.backDashboard' | translate }}">
       <mat-icon>arrow_back</mat-icon>
     </button>
-    <button mat-button [routerLink]="['/activity', activity.id]">{{ 'volunteers.details' | translate }}</button>
-    <button mat-button [routerLink]="['/registered', activity.id]">{{ 'volunteers.registered' | translate }}</button>
+    <button mat-button [routerLink]="['/activity', activity.actividad_id]">{{ 'volunteers.details' | translate }}</button>
+    <button mat-button [routerLink]="['/registered', activity.actividad_id]">{{ 'volunteers.registered' | translate }}</button>
     <button mat-icon-button matTooltip="{{ 'volunteers.editActivity' | translate }}">
       <mat-icon>edit</mat-icon>
     </button>

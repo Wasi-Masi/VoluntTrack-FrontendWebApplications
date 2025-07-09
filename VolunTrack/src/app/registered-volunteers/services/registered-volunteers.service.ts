@@ -19,7 +19,7 @@ export class RegisteredVolunteersService {
 
   constructor(private http: HttpClient) { }
 
-  getRegistrationsByActivity(activityId: string): Observable<RegisteredVolunteersEntity[]> {
+  getRegistrationsByActivity(activityId: number): Observable<RegisteredVolunteersEntity[]> {
     const params = new HttpParams().set('activityId', activityId);
 
     return this.http.get<RegisteredVolunteersEntity[]>(this.apiUrl, { params });

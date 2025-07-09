@@ -16,20 +16,20 @@ import { Activity } from '../../dashboard/model/dashboard.entity';
   providedIn: 'root'
 })
 export class CreateActivityService {
-  private apiUrl = 'https://voluntrack.onrender.com/activities';
+  private apiUrl = 'http://localhost:8080/api/v1/';
 
   constructor(private http: HttpClient) {}
 
   createActivity(activity: Activity): Observable<Activity> {
-    return this.http.post<Activity>(this.apiUrl, activity);
+    return this.http.post<Activity>(`${this.apiUrl}activities`, activity);
   }
 
   getActivities(): Observable<Activity[]> {
-    return this.http.get<Activity[]>(this.apiUrl);
+    return this.http.get<Activity[]>(`${this.apiUrl}activities`);
   }
 
   updateActivity(activity: Activity): Observable<void> {
-    return this.http.put<void>(`${this.apiUrl}/${activity.id}`, activity);
+    return this.http.put<void>(`${this.apiUrl}activities/${activity.actividad_id}`, activity);
   }
 
 }
