@@ -6,6 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="32d7f7b8-0dc4-4ad3-b13e-38150f113ef0" name="Changes" comment="Add initial backend connection configuration">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VolunTrack/src/app/activity-details/components/activity-details.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/VolunTrack/src/app/activity-details/components/activity-details.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VolunTrack/src/app/volunteers/components/volunteers.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/VolunTrack/src/app/volunteers/components/volunteers.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VolunTrack/src/app/volunteers/components/volunteers.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/VolunTrack/src/app/volunteers/components/volunteers.component.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,14 +30,14 @@
   "keyToString": {
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "develop",
+    "git-widget-placeholder": "feature/dashboard",
     "last_opened_file_path": "D:/my myself/upc/Open Source/S6/VoluntTrack-FrontendWebApplications",
     "node.js.detected.package.eslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
     "npm.start.executor": "Run",
-    "ts.external.directory.path": "D:\\my myself\\upc\\Open Source\\S6\\VoluntTrack-FrontendWebApplications\\VolunTrack\\node_modules\\typescript\\lib",
+    "ts.external.directory.path": "C:\\Users\\GMKtec\\Desktop\\upc\\2025-01\\open_source\\voluntrack\\VoluntTrack-FrontendWebApplications\\VolunTrack\\node_modules\\typescript\\lib",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
