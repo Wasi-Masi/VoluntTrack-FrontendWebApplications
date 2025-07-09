@@ -10,7 +10,7 @@ import {Certificate} from '../../registered-volunteers/model/registered-voluntee
   providedIn: 'root'
 })
 export class CertificatesService {
-  private apiUrl = 'https://voluntrack.onrender.com/certificates'; // Cambia al endpoint real
+  private apiUrl = 'https://voluntrack.onrender.com/certificates';
 
   constructor(private http: HttpClient) {}
 
@@ -18,8 +18,7 @@ export class CertificatesService {
     return this.http.post(this.apiUrl, certificate);
   }
 
-  getCertificatesByVolunteer(volunteerId: string) {
+  getCertificatesByVolunteer(volunteerId: number) {
     return this.http.get<any[]>(`${this.apiUrl}?volunteerId=${volunteerId}`);
   }
 }
-

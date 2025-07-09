@@ -6,10 +6,23 @@
   <component name="ChangeListManager">
     <list default="true" id="32d7f7b8-0dc4-4ad3-b13e-38150f113ef0" name="Changes" comment="Add initial backend connection configuration">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VolunTrack/src/app/login/components/authentication-response-resource.ts" beforeDir="false" afterPath="$PROJECT_DIR$/VolunTrack/src/app/login/components/authentication-response-resource.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VolunTrack/src/app/login/components/login.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/VolunTrack/src/app/login/components/login.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VolunTrack/src/app/login/services/login.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/VolunTrack/src/app/login/services/login.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VolunTrack/src/app/notifications/services/notifications.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/VolunTrack/src/app/notifications/services/notifications.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VolunTrack/src/app/profile/components/profile.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/VolunTrack/src/app/profile/components/profile.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VolunTrack/src/app/profile/model/profile.entity.ts" beforeDir="false" afterPath="$PROJECT_DIR$/VolunTrack/src/app/profile/model/profile.entity.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VolunTrack/src/app/register/components/register.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/VolunTrack/src/app/register/components/register.component.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/VolunTrack/src/app/registered-volunteers/components/registered-volunteers.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/VolunTrack/src/app/registered-volunteers/components/registered-volunteers.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VolunTrack/src/app/shared/interceptors/auth.interceptor.ts" beforeDir="false" afterPath="$PROJECT_DIR$/VolunTrack/src/app/shared/interceptors/auth.interceptor.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VolunTrack/src/app/volunteers/components/certificates-dialog.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/VolunTrack/src/app/volunteers/components/certificates-dialog/certificates-dialog.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VolunTrack/src/app/volunteers/components/certificates-dialog.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/VolunTrack/src/app/volunteers/components/certificates-dialog/certificates-dialog.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VolunTrack/src/app/volunteers/components/certificates-dialog.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/VolunTrack/src/app/volunteers/components/certificates-dialog/certificates-dialog.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VolunTrack/src/app/volunteers/components/volunteers.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/VolunTrack/src/app/volunteers/components/volunteers.component.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/VolunTrack/src/app/volunteers/components/volunteers.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/VolunTrack/src/app/volunteers/components/volunteers.component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/VolunTrack/src/app/volunteers/components/volunteers.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/VolunTrack/src/app/volunteers/components/volunteers.component.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/VolunTrack/src/app/volunteers/model/volunteers.entity.ts" beforeDir="false" afterPath="$PROJECT_DIR$/VolunTrack/src/app/volunteers/model/volunteers.entity.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VolunTrack/src/app/volunteers/services/certificats.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/VolunTrack/src/app/volunteers/services/certificats.service.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/VolunTrack/src/app/volunteers/services/volunteers.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/VolunTrack/src/app/volunteers/services/volunteers.service.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -20,31 +33,38 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 2
 }</component>
   <component name="ProjectId" id="2xAvt5G18sWhtY38N6sdNHJZV6U" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;Merging feature/activity-integration&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/my myself/upc/Open Source/S6/VoluntTrack-FrontendWebApplications&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;npm.start.executor&quot;: &quot;Run&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;C:\\Users\\alext\\open\\VoluntTrack-FrontendWebApplications\\VolunTrack\\node_modules\\typescript\\lib&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "feature/volunteer-creation",
+    "last_opened_file_path": "D:/my myself/upc/Open Source/S6/VoluntTrack-FrontendWebApplications",
+    "node.js.detected.package.eslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "npm.start.executor": "Run",
+    "ts.external.directory.path": "D:\\my myself\\upc\\Open Source\\S6\\VoluntTrack-FrontendWebApplications\\VolunTrack\\node_modules\\typescript\\lib",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\my myself\upc\Open Source\S6\VoluntTrack-FrontendWebApplications\VolunTrack\src\app\volunteers\components\certificates-dialog" />
       <recent name="D:\my myself\upc\Open Source\S6\VoluntTrack-FrontendWebApplications\VolunTrack\src\app\shared\services" />
     </key>
   </component>
@@ -79,6 +99,8 @@
       <workItem from="1747393941513" duration="2106000" />
       <workItem from="1752015076100" duration="1239000" />
       <workItem from="1752016427524" duration="1996000" />
+      <workItem from="1752035317150" duration="5031000" />
+      <workItem from="1752077466987" duration="8733000" />
     </task>
     <task id="LOCAL-00001" summary="Add initial backend connection configuration">
       <option name="closed" value="true" />

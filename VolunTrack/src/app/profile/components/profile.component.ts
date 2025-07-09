@@ -17,17 +17,13 @@ import { LoginService } from '../../login/services/login.service';
 import { User } from '../model/profile.entity';
 
 
-// --- INTERFACE EXTENDIDA ---
-// Define una interfaz local que extienda User para incluir las configuraciones
-// Esto es necesario porque estas propiedades se manejan en el frontend/localStorage
-// y no necesariamente vienen del backend en la entidad 'User'.
+
 interface ExtendedUser extends User {
   language?: string;
   notifications?: string;
   timezone?: string;
   inscriptions?: string;
 }
-// --- FIN INTERFACE EXTENDIDA ---
 
 
 @Component({
@@ -48,10 +44,9 @@ interface ExtendedUser extends User {
   styleUrls: ['./profile.component.css']
 })
 export class ProfileComponent implements OnInit {
-  // Usamos la interfaz ExtendedUser para 'user' y 'editedUser'
   user: ExtendedUser | null = null;
   editMode = false;
-  editedUser: ExtendedUser = {} as ExtendedUser; // Inicializamos con la interfaz extendida
+  editedUser: ExtendedUser = {} as ExtendedUser;
 
 
   constructor(
@@ -90,8 +85,6 @@ export class ProfileComponent implements OnInit {
 
           console.log('Datos adicionales cargados de localStorage:', additionalData);
         } else {
-          // Si no hay datos en localStorage, inicializarlos con valores por defecto
-          // y asignarlos a 'user' y 'editedUser'
           this.user.language = 'English';
           this.user.notifications = 'All';
           this.user.timezone = 'GMT-5';
@@ -106,7 +99,7 @@ export class ProfileComponent implements OnInit {
       error: (err) => {
         console.error('Error al cargar el perfil del usuario:', err);
         if (err.status === 401 || err.status === 403) {
-          this.loginService.removeToken(); // Limpiar token inválido
+          this.loginService.removeToken();
           this.router.navigate(['/login']);
           alert('Tu sesión ha expirado o no estás autorizado. Por favor, inicia sesión de nuevo.');
         } else {
@@ -124,15 +117,11 @@ export class ProfileComponent implements OnInit {
 
   toggleEdit(): void {
     this.editMode = true;
-    // Al entrar en modo edición, clonamos los valores actuales de 'user' a 'editedUser'
-    // incluyendo las propiedades extendidas.
     this.editedUser = { ...this.user } as ExtendedUser;
   }
 
   cancelEdit(): void {
     this.editMode = false;
-    // Si cancelamos, restauramos 'editedUser' a los valores originales de 'user'
-    // incluyendo las propiedades extendidas.
     this.editedUser = { ...this.user } as ExtendedUser;
   }
 
@@ -143,9 +132,6 @@ export class ProfileComponent implements OnInit {
       return;
     }
 
-
-    // `updatedProfile` solo incluye las propiedades que el backend espera recibir para 'User'.
-    // Las configuraciones locales (language, notifications, etc.) no se envían al backend si no las has añadido a tu entidad User en Spring Boot.
     const updatedProfile: User = {
       username: this.editedUser.username,
       email: this.editedUser.email,

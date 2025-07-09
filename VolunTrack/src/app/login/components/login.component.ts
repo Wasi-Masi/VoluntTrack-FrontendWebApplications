@@ -55,8 +55,6 @@ export class LoginComponent {
 
     this.loginService.signIn(credentials).subscribe({
       next: (response) => {
-        this.loginService.saveToken(response.token);
-        console.log('Login successful! Token:', response.token);
         this.router.navigate(['/dashboard']);
       },
       error: (err) => {
