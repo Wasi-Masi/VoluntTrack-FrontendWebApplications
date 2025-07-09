@@ -121,10 +121,8 @@ export class RegisteredVolunteersComponent implements OnInit {
       }
     }
 
-    console.log('Llamadas a actualizar:', updateCalls.length);
     forkJoin(updateCalls).subscribe({
       next: () => {
-        console.log('Asistencias actualizadas correctamente');
         this.dataSource._updateChangeSubscription();
         if (this.selectedVolunteer) {
           const updatedVolunteer = this.dataSource.data.find(v => v.registrationId === this.selectedVolunteer.registrationId);
@@ -132,7 +130,7 @@ export class RegisteredVolunteersComponent implements OnInit {
             this.selectedVolunteer.registration.attendance = updatedVolunteer.registration.attendance;
           }
         }
-        this.loadRegistrations(this.activity.id.toString());
+        this.loadRegistrations(this.activity.actividad_id);
       },
       error: err => {
         console.error('Error actualizando asistencias:', err);
@@ -152,22 +150,28 @@ export class RegisteredVolunteersComponent implements OnInit {
     private regVolunteersService: RegisteredVolunteersService,
     private volunteerService: VolunteersService,
     private certificatesService: CertificatesService,
-    private snackBar: MatSnackBar,  // <-- aquí
+    private snackBar: MatSnackBar,
     private notificationsService: NotificationsService
 
   ) {}
 
   ngOnInit(): void {
-    const id = this.route.snapshot.paramMap.get('id')!;
-    this.activityService.getActivityById(id).subscribe({
-      next: activity => {
-        this.activity = activity;
-        this.loadRegistrations(id);
-      },
-      error: err => {
-        console.error('Error fetching activity:', err);
-      }
-    });
+    const idParam = this.route.snapshot.paramMap.get('id'); // Get as string
+    const activityId = idParam ? parseInt(idParam, 10) : null; // Parse to number
+
+    if (activityId !== null && !isNaN(activityId)) {
+      this.activityService.getActivityById(activityId).subscribe({ // Use the number ID here
+        next: activity => {
+          this.activity = activity;
+          this.loadRegistrations(activityId); // Use the number ID here
+        },
+        error: err => {
+          console.error('Error fetching activity:', err);
+        }
+      });
+    } else {
+      console.error('Invalid activity ID provided in route.');
+    }
 
     this.dataSource.filterPredicate = (data: any, filter: string) =>
       data.fullName.toLowerCase().includes(filter);
@@ -190,28 +194,24 @@ export class RegisteredVolunteersComponent implements OnInit {
     this.dataSource.filter = filterValue;
   }
 
-  loadRegistrations(activityId: string) {
+  loadRegistrations(activityId: number) {
     this.regVolunteersService.getRegistrationsByActivity(activityId).subscribe({
       next: regs => {
         this.registrations = regs;
 
-        // Creamos un arreglo de observables para obtener los voluntarios
         const volunteersRequests = regs.map(reg =>
           this.volunteerService.getVolunteerById(reg.volunteerId)
         );
 
         forkJoin(volunteersRequests).subscribe(vols => {
-          // Aquí combinamos info de registro + voluntario
           const combinedData = vols.map((vol, i) => ({
-            volunteerId: vol.id.toString(),   // id como string
-            registrationId: this.registrations[i].id,   // <-- agregar id del registro
+            volunteerId: vol.id.toString(),
+            registrationId: this.registrations[i].id,
             fullName: `${vol.firstName} ${vol.lastName}`,
-            //age: vol.age,
             profession: vol.profession,
             registrationDate: this.registrations[i].registrationDate,
             status: this.registrations[i].status,
             attendance: this.registrations[i].attendance,
-            //photoUrl: vol.profilePicture,
             registration: {
               status: this.registrations[i].status,
               attendance: String(this.registrations[i].attendance).toLowerCase() === 'asistio'
@@ -236,14 +236,13 @@ export class RegisteredVolunteersComponent implements OnInit {
       .map(v => new Certificate(
         crypto.randomUUID(),
         v.volunteerId,
-        this.activity.title,
-        `Mediante este certificado, se acredita que el voluntario ${v.fullName} participó satisfactoriamente en la actividad "${this.activity.title}" el ${new Date(this.activity.date).toLocaleDateString()}.`
+        this.activity.titulo,
+        `Mediante este certificado, se acredita que el voluntario ${v.fullName} participó satisfactoriamente en la actividad "${this.activity.titulo}" el ${new Date(this.activity.fecha).toLocaleDateString()}.`
       ));
 
     certificados.forEach(cert => {
       this.certificatesService.postCertificate(cert).subscribe({
         next: () => {
-          console.log(`Certificado para ${cert.volunteerId} generado y enviado.`);
         },
         error: err => {
           console.error('Error enviando certificado:', err);
@@ -258,7 +257,4 @@ export class RegisteredVolunteersComponent implements OnInit {
       panelClass: ['snack-bar-success']
     });
   }
-
-
-
 }
