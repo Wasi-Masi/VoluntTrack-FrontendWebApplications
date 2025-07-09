@@ -1,0 +1,82 @@
+<h2 mat-dialog-title>{{ 'volunteers.createVolunteer' | translate }}</h2>
+<mat-dialog-content>
+  <form class="volunteer-form" #volunteerForm="ngForm">
+    <mat-form-field appearance="outline" style="width: 100%;">
+      <mat-label>{{ 'volunteers.firstName' | translate }}</mat-label>
+      <input matInput [(ngModel)]="newVolunteer.firstName" name="firstName" required #firstName="ngModel">
+      <mat-error *ngIf="firstName.invalid && firstName.touched">
+        {{ 'volunteers.firstNameRequired' | translate }}
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" style="width: 100%;">
+      <mat-label>{{ 'volunteers.lastName' | translate }}</mat-label>
+      <input matInput [(ngModel)]="newVolunteer.lastName" name="lastName" required #lastName="ngModel">
+      <mat-error *ngIf="lastName.invalid && lastName.touched">
+        {{ 'volunteers.lastNameRequired' | translate }}
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" style="width: 100%;">
+      <mat-label>{{ 'volunteers.dni' | translate }}</mat-label>
+      <input matInput [(ngModel)]="newVolunteer.dni" name="dni" required pattern="^[0-9]{8}$" #dni="ngModel">
+      <mat-error *ngIf="dni.errors?.['required'] && dni.touched">
+        {{ 'volunteers.dniRequired' | translate }}
+      </mat-error>
+      <mat-error *ngIf="dni.errors?.['pattern'] && dni.touched">
+        {{ 'volunteers.dniInvalid' | translate }}
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" style="width: 100%;">
+      <mat-label>{{ 'volunteers.email' | translate }}</mat-label>
+      <input matInput type="email" [(ngModel)]="newVolunteer.email" name="email" required email #email="ngModel">
+      <mat-error *ngIf="email.errors?.['required'] && email.touched">
+        {{ 'volunteers.emailRequired' | translate }}
+      </mat-error>
+      <mat-error *ngIf="email.errors?.['email'] && email.touched">
+        {{ 'volunteers.emailInvalid' | translate }}
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" style="width: 100%;">
+      <mat-label>{{ 'volunteers.phoneNumber' | translate }}</mat-label>
+      <input matInput [(ngModel)]="newVolunteer.phoneNumber" name="phoneNumber" required #phoneNumber="ngModel">
+      <mat-error *ngIf="phoneNumber.errors?.['required'] && phoneNumber.touched">
+        {{ 'volunteers.phoneNumberRequired' | translate }}
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" style="width: 100%;">
+      <mat-label>{{ 'volunteers.profession' | translate }}</mat-label>
+      <input matInput [(ngModel)]="newVolunteer.profession" name="profession">
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" style="width: 100%;">
+      <mat-label>{{ 'volunteers.dateOfBirth' | translate }}</mat-label>
+      <input matInput [matDatepicker]="birthPicker" [(ngModel)]="newVolunteer.dateOfBirth" name="dateOfBirth" required #dateOfBirth="ngModel">
+      <mat-datepicker-toggle matSuffix [for]="birthPicker"></mat-datepicker-toggle>
+      <mat-datepicker #birthPicker></mat-datepicker>
+      <mat-error *ngIf="dateOfBirth.errors?.['required'] && dateOfBirth.touched">
+        {{ 'volunteers.dateOfBirthRequired' | translate }}
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" style="width: 100%;">
+      <mat-label>{{ 'volunteers.address' | translate }}</mat-label>
+      <input matInput [(ngModel)]="newVolunteer.address" name="address" required #address="ngModel">
+      <mat-error *ngIf="address.errors?.['required'] && address.touched">
+        {{ 'volunteers.addressRequired' | translate }}
+      </mat-error>
+    </mat-form-field>
+
+    <input type="hidden" [(ngModel)]="newVolunteer.organizationId" name="organizationId">
+  </form>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+  <button mat-button (click)="onCancel()">{{ 'common.cancel' | translate }}</button>
+  <button mat-raised-button color="primary" (click)="onCreate()" [disabled]="volunteerForm.invalid">
+    {{ 'common.create' | translate }}
+  </button>
+</mat-dialog-actions>

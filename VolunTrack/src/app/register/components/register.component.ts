@@ -9,7 +9,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { CommonModule } from '@angular/common';
 import { TranslatePipe } from '@ngx-translate/core';
-import { MatSelectModule } from '@angular/material/select'; // Importado aquí
+import { MatSelectModule } from '@angular/material/select';
 
 import { LoginService } from '../../login/services/login.service';
 import { SignUpResource } from './sign-up-resource';
@@ -26,7 +26,7 @@ import { SignUpResource } from './sign-up-resource';
     MatButtonModule,
     MatIconModule,
     TranslatePipe,
-    MatSelectModule // Añadido aquí para que MatSelect funcione
+    MatSelectModule
   ],
   styleUrls: ['./register.component.css']
 })
@@ -39,7 +39,7 @@ export class RegisterComponent {
   profilePictureUrl = '';
   bannerPictureUrl = '';
   description = '';
-  plan = 'Gratis'; // Establece un valor predeterminado coherente con las opciones del HTML
+  plan = 'Gratis';
 
   language: string = 'English';
   notifications: string = 'All';
@@ -59,7 +59,7 @@ export class RegisterComponent {
       !this.profilePictureUrl ||
       !this.bannerPictureUrl ||
       !this.description ||
-      !this.plan // Asegúrate de que el plan también esté presente
+      !this.plan
     ) {
       alert('Por favor, complete todos los campos requeridos para el registro.');
       return;
@@ -83,8 +83,6 @@ export class RegisterComponent {
 
     this.loginService.signUp(newUser).subscribe({
       next: (response) => {
-        this.loginService.saveToken(response.token);
-        console.log('Registro exitoso! Token:', response.token);
 
         const additionalUserData = {
           language: this.language,
@@ -93,14 +91,11 @@ export class RegisterComponent {
           inscriptions: this.inscriptions
         };
         localStorage.setItem('additional_user_data', JSON.stringify(additionalUserData));
-        console.log('Datos adicionales guardados en localStorage:', additionalUserData);
-        // ----------------------------------------------------------------------
 
         alert('Registro exitoso. Ahora puedes iniciar sesión.');
         this.goToLogin();
       },
       error: (err) => {
-        console.error('Error al registrar usuario:', err);
         const errorMessage = err.error && err.error.message ? err.error.message : 'Error al registrar usuario. Inténtalo de nuevo.';
         alert(errorMessage);
       }

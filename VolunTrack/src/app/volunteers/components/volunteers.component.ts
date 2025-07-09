@@ -1,46 +1,33 @@
 // Description: This component manages the volunteers view, including filtering, metrics calculation, and displaying volunteer details and certificates.
-// Author: Cassius Martel
+// Author: Cassius Martel, Ainhoa Castillo (Actualizado)
 
-import {
-  AfterViewInit,
-  Component,
-  Inject,
-  OnInit,
-  ViewChild
-} from '@angular/core';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import {AfterViewInit, Component, OnInit, ViewChild} from '@angular/core';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {CommonModule, DatePipe, NgClass, NgIf} from '@angular/common';
 
-import { CommonModule } from '@angular/common';
-
-
-import { MatTableDataSource, MatTableModule } from '@angular/material/table';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import {MatFormField, MatInput, MatInputModule} from '@angular/material/input';
-import { MatIconModule } from '@angular/material/icon';
-import {MatSelect, MatSelectModule} from '@angular/material/select';
-import {
-  MatDatepicker,
-  MatDatepickerInput,
-  MatDatepickerModule,
-  MatDatepickerToggle
-} from '@angular/material/datepicker';
-import {MatNativeDateModule, MatOption} from '@angular/material/core';
+import {MatTableDataSource, MatTableModule} from '@angular/material/table';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatInputModule} from '@angular/material/input';
+import {MatIconModule} from '@angular/material/icon';
+import {MatSelectModule} from '@angular/material/select';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatNativeDateModule} from '@angular/material/core';
 import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
-import {
-  MatDialog,
-  MatDialogModule,
-  MatDialogRef,
-  MAT_DIALOG_DATA, MatDialogTitle, MatDialogContent, MatDialogActions
-} from '@angular/material/dialog';
-import {MatButton, MatButtonModule} from '@angular/material/button';
+import {MatDialog, MatDialogModule} from '@angular/material/dialog';
+import {MatButtonModule} from '@angular/material/button';
 
-import { VolunteersService } from '../services/volunteers.service';
-import { Volunteer } from '../model/volunteers.entity';
-import {DatePipe, NgClass, NgIf} from '@angular/common';
+import {VolunteersService} from '../services/volunteers.service';
+import {Volunteer, VolunteerFilterPayload} from '../model/volunteers.entity';
+import {CertificatesDialogComponent} from './certificates-dialog/certificates-dialog.component';
+import {CreateVolunteerDialogComponent} from './create-volunteer-dialog/create-volunteer-dialog.component';
+import {VolunteerFilterDialogComponent} from './volunteer-filter-dialog/volunteer-filter-dialog.component';
 
-import { NotificationsService } from '../../notifications/services/notifications.service';
-import {CertificatesDialogComponent} from './certificates-dialog.component';
-import { TranslatePipe } from '@ngx-translate/core';
+import {TranslatePipe} from '@ngx-translate/core';
+import {NotificationsService} from '../../notifications/services/notifications.service';
+import { LoginService } from '../../login/services/login.service';
+import { ChangeDetectorRef } from '@angular/core';
+
+
 
 @Component({
   selector: 'app-volunteers',
@@ -62,7 +49,8 @@ import { TranslatePipe } from '@ngx-translate/core';
     NgIf,
     DatePipe,
     NgClass,
-    TranslatePipe
+    TranslatePipe,
+
   ],
   templateUrl: './volunteers.component.html',
   styleUrls: ['./volunteers.component.css']
@@ -74,31 +62,41 @@ export class VolunteersComponent implements OnInit, AfterViewInit {
   dataSource = new MatTableDataSource<Volunteer>([]);
 
   searchText: string = '';
-  minAge: number | null = null;
-  maxAge: number | null = null;
-  statusFilter: string = '';
-  registrationDateFilter: Date | null = null;
+  currentFilterCriteria: VolunteerFilterPayload = {
+    firstName: '',
+    lastName: '',
+    dni: '',
+    email: '',
+    phoneNumber: '',
+    profession: '',
+    organizationId: null
+  };
+
   selectedVolunteer: Volunteer | null = null;
   selectedRow: any = null;
 
   sendEmail = false;
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
+
+  constructor(
+    private volunteersService: VolunteersService,
+    private dialog: MatDialog,
+    private notificationsService: NotificationsService,
+    private loginService: LoginService,
+    private cdr: ChangeDetectorRef
+  ) {}
+
   ngAfterViewInit(): void {
     this.dataSource.paginator = this.paginator;
     this.paginator.pageSize = 10;
   }
 
-  constructor(
-    private volunteersService: VolunteersService,
-    private dialog: MatDialog,
-    private notificationsService: NotificationsService
-  ) {}
-
-
-  selectVolunteer(volunteer: any) {
+  selectVolunteer(volunteer: Volunteer) {
     this.selectedVolunteer = volunteer;
     this.selectedRow = volunteer;
+    console.log('Selected Volunteer:', volunteer);
+    this.cdr.detectChanges();
   }
 
   calculateAge(dateOfBirth: string): number | null {
@@ -114,15 +112,45 @@ export class VolunteersComponent implements OnInit, AfterViewInit {
   }
 
   ngOnInit(): void {
-    this.volunteersService.getVolunteers().subscribe(data => {
-      this.volunteers = data;
-      this.dataSource.data = data;
-      this.applyFilters();
-
-      this.calculateMetrics();
-    });
+    const loggedInOrganizationId = this.loginService.getOrganizationId();
+    if (loggedInOrganizationId !== null) {
+      this.currentFilterCriteria.organizationId = loggedInOrganizationId;
+      console.log('ngOnInit: Cargando voluntarios para organizationId:', this.currentFilterCriteria.organizationId);
+      this.loadVolunteers(this.currentFilterCriteria);
+    } else {
+      console.error('No se pudo obtener la Organization ID del usuario logueado. No se cargarán voluntarios.');
+      this.notificationsService.createTypedNotification('error', 'No se pudo cargar voluntarios. Inicie sesión nuevamente.').subscribe(() => {
+        window.dispatchEvent(new Event('openNotifications'));
+      });
+    }
   }
 
+  loadVolunteers(filters?: VolunteerFilterPayload): void {
+    const effectiveFilters = filters || this.currentFilterCriteria;
+    console.log('loadVolunteers: Llamando al servicio con filtros:', effectiveFilters);
+
+    this.volunteersService.getVolunteers(effectiveFilters).subscribe({ // Usar patrón de observador completo
+      next: (data) => {
+        console.log('loadVolunteers: Datos recibidos del backend:', data);
+        this.volunteers = data;
+        this.dataSource.data = data; // Asigna los datos directamente a dataSource.data
+
+        this.applyLocalFilters(); // Aplica filtros locales (como searchText)
+        this.calculateMetrics();
+        // Forzar un refresh de la paginación si es necesario
+        if (this.paginator) {
+          this.paginator.firstPage(); // Vuelve a la primera página
+          this.dataSource.paginator = this.paginator; // Reasigna el paginator para forzar refresh
+        }
+      },
+      error: (error) => { // Manejo de error para el subscribe
+        console.error('Error al cargar voluntarios:', error);
+        this.notificationsService.createTypedNotification('error', 'Error al cargar voluntarios.').subscribe(() => {
+          window.dispatchEvent(new Event('openNotifications'));
+        });
+      }
+    });
+  }
 
   openCertificatesDialog() {
     if (!this.selectedVolunteer) return;
@@ -133,66 +161,95 @@ export class VolunteersComponent implements OnInit, AfterViewInit {
     });
   }
 
-
-
-  applyFilters(): void {
-    this.dataSource.data = this.volunteers.filter(v => {
-      const volunteerFullName = `${v.firstName} ${v.lastName}`;
-      const matchesName = this.searchText === '' || volunteerFullName.toLowerCase().includes(this.searchText.toLowerCase());
-
-      let volunteerAge: number | null = null;
-      if (v.dateOfBirth) {
-        const birthDate = new Date(v.dateOfBirth);
-        const today = new Date();
-        let age = today.getFullYear() - birthDate.getFullYear();
-        const m = today.getMonth() - birthDate.getMonth();
-        if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
-          age--;
-        }
-        volunteerAge = age;
-      }
-
-      const matchesMinAge = this.minAge === null || (volunteerAge !== null && volunteerAge >= this.minAge);
-      const matchesMaxAge = this.maxAge === null || (volunteerAge !== null && volunteerAge <= this.maxAge);
-      const matchesStatus = this.statusFilter === '' || v.status === this.statusFilter;
-      const matchesDate = !this.registrationDateFilter || new Date(v.registrationDate) >= this.registrationDateFilter;
-      return matchesName && matchesMinAge && matchesMaxAge && matchesStatus && matchesDate;
+  onCreateVolunteer(): void {
+    const dialogRef = this.dialog.open(CreateVolunteerDialogComponent, {
+      width: '600px',
+      disableClose: true
     });
-    this.dataSource.paginator = this.paginator;
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        console.log('Diálogo de creación cerrado. Recargando voluntarios...');
+        // Recargar la lista de voluntarios para mostrar el nuevo
+        // Asegurarse de recargar con los filtros actuales (incluyendo organizationId)
+        this.loadVolunteers(this.currentFilterCriteria);
+        this.notificationsService.createTypedNotification('success', 'Voluntario creado exitosamente.').subscribe(() => {
+          window.dispatchEvent(new Event('openNotifications'));
+        });
+      }
+    });
+  }
+
+  applyLocalFilters(): void {
+    // Depuración: Logear los datos antes y después del filtro
+    console.log('applyLocalFilters: Datos iniciales (this.volunteers):', this.volunteers);
+    console.log('applyLocalFilters: searchText:', this.searchText);
+    console.log('applyLocalFilters: currentFilterCriteria:', this.currentFilterCriteria);
+
+    // --- NUEVOS LOGS DE DEPURACIÓN ---
+    console.log('DEBUG: currentFilterCriteria.organizationId:', this.currentFilterCriteria.organizationId, 'Type:', typeof this.currentFilterCriteria.organizationId);
+
+
+    const filteredData = this.volunteers.filter(v => {
+      const volunteerFullName = `${v.firstName} ${v.lastName}`;
+      const matchesSearchText = this.searchText === '' || volunteerFullName.toLowerCase().includes(this.searchText.toLowerCase());
+
+      const matchesFirstName = !this.currentFilterCriteria.firstName || v.firstName.toLowerCase().includes(this.currentFilterCriteria.firstName.toLowerCase());
+      const matchesLastName = !this.currentFilterCriteria.lastName || v.lastName.toLowerCase().includes(this.currentFilterCriteria.lastName.toLowerCase());
+      const matchesDni = !this.currentFilterCriteria.dni || v.dni.toLowerCase().includes(this.currentFilterCriteria.dni.toLowerCase());
+      const matchesEmail = !this.currentFilterCriteria.email || v.email.toLowerCase().includes(this.currentFilterCriteria.email.toLowerCase());
+      const matchesPhoneNumber = !this.currentFilterCriteria.phoneNumber || v.phoneNumber.toLowerCase().includes(this.currentFilterCriteria.phoneNumber.toLowerCase());
+      const matchesProfession = !this.currentFilterCriteria.profession || v.profession.toLowerCase().includes(this.currentFilterCriteria.profession.toLowerCase());
+
+      // Este filtro de organizationId debería ser redundante si el backend ya lo filtra,
+      // pero lo mantenemos por seguridad.
+      // --- MODIFICACIÓN DEPURACIÓN: Asegurar que ambos son números para la comparación ---
+      const matchesOrganization = (this.currentFilterCriteria.organizationId === null || this.currentFilterCriteria.organizationId === undefined) ||
+        (Number(v.organizationId) === Number(this.currentFilterCriteria.organizationId));
+
+
+      const result = matchesSearchText && matchesFirstName && matchesLastName && matchesDni &&
+        matchesEmail && matchesPhoneNumber && matchesProfession && matchesOrganization;
+
+
+
+      return result;
+    });
+
+    this.dataSource.data = filteredData;
+    // Depuración: Logear los datos después del filtro
+    this.dataSource.paginator = this.paginator; // Reasigna el paginator para forzar refresh
+    if (this.paginator) {
+      this.paginator.firstPage(); // Vuelve a la primera página después de aplicar filtros
+    }
   }
 
 
   openFilterDialog(): void {
     const dialogRef = this.dialog.open(VolunteerFilterDialogComponent, {
-      width: '500px',
-      height:'450px',
-      data: {
-        minAge: this.minAge,
-        maxAge: this.maxAge,
-        statusFilter: this.statusFilter,
-        registrationDateFilter: this.registrationDateFilter
-      }
+      width: '600px',
+      data: { ...this.currentFilterCriteria }
     });
 
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
-        this.minAge = result.minAge;
-        this.maxAge = result.maxAge;
-        this.statusFilter = result.statusFilter;
-        this.registrationDateFilter = result.registrationDateFilter;
-        this.applyFilters();
+        // Asegurarse de que la organizationId del usuario logueado persista
+        // incluso si el diálogo de filtro no la devuelve o la resetea.
+        result.organizationId = this.loginService.getOrganizationId(); // Forzar la organizationId
+        this.currentFilterCriteria = result;
+        this.loadVolunteers(this.currentFilterCriteria);
       }
     });
   }
 
   fireNotification() {
-    this.notificationsService.createTypedNotification('mail').subscribe(() => {
+    this.notificationsService.createTypedNotification('mail', 'Correo enviado al voluntario seleccionado.').subscribe(() => {
       window.dispatchEvent(new Event('openNotifications'));
     });
   }
+
   aproveSendEmail() {
     this.sendEmail = !this.sendEmail;
-    console.log(this.sendEmail);
   }
 
   protected readonly history = history;
@@ -207,23 +264,18 @@ export class VolunteersComponent implements OnInit, AfterViewInit {
   totalVolunteersChange: number = 0;
   newThisMonthChange: number = 0;
   inactiveVolunteersChange: number = 0;
-
-  currentDate = new Date();
-  lastMonthDate = new Date(new Date().setMonth(new Date().getMonth() - 1));
-
-
   getProfessionKeys(): string[] {
     return Object.keys(this.volunteersByProfession);
   }
 
   calculateMetrics(): void {
     this.totalVolunteers = this.volunteers.length;
-    this.inactiveVolunteers = this.volunteers.filter(v => v.status === 'INACTIVE').length;
+    this.inactiveVolunteers = this.volunteers.filter(v => !v.active).length;
 
     let maxYear = 0;
     let maxMonth = -1;
     this.volunteers.forEach(v => {
-      const d = new Date(v.registrationDate);
+      const d = new Date(v.dateOfBirth);
       const y = d.getFullYear();
       const m = d.getMonth();
       if (y > maxYear || (y === maxYear && m > maxMonth)) {
@@ -233,7 +285,7 @@ export class VolunteersComponent implements OnInit, AfterViewInit {
     });
 
     this.newThisMonth = this.volunteers.filter(v => {
-      const d = new Date(v.registrationDate);
+      const d = new Date(v.dateOfBirth);
       return d.getFullYear() === maxYear && d.getMonth() === maxMonth;
     }).length;
 
@@ -245,118 +297,36 @@ export class VolunteersComponent implements OnInit, AfterViewInit {
     }
 
     const newLastMonth = this.volunteers.filter(v => {
-      const d = new Date(v.registrationDate);
+      const d = new Date(v.dateOfBirth);
       return d.getFullYear() === prevYear && d.getMonth() === prevMonth;
     }).length;
 
     const totalLastMonth = this.volunteers.filter(v => {
-      const d = new Date(v.registrationDate);
+      const d = new Date(v.dateOfBirth);
       return (d.getFullYear() < maxYear) || (d.getFullYear() === maxYear && d.getMonth() < maxMonth);
     }).length;
 
     const inactiveLastMonth = this.volunteers.filter(v => {
-      const d = new Date(v.registrationDate);
+      const d = new Date(v.dateOfBirth);
       return ((d.getFullYear() < maxYear) || (d.getFullYear() === maxYear && d.getMonth() < maxMonth))
-        && v.status === 'INACTIVE';
+        && !v.active;
     }).length;
 
     this.totalVolunteersChange = this.calculatePercentageChange(totalLastMonth, this.totalVolunteers);
     this.newThisMonthChange = this.calculatePercentageChange(newLastMonth, this.newThisMonth);
     this.inactiveVolunteersChange = this.calculatePercentageChange(inactiveLastMonth, this.inactiveVolunteers);
 
-    // !!!!!!!!!! ACÁ SACAR DE FRENTE LOS CERTIFICADOS
-    //this.totalCertificates = this.volunteers.reduce((sum, v) => sum + v.certificateIds.length, 0);
-
     this.volunteersByProfession = this.volunteers.reduce((acc, v) => {
-      acc[v.profession] = (acc[v.profession] || 0) + 1;
+      if (v.profession) {
+        acc[v.profession] = (acc[v.profession] || 0) + 1;
+      }
       return acc;
     }, {} as Record<string, number>);
   }
 
   calculatePercentageChange(oldValue: number, newValue: number): number {
-    if (oldValue === 0) return 0;
+    if (oldValue === 0) return newValue > 0 ? 100 : 0;
     return ((newValue - oldValue) / oldValue) * 100;
   }
 
 }
-
-@Component({
-  selector: 'app-volunteer-filter-dialog',
-  standalone: true,
-  imports: [
-    MatDialogTitle,
-    MatDialogContent,
-    MatFormField,
-    MatFormFieldModule,
-    MatInput,
-    MatSelect,
-    MatOption,
-    MatDatepickerToggle,
-    MatDatepicker,
-    MatDialogActions,
-    MatDatepickerInput,
-    FormsModule,
-    MatButton
-  ],
-  template: `
-    <h2 mat-dialog-title>Filtros</h2>
-    <mat-dialog-content>
-      <mat-form-field appearance="outline" style="width: 100%;" class="secorta" >
-        <mat-label>Edad mínima</mat-label>
-        <input matInput type="number" [(ngModel)]="data.minAge"/>
-      </mat-form-field>
-
-      <mat-form-field appearance="outline" style="width: 100%;">
-        <mat-label>Edad máxima</mat-label>
-        <input matInput type="number" [(ngModel)]="data.maxAge"/>
-      </mat-form-field>
-
-      <mat-form-field appearance="outline" style="width: 100%;">
-        <mat-label>Estado</mat-label>
-        <mat-select [(ngModel)]="data.statusFilter">
-          <mat-option value="">Todos</mat-option>
-          <mat-option value="activo">Activo</mat-option>
-          <mat-option value="inactivo">Inactivo</mat-option>
-        </mat-select>
-      </mat-form-field>
-
-      <mat-form-field appearance="outline" style="width: 100%;">
-        <mat-label>Registrado desde</mat-label>
-        <input matInput [matDatepicker]="picker" [(ngModel)]="data.registrationDateFilter"/>
-        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-        <mat-datepicker #picker></mat-datepicker>
-      </mat-form-field>
-    </mat-dialog-content>
-
-    <mat-dialog-actions align="end">
-      <button mat-button (click)="onClose()">Cancelar</button>
-      <button mat-raised-button color="primary" (click)="onApply()">Aplicar</button>
-    </mat-dialog-actions>
-  `,
-  styles: [`
-    mat-dialog-content {
-      margin-top: 15px;
-    }
-    .secorta {
-      margin-top: 10px;
-    }
-  `]
-
-})
-export class VolunteerFilterDialogComponent {
-  constructor(
-    public dialogRef: MatDialogRef<VolunteerFilterDialogComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: any
-  ) {}
-
-  onClose(): void {
-    this.dialogRef.close();
-  }
-
-  onApply(): void {
-    this.dialogRef.close(this.data);
-  }
-}
-
-
-

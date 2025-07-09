@@ -12,7 +12,7 @@ import {
   MatDialogContent,
   MatDialogTitle
 } from '@angular/material/dialog';
-import {CertificatesService} from '../services/certificats.service';
+import {CertificatesService} from '../../services/certificats.service';
 import {MatCard, MatCardContent, MatCardHeader, MatCardTitle} from '@angular/material/card';
 import {MatButton} from '@angular/material/button';
 import {NgForOf} from '@angular/common';
@@ -41,12 +41,11 @@ export class CertificatesDialogComponent implements OnInit {
   certificates: any[] = [];
 
   constructor(
-    @Inject(MAT_DIALOG_DATA) public data: { volunteerId: string },
-    private certificatesService: CertificatesService
+      @Inject(MAT_DIALOG_DATA) public data: { volunteerId: number },
+      private certificatesService: CertificatesService
   ) {}
 
   ngOnInit() {
-    console.log('CertificatesDialogComponent initialized with volunteerId:', this.data.volunteerId);
     this.loadCertificates();
   }
 
@@ -62,4 +61,3 @@ export class CertificatesDialogComponent implements OnInit {
     });
   }
 }
-

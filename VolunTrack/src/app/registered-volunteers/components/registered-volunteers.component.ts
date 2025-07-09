@@ -2,7 +2,7 @@
  * Component to manage and display the list of volunteers registered for a specific activity.
  * Includes functionality to search volunteers, mark attendance, and generate certificates.
  *
- * Author: Cassius Martel
+ * Author: Cassius Martel (Actualizado)
  */
 
 import { Component, OnInit, ViewChild } from '@angular/core';
@@ -74,7 +74,6 @@ import { TranslatePipe} from '@ngx-translate/core';
     MatCardModule,
     MatCheckbox,
     TranslatePipe
-
   ],
   styleUrls: ['./registered-volunteers.component.css']
 })
@@ -98,7 +97,7 @@ export class RegisteredVolunteersComponent implements OnInit {
 
       this.attendanceMarked = {};
       this.dataSource.data.forEach(volunteer => {
-        this.attendanceMarked[volunteer.registrationId] = volunteer.registration?.attendance ?? false;
+        this.attendanceMarked[String(volunteer.registrationId)] = volunteer.registration?.attendance ?? false;
       });
     } else {
       this.displayedColumns = this.allColumns;
@@ -131,9 +130,15 @@ export class RegisteredVolunteersComponent implements OnInit {
           }
         }
         this.loadRegistrations(this.activity.actividad_id);
+        this.notificationsService.createTypedNotification('success', 'Asistencia guardada correctamente.').subscribe(() => {
+          window.dispatchEvent(new Event('openNotifications'));
+        });
       },
       error: err => {
         console.error('Error actualizando asistencias:', err);
+        this.notificationsService.createTypedNotification('error', 'Error al guardar asistencia.').subscribe(() => {
+          window.dispatchEvent(new Event('openNotifications'));
+        });
       }
     });
   }
@@ -152,25 +157,30 @@ export class RegisteredVolunteersComponent implements OnInit {
     private certificatesService: CertificatesService,
     private snackBar: MatSnackBar,
     private notificationsService: NotificationsService
-
   ) {}
 
   ngOnInit(): void {
-    const idParam = this.route.snapshot.paramMap.get('id'); // Get as string
-    const activityId = idParam ? parseInt(idParam, 10) : null; // Parse to number
+    const idParam = this.route.snapshot.paramMap.get('id');
+    const activityId = idParam ? parseInt(idParam, 10) : null;
 
     if (activityId !== null && !isNaN(activityId)) {
-      this.activityService.getActivityById(activityId).subscribe({ // Use the number ID here
+      this.activityService.getActivityById(activityId).subscribe({
         next: activity => {
           this.activity = activity;
-          this.loadRegistrations(activityId); // Use the number ID here
+          this.loadRegistrations(activityId);
         },
         error: err => {
           console.error('Error fetching activity:', err);
+          this.notificationsService.createTypedNotification('error', 'Error al cargar los detalles de la actividad.').subscribe(() => {
+            window.dispatchEvent(new Event('openNotifications'));
+          });
         }
       });
     } else {
       console.error('Invalid activity ID provided in route.');
+      this.notificationsService.createTypedNotification('error', 'ID de actividad inválido.').subscribe(() => {
+        window.dispatchEvent(new Event('openNotifications'));
+      });
     }
 
     this.dataSource.filterPredicate = (data: any, filter: string) =>
@@ -178,13 +188,13 @@ export class RegisteredVolunteersComponent implements OnInit {
   }
 
   fireNoti() {
-    this.notificationsService.createTypedNotification('open-inscriptions').subscribe(() => {
+    this.notificationsService.createTypedNotification('open-inscriptions', 'Inscripciones abiertas.').subscribe(() => {
       window.dispatchEvent(new Event('openNotifications'));
     });
   }
 
   toNotify() {
-    this.notificationsService.createTypedNotification('reminder').subscribe(() => {
+    this.notificationsService.createTypedNotification('reminder', 'Recordatorio de actividad enviado.').subscribe(() => {
       window.dispatchEvent(new Event('openNotifications'));
     });
   }
@@ -200,36 +210,55 @@ export class RegisteredVolunteersComponent implements OnInit {
         this.registrations = regs;
 
         const volunteersRequests = regs.map(reg =>
-          this.volunteerService.getVolunteerById(reg.volunteerId)
+          this.volunteerService.getVolunteerById(Number(reg.volunteerId))
         );
 
-        forkJoin(volunteersRequests).subscribe(vols => {
-          const combinedData = vols.map((vol, i) => ({
-            volunteerId: vol.id.toString(),
-            registrationId: this.registrations[i].id,
-            fullName: `${vol.firstName} ${vol.lastName}`,
-            profession: vol.profession,
-            registrationDate: this.registrations[i].registrationDate,
-            status: this.registrations[i].status,
-            attendance: this.registrations[i].attendance,
-            registration: {
+        forkJoin(volunteersRequests).subscribe({
+          next: vols => {
+            const combinedData = vols.map((vol, i) => ({
+              volunteerId: vol.id,
+              registrationId: this.registrations[i].id,
+              fullName: `${vol.firstName} ${vol.lastName}`,
+              profession: vol.profession,
+              registrationDate: this.registrations[i].registrationDate,
               status: this.registrations[i].status,
-              attendance: String(this.registrations[i].attendance).toLowerCase() === 'asistio'
-            }
-          }));
+              attendance: this.registrations[i].attendance,
+              registration: {
+                status: this.registrations[i].status,
+                attendance: String(this.registrations[i].attendance).toLowerCase() === 'asistio'
+              }
+            }));
 
-          this.dataSource = new MatTableDataSource(combinedData);
-          if (this.paginator) {
-            this.dataSource.paginator = this.paginator;
-            this.paginator.pageSize = 7;
+            this.dataSource = new MatTableDataSource(combinedData);
+            if (this.paginator) {
+              this.dataSource.paginator = this.paginator;
+              this.paginator.pageSize = 7;
+            }
+          },
+          error: err => {
+            console.error('Error al obtener detalles de voluntarios para registros:', err);
+            this.notificationsService.createTypedNotification('error', 'Error al cargar detalles de voluntarios.').subscribe(() => {
+              window.dispatchEvent(new Event('openNotifications'));
+            });
           }
         });
       },
-      error: err => console.error('Error loading registrations:', err)
+      error: err => {
+        console.error('Error al cargar registros:', err);
+        this.notificationsService.createTypedNotification('error', 'Error al cargar registros de voluntarios.').subscribe(() => {
+          window.dispatchEvent(new Event('openNotifications'));
+        });
+      }
     });
   }
+
   generateCertificates() {
-    if (!this.activity) return;
+    if (!this.activity) {
+      this.notificationsService.createTypedNotification('error', 'No hay actividad seleccionada para generar certificados.').subscribe(() => {
+        window.dispatchEvent(new Event('openNotifications'));
+      });
+      return;
+    }
 
     const certificados: Certificate[] = this.dataSource.data
       .filter(v => v.registration?.attendance)
@@ -240,21 +269,25 @@ export class RegisteredVolunteersComponent implements OnInit {
         `Mediante este certificado, se acredita que el voluntario ${v.fullName} participó satisfactoriamente en la actividad "${this.activity.titulo}" el ${new Date(this.activity.fecha).toLocaleDateString()}.`
       ));
 
-    certificados.forEach(cert => {
-      this.certificatesService.postCertificate(cert).subscribe({
-        next: () => {
-        },
-        error: err => {
-          console.error('Error enviando certificado:', err);
-        }
+    if (certificados.length === 0) {
+      this.notificationsService.createTypedNotification('error', 'No hay voluntarios con asistencia marcada para generar certificados.').subscribe(() => {
+        window.dispatchEvent(new Event('openNotifications'));
       });
-    });
+      return;
+    }
 
-    this.snackBar.open('Certificados generados correctamente', 'Cerrar', {
-      duration: 4000,
-      horizontalPosition: 'right',
-      verticalPosition: 'top',
-      panelClass: ['snack-bar-success']
+    forkJoin(certificados.map(cert => this.certificatesService.postCertificate(cert))).subscribe({
+      next: () => {
+        this.notificationsService.createTypedNotification('certificate', 'Certificados generados y enviados correctamente.').subscribe(() => {
+          window.dispatchEvent(new Event('openNotifications'));
+        });
+      },
+      error: err => {
+        console.error('Error enviando uno o más certificados:', err);
+        this.notificationsService.createTypedNotification('error', 'Error al generar algunos certificados.').subscribe(() => {
+          window.dispatchEvent(new Event('openNotifications'));
+        });
+      }
     });
   }
 }

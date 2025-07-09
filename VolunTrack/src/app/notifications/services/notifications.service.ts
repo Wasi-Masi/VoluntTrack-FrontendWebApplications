@@ -1,5 +1,5 @@
 /*
-Description: Service to manage CRUD operations for notifications, including creating typed notifications with preset messages.
+Description: Service to manage CRUD operations for notifications, including creating typed notifications with preset or custom messages.
 Author: Ainhoa Castillo
 */
 
@@ -40,11 +40,12 @@ export class NotificationsService {
     );
   }
 
-  createTypedNotification(type: string): Observable<Notification> {
+
+  createTypedNotification(type: string, customMessage?: string): Observable<Notification> {
     return this.getNotifications().pipe(
       switchMap(existingNotis => {
         const maxId = existingNotis.length > 0
-          ? Math.max(...existingNotis.map(n => +n.id))
+          ? Math.max(...existingNotis.map(n => parseInt(n.id || '0', 10)))
           : 0;
         const newId = (maxId + 1).toString();
         const createdAt = new Date().toISOString();
@@ -53,6 +54,14 @@ export class NotificationsService {
         let message = '';
 
         switch (type) {
+          case 'success':
+            title = 'Éxito';
+            message = 'Operación realizada exitosamente.';
+            break;
+          case 'error':
+            title = 'Error';
+            message = 'Ha ocurrido un error durante la operación.';
+            break;
           case 'signup':
             title = '¡Bienvenido a VolunTrack!';
             message = 'Tu cuenta ha sido creada exitosamente. Ya puedes unirte a actividades.';
@@ -84,6 +93,10 @@ export class NotificationsService {
           default:
             title = 'Notificación';
             message = 'Tienes una nueva notificación en VolunTrack.';
+        }
+
+        if (customMessage) {
+          message = customMessage;
         }
 
         const newNotification = new Notification(newId, title, message, createdAt);

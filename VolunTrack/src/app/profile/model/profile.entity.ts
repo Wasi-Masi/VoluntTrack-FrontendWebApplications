@@ -10,6 +10,7 @@ export interface User {
   description: string;
   profilePictureUrl: string;
   bannerPictureUrl: string;
+  organizationId?: number;
 
   language?: string;
   notifications?: string;
