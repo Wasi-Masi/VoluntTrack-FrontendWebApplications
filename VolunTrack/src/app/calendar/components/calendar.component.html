@@ -1,32 +1,40 @@
+<!--
+Description: Displays an activity dashboard with a calendar view showing weeks and days, and allows navigation between months.
+Author: Your Name
+-->
+
 <div class="dashboard-header">
-  <h2 [routerLink]="['/dashboard']">Activity Dashboard</h2>
+  <h2 [routerLink]="['/dashboard']">{{ 'ACTIVITY.DASHBOARD_TITLE' | translate }}</h2>
   <div class="dashboard-actions">
     <button mat-stroked-button color="primary" [routerLink]="['/create-activity']">
-      <mat-icon>add</mat-icon> {{ 'create' | translate }}
+      <mat-icon>add</mat-icon> {{ 'ACTIVITY.CREATE' | translate }}
     </button>
     <button class="selected" [routerLink]="['/calendar']" mat-stroked-button color="accent">
-      <mat-icon class="selected">calendar_today</mat-icon> {{ 'calendar' | translate }}
+      <mat-icon class="selected">calendar_today</mat-icon> {{ 'ACTIVITY.CALENDAR' | translate }}
     </button>
   </div>
 </div>
 
 <div class="calendar-container">
   <div class="calendar-main">
-
     <div class="header">
-      <h1>MONDAY</h1>
-      <h1>TUESDAY</h1>
-      <h1>WEDNESDAY</h1>
-      <h1>THURSDAY</h1>
-      <h1>FRIDAY</h1>
-      <h1>SATURDAY</h1>
-      <h1>SUNDAY</h1>
+      <h1>{{ 'DAYS.MONDAY' | translate }}</h1>
+      <h1>{{ 'DAYS.TUESDAY' | translate }}</h1>
+      <h1>{{ 'DAYS.WEDNESDAY' | translate }}</h1>
+      <h1>{{ 'DAYS.THURSDAY' | translate }}</h1>
+      <h1>{{ 'DAYS.FRIDAY' | translate }}</h1>
+      <h1>{{ 'DAYS.SATURDAY' | translate }}</h1>
+      <h1>{{ 'DAYS.SUNDAY' | translate }}</h1>
     </div>
 
     <div class="body">
       <div class="week" *ngFor="let week of weeks">
         <div class="day" *ngFor="let date of week" [class.outside]="!isCurrentMonth(date)">
           <p>{{ date.getDate() }}</p>
+
+          <div class="activity" *ngFor="let activity of getEvents(date)">
+            <p>{{ activity.title }}</p>
+          </div>
         </div>
       </div>
     </div>

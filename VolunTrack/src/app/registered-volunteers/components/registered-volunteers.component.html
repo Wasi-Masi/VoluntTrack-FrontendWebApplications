@@ -1,1 +1,127 @@
-<p>registered-volunteers works!</p>
+<!--
+Description: Component template showing activity details with navigation buttons, a searchable and paginated volunteers table, and an actions panel including attendance marking and certificate generation. ARIA attributes are added for improved accessibility.
+Author: Your Name
+-->
+
+<!-- HEADER -->
+<div class="details-header" *ngIf="activity">
+  <div class="the-buttons">
+    <button mat-icon-button [routerLink]="['/dashboard']" matTooltip="{{ 'volunteers.backDashboard' | translate }}">
+      <mat-icon>arrow_back</mat-icon>
+    </button>
+    <button mat-button [routerLink]="['/activity', activity.id]">{{ 'volunteers.details' | translate }}</button>
+    <button mat-button [routerLink]="['/registered', activity.id]">{{ 'volunteers.registered' | translate }}</button>
+    <button mat-icon-button matTooltip="{{ 'volunteers.editActivity' | translate }}">
+      <mat-icon>edit</mat-icon>
+    </button>
+  </div>
+</div>
+
+<div class="details-container" *ngIf="activity">
+  <div class="details-subpanels">
+
+    <!-- Panel con búsqueda + tabla -->
+    <mat-card class="volunteers-panel mat-elevation-z8">
+      <mat-card-header>
+        <mat-form-field appearance="outline" style="width: 100%;">
+          <mat-label>{{ 'volunteers.searchLabel' | translate }}</mat-label>
+          <input matInput type="text" [(ngModel)]="searchText" (ngModelChange)="applyFilter()">
+          <mat-icon matSuffix>search</mat-icon>
+        </mat-form-field>
+      </mat-card-header>
+
+      <mat-card-content>
+        <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" *ngIf="dataSource.data.length > 0">
+
+          <!-- Columnas -->
+          <ng-container matColumnDef="fullName">
+            <th mat-header-cell *matHeaderCellDef> {{ 'volunteers.name' | translate }} </th>
+            <td mat-cell *matCellDef="let volunteer"> {{volunteer.fullName}} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="age">
+            <th mat-header-cell *matHeaderCellDef> {{ 'volunteers.age' | translate }} </th>
+            <td mat-cell *matCellDef="let volunteer"> {{volunteer.age}} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="profession">
+            <th mat-header-cell *matHeaderCellDef> {{ 'volunteers.profession' | translate }} </th>
+            <td mat-cell *matCellDef="let volunteer"> {{volunteer.profession}} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="registrationDate">
+            <th mat-header-cell *matHeaderCellDef> {{ 'volunteers.registrationDate' | translate }} </th>
+            <td mat-cell *matCellDef="let volunteer"> {{volunteer.registrationDate | date:'shortDate'}} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="registrationStatus">
+            <th mat-header-cell *matHeaderCellDef> {{ 'volunteers.status' | translate }} </th>
+            <td mat-cell *matCellDef="let volunteer"> {{ volunteer.registration?.status | titlecase }} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="registrationAttendance">
+            <th mat-header-cell *matHeaderCellDef> {{ 'volunteers.attended' | translate }} </th>
+            <td mat-cell *matCellDef="let volunteer"> {{ volunteer.registration?.attendance ? ('volunteers.yes' | translate) : ('volunteers.no' | translate) }} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="attendanceCheckbox">
+            <th mat-header-cell *matHeaderCellDef> {{ 'volunteers.attendance' | translate }} </th>
+            <td mat-cell *matCellDef="let volunteer">
+              <mat-checkbox
+                [checked]="attendanceMarked[volunteer.registrationId]"
+                (change)="onAttendanceChange(volunteer.registrationId, $event.checked)">
+              </mat-checkbox>
+            </td>
+          </ng-container>
+
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns" style="cursor: default;"></tr>
+        </table>
+
+        <mat-paginator [pageSizeOptions]="[7]" showFirstLastButtons></mat-paginator>
+
+        <p *ngIf="dataSource.data.length === 0">
+          {{ 'volunteers.noData' | translate }}
+        </p>
+      </mat-card-content>
+    </mat-card>
+
+    <!-- Subpanel de acciones -->
+    <div class="volunteers-actions-subpanel mat-elevation-z2" style="padding: 16px; display: flex; flex-direction: column; gap: 20px; max-width: 320px;">
+
+      <button mat-stroked-button (click)="toNotify()" color="primary" style="justify-content: flex-start;" matTooltip="{{ 'volunteers.sendNotificationTooltip' | translate }}">
+        <mat-icon style="margin-right: 8px;">notifications_active</mat-icon>
+        {{ 'volunteers.sendNotification' | translate }}
+      </button>
+      <p class="hint-text">{{ 'volunteers.sendNotificationHint' | translate }}</p>
+
+      <button mat-stroked-button
+              [color]="isAttendanceMode ? 'accent' : 'primary'"
+              style="justify-content: flex-start;"
+              matTooltip="{{ 'volunteers.attendanceTooltip' | translate }}"
+              (click)="toggleAttendanceMode()">
+        <mat-icon style="margin-right: 8px;">check_circle</mat-icon>
+        {{ isAttendanceMode ? ('volunteers.saveAttendance' | translate) : ('volunteers.markAttendance' | translate) }}
+      </button>
+      <p class="hint-text">
+        {{ isAttendanceMode ? ('volunteers.saveAttendanceHint' | translate) : ('volunteers.markAttendanceHint' | translate) }}
+      </p>
+
+      <button mat-stroked-button color="warn"
+              (click)="generateCertificates()"
+              style="justify-content: flex-start;"
+              matTooltip="{{ 'volunteers.generateCertificatesTooltip' | translate }}">
+        <mat-icon style="margin-right: 8px;">emoji_events</mat-icon>
+        {{ 'volunteers.generateCertificates' | translate }}
+      </button>
+      <p class="hint-text">{{ 'volunteers.generateCertificatesHint' | translate }}</p>
+
+      <button mat-stroked-button (click)="fireNoti()" color="primary" style="justify-content: flex-start;" matTooltip="{{ 'volunteers.openRegistrationsTooltip' | translate }}">
+        <mat-icon style="margin-right: 8px;">person_add</mat-icon>
+        {{ 'volunteers.openRegistrations' | translate }}
+      </button>
+      <p class="hint-text">{{ 'volunteers.openRegistrationsHint' | translate }}</p>
+    </div>
+
+  </div>
+</div>

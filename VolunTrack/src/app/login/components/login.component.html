@@ -1,1 +1,41 @@
-<p>logfin works!</p>
+<!--
+Description: Login form with username and password inputs, including a toggle button for password visibility with appropriate ARIA attributes for accessibility.
+Author: Your Name
+-->
+<div class="login-backdrop"></div>
+
+<div class="login-container">
+  <h2>{{ 'login.title' | translate }}</h2>
+
+  <mat-form-field appearance="outline">
+    <mat-label>{{ 'login.username' | translate }}</mat-label>
+    <input matInput [(ngModel)]="username" type="text" />
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>{{ 'login.password' | translate }}</mat-label>
+    <input
+      matInput
+      [type]="hide() ? 'password' : 'text'"
+      [(ngModel)]="password"
+    />
+    <button
+      mat-icon-button
+      matSuffix
+      (click)="clickEvent($event)"
+      [attr.aria-label]="'login.toggle-password' | translate"
+      [attr.aria-pressed]="!hide()"
+    >
+      <mat-icon>{{ hide() ? 'visibility_off' : 'visibility' }}</mat-icon>
+    </button>
+  </mat-form-field>
+
+  <div class="button-group">
+    <button mat-flat-button color="primary" (click)="handleLogin()">
+      {{ 'login.login-button' | translate }}
+    </button>
+    <button mat-flat-button class="register" color="accent" (click)="goToRegister()">
+      {{ 'login.register-button' | translate }}
+    </button>
+  </div>
+</div>

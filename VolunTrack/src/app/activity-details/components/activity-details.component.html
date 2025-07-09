@@ -1,75 +1,88 @@
+<!--
+Description: Displays detailed information about a selected activity including images, description, instructions, purpose, and navigation buttons.
+Author: Cassius Martel
+-->
+
 <!-- HEADER -->
-<div class="details-header">
-  <div class="the-buttons">
-    <button mat-icon-button  [routerLink]="['/dashboard']" matTooltip="Back to Dashboard">
+<div class="details-header" *ngIf="activity">
+  <div class="the-buttons" *ngIf="activity">
+    <button mat-icon-button [routerLink]="['/dashboard']" matTooltip="{{ 'ACTIVITY.BACK_TO_DASHBOARD' | translate }}">
       <mat-icon>arrow_back</mat-icon>
     </button>
-    <button mat-button >Details</button>
-    <button mat-button [routerLink]="['/registered', activity.id]" >Registered Volunteers</button>
-    <button mat-icon-button>
+    <button mat-button [routerLink]="['/activity', activity.id]">
+      {{ 'ACTIVITY.DETAILS' | translate }}
+    </button>
+
+    <button mat-button [routerLink]="['/registered', activity.id]">
+      {{ 'ACTIVITY.REGISTERED_VOLUNTEERS' | translate }}
+    </button>
+
+    <button
+      mat-icon-button
+      [routerLink]="['/edit-activity', activity.id]"
+      matTooltip="{{ 'ACTIVITY.EDIT_ACTIVITY' | translate }}"
+    >
       <mat-icon>edit</mat-icon>
     </button>
   </div>
-
 </div>
 
 <!-- MAIN PANEL -->
-  <div class="details-container" *ngIf="activity">
-    <!-- LEFT PANEL: Image and Carousel -->
-    <div class="left-panel">
-      <!-- MAIN IMAGE -->
-      <div class="main-image" *ngIf="selectedImage">
-        <img [src]="selectedImage" alt="Selected Activity Image" />
-      </div>
-
-      <!-- IMAGE CAROUSEL -->
-      <div class="carousel">
-        <div class="thumbnail-container">
-          <div
-            class="thumbnail"
-            *ngFor="let img of activity.pictures; let i = index"
-            [class.selected]="img === selectedImage"
-            (click)="selectImage(img)"
-          >
-            <img [src]="img" alt="Activity thumbnail" />
-          </div>
-        </div>
-      </div>
+<div class="details-container" *ngIf="activity">
+  <!-- LEFT PANEL: Image and Carousel -->
+  <div class="left-panel">
+    <!-- MAIN IMAGE -->
+    <div class="main-image" *ngIf="selectedImage">
+      <img [src]="selectedImage" alt="{{ 'ACTIVITY.SELECTED_IMAGE_ALT' | translate }}" />
     </div>
 
-    <!-- RIGHT PANEL: Activity Details -->
-    <div class="right-panel">
-      <h2>{{ activity.title }}</h2>
-      <div class="datetime">
-        <mat-icon>calendar_today</mat-icon>
-        <span>{{ activity.date }}</span>
-        <mat-icon class="clock">access_time</mat-icon>
-        <span>{{ activity.startTime }} - {{ activity.endTime }}</span>
-      </div>
-      <div class="location">
-        <mat-icon>location_on</mat-icon>
-        <span>{{ activity.address }}</span>
-      </div>
-
-      <div class="description-panel">
-        <h3>Description</h3>
-        <p>{{ activity.description }}</p>
-      </div>
-
-      <div class="details-columns">
-        <div class="instructions-panel">
-          <h4>Instructions</h4>
-          <ul>
-            <li *ngFor="let instr of activity.instructions">{{ instr }}</li>
-          </ul>
-        </div>
-        <div class="purpose-panel">
-          <h4>Purpose</h4>
-          <ul>
-            <li *ngFor="let purp of activity.purpose">{{ purp }}</li>
-          </ul>
+    <!-- IMAGE CAROUSEL -->
+    <div class="carousel">
+      <div class="thumbnail-container">
+        <div
+          class="thumbnail"
+          *ngFor="let img of activity.pictures; let i = index"
+          [class.selected]="img === selectedImage"
+          (click)="selectImage(img)"
+        >
+          <img [src]="img" alt="{{ 'ACTIVITY.THUMBNAIL_ALT' | translate }}" />
         </div>
       </div>
     </div>
   </div>
 
+  <!-- RIGHT PANEL: Activity Details -->
+  <div class="right-panel">
+    <h2>{{ activity.title }}</h2>
+    <div class="datetime">
+      <mat-icon>calendar_today</mat-icon>
+      <span>{{ activity.date }}</span>
+      <mat-icon class="clock">access_time</mat-icon>
+      <span>{{ activity.startTime }} - {{ activity.endTime }}</span>
+    </div>
+    <div class="location">
+      <mat-icon>location_on</mat-icon>
+      <span>{{ activity.address }}</span>
+    </div>
+
+    <div class="description-panel">
+      <h3>{{ 'ACTIVITY.DESCRIPTION' | translate }}</h3>
+      <p>{{ activity.description }}</p>
+    </div>
+
+    <div class="details-columns">
+      <div class="instructions-panel">
+        <h4>{{ 'ACTIVITY.INSTRUCTIONS' | translate }}</h4>
+        <ul>
+          <li *ngFor="let instr of activity.instructions">{{ instr }}</li>
+        </ul>
+      </div>
+      <div class="purpose-panel">
+        <h4>{{ 'ACTIVITY.PURPOSE' | translate }}</h4>
+        <ul>
+          <li *ngFor="let purp of activity.purpose">{{ purp }}</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

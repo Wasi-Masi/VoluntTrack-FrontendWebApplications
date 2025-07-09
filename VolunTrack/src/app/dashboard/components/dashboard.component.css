@@ -1,3 +1,8 @@
+/*
+Description: Styles for the dashboard header, activity cards, and responsive layout for the activities container.
+Author: Cassius Martel
+*/
+
 .dashboard-header {
   display: flex;
   justify-content: space-between;

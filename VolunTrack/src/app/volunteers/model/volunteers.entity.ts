@@ -1,3 +1,6 @@
+// Description: Entity class representing a volunteer, including personal details, status, and associated certificates.
+// Author: Cassius Martel
+
 export class Volunteer {
   constructor(
     public id: number,

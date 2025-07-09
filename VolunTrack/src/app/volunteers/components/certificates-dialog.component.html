@@ -1,0 +1,21 @@
+<!--
+  Description: Dialog component that displays a list of certificates with activity titles and descriptions.
+  Author: Victor Ortiz
+-->
+
+<h2 mat-dialog-title>{{ 'certificatesDialog.title' | translate }}</h2>
+
+<mat-dialog-content class="certificates-container">
+  <mat-card *ngFor="let cert of certificates" class="certificate-card">
+    <mat-card-header>
+      <mat-card-title>{{ cert.activityTi }}</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <p>{{ cert.text }}</p>
+    </mat-card-content>
+  </mat-card>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close>{{ 'certificatesDialog.close' | translate }}</button>
+</mat-dialog-actions>

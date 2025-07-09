@@ -1,3 +1,12 @@
+/*
+Description:
+This component fetches and displays detailed information about a specific activity,
+including an image gallery and activity details such as title, date, and description.
+
+Author: Victor Ortiz
+*/
+
+
 import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute, RouterLink} from '@angular/router';
 import { ActivityDetailsService } from '../services/activity-details.service';
@@ -6,7 +15,7 @@ import {NgForOf, NgIf} from '@angular/common';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButton, MatIconButton } from '@angular/material/button';
 import { MatTooltipModule } from '@angular/material/tooltip';
-
+import {TranslatePipe} from "@ngx-translate/core";
 
 @Component({
   selector: 'app-activity-details',
@@ -19,7 +28,8 @@ import { MatTooltipModule } from '@angular/material/tooltip';
     MatIconButton,
     NgIf,
     RouterLink,
-    MatTooltipModule
+    MatTooltipModule,
+    TranslatePipe
   ],
   styleUrls: ['./activity-details.component.css']
 })
@@ -35,7 +45,7 @@ export class ActivityDetailsComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    const id = +this.route.snapshot.paramMap.get('id')!;
+    const id = this.route.snapshot.paramMap.get('id')!;
     this.activityService.getActivityById(id).subscribe({
       next: activity => {
         this.activity = activity;

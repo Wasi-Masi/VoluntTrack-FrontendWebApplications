@@ -1,3 +1,7 @@
+// Description: This component manages the volunteers view, including filtering, metrics calculation, and displaying volunteer details and certificates.
+// Author: Cassius Martel
+
+
 import {
   AfterViewInit,
   Component,
@@ -6,6 +10,9 @@ import {
   ViewChild
 } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
+import { CommonModule } from '@angular/common';
+
 
 import { MatTableDataSource, MatTableModule } from '@angular/material/table';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -32,11 +39,15 @@ import { VolunteersService } from '../services/volunteers.service';
 import { Volunteer } from '../model/volunteers.entity';
 import {DatePipe, NgClass, NgIf} from '@angular/common';
 
+import { NotificationsService } from '../../notifications/services/notifications.service';
+import {CertificatesDialogComponent} from './certificates-dialog.component';
+import { TranslatePipe } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-volunteers',
   standalone: true,
   imports: [
+    CommonModule,
     MatInputModule,
     MatTableModule,
     MatFormFieldModule,
@@ -51,11 +62,13 @@ import {DatePipe, NgClass, NgIf} from '@angular/common';
     MatButtonModule,
     NgIf,
     DatePipe,
-    NgClass
+    NgClass,
+    TranslatePipe
   ],
   templateUrl: './volunteers.component.html',
   styleUrls: ['./volunteers.component.css']
 })
+
 export class VolunteersComponent implements OnInit, AfterViewInit {
   volunteers: Volunteer[] = [];
   displayedColumns: string[] = ['fullName', 'age', 'profession'];
@@ -69,6 +82,8 @@ export class VolunteersComponent implements OnInit, AfterViewInit {
   selectedVolunteer: Volunteer | null = null;
   selectedRow: any = null;
 
+  sendEmail = false;
+
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   ngAfterViewInit(): void {
     this.dataSource.paginator = this.paginator;
@@ -77,7 +92,8 @@ export class VolunteersComponent implements OnInit, AfterViewInit {
 
   constructor(
     private volunteersService: VolunteersService,
-    private dialog: MatDialog
+    private dialog: MatDialog,
+    private notificationsService: NotificationsService
   ) {}
 
 
@@ -91,8 +107,21 @@ export class VolunteersComponent implements OnInit, AfterViewInit {
       this.volunteers = data;
       this.dataSource.data = data;
       this.applyFilters();
+
+      this.calculateMetrics();
     });
   }
+
+
+  openCertificatesDialog() {
+    if (!this.selectedVolunteer) return;
+
+    this.dialog.open(CertificatesDialogComponent, {
+      width: '600px',
+      data: { volunteerId: this.selectedVolunteer.id }
+    });
+  }
+
 
   applyFilters(): void {
     this.dataSource.data = this.volunteers.filter(v => {
@@ -105,6 +134,7 @@ export class VolunteersComponent implements OnInit, AfterViewInit {
     });
     this.dataSource.paginator = this.paginator;
   }
+
 
   openFilterDialog(): void {
     const dialogRef = this.dialog.open(VolunteerFilterDialogComponent, {
@@ -128,10 +158,103 @@ export class VolunteersComponent implements OnInit, AfterViewInit {
       }
     });
   }
+
+  fireNotification() {
+    this.notificationsService.createTypedNotification('mail').subscribe(() => {
+      window.dispatchEvent(new Event('openNotifications'));
+    });
+  }
+  aproveSendEmail() {
+    this.sendEmail = !this.sendEmail;
+    console.log(this.sendEmail);
+  }
+
+  protected readonly history = history;
+
+
+  totalVolunteers: number = 0;
+  newThisMonth: number = 0;
+  inactiveVolunteers: number = 0;
+  totalCertificates: number = 0;
+  averageAge: number = 0;
+  volunteersByProfession: Record<string, number> = {};
+
+  totalVolunteersChange: number = 0;
+  newThisMonthChange: number = 0;
+  inactiveVolunteersChange: number = 0;
+
+  currentDate = new Date();
+  lastMonthDate = new Date(new Date().setMonth(new Date().getMonth() - 1));
+
+
+  getProfessionKeys(): string[] {
+    return Object.keys(this.volunteersByProfession);
+  }
+
+  calculateMetrics(): void {
+    this.totalVolunteers = this.volunteers.length;
+    this.inactiveVolunteers = this.volunteers.filter(v => v.status === 'inactive').length;
+
+    let maxYear = 0;
+    let maxMonth = -1;
+    this.volunteers.forEach(v => {
+      const d = new Date(v.registrationDate);
+      const y = d.getFullYear();
+      const m = d.getMonth();
+      if (y > maxYear || (y === maxYear && m > maxMonth)) {
+        maxYear = y;
+        maxMonth = m;
+      }
+    });
+
+    this.newThisMonth = this.volunteers.filter(v => {
+      const d = new Date(v.registrationDate);
+      return d.getFullYear() === maxYear && d.getMonth() === maxMonth;
+    }).length;
+
+    let prevMonth = maxMonth - 1;
+    let prevYear = maxYear;
+    if (prevMonth < 0) {
+      prevMonth = 11;
+      prevYear--;
+    }
+
+    const newLastMonth = this.volunteers.filter(v => {
+      const d = new Date(v.registrationDate);
+      return d.getFullYear() === prevYear && d.getMonth() === prevMonth;
+    }).length;
+
+    const totalLastMonth = this.volunteers.filter(v => {
+      const d = new Date(v.registrationDate);
+      return (d.getFullYear() < maxYear) || (d.getFullYear() === maxYear && d.getMonth() < maxMonth);
+    }).length;
+
+    const inactiveLastMonth = this.volunteers.filter(v => {
+      const d = new Date(v.registrationDate);
+      return ((d.getFullYear() < maxYear) || (d.getFullYear() === maxYear && d.getMonth() < maxMonth))
+        && v.status === 'inactive';
+    }).length;
+
+    this.totalVolunteersChange = this.calculatePercentageChange(totalLastMonth, this.totalVolunteers);
+    this.newThisMonthChange = this.calculatePercentageChange(newLastMonth, this.newThisMonth);
+    this.inactiveVolunteersChange = this.calculatePercentageChange(inactiveLastMonth, this.inactiveVolunteers);
+    this.totalCertificates = this.volunteers.reduce((sum, v) => sum + v.certificateIds.length, 0);
+    this.volunteersByProfession = this.volunteers.reduce((acc, v) => {
+      acc[v.profession] = (acc[v.profession] || 0) + 1;
+      return acc;
+    }, {} as Record<string, number>);
+  }
+
+  calculatePercentageChange(oldValue: number, newValue: number): number {
+    if (oldValue === 0) return 0;
+    return ((newValue - oldValue) / oldValue) * 100;
+  }
+
 }
 
 @Component({
   selector: 'app-volunteer-filter-dialog',
+  standalone: true,
   imports: [
     MatDialogTitle,
     MatDialogContent,

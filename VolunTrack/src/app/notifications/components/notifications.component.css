@@ -1,0 +1,128 @@
+/*
+Description: Styles for the notification drawer component, including layout, animations, and interactive elements.
+Author: Ainhoa Castillo
+*/
+
+.notification-drawer {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 600px;
+  height: 100%;
+  background-color: #0C7987;
+  box-shadow: -4px 0 16px rgba(0, 0, 0, 0.15);
+  overflow-y: auto;
+  transition: right 0.3s ease-in-out;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+}
+
+.notification-drawer.open {
+  right: 0;
+}
+
+.drawer-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 1.5rem;
+  border-bottom: 1px solid #ddd;
+  background-color: #fff;
+  color: #24344C;
+}
+
+.drawer-header h2 {
+  margin: 0;
+  font-size: 1.25rem;
+}
+
+.close-btn {
+  background: transparent;
+  border: none;
+  color: #24344C;
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+.drawer-body {
+  padding: 1rem 1.5rem;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.notification-item {
+  background-color: rgba(255, 255, 255, 0.6);
+  border-radius: 12px;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.12);
+  padding: 1.5rem;
+  margin-bottom: 1rem;
+  position: relative;
+  display: flex;
+  gap: 0.5rem;
+  justify-content: space-between;
+}
+
+.notification-date {
+  font-size: 0.85rem;
+  color: #666;
+  margin-bottom: 0.5rem;
+}
+
+.notification-text-container {
+  width: 90%;
+}
+
+.notification-message {
+  font-size: 1rem;
+  color: #222;
+  margin-bottom: 0.75rem;
+}
+
+.notification-actions {
+  display: flex;
+  height: 100%;
+  align-items: center;
+}
+
+.icon {
+  cursor: pointer;
+  font-size: 20px;
+  transition: transform 0.2s ease;
+  color: #fff;
+}
+
+.icon:hover {
+  transform: scale(1.1);
+}
+
+.delete-all-btn {
+  flex: 1;
+  padding: 1rem;
+  border-radius: 30px;
+  font-size: 20px;
+  font-weight: 600;
+  cursor: pointer;
+  border: 2px solid #fff;
+  background-color: transparent;
+  color: #fff;
+  transition: background-color 0.3s ease;
+  max-height: 4rem;
+  font-family: 'Alexandria', sans-serif;
+}
+
+.delete-all-btn:hover {
+  background-color: #24344C;
+  color: #fff;
+  border: none;
+}
+
+.empty-message {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  padding: 2rem 0;
+}

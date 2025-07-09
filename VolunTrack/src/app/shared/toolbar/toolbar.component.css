@@ -1,3 +1,9 @@
+/*
+ * Description: Styles for the main toolbar, including layout, colors, logo, title, and interactive buttons.
+ * Author: Cassius Martel
+ */
+
+
 mat-toolbar {
   display: flex;
   justify-content: space-between;

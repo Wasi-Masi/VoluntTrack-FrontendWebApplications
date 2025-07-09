@@ -1,0 +1,64 @@
+/*
+Description: Styles the login form container and its elements, including layout, colors, and buttons.
+Author: Marcelo Binda
+*/
+
+.login-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgb(1, 31, 40); /* Fondo negro semitransparente */
+  z-index: 999; /* Por debajo del login-container */
+}
+
+.login-container {
+  position: fixed;
+  z-index: 1000; /* Encima del backdrop */
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 320px;
+  margin: 100px auto;
+  padding: 2rem;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.25);
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.login-container h2 {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+mat-form-field {
+  width: 100%;
+}
+
+.button-group {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.button-group button {
+  flex: 1;
+  border-radius: 10px;
+  color: #000000;
+  background-color: #9BD0DF;
+}
+
+.button-group button.register {
+  background-color: #ffffff;
+  color: #9BD0DF;
+  border: 1px solid #9BD0DF;
+}
+
+::ng-deep .mat-mdc-form-field.mat-focused .mdc-floating-label {
+  color: #000000 !important;
+}

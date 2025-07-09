@@ -1,18 +1,26 @@
-<mat-toolbar color="primary">
-  <div class="logo" (click)="goToDashboard()" style="cursor: pointer;">
+<!--
+  Description: Toolbar component providing navigation with logo, page links, and icon buttons for notifications and profile.
+  Author: Cassius Martel
+-->
+
+<mat-toolbar color="primary" role="banner" aria-label="Main toolbar">
+  <div class="logo" (click)="goToDashboard()" style="cursor: pointer;" tabindex="0" role="link" aria-label="Go to dashboard">
     <img src="/assets/Logo_Icon.png" alt="VolunTrack Logo" class="logo-img" />
     <span class="title">VolunTrack</span>
   </div>
 
-  <div class="toolbar-right">
-    <button mat-button (click)="goToDashboard()">Dashboard</button>
-    <button mat-button (click)="goToVolunteers()">My Volunteers</button>
+  <div class="toolbar-right" role="navigation" aria-label="Primary navigation">
+    <button mat-button (click)="goToDashboard()">{{ 'toolbar.dashboard' | translate }}</button>
+    <button mat-button (click)="goToVolunteers()">{{ 'toolbar.volunteers' | translate }}</button>
 
-    <button mat-icon-button (click)="openNotifications()">
+    <button mat-icon-button (click)="openNotifications()" aria-label="Open notifications">
       <mat-icon>notifications</mat-icon>
     </button>
-    <button mat-icon-button (click)="goToProfile()">
+    <button mat-icon-button (click)="goToProfile()" aria-label="Go to profile">
       <mat-icon>account_circle</mat-icon>
     </button>
+
+    <app-language-switcher-component></app-language-switcher-component>
+
   </div>
 </mat-toolbar>

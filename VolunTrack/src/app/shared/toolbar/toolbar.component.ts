@@ -1,9 +1,15 @@
+/*
+  Description: Toolbar component for navigation including dashboard, volunteers, profile links, and notifications.
+  Author: Cassius Martel
+*/
+
 import { Component } from '@angular/core';
 import { MatToolbar } from '@angular/material/toolbar';
 import { MatButton, MatIconButton } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
-import {RouterLink, RouterLinkActive} from '@angular/router';
 import { Router } from '@angular/router';
+import {LanguageSwitcherComponent} from '../language-switcher/language-switcher.component';
+import {TranslatePipe} from "@ngx-translate/core";
 
 @Component({
   selector: 'app-toolbar-component',
@@ -12,7 +18,9 @@ import { Router } from '@angular/router';
     MatToolbar,
     MatButton,
     MatIconModule,
-    MatIconButton
+    MatIconButton,
+    LanguageSwitcherComponent,
+    TranslatePipe
   ],
   templateUrl: './toolbar.component.html',
   styleUrl: './toolbar.component.css'
@@ -33,6 +41,7 @@ export class ToolbarComponent {
   }
 
   openNotifications() {
-    // Aquí puedes abrir un modal o popup de notificaciones
+    window.dispatchEvent(new Event('openNotifications'));
   }
+
 }
