@@ -1,11 +1,7 @@
-/**
- * Description: Handles user login, including validation against a user list, session creation, and navigation. Clears any existing login sessions on init.
- * Author: Marcelo Binda
- */
+// src/app/login/components/login/login.component.ts
 
 import { Component, signal } from '@angular/core';
 import { Router } from '@angular/router';
-import { HttpClient } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -13,6 +9,10 @@ import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import {TranslatePipe} from '@ngx-translate/core';
+
+import { LoginService } from '../services/login.service';
+import { SignInResource } from './sign-in-resource';
+
 
 @Component({
   selector: 'app-login',
@@ -35,42 +35,12 @@ export class LoginComponent {
   password: string = '';
   hide = signal(true);
 
-  constructor(private http: HttpClient, private router: Router) {}
+  constructor(private router: Router, private loginService: LoginService) {}
 
   ngOnInit(): void {
-    this.clearLogin();
+    this.loginService.removeToken();
   }
 
-  async clearLogin(): Promise<void> {
-    try {
-      const users = await this.http.get<any[]>('https://voluntrack.onrender.com/userlogin').toPromise();
-      if (users?.length) {
-        await Promise.all(users.map(user =>
-          this.http.delete(`https://voluntrack.onrender.com/userlogin/${user.id}`).toPromise()
-        ));
-      }
-    } catch (error) {
-      console.error('Error clearing login:', error);
-    }
-  }
-
-  async validateLogin(username: string, password: string): Promise<any | null> {
-    try {
-      const users = await this.http.get<any[]>('https://voluntrack.onrender.com/users').toPromise();
-      return users?.find(u => u.username === username && u.password === password) ?? null;
-    } catch (error) {
-      console.error('Error validating login:', error);
-      return null;
-    }
-  }
-
-  async createLogin(user: any): Promise<void> {
-    try {
-      await this.http.post('https://voluntrack.onrender.com/userlogin', user).toPromise();
-    } catch (error) {
-      console.error('Error saving login session:', error);
-    }
-  }
 
   async handleLogin(): Promise<void> {
     if (!this.username || !this.password) {
@@ -78,13 +48,22 @@ export class LoginComponent {
       return;
     }
 
-    const user = await this.validateLogin(this.username, this.password);
-    if (user) {
-      await this.createLogin(user);
-      this.router.navigate(['/dashboard']);
-    } else {
-      alert('Invalid username or password.');
-    }
+    const credentials: SignInResource = {
+      username: this.username,
+      password: this.password
+    };
+
+    this.loginService.signIn(credentials).subscribe({
+      next: (response) => {
+        this.loginService.saveToken(response.token);
+        console.log('Login successful! Token:', response.token);
+        this.router.navigate(['/dashboard']);
+      },
+      error: (err) => {
+        console.error('Login failed:', err);
+        alert('Invalid username or password. Please try again.');
+      }
+    });
   }
 
   goToRegister(): void {
