@@ -4,18 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="32d7f7b8-0dc4-4ad3-b13e-38150f113ef0" name="Changes" comment="add to gitignore">
-      <change beforePath="$PROJECT_DIR$/VolunTrack/src/app/activity-details/services/activity-details.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/VolunTrack/src/app/activity-details/services/activity-details.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/VolunTrack/src/app/create-activity/services/create-activity.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/VolunTrack/src/app/create-activity/services/create-activity.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/VolunTrack/src/app/dashboard/services/dashboard.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/VolunTrack/src/app/dashboard/services/dashboard.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/VolunTrack/src/app/login/components/login.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/VolunTrack/src/app/login/components/login.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/VolunTrack/src/app/notifications/services/notifications.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/VolunTrack/src/app/notifications/services/notifications.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/VolunTrack/src/app/profile/components/profile.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/VolunTrack/src/app/profile/components/profile.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/VolunTrack/src/app/profile/services/profile.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/VolunTrack/src/app/profile/services/profile.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/VolunTrack/src/app/register/components/register.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/VolunTrack/src/app/register/components/register.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/VolunTrack/src/app/registered-volunteers/services/registered-volunteers.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/VolunTrack/src/app/registered-volunteers/services/registered-volunteers.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/VolunTrack/src/app/volunteers/services/certificats.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/VolunTrack/src/app/volunteers/services/certificats.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/VolunTrack/src/app/volunteers/services/volunteers.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/VolunTrack/src/app/volunteers/services/volunteers.service.ts" afterDir="false" />
+    <list default="true" id="32d7f7b8-0dc4-4ad3-b13e-38150f113ef0" name="Changes" comment="Add initial backend connection configuration">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,20 +23,26 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;feature/user&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/alext/appweb/FitManager&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;npm.start.executor&quot;: &quot;Run&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;C:\\Users\\alext\\open\\VoluntTrack-FrontendWebApplications\\VolunTrack\\node_modules\\typescript\\lib&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "develop",
+    "last_opened_file_path": "D:/my myself/upc/Open Source/S6/VoluntTrack-FrontendWebApplications",
+    "node.js.detected.package.eslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "npm.start.executor": "Run",
+    "ts.external.directory.path": "D:\\my myself\\upc\\Open Source\\S6\\VoluntTrack-FrontendWebApplications\\VolunTrack\\node_modules\\typescript\\lib",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\my myself\upc\Open Source\S6\VoluntTrack-FrontendWebApplications\VolunTrack\src\app\shared\services" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration name="start" type="js.build_tools.npm" nameIsGenerated="true">
       <package-json value="$PROJECT_DIR$/VolunTrack/package.json" />
@@ -62,7 +58,7 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-js-predefined-d6986cc7102b-5c90d61e3bab-JavaScript-WS-242.23726.96" />
+        <option value="bundled-js-predefined-d6986cc7102b-f27c65a3e318-JavaScript-WS-251.23774.424" />
       </set>
     </attachedChunks>
   </component>
@@ -76,10 +72,25 @@
       <updated>1747393907478</updated>
       <workItem from="1747393910390" duration="30000" />
       <workItem from="1747393941513" duration="2106000" />
+      <workItem from="1752015076100" duration="1239000" />
+      <workItem from="1752016427524" duration="1996000" />
     </task>
+    <task id="LOCAL-00001" summary="Add initial backend connection configuration">
+      <option name="closed" value="true" />
+      <created>1752017275264</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1752017275264</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Add initial backend connection configuration" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add initial backend connection configuration" />
   </component>
 </project>
