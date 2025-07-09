@@ -1,18 +1,18 @@
-export class ProfileEntity {
-  constructor(
-    public id: number,
-    public username: string,
-    public password: string,
-    public email: string,
-    public phone: string,
-    public pfp: string,
-    public plan: string,
-    public banner: string,
-    public description: string,
-    public language: string,
-    public notifications: string,
-    public timezone: string,
-    public inscriptions: string
-  ) {
-  }
+// src/app/profile/model/profile.entity.ts
+
+export interface User {
+  id?: number;
+  username: string;
+  password?: string;
+  email: string;
+  phoneNumber: string;
+  plan: string;
+  description: string;
+  profilePictureUrl: string;
+  bannerPictureUrl: string;
+
+  language?: string;
+  notifications?: string;
+  timezone?: string;
+  inscriptions?: string;
 }

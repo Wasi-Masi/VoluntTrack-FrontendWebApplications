@@ -1,17 +1,12 @@
-<!--
-  Este componente representa la vista de perfil de usuario en la aplicación.
-  El usuario puede cambiar su información y preferencias
--->
-
 <div class="page-header">
   <h2>{{ 'profile.title' | translate }}</h2>
 </div>
 
 <div class="profile-container">
   <div class="banner">
-    <img class="cover" [src]="user?.banner" alt="Banner">
+    <img class="cover" [src]="user?.bannerPictureUrl" alt="Banner">
     <div class="profile-icon-wrapper">
-      <img class="profile-icon" [src]="user?.pfp" alt="Icono">
+      <img class="profile-icon" [src]="user?.profilePictureUrl" alt="Icono">
     </div>
     <div class="description-box">
       <strong>{{ 'profile.description-label' | translate }}:</strong>
@@ -40,13 +35,12 @@
       </h4>
 
       <h4>{{ 'profile.password' | translate }}:
-        <span *ngIf="!editMode">**********</span>
-        <input *ngIf="editMode" type="password" [(ngModel)]="editedUser.password">
+        <span>**********</span>
       </h4>
 
       <h4>{{ 'profile.phone' | translate }}:
-        <span *ngIf="!editMode">{{ user?.phone }}</span>
-        <input matInput *ngIf="editMode" [(ngModel)]="editedUser.phone">
+        <span *ngIf="!editMode">{{ user?.phoneNumber }}</span>
+        <input matInput *ngIf="editMode" [(ngModel)]="editedUser.phoneNumber">
       </h4>
 
       <h4>{{ 'profile.plan' | translate }}:
@@ -61,14 +55,6 @@
     <div class="config-info">
       <h3>{{ 'profile.config' | translate }}</h3>
       <mat-divider></mat-divider>
-
-      <h4>{{ 'profile.language' | translate }}:
-        <span *ngIf="!editMode">{{ user?.language }}</span>
-        <select *ngIf="editMode" [(ngModel)]="editedUser.language">
-          <option value="Español">Español</option>
-          <option value="English">English</option>
-        </select>
-      </h4>
 
       <h4>{{ 'profile.notifications' | translate }}:
         <span *ngIf="!editMode">{{ user?.notifications }}</span>
@@ -94,6 +80,11 @@
           <option value="Manual">{{ 'profile.manual' | translate }}</option>
           <option value="Automatic">{{ 'profile.automatic' | translate }}</option>
         </select>
+      </h4>
+      <h4>{{ 'profile.help' | translate }}:
+        <button mat-raised-button color="primary" (click)="openHelpPdf()">
+          {{ 'profile.view-help-pdf' | translate }}
+        </button>
       </h4>
     </div>
   </div>

@@ -1,4 +1,5 @@
 {
+
   "ACTIVITY": {
     "BACK_TO_DASHBOARD": "Back to Dashboard",
     "DETAILS": "Details",
@@ -100,7 +101,9 @@
     "cancel-profile": "Cancel profile editing",
     "cancel-btn": "Cancel",
     "logout": "Log out of your account",
-    "logout-btn": "Log out"
+    "logout-btn": "Log out",
+    "help": "Help",
+    "view-help-pdf": "View Help PDF"
   },
 
   "volunteers": {
@@ -173,7 +176,11 @@
     "password": "Password",
     "confirm-password": "Confirm Password",
     "cancel": "Cancel",
-    "submit": "Register"
+    "submit": "Register",
+    "plan": "Plan",
+    "plan.free": "Free",
+    "plan.premium": "Premium"
+
   },
 
   "toolbar": {
