@@ -1,7 +1,6 @@
 // Description: This component manages the volunteers view, including filtering, metrics calculation, and displaying volunteer details and certificates.
 // Author: Cassius Martel
 
-
 import {
   AfterViewInit,
   Component,
@@ -102,6 +101,18 @@ export class VolunteersComponent implements OnInit, AfterViewInit {
     this.selectedRow = volunteer;
   }
 
+  calculateAge(dateOfBirth: string): number | null {
+    if (!dateOfBirth) return null;
+    const birthDate = new Date(dateOfBirth);
+    const today = new Date();
+    let age = today.getFullYear() - birthDate.getFullYear();
+    const m = today.getMonth() - birthDate.getMonth();
+    if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
+      age--;
+    }
+    return age;
+  }
+
   ngOnInit(): void {
     this.volunteersService.getVolunteers().subscribe(data => {
       this.volunteers = data;
@@ -123,11 +134,26 @@ export class VolunteersComponent implements OnInit, AfterViewInit {
   }
 
 
+
   applyFilters(): void {
     this.dataSource.data = this.volunteers.filter(v => {
-      const matchesName = this.searchText === '' || v.fullName.toLowerCase().includes(this.searchText.toLowerCase());
-      const matchesMinAge = this.minAge === null || v.age >= this.minAge;
-      const matchesMaxAge = this.maxAge === null || v.age <= this.maxAge;
+      const volunteerFullName = `${v.firstName} ${v.lastName}`;
+      const matchesName = this.searchText === '' || volunteerFullName.toLowerCase().includes(this.searchText.toLowerCase());
+
+      let volunteerAge: number | null = null;
+      if (v.dateOfBirth) {
+        const birthDate = new Date(v.dateOfBirth);
+        const today = new Date();
+        let age = today.getFullYear() - birthDate.getFullYear();
+        const m = today.getMonth() - birthDate.getMonth();
+        if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
+          age--;
+        }
+        volunteerAge = age;
+      }
+
+      const matchesMinAge = this.minAge === null || (volunteerAge !== null && volunteerAge >= this.minAge);
+      const matchesMaxAge = this.maxAge === null || (volunteerAge !== null && volunteerAge <= this.maxAge);
       const matchesStatus = this.statusFilter === '' || v.status === this.statusFilter;
       const matchesDate = !this.registrationDateFilter || new Date(v.registrationDate) >= this.registrationDateFilter;
       return matchesName && matchesMinAge && matchesMaxAge && matchesStatus && matchesDate;
@@ -176,7 +202,6 @@ export class VolunteersComponent implements OnInit, AfterViewInit {
   newThisMonth: number = 0;
   inactiveVolunteers: number = 0;
   totalCertificates: number = 0;
-  averageAge: number = 0;
   volunteersByProfession: Record<string, number> = {};
 
   totalVolunteersChange: number = 0;
@@ -193,7 +218,7 @@ export class VolunteersComponent implements OnInit, AfterViewInit {
 
   calculateMetrics(): void {
     this.totalVolunteers = this.volunteers.length;
-    this.inactiveVolunteers = this.volunteers.filter(v => v.status === 'inactive').length;
+    this.inactiveVolunteers = this.volunteers.filter(v => v.status === 'INACTIVE').length;
 
     let maxYear = 0;
     let maxMonth = -1;
@@ -232,13 +257,16 @@ export class VolunteersComponent implements OnInit, AfterViewInit {
     const inactiveLastMonth = this.volunteers.filter(v => {
       const d = new Date(v.registrationDate);
       return ((d.getFullYear() < maxYear) || (d.getFullYear() === maxYear && d.getMonth() < maxMonth))
-        && v.status === 'inactive';
+        && v.status === 'INACTIVE';
     }).length;
 
     this.totalVolunteersChange = this.calculatePercentageChange(totalLastMonth, this.totalVolunteers);
     this.newThisMonthChange = this.calculatePercentageChange(newLastMonth, this.newThisMonth);
     this.inactiveVolunteersChange = this.calculatePercentageChange(inactiveLastMonth, this.inactiveVolunteers);
-    this.totalCertificates = this.volunteers.reduce((sum, v) => sum + v.certificateIds.length, 0);
+
+    // !!!!!!!!!! ACÁ SACAR DE FRENTE LOS CERTIFICADOS
+    //this.totalCertificates = this.volunteers.reduce((sum, v) => sum + v.certificateIds.length, 0);
+
     this.volunteersByProfession = this.volunteers.reduce((acc, v) => {
       acc[v.profession] = (acc[v.profession] || 0) + 1;
       return acc;

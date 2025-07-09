@@ -205,13 +205,13 @@ export class RegisteredVolunteersComponent implements OnInit {
           const combinedData = vols.map((vol, i) => ({
             volunteerId: vol.id.toString(),   // id como string
             registrationId: this.registrations[i].id,   // <-- agregar id del registro
-            fullName: vol.fullName,
-            age: vol.age,
+            fullName: `${vol.firstName} ${vol.lastName}`,
+            //age: vol.age,
             profession: vol.profession,
             registrationDate: this.registrations[i].registrationDate,
             status: this.registrations[i].status,
             attendance: this.registrations[i].attendance,
-            photoUrl: vol.profilePicture,
+            //photoUrl: vol.profilePicture,
             registration: {
               status: this.registrations[i].status,
               attendance: String(this.registrations[i].attendance).toLowerCase() === 'asistio'

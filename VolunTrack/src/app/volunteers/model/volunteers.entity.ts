@@ -4,15 +4,15 @@
 export class Volunteer {
   constructor(
     public id: number,
-    public fullName: string,
+    public firstName: string,
+    public lastName: string,
+    public dni: string,
+    public dateOfBirth: string, // formato ISO, ej. '2025-05-10'
     public email: string,
-    public age: number,
     public phoneNumber: string,
-    public status: 'active' | 'inactive',
     public registrationDate: string, // formato ISO, ej. '2025-05-10'
+    public status: 'ACTIVE' | 'INACTIVE',
+    public address: string,
     public profession: string,
-    public profilePicture: string,
-    public isFeatured: boolean,
-    public certificateIds: number[]
   ) {}
 }
