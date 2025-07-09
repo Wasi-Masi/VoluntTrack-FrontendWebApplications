@@ -6,8 +6,8 @@ import { Observable } from 'rxjs';
 
 import { SignInResource } from '../components/sign-in-resource';
 import { AuthenticationResponseResource } from '../components/authentication-response-resource';
+import { SignUpResource } from '../../register/components/sign-up-resource';
 import { environment } from '../../../environments/environment';
-
 
 @Injectable({
   providedIn: 'root'
@@ -20,8 +20,12 @@ export class LoginService {
 
 
   signIn(credentials: SignInResource): Observable<AuthenticationResponseResource> {
-    // Concatenamos la URL base con el endpoint específico de sign-in
     return this.http.post<AuthenticationResponseResource>(`${this.baseUrl}/auth/sign-in`, credentials);
+  }
+
+
+  signUp(userData: SignUpResource): Observable<AuthenticationResponseResource> {
+    return this.http.post<AuthenticationResponseResource>(`${this.baseUrl}/auth/sign-up`, userData);
   }
 
 
@@ -43,6 +47,4 @@ export class LoginService {
   isLoggedIn(): boolean {
     return !!this.getToken();
   }
-
-
 }
