@@ -1,15 +1,33 @@
+// src/app/profile/components/profile.component.ts
+
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
-import {NgIf} from '@angular/common';
-import {FormsModule} from '@angular/forms';
+import { NgIf } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatButtonModule } from '@angular/material/button';
-import {MatDividerModule} from '@angular/material/divider';
-import {TranslatePipe} from '@ngx-translate/core';
+import { MatDividerModule } from '@angular/material/divider';
+import { TranslatePipe } from '@ngx-translate/core';
+
+import { ProfileService } from '../services/profile.service';
+import { LoginService } from '../../login/services/login.service';
+import { User } from '../model/profile.entity';
+
+
+// --- INTERFACE EXTENDIDA ---
+// Define una interfaz local que extienda User para incluir las configuraciones
+// Esto es necesario porque estas propiedades se manejan en el frontend/localStorage
+// y no necesariamente vienen del backend en la entidad 'User'.
+interface ExtendedUser extends User {
+  language?: string;
+  notifications?: string;
+  timezone?: string;
+  inscriptions?: string;
+}
+// --- FIN INTERFACE EXTENDIDA ---
 
 
 @Component({
@@ -30,58 +48,141 @@ import {TranslatePipe} from '@ngx-translate/core';
   styleUrls: ['./profile.component.css']
 })
 export class ProfileComponent implements OnInit {
-  user: any;
+  // Usamos la interfaz ExtendedUser para 'user' y 'editedUser'
+  user: ExtendedUser | null = null;
   editMode = false;
-  editedUser: any = {};
+  editedUser: ExtendedUser = {} as ExtendedUser; // Inicializamos con la interfaz extendida
 
-  constructor(private http: HttpClient, private router: Router) {}
+
+  constructor(
+    private router: Router,
+    private profileService: ProfileService,
+    private loginService: LoginService
+  ) {}
 
   ngOnInit(): void {
-    this.http.get<any[]>('https://voluntrack.onrender.com/userlogin').subscribe(
-      (res) => {
-        if (res.length > 0) {
-          this.user = res[0];
-          this.editedUser = { ...this.user }; // clona el usuario para edición
+    this.loadUserProfile();
+  }
+  openHelpPdf(): void {
+    const pdfUrl = 'https://www.diva-portal.org/smash/get/diva2:389641/FULLTEXT01.pdf';
+    window.open(pdfUrl, '_blank');
+  }
+  loadUserProfile(): void {
+    this.profileService.getProfile().subscribe({
+      next: (data: User) => {
+        this.user = { ...data } as ExtendedUser;
+        this.editedUser = { ...this.user };
+
+        console.log('Perfil de usuario cargado:', this.user);
+
+        const additionalDataString = localStorage.getItem('additional_user_data');
+        if (additionalDataString) {
+          const additionalData = JSON.parse(additionalDataString);
+          this.user.language = additionalData.language || 'English';
+          this.user.notifications = additionalData.notifications || 'All';
+          this.user.timezone = additionalData.timezone || 'GMT-5';
+          this.user.inscriptions = additionalData.inscriptions || 'Automatic';
+
+          this.editedUser.language = this.user.language;
+          this.editedUser.notifications = this.user.notifications;
+          this.editedUser.timezone = this.user.timezone;
+          this.editedUser.inscriptions = this.user.inscriptions;
+
+          console.log('Datos adicionales cargados de localStorage:', additionalData);
+        } else {
+          // Si no hay datos en localStorage, inicializarlos con valores por defecto
+          // y asignarlos a 'user' y 'editedUser'
+          this.user.language = 'English';
+          this.user.notifications = 'All';
+          this.user.timezone = 'GMT-5';
+          this.user.inscriptions = 'Automatic';
+
+          this.editedUser.language = 'English';
+          this.editedUser.notifications = 'All';
+          this.editedUser.timezone = 'GMT-5';
+          this.editedUser.inscriptions = 'Automatic';
         }
       },
-      (error) => {
-        console.error('Error fetching logged-in user:', error);
+      error: (err) => {
+        console.error('Error al cargar el perfil del usuario:', err);
+        if (err.status === 401 || err.status === 403) {
+          this.loginService.removeToken(); // Limpiar token inválido
+          this.router.navigate(['/login']);
+          alert('Tu sesión ha expirado o no estás autorizado. Por favor, inicia sesión de nuevo.');
+        } else {
+          alert('No se pudo cargar el perfil del usuario.');
+        }
       }
-    );
+    });
   }
 
   logout(): void {
-    this.http.get<any[]>('https://voluntrack.onrender.com/userlogin').subscribe(users => {
-      const deleteRequests = users.map(user =>
-        this.http.delete(`https://voluntrack.onrender.com/userlogin/${user.id}`).toPromise()
-      );
-      Promise.all(deleteRequests).then(() => {
-        this.router.navigate(['/login']);
-      });
-    });
+    this.loginService.removeToken();
+    alert('Has cerrado sesión correctamente.');
+    this.router.navigate(['/login']);
   }
 
   toggleEdit(): void {
     this.editMode = true;
-    this.editedUser = { ...this.user };
+    // Al entrar en modo edición, clonamos los valores actuales de 'user' a 'editedUser'
+    // incluyendo las propiedades extendidas.
+    this.editedUser = { ...this.user } as ExtendedUser;
   }
 
   cancelEdit(): void {
     this.editMode = false;
-    this.editedUser = { ...this.user };
+    // Si cancelamos, restauramos 'editedUser' a los valores originales de 'user'
+    // incluyendo las propiedades extendidas.
+    this.editedUser = { ...this.user } as ExtendedUser;
   }
 
   saveChanges(): void {
-    const userId = this.user.id;
+    if (!this.user || !this.user.id) {
+      console.error('No hay ID de usuario para guardar cambios.');
+      alert('No se pudo guardar los cambios: ID de usuario no disponible.');
+      return;
+    }
 
-    // Actualiza en /users
-    this.http.put(`https://voluntrack.onrender.com/users/${userId}`, this.editedUser).subscribe(() => {
-      // Luego actualiza en /userlogin
-      this.http.put(`https://voluntrack.onrender.com/userlogin/${userId}`, this.editedUser).subscribe(() => {
-        this.user = { ...this.editedUser };
+
+    // `updatedProfile` solo incluye las propiedades que el backend espera recibir para 'User'.
+    // Las configuraciones locales (language, notifications, etc.) no se envían al backend si no las has añadido a tu entidad User en Spring Boot.
+    const updatedProfile: User = {
+      username: this.editedUser.username,
+      email: this.editedUser.email,
+      phoneNumber: this.editedUser.phoneNumber,
+      plan: this.editedUser.plan,
+      description: this.editedUser.description,
+      profilePictureUrl: this.editedUser.profilePictureUrl,
+      bannerPictureUrl: this.editedUser.bannerPictureUrl
+    };
+
+    this.profileService.updateProfile(this.user.id, updatedProfile).subscribe({
+      next: (data: User) => {
+        this.user = { ...data } as ExtendedUser;
+
+        this.user.language = this.editedUser.language;
+        this.user.notifications = this.editedUser.notifications;
+        this.user.timezone = this.editedUser.timezone;
+        this.user.inscriptions = this.editedUser.inscriptions;
+
         this.editMode = false;
-      });
+        alert('Cambios guardados exitosamente!');
+        console.log('Perfil actualizado:', this.user);
+
+        const additionalUserData = {
+          language: this.user.language,
+          notifications: this.user.notifications,
+          timezone: this.user.timezone,
+          inscriptions: this.user.inscriptions
+        };
+        localStorage.setItem('additional_user_data', JSON.stringify(additionalUserData));
+        console.log('Datos adicionales actualizados en localStorage:', additionalUserData);
+      },
+      error: (err) => {
+        console.error('Error al guardar cambios:', err);
+        const errorMessage = err.error && err.error.message ? err.error.message : 'Error al guardar cambios. Inténtalo de nuevo.';
+        alert(errorMessage);
+      }
     });
   }
-
 }

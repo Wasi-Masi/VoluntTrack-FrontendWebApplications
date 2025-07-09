@@ -96,7 +96,10 @@
     "cancel-profile": "Cancelar edición del perfil",
     "cancel-btn": "Cancelar",
     "logout": "Cerrar sesión de tu cuenta",
-    "logout-btn": "Cerrar Sesión"
+    "logout-btn": "Cerrar Sesión",
+    "help": "Ayuda",
+    "view-help-pdf": "Ver PDF de ayuda"
+
   },
 
   "register": {
@@ -110,7 +113,10 @@
     "password": "Contraseña",
     "confirm-password": "Confirmar contraseña",
     "cancel": "Cancelar",
-    "submit": "Registrarse"
+    "submit": "Registrarse",
+    "plan": "Plan",
+    "plan.free": "Gratis",
+    "plan.premium": "Premium"
   },
   "volunteers": {
     "backDashboard": "Volver al Dashboard",
