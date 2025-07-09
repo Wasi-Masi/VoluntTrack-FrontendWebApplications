@@ -9,6 +9,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { CommonModule } from '@angular/common';
 import { TranslatePipe } from '@ngx-translate/core';
+import { MatSelectModule } from '@angular/material/select'; // Importado aquí
 
 import { LoginService } from '../../login/services/login.service';
 import { SignUpResource } from './sign-up-resource';
@@ -24,7 +25,8 @@ import { SignUpResource } from './sign-up-resource';
     MatInputModule,
     MatButtonModule,
     MatIconModule,
-    TranslatePipe
+    TranslatePipe,
+    MatSelectModule // Añadido aquí para que MatSelect funcione
   ],
   styleUrls: ['./register.component.css']
 })
@@ -37,7 +39,7 @@ export class RegisterComponent {
   profilePictureUrl = '';
   bannerPictureUrl = '';
   description = '';
-  plan = 'basic';
+  plan = 'Gratis'; // Establece un valor predeterminado coherente con las opciones del HTML
 
   language: string = 'English';
   notifications: string = 'All';
@@ -56,7 +58,8 @@ export class RegisterComponent {
       !this.phoneNumber ||
       !this.profilePictureUrl ||
       !this.bannerPictureUrl ||
-      !this.description
+      !this.description ||
+      !this.plan // Asegúrate de que el plan también esté presente
     ) {
       alert('Por favor, complete todos los campos requeridos para el registro.');
       return;
