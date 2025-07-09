@@ -5,7 +5,7 @@
   Description: Styles for the main volunteers panel,
   including table layout, metrics sidebar, detail
   panels, transitions, and responsive interactions.
-  Author: Cassius Martel
+  Author: Ainhoa Castillo
   ===============================================
 */
 
@@ -13,13 +13,13 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 92%;
+  height: 87%;
   background: #ffffff;
+  padding: 0.5rem 2rem 2rem;
 }
 
 .page-header {
   width: 100%;
-  max-width: 90%;
   padding: 20px;
   box-sizing: border-box;
   display: flex;
@@ -38,7 +38,6 @@
   display: flex;
   justify-content: flex-start;
   padding: 20px;
-  max-width: 90%;
   width: 100%;
   background-color: rgba(155, 208, 223, 0.5);
   border-radius: 8px;
@@ -61,9 +60,6 @@
   box-sizing: border-box;
   width: 70%;
 }
-
-
-
 
 .volunteer-side-panel {
   display: flex;
@@ -146,7 +142,7 @@
   flex-grow: 1;
 }
 
-.profile-header .info h3 {
+.profile-header .info h3, .metrics {
   margin: 0 0 10px 0;
   color: #0C7987;
   font-weight: bolder;
@@ -189,7 +185,8 @@
 .volunteers-table-container {
   flex: 1 1 auto;
   overflow-y: auto;
-  margin-bottom: 8px;
+  margin: 1rem 0;
+  border-radius: 10px;
 }
 
 .selected-row {
@@ -227,7 +224,6 @@ h2 {
   border-radius: 8px;
   box-sizing: border-box;
   width: 30%;
-  margin-left: 20px;
 }
 
 
@@ -262,11 +258,6 @@ h2 {
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
-table.mat-table tr:hover {
-  background-color: rgba(12, 121, 135, 0.1);
-  transition: background-color 0.2s ease;
-}
-
 .volunteers-main-panel.with-selection .volunteer-side-panel {
   animation: fadeInUp 0.4s ease;
 }
@@ -289,9 +280,6 @@ table.mat-table tr:hover {
   transition: all 0.2s ease;
 }
 
-.mat-cell, .mat-header-cell {
-}
-
 h2 {
   transition: color 0.3s ease, transform 0.3s ease;
 }
@@ -306,7 +294,6 @@ h2:hover {
   cursor: pointer;
 }
 
-
 .selected-row {
   background-color: rgba(12, 121, 135, 0.2) !important;
   transition: background-color 0.3s ease, transform 0.2s ease;
@@ -314,7 +301,13 @@ h2:hover {
 }
 
 table.mat-table tr:hover {
-  background-color: rgba(12, 121, 135, 0.1);
+  background-color: rgba(12, 121, 135, 0.1) !important;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.custom-row:hover {
+  background-color: rgba(12, 121, 135, 0.1) !important;
   cursor: pointer;
   transition: background-color 0.2s ease;
 }
@@ -353,14 +346,19 @@ mat-dialog-content {
 .metric-title {
   font-weight: 600;
   margin-bottom: 6px;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  width: 100%;
 }
 
 .metric-value {
   display: flex;
   align-items: center;
-  font-size: 2.2em;
+  font-size: 2em;
   gap: 8px;
-}.metric-change {
+}
+.metric-change {
    display: flex;
    align-items: center;
    font-size: 0.8em;
@@ -382,24 +380,28 @@ mat-dialog-content {
 }
 .profession-list-container {
   display: flex;
+  flex-direction: column;
   align-items: flex-start;
   gap: 16px;
+  width: 100%;
+  padding-bottom: 0.5rem;
 }
 
-
-
 .profession-list {
-  columns: 2;
   list-style-type: none;
-  padding-left: 0;
   margin: 0;
-  font-size: 1rem;
+  font-size: 0.9rem;
   max-height: 200px;
-  overflow-y: auto;
+  overflow-x: auto;
+  width: 100%;
 }
 
 .profession-list li {
-  padding: 2px 0;
+  padding: 0.3rem 0.3rem 0.3rem 0;
+  display: flex;
+  align-items: center;
+  font-weight: lighter;
+  justify-content: space-between;
 }
 .volunteer-metrics-panel {
   background: white;
