@@ -1174,6 +1174,31 @@ Algunos lectores no usan plataformas digitales simplemente por desconocimiento o
 | **Acceptance Criteria #2** | Dado que se desea consultar participaciones por voluntario<br>Cuando realiza GET a /api/v1/participations/by-volunteer/{volunteerId}<br>Entonces devuelve 200 OK con todas las participaciones de ese voluntario. |
 | **Acceptance Criteria #3** | Dado que se desea consultar participaciones por actividad<br>Cuando realiza GET a /api/v1/participations/by-activity/{activityId}<br>Entonces devuelve 200 OK con todas las participaciones de esa actividad. |
 
+| **User Story ID**     | TS08 |
+|------------------------|------|
+| **Epic ID**            | E07 |
+| **Title**              | Gestión de Participaciones en la API |
+| **Description**        | Como desarrollador de frontend, quiero que la RESTful API me permita registrar nuevos usuarios y autenticar usuarios existentes mediante JWT, para gestionar de forma segura el acceso a la aplicación. |
+| **Acceptance Criteria #1** | Dado que el desarrollador de frontend necesita registrar un nuevo usuario en la plataforma Voluntrack<br>Cuando el desarrollador realiza una solicitud POST a /api/auth/sign-up con un cuerpo JSON que contiene username, password, email, phoneNumber, plan, description, profilePictureUrl, y bannerPictureUrl válidos<br>Entonces el sistema debe crear un nuevo registro de usuario, devolver un estado 200 OK y un token JWT en el cuerpo de la respuesta, el cual representa la sesión autenticada del usuario. |
+| **Acceptance Criteria #2** | Dado que el desarrollador de frontend necesita autenticar un usuario existente en la plataforma Voluntrack<br>Cuando el desarrollador realiza una solicitud POST a /api/auth/sign-in con un cuerpo JSON que contiene un username y password válidos y registrados<br>Entonces el sistema debe validar las credenciales del usuario, devolver un estado 200 OK y un token JWT en el cuerpo de la respuesta, el cual será utilizado para autorizar futuras solicitudes protegidas. |
+
+| **User Story ID**     | TS09 |
+|------------------------|------|
+| **Epic ID**            | E07 |
+| **Title**              | Gestión de Participaciones en la API |
+| **Description**        | Como desarrollador de frontend, quiero que la RESTful API me permita actualizar la información de mi perfil y consultar mis propios datos de usuario, para que los usuarios puedan gestionar su información personal. |
+| **Acceptance Criteria #1** | Dado que el desarrollador de frontend necesita permitir a un usuario autenticado actualizar su perfil<br>Cuando el desarrollador realiza una solicitud PUT a /api/users/{userId} (donde userId corresponde al ID del usuario a actualizar) con un cuerpo JSON que contiene los campos del perfil a modificar (username, email, phoneNumber, plan, description, profilePictureUrl, bannerPictureUrl), y un token JWT válido en el encabezado de autorización<br>Entonces el sistema debe actualizar los datos del usuario correspondiente, devolver un estado 200 OK y el objeto User actualizado. |
+| **Acceptance Criteria #2** | Dado que el desarrollador de frontend necesita mostrar la información del perfil del usuario actualmente autenticado<br>Cuando el desarrollador realiza una solicitud GET a /api/users/me con un token JWT válido en el encabezado de autorización<br>Entonces el sistema debe identificar al usuario a partir del token, devolver un estado 200 OK y el objeto User completo del perfil del usuario autenticado. |
+
+| **User Story ID**     | TS10 |
+|------------------------|------|
+| **Epic ID**            | E07 |
+| **Title**              | Internacionalización de Mensajes y Errores en el Backend |
+| **Description**        | Como desarrollador de backend, quiero que la RESTful API de Voluntrack sea capaz de traducir sus mensajes de respuesta y errores de validación a diferentes idiomas, para que la aplicación pueda ofrecer una experiencia localizada a usuarios de diversas regiones sin afectar la lógica de negocio central. |
+| **Acceptance Criteria #1** | Dado que el backend necesita enviar mensajes de éxito o información al frontend<br>Cuando el frontend realiza una solicitud a un endpoint de la API e incluye un encabezado Accept-Language con un idioma deseado (ej. es, en)<br>Entonces el backend debe devolver los mensajes de respuesta en el idioma solicitado si está soportado; de lo contrario, debe usar un idioma predeterminado (ej. inglés). |
+| **Acceptance Criteria #2** | Dado que el backend utiliza Jakarta Validation  para validar los DTOs entrantes<br>Cuando una solicitud entrante no cumple con las reglas de validación definidas en los DTOs y se especifica un idioma deseado en el encabezado<br>Entonces el backend debe generar los mensajes de error de validación en el idioma solicitado por el cliente, si está soportado, retornándolos en el formato de error estándar. |
+
+
 ### 3.2.4. Epicas
 
 **Tabla 29. Agrupación de historias de usuario por épicas temáticas del sistema VolunTrack.**
@@ -1240,6 +1265,9 @@ Algunos lectores no usan plataformas digitales simplemente por desconocimiento o
 | TS05 | Gestión Completa de Inscripciones en la API |
 | TS06 | Gestión Completa de Notificaciones en la API |
 | TS07 | Gestión de Participaciones en la API |
+| TS08 | Implementación de Endpoints de Autenticación JWT |
+| TS09 | Implementación de Endpoints para Gestión de Perfil de Usuario |
+| TS10 | Internacionalización del Backend de Voluntrack |
 
 ## 3.3. Impact Mapping
 **Business Goals**
@@ -1278,34 +1306,38 @@ Algunos lectores no usan plataformas digitales simplemente por desconocimiento o
 
 | # Orden | User Story ID | Descripción | Story Points (1/2/3/5/8) |
 |:-------:|:-------------:|-------------|:------------------------:|
-| 1 | US01 | Como coordinador de una ONG, quiero poder registrar mi organización en VolunTrack para empezar a gestionar a mis voluntarios y actividades en un solo lugar. | 3 |
-| 2 | US03 | Como coordinador de una ONG, quiero poder crear nuevas actividades de voluntariado en VolunTrack, especificando detalles como la descripción, fecha, hora, ubicación y número de voluntarios necesarios. | 5 |
-| 3 | US02 | Como voluntario, quiero poder explorar las diferentes actividades de voluntariado disponibles en VolunTrack para encontrar oportunidades que se ajusten a mis intereses y disponibilidad. | 5 |
-| 4 | US04 | Como voluntario, quiero poder inscribirme fácilmente en una actividad de voluntariado que me interese a través de VolunTrack. | 3 |
-| 5 | US23 | Como coordinador de una ONG, quiero tener una vista de calendario interactiva de todas las actividades programadas de mi organización dentro de un panel de control, para poder visualizar fácilmente la distribución de las actividades a lo largo del tiempo, identificar posibles conflictos de programación y tener una visión general rápida de nuestro plan de voluntariado. | 5 |
-| 6 | US24 | Como coordinador de una ONG, quiero tener un panel de control (dashboard) que me ofrezca una visión general del estado de nuestras actividades para poder tener una perspectiva general del programa de voluntariado de mi organización y tomar decisiones informadas. | 8 |
-| 7 | US05 | Como coordinador de una ONG, quiero poder ver la lista de voluntarios inscritos en cada actividad para tener una visión clara de quién participará. | 3 |
-| 8 | US07 | Como coordinador de una ONG, quiero poder marcar la asistencia de los voluntarios en una actividad para llevar un registro de su participación. | 3 |
-| 9 | US06 | Como voluntario, quiero poder recibir notificaciones sobre nuevas actividades que coincidan con mis intereses o recordatorios de las actividades en las que me he inscrito. | 5 |
-| 10 | TS04 | Como desarrollador, quiero que la RESTful API me permita gestionar completamente las organizaciones, para poder administrar las entidades que colaboran con el voluntariado. | 2 |
-| 11 | US08 | Como voluntario, quiero poder ver un historial de todas las actividades en las que he participado a través de VolunTrack. | 3 |
-| 12 | TS05 | Como desarrollador, quiero que la RESTful API me permita gestionar completamente las inscripciones, para administrar la participación de voluntarios en actividades. | 2 |
-| 13 | TS02 | Como desarrollador, quiero que la RESTful API me permita gestionar completamente las actividades, para poder organizar y administrar eventos de voluntariado. | 2 |
-| 14 | US09 | Como coordinador de una ONG, quiero poder generar certificados de participación para los voluntarios que completaron una actividad. | 5 |
-| 15 | TS01 | Como desarrollador, quiero que la RESTful API me permita gestionar completamente los voluntarios, para interactuar de forma eficiente con el sistema de voluntariado. | 3 |
-| 16 | US12 | Como coordinador de una ONG, quiero poder aprobar o rechazar la inscripción de un voluntario a una actividad, o incluso dar de baja a un voluntario si es necesario. | 3 |
-| 17 | US11 | Como coordinador de una ONG, quiero poder enviar mensajes o notificaciones a los voluntarios inscritos en una actividad específica para compartir información importante o recordatorios. | 3 |
-| 18 | US13 | Como coordinador de una ONG, quiero poder ver un resumen del historial de participación de un voluntario específico, incluyendo las actividades en las que ha participado y las horas dedicadas. | 3 |
-| 19 | TS06 | Como desarrollador, quiero que la RESTful API me permita gestionar completamente las notificaciones, para poder enviar y administrar comunicados en el sistema. | 2 |
-| 20 | TS07 | Como desarrollador, quiero que la RESTful API me permita gestionar las participaciones, para registrar y consultar las inscripciones de voluntarios en actividades. | 2 |
-| 21 | US14 | Como coordinador de una ONG, quiero poder generar informes personalizados para cada voluntario que muestren su contribución en términos de horas dedicadas, tareas realizadas e incluso un estimado del impacto que han generado para que se sientan valorados y vean el resultado de su esfuerzo. | 3 |
-| 22 | US10 | Como coordinador de una ONG, quiero poder editar los detalles de una actividad existente (como fecha, hora, descripción o número de voluntarios necesarios) para mantener la información actualizada. | 3 |
-| 23 | US22 | Como coordinador de una ONG, quiero poder ver una lista completa de todos los voluntarios registrados en la plataforma junto con información relevante, para poder administrar nuestra base de voluntarios de manera eficiente. | 5 |
-| 24 | TS03 | Como desarrollador, quiero que la RESTful API me permita gestionar los certificados, para poder emitir y consultar reconocimientos a los participantes. | 2 |
-| 25 | US15 | Como visitante (líder o coordinador de una ONG), quiero poder entender claramente en la página principal de VolunTrack cómo esta plataforma puede ayudar a mi organización a gestionar el voluntariado de manera más eficiente y efectiva, destacando los beneficios clave como la centralización, el ahorro de tiempo y la mejora del impacto social. | 2 |
-| 26 | US16 | Como visitante, quiero poder identificar fácilmente en la página principal de VolunTrack las funcionalidades que me permitirán encontrar y participar en actividades de voluntariado de forma sencilla, como la búsqueda por intereses, la visualización de actividades disponibles y el proceso de registro. | 2 |
-| 27 | US17 | Como visitante, quiero poder encontrar fácilmente la información de contacto de VolunTrack y saber cuáles son los siguientes pasos para registrar mi ONG o comenzar a explorar las oportunidades de voluntariado en la plataforma. | 2 |
-| 28 | US18 | Como visitante, quiero poder encontrar de forma clara y accesible en la Landing Page de VolunTrack la información sobre los diferentes planes de suscripción y sus respectivos precios, para evaluar si se ajustan al presupuesto y las necesidades de mi organización. | 2 |
+| 1  | US01 | Como coordinador de una ONG, quiero poder registrar mi organización en VolunTrack para empezar a gestionar a mis voluntarios y actividades en un solo lugar. | 3 |
+| 2  | US03 | Como coordinador de una ONG, quiero poder crear nuevas actividades de voluntariado en VolunTrack, especificando detalles como la descripción, fecha, hora, ubicación y número de voluntarios necesarios. | 5 |
+| 3  | US02 | Como voluntario, quiero poder explorar las diferentes actividades de voluntariado disponibles en VolunTrack para encontrar oportunidades que se ajusten a mis intereses y disponibilidad. | 5 |
+| 4  | US04 | Como voluntario, quiero poder inscribirme fácilmente en una actividad de voluntariado que me interese a través de VolunTrack. | 3 |
+| 5  | US05 | Como coordinador de una ONG, quiero poder ver la lista de voluntarios inscritos en cada actividad para tener una visión clara de quién participará. | 3 |
+| 6  | US07 | Como coordinador de una ONG, quiero poder marcar la asistencia de los voluntarios en una actividad para llevar un registro de su participación. | 3 |
+| 7  | US06 | Como voluntario, quiero poder recibir notificaciones sobre nuevas actividades que coincidan con mis intereses o recordatorios de las actividades en las que me he inscrito. | 5 |
+| 8  | TS04 | Como desarrollador, quiero que la RESTful API me permita gestionar completamente las organizaciones, para poder administrar las entidades que colaboran con el voluntariado. | 2 |
+| 9  | US08 | Como voluntario, quiero poder ver un historial de todas las actividades en las que he participado a través de VolunTrack. | 3 |
+| 10 | TS05 | Como desarrollador, quiero que la RESTful API me permita gestionar completamente las inscripciones, para administrar la participación de voluntarios en actividades. | 2 |
+| 11 | TS02 | Como desarrollador, quiero que la RESTful API me permita gestionar completamente las actividades, para poder organizar y administrar eventos de voluntariado. | 2 |
+| 12 | US09 | Como coordinador de una ONG, quiero poder generar certificados de participación para los voluntarios que completaron una actividad. | 5 |
+| 13 | TS01 | Como desarrollador, quiero que la RESTful API me permita gestionar completamente los voluntarios, para interactuar de forma eficiente con el sistema de voluntariado. | 3 |
+| 14 | US12 | Como coordinador de una ONG, quiero poder aprobar o rechazar la inscripción de un voluntario a una actividad, o incluso dar de baja a un voluntario si es necesario. | 3 |
+| 15 | US11 | Como coordinador de una ONG, quiero poder enviar mensajes o notificaciones a los voluntarios inscritos en una actividad específica para compartir información importante o recordatorios. | 3 |
+| 16 | US13 | Como coordinador de una ONG, quiero poder ver un resumen del historial de participación de un voluntario específico, incluyendo las actividades en las que ha participado y las horas dedicadas. | 3 |
+| 17 | TS06 | Como desarrollador, quiero que la RESTful API me permita gestionar completamente las notificaciones, para poder enviar y administrar comunicados en el sistema. | 2 |
+| 18 | TS07 | Como desarrollador, quiero que la RESTful API me permita gestionar las participaciones, para registrar y consultar las inscripciones de voluntarios en actividades. | 2 |
+| 19 | US14 | Como coordinador de una ONG, quiero poder generar informes personalizados para cada voluntario que muestren su contribución en términos de horas dedicadas, tareas realizadas e incluso un estimado del impacto que han generado para que se sientan valorados y vean el resultado de su esfuerzo. | 3 |
+| 20 | US10 | Como coordinador de una ONG, quiero poder editar los detalles de una actividad existente (como fecha, hora, descripción o número de voluntarios necesarios) para mantener la información actualizada. | 3 |
+| 21 | TS03 | Como desarrollador, quiero que la RESTful API me permita gestionar los certificados, para poder emitir y consultar reconocimientos a los participantes. | 2 |
+| 22 | US15 | Como visitante (líder o coordinador de una ONG), quiero poder entender claramente en la página principal de VolunTrack cómo esta plataforma puede ayudar a mi organización a gestionar el voluntariado de manera más eficiente y efectiva, destacando los beneficios clave como la centralización, el ahorro de tiempo y la mejora del impacto social. | 2 |
+| 23 | US16 | Como visitante, quiero poder identificar fácilmente en la página principal de VolunTrack las funcionalidades que me permitirán encontrar y participar en actividades de voluntariado de forma sencilla, como la búsqueda por intereses, la visualización de actividades disponibles y el proceso de registro. | 2 |
+| 24 | US17 | Como visitante, quiero poder encontrar fácilmente la información de contacto de VolunTrack y saber cuáles son los siguientes pasos para registrar mi ONG o comenzar a explorar las oportunidades de voluntariado en la plataforma. | 2 |
+| 25 | US18 | Como visitante, quiero poder encontrar de forma clara y accesible en la Landing Page de VolunTrack la información sobre los diferentes planes de suscripción y sus respectivos precios, para evaluar si se ajustan al presupuesto y las necesidades de mi organización. | 2 |
+| 26 | US20 | Como coordinador de una ONG, quiero tener una vista de calendario interactiva de todas las actividades programadas de mi organización dentro de un panel de control, para poder visualizar fácilmente la distribución de las actividades a lo largo del tiempo, identificar posibles conflictos de programación y tener una visión general rápida de nuestro plan de voluntariado. | 5 |
+| 27 | US19 | Como coordinador de una ONG, quiero poder ver una lista completa de todos los voluntarios registrados en la plataforma junto con información relevante, para poder administrar nuestra base de voluntarios de manera eficiente. | 2 |
+| 28 | US21 | Como coordinador de una ONG, quiero tener un panel de control (dashboard) que me ofrezca una visión general del estado de nuestras actividades para poder tener una perspectiva general del programa de voluntariado de mi organización y tomar decisiones informadas. | 3 |
+| 29 | TS08 | Como desarrollador de frontend, quiero que la RESTful API me permita registrar nuevos usuarios y autenticar usuarios existentes mediante JWT, para gestionar de forma segura el acceso a la aplicación. | 3 |
+| 30 | TS09 | Como desarrollador de frontend, quiero que la RESTful API me permita actualizar la información de mi perfil y consultar mis propios datos de usuario, para que los usuarios puedan gestionar su información personal. | 3 |
+| 31 | TS10 | Como desarrollador de backend, quiero que la RESTful API de Voluntrack sea capaz de traducir sus mensajes de respuesta y errores de validación a diferentes idiomas, para que la aplicación pueda ofrecer una experiencia localizada a usuarios de diversas regiones sin afectar la lógica de negocio central. | 3 |
+
 
 # CAPÍTULO 4: PRODUCT UX/UI DESIGN
 ## 4.1. Style Guidelines
@@ -3092,7 +3124,7 @@ Durante el Sprint 3 del desarrollo de VolunTrack, el equipo se ha embarcado en l
 | VolunTrack-WebServices  | develop             | b7d5eb11ddd79c316ac93f4cba1008a6728c482e  | Fix Typo                                                                                            | Jun 21, 2025   |
 | VolunTrack-WebServices  | feature/deployment  | 610cf747226b00712f8d762ab2e81468133313ae  | Merge pull request #3 Wasi-Masi/origin/feature/deployment                                           | Jun 21, 2025   |
 
-#### 5.2.3.5. Execution Evidence for Sprint Review.
+#### 5.2.3.5. Execution Evidence for Sprint Review
 
 En el Sprint 3, se llevó a cabo el desarrollo integral de la lógica de negocio de la aplicación, estructurándola en cuatro Bounded Contexts bien definidos: ActivityRegistration, Notifications, Participation y VolunteerRegistration. Cada uno de estos contextos fue implementado siguiendo una arquitectura modular y por capas.
 Este diseño permitió una clara separación de responsabilidades dentro de cada contexto. A nivel de Dominio, se definieron las entidades y la lógica de negocio central. La capa de Aplicación se encargó de coordinar las operaciones a través de comandos y queries, y de orquestar los servicios específicos de cada contexto. La Infraestructura proporcionó las implementaciones necesarias, como la persistencia de datos (aunque no se especifica la tecnología aquí, en un contexto real se ubicarían las implementaciones de repositorios). Finalmente, las Interfaces REST expusieron la funcionalidad a través de controladores, manejando la entrada y salida de datos (DTOs).
