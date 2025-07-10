@@ -2,6 +2,7 @@
 Description:
 Styles for the dashboard header and the activities form layout, including responsive sections,
 buttons, inputs, and containers with consistent theming and spacing.
+Includes updated styles for frontend validation errors.
 
 Author: Ainhoa Castillo
 */
@@ -109,6 +110,49 @@ Author: Ainhoa Castillo
   box-sizing: border-box;
 }
 
+.validation-error {
+  color: #d32f2f;
+  font-size: 0.8em;
+  margin-top: -8px;
+  margin-bottom: 10px;
+  line-height: 1.2;
+}
+
+.error-messages {
+  background-color: #ffebee;
+  border: 1px solid #ef9a9a;
+  color: #c62828;
+  padding: 15px 20px;
+  margin-bottom: 25px;
+  border-radius: 8px;
+  font-size: 0.95em;
+  margin-top: 1em;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.error-messages p {
+  font-weight: bold;
+  margin-top: 0;
+  margin-bottom: 8px;
+}
+
+.error-messages ul {
+  list-style-type: none;
+  padding-left: 0;
+  margin: 0;
+}
+
+.error-messages li {
+  margin-bottom: 5px;
+  line-height: 1.4;
+}
+
+input.ng-invalid.ng-touched,
+textarea.ng-invalid.ng-touched {
+  border: 2px solid #d32f2f;
+  box-shadow: inset 0 1px 3px rgba(211, 47, 47, 0.2);
+}
+
 .activities-form__right-sameline {
   display: flex;
   gap: 2rem;
@@ -132,8 +176,6 @@ textarea {
   min-height: 100px;
   resize: vertical;
 }
-
-
 
 .activities-form__left-lowerside {
   display: flex;

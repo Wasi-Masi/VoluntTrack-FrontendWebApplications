@@ -1,29 +1,35 @@
-<div class="dashboard-header">
-  <h2 [routerLink]="['/dashboard']">{{ 'create-act.dashboard-title' | translate }}</h2>
-  <div class="dashboard-actions">
+<div class="dashboard-header" role="banner">
+  <h2 [routerLink]="['/dashboard']" role="link" tabindex="0">{{ 'create-act.dashboard-title' | translate }}</h2>
+  <div class="dashboard-actions" role="navigation">
     <button class="selected" mat-stroked-button color="primary" [routerLink]="['/create-activity']">
-      <mat-icon class="selected">add</mat-icon> {{ 'create-act.create' | translate }}
+      <mat-icon class="selected" aria-hidden="true">add</mat-icon> {{ 'create-act.create' | translate }}
     </button>
     <button [routerLink]="['/calendar']" mat-stroked-button color="accent">
-      <mat-icon>calendar_today</mat-icon> {{ 'dashboard.calendar' | translate }}
+      <mat-icon aria-hidden="true">calendar_today</mat-icon> {{ 'dashboard.calendar' | translate }}
     </button>
   </div>
 </div>
 
-<div class="activities-form__container">
-  <form class="activities-form" (ngSubmit)="onSubmit()">
+<div class="activities-form__container" role="main">
+    <form class="activities-form" #activityForm="ngForm" (ngSubmit)="onSubmit()">
     <div class="activities-form__left">
       <div class="activities-form__upperside">
-        <label>{{ 'create-act.add-pictures' | translate }}</label>
-        <textarea [(ngModel)]="picturesInput" name="pictures" placeholder="{{ 'create-act.instructions-pictures' | translate }}"></textarea>
+        <label for="picturesInput">{{ 'create-act.add-pictures' | translate }}</label>
+        <textarea
+          id="picturesInput"
+          [(ngModel)]="picturesInput"
+          name="pictures"
+          placeholder="{{ 'create-act.instructions-pictures' | translate}}"
+          aria-multiline="true"
+        ></textarea>
       </div>
 
       <div class="activities-form__left-lowerside">
-        <button mat-button type="submit">
-          <mat-icon>done</mat-icon>{{ 'create-act.update' | translate }}
+        <button mat-button type="submit" role="button">
+          <mat-icon aria-hidden="true">done</mat-icon>{{ 'create-act.update' | translate }}
         </button>
-        <button mat-button type="button" (click)="discard()">
-          <mat-icon>delete_outline</mat-icon>{{ 'create-act.discard' | translate }}
+        <button mat-button type="button" (click)="discard()" role="button">
+          <mat-icon aria-hidden="true">delete_outline</mat-icon>{{ 'create-act.discard' | translate }}
         </button>
       </div>
     </div>
@@ -31,46 +37,96 @@
     <div class="activities-form__right">
       <div class="activities-form__right-sameline">
         <div class="activities-form__upperside">
-          <label>{{ 'create-act.title' | translate }}</label>
-          <input type="text" [(ngModel)]="activity.titulo" name="title" />
+          <label for="titleInput">{{ 'create-act.title' | translate }}</label>
+          <input
+            id="titleInput"
+            type="text"
+            [(ngModel)]="activity.titulo"
+            name="title"
+            required
+            minlength="3"
+            maxlength="100"
+            #title="ngModel"
+          />
+          <div *ngIf="title.invalid && (title.dirty || title.touched)" class="validation-error">
+            <span *ngIf="title.errors?.['required']">El título es requerido.</span>
+            <span *ngIf="title.errors?.['minlength']">El título debe tener al menos 3 caracteres.</span>
+            <span *ngIf="title.errors?.['maxlength']">El título no debe exceder los 100 caracteres.</span>
+            <span *ngIf="validationErrors['title']">{{ validationErrors['title'] }}</span>
+          </div>
         </div>
       </div>
       <div class="activities-form__right-sameline">
         <div class="activities-form__upperside">
-          <label>{{ 'create-act.date' | translate }}</label>
+          <label for="dateInput">{{ 'create-act.date' | translate }}</label>
           <input
+            id="dateInput"
             type="date"
             [(ngModel)]="activity.fecha"
             name="date"
-            min="2025-05-16"
-            max="2025-12-31"
+            [min]="today"
+            required
+            #date="ngModel"
           />
+          <div *ngIf="date.invalid && (date.dirty || date.touched)" class="validation-error">
+            <span *ngIf="date.errors?.['required']">La fecha es requerida.</span>
+            <span *ngIf="validationErrors['fecha']">{{ validationErrors['fecha'] }}</span>
+          </div>
         </div>
         <div class="activities-form__upperside">
-          <label>{{ 'create-act.startTime' | translate }}</label>
+          <label for="startTimeInput">{{ 'create-act.startTime' | translate }}</label>
           <input
+            id="startTimeInput"
             type="time"
             [(ngModel)]="activity.horaInicio"
             name="startTime"
             min="06:00"
             max="18:00"
+            required
+            #startTime="ngModel"
           />
+          <div *ngIf="startTime.invalid && (startTime.dirty || startTime.touched)" class="validation-error">
+            <span *ngIf="startTime.errors?.['required']">La hora de inicio es requerida.</span>
+            <span *ngIf="validationErrors['horaInicio']">{{ validationErrors['horaInicio'] }}</span>
+          </div>
         </div>
         <div class="activities-form__upperside">
-          <label>{{ 'create-act.endTime' | translate }}</label>
+          <label for="endTimeInput">{{ 'create-act.endTime' | translate }}</label>
           <input
+            id="endTimeInput"
             type="time"
             [(ngModel)]="activity.horaFin"
             name="endTime"
             min="06:00"
             max="23:00"
+            required
+            #endTime="ngModel"
           />
+          <div *ngIf="endTime.invalid && (endTime.dirty || endTime.touched)" class="validation-error">
+            <span *ngIf="endTime.errors?.['required']">La hora de fin es requerida.</span>
+            <span *ngIf="validationErrors['horaFin']">{{ validationErrors['horaFin'] }}</span>
+          </div>
         </div>
       </div>
       <div class="activities-form__right-sameline">
         <div class="activities-form__upperside">
-          <label>{{ 'create-act.address' | translate }}</label>
-          <input type="text" [(ngModel)]="activity.ubicacion" name="address" />
+          <label for="addressInput">{{ 'create-act.address' | translate }}</label>
+          <input
+            id="addressInput"
+            type="text"
+            [(ngModel)]="activity.ubicacion"
+            name="address"
+            required
+            minlength="5"
+            maxlength="200"
+            #address="ngModel"
+          />
+          <div *ngIf="address.invalid && (address.dirty || address.touched)" class="validation-error">
+            <span *ngIf="address.errors?.['required']">La ubicación es requerida.</span>
+            <span *ngIf="address.errors?.['minlength']">La ubicación debe tener al menos 5 caracteres.</span>
+            <span *ngIf="address.errors?.['maxlength']">La ubicación no debe exceder los 200 caracteres.</span>
+            <span *ngIf="validationErrors['ubicacion']">{{ validationErrors['ubicacion'] }}</span>
+          </div>
         </div>
       </div>
 
@@ -84,27 +140,87 @@
             name="slots"
             min="1"
             required
+            #slots="ngModel"
           />
+          <div *ngIf="slots.invalid && (slots.dirty || slots.touched)" class="validation-error">
+            <span *ngIf="slots.errors?.['required']">Los cupos son requeridos.</span>
+            <span *ngIf="slots.errors?.['min']">Los cupos deben ser al menos 1.</span>
+            <span *ngIf="validationErrors['cupos']">{{ validationErrors['cupos'] }}</span>
+          </div>
         </div>
       </div>
       <div class="activities-form__right-sameline">
         <div class="activities-form__upperside">
-          <label>{{ 'create-act.description' | translate }}</label>
-          <textarea [(ngModel)]="activity.descripcion" name="description" placeholder="{{ 'create-act.description-textarea' | translate }}"></textarea>
+          <label for="descriptionInput">{{ 'create-act.description' | translate }}</label>
+          <textarea
+            id="descriptionInput"
+            [(ngModel)]="activity.descripcion"
+            name="description"
+            placeholder="{{ 'create-act.description-textarea' | translate }}"
+            minlength="10"
+            maxlength="500"
+            required
+            aria-multiline="true"
+            #description="ngModel"
+          ></textarea>
+          <div *ngIf="description.invalid && (description.dirty || description.touched)" class="validation-error">
+            <span *ngIf="description.errors?.['required']">La descripción es requerida.</span>
+            <span *ngIf="description.errors?.['minlength']">La descripción debe tener al menos 10 caracteres.</span>
+            <span *ngIf="description.errors?.['maxlength']">La descripción no debe exceder los 500 caracteres.</span>
+            <span *ngIf="validationErrors['descripcion']">{{ validationErrors['descripcion'] }}</span>
+          </div>
         </div>
       </div>
       <div class="activities-form__right-sameline">
         <div class="activities-form__right-half">
-          <label>{{ 'create-act.instructions' | translate }}</label>
-          <textarea [(ngModel)]="activity.instrucciones" name="instructions" placeholder="{{ 'create-act.instructions-textarea' | translate }}"></textarea>
+          <label for="instructionsInput">{{ 'create-act.instructions' | translate }}</label>
+          <textarea
+            id="instructionsInput"
+            [(ngModel)]="activity.instrucciones"
+            name="instructions"
+            placeholder="{{ 'create-act.instructions-textarea' | translate }}"
+            minlength="10"
+            maxlength="500"
+            required
+            aria-multiline="true"
+            #instructions="ngModel"
+          ></textarea>
+          <div *ngIf="instructions.invalid && (instructions.dirty || instructions.touched)" class="validation-error">
+            <span *ngIf="instructions.errors?.['required']">Las instrucciones son requeridas.</span>
+            <span *ngIf="instructions.errors?.['minlength']">Las instrucciones deben tener al menos 10 caracteres.</span>
+            <span *ngIf="instructions.errors?.['maxlength']">Las instrucciones no deben exceder los 500 caracteres.</span>
+            <span *ngIf="validationErrors['instrucciones']">{{ validationErrors['instrucciones'] }}</span>
+          </div>
         </div>
         <div class="activities-form__right-half">
-          <label>{{ 'create-act.purpose' | translate }}</label>
-          <textarea [(ngModel)]="activity.proposito" name="purpose" placeholder="{{ 'create-act.purpose-textarea' | translate }}"></textarea>
+          <label for="purposeInput">{{ 'create-act.purpose' | translate }}</label>
+          <textarea
+            id="purposeInput"
+            [(ngModel)]="activity.proposito"
+            name="purpose"
+            placeholder="{{ 'create-act.purpose-textarea' | translate }}"
+            minlength="10"
+            maxlength="500"
+            required
+            aria-multiline="true"
+            #purpose="ngModel"
+          ></textarea>
+          <div *ngIf="purpose.invalid && (purpose.dirty || purpose.touched)" class="validation-error">
+            <span *ngIf="purpose.errors?.['required']">El propósito es requerido.</span>
+            <span *ngIf="purpose.errors?.['minlength']">El propósito debe tener al menos 10 caracteres.</span>
+            <span *ngIf="purpose.errors?.['maxlength']">El propósito no debe exceder los 500 caracteres.</span>
+            <span *ngIf="validationErrors['proposito']">{{ validationErrors['proposito'] }}</span>
+          </div>
         </div>
       </div>
     </div>
   </form>
+  <div *ngIf="generalErrors.length > 0" class="error-messages">
+    <p>Por favor, corrige los siguientes errores:</p>
+    <ul>
+      <li *ngFor="let error of generalErrors">{{ error }}</li>
+    </ul>
+  </div>
 </div>
 
 <div style="height: 10%;"></div>
