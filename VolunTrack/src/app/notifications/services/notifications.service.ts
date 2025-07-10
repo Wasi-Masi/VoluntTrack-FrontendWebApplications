@@ -84,4 +84,27 @@ export class NotificationsService {
       observer.complete();
     });
   }
+
+
+  createTypedNotification2(
+    type: string,
+    recipientId: number,
+    recipientType: 'VOLUNTEER' | 'ORGANIZATION',
+    customMessage?: string
+  ): Observable<Notification> {
+    const headers = this.getAuthHeaders();
+
+    const payload: any = {
+      type,
+      recipientId,
+      recipientType
+    };
+
+    // Si se proporciona un mensaje personalizado, se incluye en el payload
+    if (customMessage) {
+      payload.message = customMessage;
+    }
+
+    return this.http.post<Notification>(this.apiUrl, payload, { headers });
+  }
 }
