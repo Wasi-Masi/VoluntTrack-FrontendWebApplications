@@ -105,7 +105,7 @@ export class RegisteredVolunteersComponent implements OnInit, AfterViewInit {
             recipientType,
             this.translate.instant('volunteers.activityLoadError')
           ).subscribe(() => {
-            window.dispatchEvent(new Event('openNotifications'));
+
           });
         }
       });
@@ -114,6 +114,7 @@ export class RegisteredVolunteersComponent implements OnInit, AfterViewInit {
     this.dataSource.filterPredicate = (data: any, filter: string) =>
       data.fullName.toLowerCase().includes(filter);
   }
+
 
   ngAfterViewInit() {
     this.dataSource.paginator = this.paginator;
@@ -154,7 +155,6 @@ export class RegisteredVolunteersComponent implements OnInit, AfterViewInit {
           recipientType, // recipientType: 'ORGANIZATION'
           this.translate.instant('volunteers.participationsLoadError') // customMessage
         ).subscribe(() => {
-          window.dispatchEvent(new Event('openNotifications'));
         });
         this.loadRegisteredVolunteers(activityId);
       }
@@ -187,7 +187,6 @@ export class RegisteredVolunteersComponent implements OnInit, AfterViewInit {
           recipientType, // recipientType: 'ORGANIZATION'
           this.translate.instant('volunteers.registeredVolunteersLoadError') // customMessage
         ).subscribe(() => {
-          window.dispatchEvent(new Event('openNotifications'));
         });
       }
     });
@@ -232,7 +231,6 @@ export class RegisteredVolunteersComponent implements OnInit, AfterViewInit {
             recipientType, // recipientType: 'VOLUNTEER'
             this.translate.instant('volunteers.participationCreated') // customMessage
           ).subscribe(() => {
-            window.dispatchEvent(new Event('openNotifications'));
           });
           this.volunteerParticipations[String(volunteerId)] = response.id;
           volunteer.hasParticipation = true;
@@ -248,7 +246,6 @@ export class RegisteredVolunteersComponent implements OnInit, AfterViewInit {
             recipientType, // recipientType: 'VOLUNTEER'
             this.translate.instant('volunteers.participationCreateError') // customMessage
           ).subscribe(() => {
-            window.dispatchEvent(new Event('openNotifications'));
           });
           volunteer.hasParticipation = false;
         }
@@ -268,7 +265,6 @@ export class RegisteredVolunteersComponent implements OnInit, AfterViewInit {
               recipientType, // recipientType: 'VOLUNTEER'
               this.translate.instant('volunteers.participationCreateError') // customMessage
             ).subscribe(() => {
-              window.dispatchEvent(new Event('openNotifications'));
             });
             delete this.volunteerParticipations[String(volunteerId)];
             volunteer.hasParticipation = false;
@@ -299,7 +295,6 @@ export class RegisteredVolunteersComponent implements OnInit, AfterViewInit {
           recipientType, // recipientType: 'VOLUNTEER'
           this.translate.instant('volunteers.participationDeleteError') // customMessage
         ).subscribe(() => {
-          window.dispatchEvent(new Event('openNotifications'));
         });
         volunteer.hasParticipation = false;
       }
@@ -324,7 +319,6 @@ export class RegisteredVolunteersComponent implements OnInit, AfterViewInit {
         recipientType, // recipientType: 'ORGANIZATION'
         this.translate.instant('volunteers.noVolunteersAttendedForCertificates') // customMessage
       ).subscribe(() => {
-        window.dispatchEvent(new Event('openNotifications'));
       });
       return;
     }
