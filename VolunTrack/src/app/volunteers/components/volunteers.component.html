@@ -29,14 +29,6 @@
         </div>
 
         <div class="metric-card">
-          <div class="metric-title">{{ 'volunteers.totalCertificates' | translate }}</div>
-          <div class="metric-value">
-            <mat-icon class="metric-icon">verified</mat-icon>
-            <span>{{ totalCertificates }}</span>
-          </div>
-        </div>
-
-        <div class="metric-card">
           <div class="metric-title">{{ 'volunteers.totalVolunteers' | translate }}</div>
           <div class="metric-value">
             <mat-icon class="metric-icon">group</mat-icon>
@@ -50,8 +42,6 @@
             <span class="metric-note">{{ 'volunteers.sinceLastMonth' | translate }}</span>
           </div>
         </div>
-
-
 
         <div class="metric-card">
           <div class="metric-title">{{ 'volunteers.inactive' | translate }}</div>
@@ -121,7 +111,6 @@
         {{ 'common.noResults' | translate }}
       </div>
     </div>
-
 
     <div *ngIf="selectedVolunteer" class="volunteer-side-panel">
 
