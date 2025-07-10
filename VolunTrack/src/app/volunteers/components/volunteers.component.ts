@@ -17,7 +17,7 @@ import {MatDialog, MatDialogModule, MatDialogConfig} from '@angular/material/dia
 import {MatButtonModule} from '@angular/material/button';
 
 import {VolunteersService} from '../services/volunteers.service';
-import {Volunteer, VolunteerFilterPayload} from '../model/volunteers.entity';
+import {Volunteer, VolunteerFilterPayload} from '../model/volunteers.entity'; // Volunteer now correctly has firstName/lastName
 import {CertificatesDialogComponent} from './certificates-dialog/certificates-dialog.component';
 import {CreateVolunteerDialogComponent} from './create-volunteer-dialog/create-volunteer-dialog.component';
 import {VolunteerFilterDialogComponent} from './volunteer-filter-dialog/volunteer-filter-dialog.component';
@@ -31,6 +31,8 @@ import { ActivityListDialogComponent } from './activity-list-dialog/activity-lis
 
 // --- NUEVA IMPORTACIÓN ---
 import { EmailService, EmailRequest } from '../services/email.service';
+import { ApiResponse } from '../../shared/models/api-response.interface'; // Assuming this path for ApiResponse
+import { NotificationType } from '../../notifications/model/notification-type.enum'; // Assuming this path for NotificationType
 
 @Component({
   selector: 'app-volunteers',
@@ -59,9 +61,10 @@ import { EmailService, EmailRequest } from '../services/email.service';
 })
 
 export class VolunteersComponent implements OnInit, AfterViewInit {
-  volunteers: Volunteer[] = [];
-  displayedColumns: string[] = ['fullName', 'age', 'profession'];
-  dataSource = new MatTableDataSource<Volunteer>([]);
+  // dataSource is now typed as 'any' to allow adding fullName dynamically
+  dataSource = new MatTableDataSource<any>([]); // Changed to any to allow dynamic fullName
+  volunteers: Volunteer[] = []; // Still store original Volunteer type
+
   emailSubject: string = '';
   emailBody: string = '';
 
@@ -79,14 +82,14 @@ export class VolunteersComponent implements OnInit, AfterViewInit {
   sendEmail = false;
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
+  displayedColumns: string[] = ['fullName', 'age', 'profession'];
 
   constructor(
     private volunteersService: VolunteersService,
     private dialog: MatDialog,
-    private notificationsService: NotificationsService, // Servicio de notificaciones
-    private loginService: LoginService, // Para obtener el ID de la organización
+    private notificationsService: NotificationsService,
+    private loginService: LoginService,
     private cdr: ChangeDetectorRef,
-    // --- NUEVA INYECCIÓN DEL SERVICIO DE CORREO ---
     private emailService: EmailService
   ) {}
 
@@ -119,17 +122,16 @@ export class VolunteersComponent implements OnInit, AfterViewInit {
       this.currentFilterCriteria.organizationId = loggedInOrganizationId;
       this.loadVolunteers(this.currentFilterCriteria);
     } else {
-      console.error('No se pudo obtener la Organization ID del usuario logueado. No se cargarán voluntarios.');
-      // LLAMADA 1: Notificación de error si no se puede obtener el Organization ID
-      const recipientId = this.loginService.getOrganizationId(); // Puede ser null aquí
+      console.error('Could not get logged-in Organization ID. Volunteers will not be loaded.');
+      const recipientId = this.loginService.getOrganizationId();
       const recipientType: 'VOLUNTEER' | 'ORGANIZATION' = 'ORGANIZATION';
 
-      if (recipientId !== null) { // Solo si hay un ID válido
+      if (recipientId !== null) {
         this.notificationsService.createTypedNotification(
-          'GENERIC', // Asumiendo 'GENERIC' para errores que no son de un tipo específico de backend
+          NotificationType.GENERIC,
           recipientId,
           recipientType,
-          'No se pudo cargar voluntarios. Inicie sesión nuevamente.'
+          'Could not load volunteers. Please log in again.'
         ).subscribe(() => {
           window.dispatchEvent(new Event('openNotifications'));
         });
@@ -141,34 +143,62 @@ export class VolunteersComponent implements OnInit, AfterViewInit {
     const effectiveFilters = filters || this.currentFilterCriteria;
 
     this.volunteersService.getVolunteers(effectiveFilters).subscribe({
-      next: (data) => {
-        this.volunteers = data;
-        this.dataSource.data = data;
+      next: (response: ApiResponse<Volunteer[]>) => { // Expect ApiResponse<Volunteer[]>
+        if (response.data && Array.isArray(response.data)) {
+          // --- CAMBIO CLAVE AQUÍ: Añadir fullName a cada objeto Volunteer ---
+          const processedVolunteers = response.data.map(v => {
+            // Create a new object to avoid directly mutating the original Volunteer reference
+            // and to add the fullName property.
+            const volunteerWithFullName: Volunteer & { fullName?: string } = { ...v };
+            volunteerWithFullName.fullName = `${v.firstName || ''} ${v.lastName || ''}`.trim();
+            return volunteerWithFullName;
+          });
 
-        this.applyLocalFilters();
-        this.calculateMetrics();
-        if (this.paginator) {
-          this.paginator.firstPage();
-          this.dataSource.paginator = this.paginator;
-          this.cdr.detectChanges();
+          this.volunteers = processedVolunteers; // Store the processed volunteers
+          this.dataSource.data = processedVolunteers; // Assign to dataSource
+
+          this.applyLocalFilters();
+          this.calculateMetrics();
+          if (this.paginator) {
+            this.paginator.firstPage();
+            this.dataSource.paginator = this.paginator;
+            this.cdr.detectChanges();
+          }
+          console.log('Volunteers loaded with data:', this.volunteers);
+        } else {
+          console.warn('No volunteer data found in the response or unexpected format:', response);
+          this.volunteers = [];
+          this.dataSource.data = [];
+          const recipientId = this.loginService.getOrganizationId();
+          if (recipientId !== null) {
+            this.notificationsService.createTypedNotification(
+              NotificationType.INFO,
+              recipientId,
+              'ORGANIZATION',
+              'No volunteers found with the current filters.'
+            ).subscribe(() => {
+              window.dispatchEvent(new Event('openNotifications'));
+            });
+          }
         }
       },
       error: (error) => {
-        console.error('Error al cargar voluntarios:', error);
-        // LLAMADA 2: Notificación de error al cargar voluntarios
+        console.error('Error loading volunteers:', error);
         const recipientId = this.loginService.getOrganizationId();
         const recipientType: 'VOLUNTEER' | 'ORGANIZATION' = 'ORGANIZATION';
 
         if (recipientId !== null) {
           this.notificationsService.createTypedNotification(
-            'GENERIC', // Asumiendo 'GENERIC' para errores
+            NotificationType.ERROR,
             recipientId,
             recipientType,
-            'Error al cargar voluntarios.'
+            'Error loading volunteers.'
           ).subscribe(() => {
             window.dispatchEvent(new Event('openNotifications'));
           });
         }
+        this.volunteers = [];
+        this.dataSource.data = [];
       }
     });
   }
@@ -191,16 +221,15 @@ export class VolunteersComponent implements OnInit, AfterViewInit {
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
         this.loadVolunteers(this.currentFilterCriteria);
-        // LLAMADA 3: Notificación de éxito al crear voluntario
         const recipientId = this.loginService.getOrganizationId();
         const recipientType: 'VOLUNTEER' | 'ORGANIZATION' = 'ORGANIZATION';
 
         if (recipientId !== null) {
           this.notificationsService.createTypedNotification(
-            'SIGNUP', // Usar 'SIGNUP' si el backend usa este tipo para "voluntario creado"
+            NotificationType.SIGNUP,
             recipientId,
             recipientType,
-            'Voluntario creado exitosamente.' // Mensaje personalizado, si no quieres el por defecto del backend
+            'Volunteer created successfully.'
           ).subscribe(() => {
             window.dispatchEvent(new Event('openNotifications'));
           });
@@ -211,16 +240,15 @@ export class VolunteersComponent implements OnInit, AfterViewInit {
 
   onAddToActivity(): void {
     if (!this.selectedVolunteer) {
-      // LLAMADA 4: Notificación informativa si no hay voluntario seleccionado
       const recipientId = this.loginService.getOrganizationId();
       const recipientType: 'VOLUNTEER' | 'ORGANIZATION' = 'ORGANIZATION';
 
       if (recipientId !== null) {
         this.notificationsService.createTypedNotification(
-          'GENERIC', // Asumiendo 'GENERIC' para mensajes informativos o de advertencia
+          NotificationType.GENERIC,
           recipientId,
           recipientType,
-          'Por favor, seleccione un voluntario primero.'
+          'Please select a volunteer first.'
         ).subscribe(() => {
           window.dispatchEvent(new Event('openNotifications'));
         });
@@ -238,32 +266,30 @@ export class VolunteersComponent implements OnInit, AfterViewInit {
 
     dialogRef.afterClosed().subscribe(result => {
       if (result && result.enrolled) {
-        // LLAMADA 5: Notificación de éxito al inscribir voluntario en actividad
         const recipientId = this.loginService.getOrganizationId();
         const recipientType: 'VOLUNTEER' | 'ORGANIZATION' = 'ORGANIZATION';
 
         if (recipientId !== null) {
           this.notificationsService.createTypedNotification(
-            'JOINED_ACTIVITY', // Usar 'JOINED_ACTIVITY' si el backend tiene este tipo para inscripciones
+            NotificationType.JOINED_ACTIVITY,
             recipientId,
             recipientType,
-            'Voluntario inscrito en la actividad exitosamente.' // Mensaje personalizado
+            'Volunteer successfully enrolled in the activity.'
           ).subscribe(() => {
             window.dispatchEvent(new Event('openNotifications'));
           });
         }
       } else if (result && result.error) {
-        console.error('Error al inscribir voluntario en actividad:', result.error);
-        // LLAMADA 6: Notificación de error al inscribir voluntario en actividad
+        console.error('Error enrolling volunteer in activity:', result.error);
         const recipientId = this.loginService.getOrganizationId();
         const recipientType: 'VOLUNTEER' | 'ORGANIZATION' = 'ORGANIZATION';
 
         if (recipientId !== null) {
           this.notificationsService.createTypedNotification(
-            'GENERIC', // Asumiendo 'GENERIC' para errores
+            NotificationType.GENERIC,
             recipientId,
             recipientType,
-            'Error al inscribir voluntario en la actividad.'
+            'Error enrolling volunteer in the activity.'
           ).subscribe(() => {
             window.dispatchEvent(new Event('openNotifications'));
           });
@@ -274,7 +300,10 @@ export class VolunteersComponent implements OnInit, AfterViewInit {
 
   applyLocalFilters(): void {
     let filteredData = this.volunteers.filter(v => {
-      const volunteerFullName = `${v.firstName} ${v.lastName}`;
+      // --- CAMBIO CLAVE AQUÍ: Usar firstName y lastName para construir fullName ---
+      // v is now Volunteer & { fullName?: string } from loadVolunteers
+      const volunteerFullName = `${v.firstName || ''} ${v.lastName || ''}`.trim();
+
       const matchesSearchText = this.searchText === '' || volunteerFullName.toLowerCase().includes(this.searchText.toLowerCase());
 
       const volunteerAge = this.calculateAge(v.dateOfBirth);
@@ -326,16 +355,15 @@ export class VolunteersComponent implements OnInit, AfterViewInit {
   }
 
   fireNotification() {
-    // LLAMADA 7: Notificación de envío de correo (asumiendo que se envía a la organización logueada)
     const recipientId = this.loginService.getOrganizationId();
     const recipientType: 'VOLUNTEER' | 'ORGANIZATION' = 'ORGANIZATION';
 
     if (recipientId !== null) {
       this.notificationsService.createTypedNotification(
-        'GENERIC', // Asumiendo 'GENERIC' para eventos como envío de correo, o crea un tipo 'MAIL_SENT' en backend
+        NotificationType.GENERIC,
         recipientId,
         recipientType,
-        'Correo enviado al voluntario seleccionado.'
+        'Email sent to the selected volunteer.'
       ).subscribe(() => {
         window.dispatchEvent(new Event('openNotifications'));
       });
@@ -346,19 +374,17 @@ export class VolunteersComponent implements OnInit, AfterViewInit {
     this.sendEmail = !this.sendEmail;
   }
 
-  // --- ¡NUEVO MÉTODO PARA ELIMINAR VOLUNTARIO! ---
   onDeleteVolunteer(): void {
     if (!this.selectedVolunteer) {
-      // LLAMADA 8: Notificación informativa si no hay voluntario seleccionado para eliminar
       const recipientId = this.loginService.getOrganizationId();
       const recipientType: 'VOLUNTEER' | 'ORGANIZATION' = 'ORGANIZATION';
 
       if (recipientId !== null) {
         this.notificationsService.createTypedNotification(
-          'GENERIC', // Asumiendo 'GENERIC' para mensajes informativos
+          NotificationType.GENERIC,
           recipientId,
           recipientType,
-          'Por favor, seleccione un voluntario para eliminar.'
+          'Please select a volunteer to delete.'
         ).subscribe(() => {
           window.dispatchEvent(new Event('openNotifications'));
         });
@@ -382,17 +408,17 @@ export class VolunteersComponent implements OnInit, AfterViewInit {
       if (result) {
         if (this.selectedVolunteer?.id) {
           this.volunteersService.deleteVolunteer(this.selectedVolunteer.id).subscribe({
-            next: () => {
-              // LLAMADA 9: Notificación de éxito al eliminar voluntario
+            next: (response: ApiResponse<void>) => {
+              console.log('Volunteer deleted successfully:', response.message);
               const recipientId = this.loginService.getOrganizationId();
               const recipientType: 'VOLUNTEER' | 'ORGANIZATION' = 'ORGANIZATION';
 
               if (recipientId !== null) {
                 this.notificationsService.createTypedNotification(
-                  'GENERIC', // Asumiendo 'GENERIC' para "Voluntario eliminado". Si tu backend tiene 'VOLUNTEER_DELETED', úsalo.
+                  NotificationType.GENERIC,
                   recipientId,
                   recipientType,
-                  'Voluntario eliminado exitosamente.'
+                  'Volunteer deleted successfully.'
                 ).subscribe(() => {
                   window.dispatchEvent(new Event('openNotifications'));
                 });
@@ -402,17 +428,16 @@ export class VolunteersComponent implements OnInit, AfterViewInit {
               this.loadVolunteers(this.currentFilterCriteria);
             },
             error: (error) => {
-              // LLAMADA 10: Notificación de error al eliminar voluntario
-              console.error('Error al eliminar voluntario:', error);
+              console.error('Error deleting volunteer:', error);
               const recipientId = this.loginService.getOrganizationId();
               const recipientType: 'VOLUNTEER' | 'ORGANIZATION' = 'ORGANIZATION';
 
               if (recipientId !== null) {
                 this.notificationsService.createTypedNotification(
-                  'GENERIC', // Asumiendo 'GENERIC' para errores
+                  NotificationType.GENERIC,
                   recipientId,
                   recipientType,
-                  'Error al eliminar voluntario.'
+                  'Error deleting volunteer.'
                 ).subscribe(() => {
                   window.dispatchEvent(new Event('openNotifications'));
                 });
@@ -420,32 +445,29 @@ export class VolunteersComponent implements OnInit, AfterViewInit {
             }
           });
         }
-      } else {
       }
     });
   }
-  // --- FIN NUEVO MÉTODO ---
 
   onSendEmailFromForm(): void {
     if (!this.selectedVolunteer || !this.selectedVolunteer.email) {
       this.notificationsService.createTypedNotification(
-        'GENERIC',
+        NotificationType.GENERIC,
         this.loginService.getOrganizationId()!,
         'ORGANIZATION',
-        'No se pudo enviar el correo. Por favor, seleccione un voluntario con dirección de correo.'
+        'Could not send email. Please select a volunteer with an email address.'
       ).subscribe(() => {
         window.dispatchEvent(new Event('openNotifications'));
       });
       return;
     }
 
-    // Verifica que los campos no estén vacíos
     if (!this.emailSubject.trim() || !this.emailBody.trim()) {
       this.notificationsService.createTypedNotification(
-        'GENERIC',
+        NotificationType.GENERIC,
         this.loginService.getOrganizationId()!,
         'ORGANIZATION',
-        'El asunto y el cuerpo del correo no pueden estar vacíos.'
+        'Email subject and body cannot be empty.'
       ).subscribe(() => {
         window.dispatchEvent(new Event('openNotifications'));
       });
@@ -459,28 +481,27 @@ export class VolunteersComponent implements OnInit, AfterViewInit {
     };
 
     this.emailService.sendEmail(emailRequest).subscribe({
-      next: () => {
-        console.log('Correo enviado exitosamente.');
+      next: (message: string) => { // Correctly expects a string message
+        console.log('Email sent successfully:', message);
         this.notificationsService.createTypedNotification(
-          'GENERIC',
+          NotificationType.GENERIC,
           this.loginService.getOrganizationId()!,
           'ORGANIZATION',
-          'Correo enviado exitosamente.'
+          'Email sent successfully.'
         ).subscribe(() => {
           window.dispatchEvent(new Event('openNotifications'));
         });
-        // Limpia los campos y oculta el formulario después de enviar
         this.emailSubject = '';
         this.emailBody = '';
         this.sendEmail = false;
       },
       error: (error) => {
-        console.error('Error al enviar el correo:', error);
+        console.error('Error sending email:', error);
         this.notificationsService.createTypedNotification(
-          'GENERIC',
+          NotificationType.GENERIC,
           this.loginService.getOrganizationId()!,
           'ORGANIZATION',
-          'Error al enviar el correo.'
+          'Error sending email.'
         ).subscribe(() => {
           window.dispatchEvent(new Event('openNotifications'));
         });
@@ -488,15 +509,13 @@ export class VolunteersComponent implements OnInit, AfterViewInit {
     });
   }
 
-  // --- NUEVA IMPLEMENTACIÓN DE ENVÍO DE CORREO ---
   openSendEmailDialog(): void {
     if (!this.selectedVolunteer) {
-      // Notificación si no hay voluntario seleccionado
       this.notificationsService.createTypedNotification(
-        'GENERIC',
+        NotificationType.GENERIC,
         this.loginService.getOrganizationId()!,
         'ORGANIZATION',
-        'Por favor, seleccione un voluntario para enviar un correo.'
+        'Please select a volunteer to send an email.'
       ).subscribe(() => {
         window.dispatchEvent(new Event('openNotifications'));
       });
@@ -507,10 +526,10 @@ export class VolunteersComponent implements OnInit, AfterViewInit {
     dialogConfig.disableClose = true;
     dialogConfig.autoFocus = true;
     dialogConfig.data = {
-      title: 'Enviar correo',
-      message: `¿Estás seguro de que quieres enviar un correo a ${this.selectedVolunteer.firstName} ${this.selectedVolunteer.lastName}?`,
-      confirmText: 'Enviar',
-      cancelText: 'Cancelar'
+      title: 'Send Email',
+      message: `Are you sure you want to send an email to ${this.selectedVolunteer.firstName} ${this.selectedVolunteer.lastName}?`,
+      confirmText: 'Send',
+      cancelText: 'Cancel'
     };
 
     const dialogRef = this.dialog.open(ConfirmDialogComponent, dialogConfig);
@@ -525,56 +544,49 @@ export class VolunteersComponent implements OnInit, AfterViewInit {
   onSendEmail(): void {
     if (!this.selectedVolunteer || !this.selectedVolunteer.email) {
       this.notificationsService.createTypedNotification(
-        'GENERIC',
+        NotificationType.GENERIC,
         this.loginService.getOrganizationId()!,
         'ORGANIZATION',
-        'No se pudo enviar el correo. El voluntario no tiene una dirección de correo.'
+        'Could not send email. The volunteer does not have an email address.'
       ).subscribe(() => {
         window.dispatchEvent(new Event('openNotifications'));
       });
       return;
     }
 
-
-
-
-    // Crea la solicitud con el correo del voluntario
     const emailRequest: EmailRequest = {
       to: this.selectedVolunteer.email,
-      subject: 'Certificado de participación - VolunTrack',
-      body: `Hola ${this.selectedVolunteer.firstName},\n\nGracias por tu participación en nuestras actividades. Adjuntamos un certificado de reconocimiento.`
+      subject: 'Participation Certificate - VolunTrack',
+      body: `Hello ${this.selectedVolunteer.firstName},\n\nThank you for your participation in our activities. We are attaching a certificate of recognition.`
     };
 
     this.emailService.sendEmail(emailRequest).subscribe({
-      next: (response) => {
-        console.log('Correo enviado exitosamente:', response);
+      next: (message: string) => { // Correctly expects a string message
+        console.log('Email sent successfully:', message);
         this.notificationsService.createTypedNotification(
-          'GENERIC',
+          NotificationType.GENERIC,
           this.loginService.getOrganizationId()!,
           'ORGANIZATION',
-          'Correo enviado exitosamente.'
+          'Email sent successfully.'
         ).subscribe(() => {
           window.dispatchEvent(new Event('openNotifications'));
         });
       },
       error: (error) => {
-        console.error('Error al enviar el correo:', error);
+        console.error('Error sending email:', error);
         this.notificationsService.createTypedNotification(
-          'GENERIC',
+          NotificationType.GENERIC,
           this.loginService.getOrganizationId()!,
           'ORGANIZATION',
-          'Error al enviar el correo.'
+          'Error sending email.'
         ).subscribe(() => {
           window.dispatchEvent(new Event('openNotifications'));
         });
       }
     });
   }
-  // --- FIN NUEVA IMPLEMENTACIÓN ---
-
 
   protected readonly history = history;
-
 
   totalVolunteers: number = 0;
   newThisMonth: number = 0;
@@ -585,6 +597,7 @@ export class VolunteersComponent implements OnInit, AfterViewInit {
   totalVolunteersChange: number = 0;
   newThisMonthChange: number = 0;
   inactiveVolunteersChange: number = 0;
+
   getProfessionKeys(): string[] {
     return Object.keys(this.volunteersByProfession);
   }
@@ -605,7 +618,7 @@ export class VolunteersComponent implements OnInit, AfterViewInit {
       }
     });
     const now = new Date();
-    const currentMonth = now.getMonth(); // 0 = enero, 11 = diciembre
+    const currentMonth = now.getMonth();
     const currentYear = now.getFullYear();
 
     this.newThisMonth = this.volunteers.filter(v => {

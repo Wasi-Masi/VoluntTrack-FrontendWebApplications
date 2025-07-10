@@ -6,32 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="32d7f7b8-0dc4-4ad3-b13e-38150f113ef0" name="Changes" comment="Merge branch 'feature/volunteer-creation' into develop&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/VolunTrack/src/app/activity-details/components/activity-details.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/VolunTrack/src/app/activity-details/components/activity-details.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/VolunTrack/src/app/activity-details/services/activity-details.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/VolunTrack/src/app/activity-details/services/activity-details.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/VolunTrack/src/app/calendar/components/calendar.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/VolunTrack/src/app/calendar/components/calendar.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/VolunTrack/src/app/create-activity/components/create-activity.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/VolunTrack/src/app/create-activity/components/create-activity.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/VolunTrack/src/app/create-activity/services/create-activity.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/VolunTrack/src/app/create-activity/services/create-activity.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/VolunTrack/src/app/dashboard/components/dashboard.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/VolunTrack/src/app/dashboard/components/dashboard.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/VolunTrack/src/app/dashboard/services/dashboard.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/VolunTrack/src/app/dashboard/services/dashboard.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/VolunTrack/src/app/edit-activity/components/edit-activity.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/VolunTrack/src/app/edit-activity/components/edit-activity.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/VolunTrack/src/app/login/components/login.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/VolunTrack/src/app/login/components/login.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/VolunTrack/src/app/login/services/login.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/VolunTrack/src/app/login/services/login.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/VolunTrack/src/app/notifications/components/notifications.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/VolunTrack/src/app/notifications/components/notifications.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/VolunTrack/src/app/notifications/services/notifications.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/VolunTrack/src/app/notifications/services/notifications.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/VolunTrack/src/app/participation/services/inscription.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/VolunTrack/src/app/participation/services/inscription.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/VolunTrack/src/app/profile/components/profile.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/VolunTrack/src/app/profile/components/profile.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/VolunTrack/src/app/profile/services/profile.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/VolunTrack/src/app/profile/services/profile.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/VolunTrack/src/app/register/components/register.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/VolunTrack/src/app/register/components/register.component.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/VolunTrack/src/app/registered-volunteers/components/registered-volunteers.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/VolunTrack/src/app/registered-volunteers/components/registered-volunteers.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/VolunTrack/src/app/registered-volunteers/services/participation.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/VolunTrack/src/app/registered-volunteers/services/participation.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/VolunTrack/src/app/registered-volunteers/services/registered-volunteers.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/VolunTrack/src/app/registered-volunteers/services/registered-volunteers.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/VolunTrack/src/app/volunteers/components/activity-list-dialog/activity-list-dialog.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/VolunTrack/src/app/volunteers/components/activity-list-dialog/activity-list-dialog.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/VolunTrack/src/app/volunteers/components/certificates-dialog/certificates-dialog.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/VolunTrack/src/app/volunteers/components/certificates-dialog/certificates-dialog.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/VolunTrack/src/app/volunteers/components/create-volunteer-dialog/create-volunteer-dialog.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/VolunTrack/src/app/volunteers/components/create-volunteer-dialog/create-volunteer-dialog.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VolunTrack/src/app/volunteers/components/volunteers.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/VolunTrack/src/app/volunteers/components/volunteers.component.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/VolunTrack/src/app/volunteers/components/volunteers.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/VolunTrack/src/app/volunteers/components/volunteers.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/VolunTrack/src/app/volunteers/services/certificats.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/VolunTrack/src/app/volunteers/services/certificats.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/VolunTrack/src/app/volunteers/services/volunteers.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/VolunTrack/src/app/volunteers/services/volunteers.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/VolunTrack/src/environments/environment.ts" beforeDir="false" afterPath="$PROJECT_DIR$/VolunTrack/src/environments/environment.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VolunTrack/src/app/volunteers/services/email.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/VolunTrack/src/app/volunteers/services/email.service.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -62,21 +40,21 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "develop",
-    "last_opened_file_path": "D:/my myself/upc/Open Source/S6/VoluntTrack-FrontendWebApplications",
-    "node.js.detected.package.eslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "npm.start.executor": "Run",
-    "ts.external.directory.path": "C:\\Users\\alext\\open\\VoluntTrack-FrontendWebApplications\\VolunTrack\\node_modules\\typescript\\lib",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;develop&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/my myself/upc/Open Source/S6/VoluntTrack-FrontendWebApplications&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;npm.start.executor&quot;: &quot;Run&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;C:\\Users\\alext\\open\\VoluntTrack-FrontendWebApplications\\VolunTrack\\node_modules\\typescript\\lib&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\my myself\upc\Open Source\S6\VoluntTrack-FrontendWebApplications\VolunTrack\src\app\volunteers\components\certificates-dialog" />

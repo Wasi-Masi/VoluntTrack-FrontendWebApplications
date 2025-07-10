@@ -14,7 +14,7 @@ export interface EmailRequest {
   providedIn: 'root'
 })
 export class EmailService {
-  private apiUrl = `${environment.apiUrl}/v1/email/send`;
+  private apiUrl = `${environment.apiUrl}/email/send`;
 
   constructor(private http: HttpClient) {}
 

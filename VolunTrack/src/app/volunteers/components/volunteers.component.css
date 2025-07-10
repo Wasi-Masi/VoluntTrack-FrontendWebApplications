@@ -13,7 +13,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 87%;
+  height: auto;
   background: #ffffff;
   padding: 0.5rem 2rem 2rem;
 }
@@ -31,6 +31,7 @@
 .volunteers-table-panel,
 .volunteer-metrics-panel {
   transition: width 0.3s ease;
+  height: 100%;
 }
 
 
@@ -191,6 +192,7 @@
   flex: 1 1 auto;
   overflow-y: auto;
   margin: 1rem 0;
+  height: 100vh;
   border-radius: 10px;
 }
 
@@ -443,8 +445,6 @@ mat-dialog-content {
   gap: 10px;
 }
 
-
-
 .metric-change {
   display: flex;
   align-items: center;
@@ -493,4 +493,65 @@ mat-dialog-content {
   display: flex;
   flex-direction: column;
   gap: 8px;
+}
+/* --- Email & History Panels --- */
+.volunteer-email-panel,
+.volunteer-history-panel {
+  width: 100%;
+  height: 100%;
+  padding: 1rem;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 1px 6px rgba(0,0,0,0.1); /* Consistent shadow */
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  gap: 0.75rem; /* 12px */
+}
+
+.volunteer-email-panel form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.line {
+  display: flex;
+  flex-direction: column;
+  justify-items: flex-start;
+  gap: 0.5rem;
+  box-sizing: border-box;
+}
+
+.line input, .line textarea {
+  font-family: 'Inter', sans-serif; /* Use Inter font */
+  background-color: #ffffff;
+  border-radius: 4px;
+  border: 1px solid #ccc; /* Default border */
+  box-sizing: border-box;
+  width: 100%; /* Ensure full width within form-field */
+}
+
+.volunteer-email-panel h3 {
+  margin: 0;
+  color: #24344C;
+  font-size: 1.2rem;
+}
+
+.volunteer-email-panel p {
+  margin: 0;
+  font-size: 0.8rem;
+  color: #555;
+}
+
+.volunteer-history-panel h3 {
+  font-weight: bolder;
+  margin-top: 0;
+}
+
+.volunteer-history-panel p {
+  color: #777;
+  font-style: italic;
 }
