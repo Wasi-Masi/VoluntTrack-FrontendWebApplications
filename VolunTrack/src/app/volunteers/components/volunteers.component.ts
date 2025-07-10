@@ -29,6 +29,8 @@ import { LoginService } from '../../login/services/login.service';
 import { ChangeDetectorRef } from '@angular/core';
 import { ActivityListDialogComponent } from './activity-list-dialog/activity-list-dialog.component';
 
+// --- NUEVA IMPORTACIÓN ---
+import { EmailService, EmailRequest } from '../services/email.service';
 
 @Component({
   selector: 'app-volunteers',
@@ -60,6 +62,8 @@ export class VolunteersComponent implements OnInit, AfterViewInit {
   volunteers: Volunteer[] = [];
   displayedColumns: string[] = ['fullName', 'age', 'profession'];
   dataSource = new MatTableDataSource<Volunteer>([]);
+  emailSubject: string = '';
+  emailBody: string = '';
 
   searchText: string = '';
   currentFilterCriteria: VolunteerFilterPayload = {
@@ -81,7 +85,9 @@ export class VolunteersComponent implements OnInit, AfterViewInit {
     private dialog: MatDialog,
     private notificationsService: NotificationsService, // Servicio de notificaciones
     private loginService: LoginService, // Para obtener el ID de la organización
-    private cdr: ChangeDetectorRef
+    private cdr: ChangeDetectorRef,
+    // --- NUEVA INYECCIÓN DEL SERVICIO DE CORREO ---
+    private emailService: EmailService
   ) {}
 
   ngAfterViewInit(): void {
@@ -267,8 +273,6 @@ export class VolunteersComponent implements OnInit, AfterViewInit {
   }
 
   applyLocalFilters(): void {
-
-
     let filteredData = this.volunteers.filter(v => {
       const volunteerFullName = `${v.firstName} ${v.lastName}`;
       const matchesSearchText = this.searchText === '' || volunteerFullName.toLowerCase().includes(this.searchText.toLowerCase());
@@ -422,6 +426,152 @@ export class VolunteersComponent implements OnInit, AfterViewInit {
   }
   // --- FIN NUEVO MÉTODO ---
 
+  onSendEmailFromForm(): void {
+    if (!this.selectedVolunteer || !this.selectedVolunteer.email) {
+      this.notificationsService.createTypedNotification(
+        'GENERIC',
+        this.loginService.getOrganizationId()!,
+        'ORGANIZATION',
+        'No se pudo enviar el correo. Por favor, seleccione un voluntario con dirección de correo.'
+      ).subscribe(() => {
+        window.dispatchEvent(new Event('openNotifications'));
+      });
+      return;
+    }
+
+    // Verifica que los campos no estén vacíos
+    if (!this.emailSubject.trim() || !this.emailBody.trim()) {
+      this.notificationsService.createTypedNotification(
+        'GENERIC',
+        this.loginService.getOrganizationId()!,
+        'ORGANIZATION',
+        'El asunto y el cuerpo del correo no pueden estar vacíos.'
+      ).subscribe(() => {
+        window.dispatchEvent(new Event('openNotifications'));
+      });
+      return;
+    }
+
+    const emailRequest: EmailRequest = {
+      to: this.selectedVolunteer.email,
+      subject: this.emailSubject,
+      body: this.emailBody
+    };
+
+    this.emailService.sendEmail(emailRequest).subscribe({
+      next: () => {
+        console.log('Correo enviado exitosamente.');
+        this.notificationsService.createTypedNotification(
+          'GENERIC',
+          this.loginService.getOrganizationId()!,
+          'ORGANIZATION',
+          'Correo enviado exitosamente.'
+        ).subscribe(() => {
+          window.dispatchEvent(new Event('openNotifications'));
+        });
+        // Limpia los campos y oculta el formulario después de enviar
+        this.emailSubject = '';
+        this.emailBody = '';
+        this.sendEmail = false;
+      },
+      error: (error) => {
+        console.error('Error al enviar el correo:', error);
+        this.notificationsService.createTypedNotification(
+          'GENERIC',
+          this.loginService.getOrganizationId()!,
+          'ORGANIZATION',
+          'Error al enviar el correo.'
+        ).subscribe(() => {
+          window.dispatchEvent(new Event('openNotifications'));
+        });
+      }
+    });
+  }
+
+  // --- NUEVA IMPLEMENTACIÓN DE ENVÍO DE CORREO ---
+  openSendEmailDialog(): void {
+    if (!this.selectedVolunteer) {
+      // Notificación si no hay voluntario seleccionado
+      this.notificationsService.createTypedNotification(
+        'GENERIC',
+        this.loginService.getOrganizationId()!,
+        'ORGANIZATION',
+        'Por favor, seleccione un voluntario para enviar un correo.'
+      ).subscribe(() => {
+        window.dispatchEvent(new Event('openNotifications'));
+      });
+      return;
+    }
+
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.disableClose = true;
+    dialogConfig.autoFocus = true;
+    dialogConfig.data = {
+      title: 'Enviar correo',
+      message: `¿Estás seguro de que quieres enviar un correo a ${this.selectedVolunteer.firstName} ${this.selectedVolunteer.lastName}?`,
+      confirmText: 'Enviar',
+      cancelText: 'Cancelar'
+    };
+
+    const dialogRef = this.dialog.open(ConfirmDialogComponent, dialogConfig);
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        this.onSendEmail();
+      }
+    });
+  }
+
+  onSendEmail(): void {
+    if (!this.selectedVolunteer || !this.selectedVolunteer.email) {
+      this.notificationsService.createTypedNotification(
+        'GENERIC',
+        this.loginService.getOrganizationId()!,
+        'ORGANIZATION',
+        'No se pudo enviar el correo. El voluntario no tiene una dirección de correo.'
+      ).subscribe(() => {
+        window.dispatchEvent(new Event('openNotifications'));
+      });
+      return;
+    }
+
+
+
+
+    // Crea la solicitud con el correo del voluntario
+    const emailRequest: EmailRequest = {
+      to: this.selectedVolunteer.email,
+      subject: 'Certificado de participación - VolunTrack',
+      body: `Hola ${this.selectedVolunteer.firstName},\n\nGracias por tu participación en nuestras actividades. Adjuntamos un certificado de reconocimiento.`
+    };
+
+    this.emailService.sendEmail(emailRequest).subscribe({
+      next: (response) => {
+        console.log('Correo enviado exitosamente:', response);
+        this.notificationsService.createTypedNotification(
+          'GENERIC',
+          this.loginService.getOrganizationId()!,
+          'ORGANIZATION',
+          'Correo enviado exitosamente.'
+        ).subscribe(() => {
+          window.dispatchEvent(new Event('openNotifications'));
+        });
+      },
+      error: (error) => {
+        console.error('Error al enviar el correo:', error);
+        this.notificationsService.createTypedNotification(
+          'GENERIC',
+          this.loginService.getOrganizationId()!,
+          'ORGANIZATION',
+          'Error al enviar el correo.'
+        ).subscribe(() => {
+          window.dispatchEvent(new Event('openNotifications'));
+        });
+      }
+    });
+  }
+  // --- FIN NUEVA IMPLEMENTACIÓN ---
+
 
   protected readonly history = history;
 
@@ -472,12 +622,12 @@ export class VolunteersComponent implements OnInit, AfterViewInit {
 
     const newLastMonth = this.volunteers.filter(v => {
       const d = new Date(v.dateOfBirth);
-      return d.getFullYear() === prevYear && d.getMonth() === prevMonth;
+      return (d.getFullYear() === prevYear && d.getMonth() === prevMonth);
     }).length;
 
     const totalLastMonth = this.volunteers.filter(v => {
       const d = new Date(v.dateOfBirth);
-      return d.getFullYear() < currentYear || (d.getFullYear() === currentYear && d.getMonth() < currentMonth);
+      return (d.getFullYear() < currentYear || (d.getFullYear() === currentYear && d.getMonth() < currentMonth));
     }).length;
 
     const inactiveLastMonth = this.volunteers.filter(v => {
@@ -504,5 +654,4 @@ export class VolunteersComponent implements OnInit, AfterViewInit {
     if (oldValue === 0) return newValue > 0 ? 100 : 0;
     return ((newValue - oldValue) / oldValue) * 100;
   }
-
 }
