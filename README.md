@@ -27,20 +27,21 @@
 | 1.0 (TB1)   | 27/04/2024 | - Binda Arbañil, Marcelo Alejandro<br>- Castillo Garay, Ainhoa Lucía<br>- Martel Andrade, Cassius Estefano<br>- Nakamurakare Teruya, Alex Tomio<br>- Ortiz Alarcón, Víctor Nicolás<br>- George Galván Cerrón | Capítulo I: Introducción<br>Capítulo II: Requirements Elicitation & Analysis<br>Capítulo III: Requirements Specification<br>Capítulo IV: Product Design<br>Capítulo V: Product Implementation, Validation & Deployment |
 | 2.0 (TP)    | 16/05/2025 | - Binda Arbañil, Marcelo Alejandro<br>- Castillo Garay, Ainhoa Lucía<br>- Martel Andrade, Cassius Estefano<br>- Nakamurakare Teruya, Alex Tomio<br>- Ortiz Alarcón, Víctor Nicolás<br>- Galván Cerrón, George | Correcciones de la TB1<br>Capítulo V: Product Implementation, Validation & Deployment                                                |
 | 3.0 (TB2)    | 22/06/2025 | - Binda Arbañil, Marcelo Alejandro<br>- Castillo Garay, Ainhoa Lucía<br>- Martel Andrade, Cassius Estefano<br>- Nakamurakare Teruya, Alex Tomio<br>- Ortiz Alarcón, Víctor Nicolás<br>- Galván Cerrón, George | Correcciones del TP<br>Sprint 3<br>Desarrollo del Backend<br>Entrevistas de validación                                               |
+| 4.0 (TF)    | 10/07/2025 | - Binda Arbañil, Marcelo Alejandro<br>- Castillo Garay, Ainhoa Lucía<br>- Martel Andrade, Cassius Estefano<br>- Nakamurakare Teruya, Alex Tomio<br>- Ortiz Alarcón, Víctor Nicolás<br>- Galván Cerrón, George | Correcciones del TB2<br>Sprint 4<br>Conexiones entre el frontend y backend                                              |
+
 
 # Project Report Collaboration Insights
 
 Repositorio donde está el project report: https://github.com/Wasi-Masi/VoluntTrack-FrontendWebApplications
 
 Para el desarrollo del informe hemos trabajado en un google docs, y luego hemos pasado el contenido al readme del repositorio principal.
-Para esta entrega, se actualizo el readme, se agregó el sprint 3 y se hicieron entrevistas de validación de producto que permiteron realizar evaluaciones heurísticas.
-
+Para esta entrega, se actualizo el readme y se agregó el sprint 4.
 <p align="center">
-  <img src="https://imgur.com/DEu9gva.png" alt="Insights readme">
+  <img src="https://imgur.com/tDAlnue.png" alt="Insights readme">
 </p>
 
 <p align="center">
-  <img src="https://imgur.com/4sG120d.png" alt="Commits readme">
+  <img src="https://imgur.com/undefined.png" alt="Commits readme">
 </p>
 
 Como se puede ver, todos hemos participado en los commits del readme. Si bien parece que uno de los miembros realizo más commits, es debido a que fue el encargado de realizar hotfixes, ajustes menores, correcciones y los merges.
@@ -150,12 +151,21 @@ Como se puede ver, todos hemos participado en los commits del readme. Si bien pa
     + [5.2.3. Sprint 3](#523-sprint-3)
       - [5.2.3.1. Sprint Planning](#5231-sprint-planning)
       - [5.2.3.2. Aspect Leaders and Collaborators](#5232-aspect-leaders-and-collaborators)
-      - [5.2.3.3 Sprint Backlog 2](#5233-sprint-backlog-3)
+      - [5.2.3.3 Sprint Backlog 3](#5233-sprint-backlog-3)
       - [5.2.3.4. Development Evidence for Sprint Review](#5234-development-evidence-for-sprint-review)
       - [5.2.3.5. Execution Evidence for Sprint Review](#5235-execution-evidence-for-sprint-review)
       - [5.2.3.6. Services Documentation Evidence for Sprint Review](#5236-services-documentation-evidence-for-sprint-review)
       - [5.2.3.7. Software Deployment Evidence for Sprint Review](#5237-software-deployment-evidence-for-sprint-review)
       - [5.2.3.8. Team Collaboration Insights during Sprint](#5238-team-collaboration-insights-during-sprint)
+    + [5.2.4. Sprint 3](#524-sprint-4)
+      - [5.2.4.1. Sprint Planning](#5241-sprint-planning)
+      - [5.2.4.2. Aspect Leaders and Collaborators](#5242-aspect-leaders-and-collaborators)
+      - [5.2.4.3 Sprint Backlog 4](#5243-sprint-backlog-4)
+      - [5.2.4.4. Development Evidence for Sprint Review](#5244-development-evidence-for-sprint-review)
+      - [5.2.4.5. Execution Evidence for Sprint Review](#5245-execution-evidence-for-sprint-review)
+      - [5.2.4.6. Services Documentation Evidence for Sprint Review](#5246-services-documentation-evidence-for-sprint-review)
+      - [5.2.4.7. Software Deployment Evidence for Sprint Review](#5247-software-deployment-evidence-for-sprint-review)
+      - [5.2.4.8. Team Collaboration Insights during Sprint](#5248-team-collaboration-insights-during-sprint)
   * [5.3. Validation Interviews](#53-validation-interviews)
     + [5.3.1. Diseño de Entrevistas](#531-diseño-de-entrevistas)
     + [5.3.2. Registro de Entrevistas](#532-registro-de-entrevistas)
@@ -3266,6 +3276,268 @@ Evidencia de las ramas
 Evidencia de commits por integrante del grupo
 <p align="center">
   <img src="https://github.com/user-attachments/assets/7e4c3303-af1a-4d31-8244-5726e50e4e58" alt="commits por integrante">
+</p>
+
+### 5.2.4. Sprint 4
+
+#### 5.2.4.1. Sprint Planning
+
+| **Sprint #**                    | Sprint 4 |
+|--------------------------------|----------|
+|                                | **Sprint Planning Background** |
+| **Date**                       | 2025-07-09 |
+| **Time**                       | 1:30 PM |
+| **Location**                   | Virtual |
+| **Prepared By**                | Binda Arbañil Marcelo Alejandro |
+| **Attendees (to planning meeting)** | Ainhoa Lucía Castillo Garay / Marcelo Alejandro Binda Arbañil / Martel Andradre Cassius Estefano / Nakamurakare Teruya Alex Tomio / Ortiz Alarcón Victor Nicolas / George Galván Cerrón |
+| **Sprint 3 Review Summary**    | Durante el Sprint 3, el equipo de VolunTrack se centró en el desarrollo e implementación de las funcionalidades centrales del backend. Esto incluyó la construcción de todos los bounded contexts de la aplicación (ActivityRegistration, Notifications, Participation y VolunteerRegistration) y su respectivo código, lo que generó los endpoints RESTful necesarios para la gestión de datos. El objetivo principal fue establecer una base de datos robusta, implementar la lógica de negocio eficiente y asegurar la creación de endpoints API funcionales para las entidades clave del sistema. La finalización de esta fase del backend fue crucial para preparar la integración con el frontend. |
+| **Sprint 3 Retrospective Summary** | En la retrospectiva del Sprint 3, el equipo de VolunTrack valoró positivamente el progreso en la construcción de los bounded contexts del backend y la exposición de los endpoints RESTful. Se destacó la consolidación de la lógica de negocio y la gestión de datos para los dominios de ActivityRegistration, Notifications, Participation y VolunteerRegistration, lo que estableció una base sólida para la aplicación. Sin embargo, se identificó la necesidad de una preparación más profunda para la integración con el frontend, incluyendo la definición clara de los mecanismos de seguridad y autenticación. El equipo acordó priorizar estas integraciones y la documentación detallada de la API en el siguiente sprint para facilitar el trabajo del frontend y asegurar una colaboración fluida. |
+|                                | **Sprint Goal & User Stories** |
+| **Sprint 4 Goal**              | Our primary focus in Sprint 4 is to establish robust and secure connectivity between the frontend and backend of VolunTrack, with a particular emphasis on implementing and integrating the JWT-based authentication system. We aim to enable seamless user registration, login, and secure access to protected resources, ensuring that the frontend can interact effectively and safely with the backend API. <br><br>We believe this approach will deliver a fully integrated and authenticated user experience, validating the backend's security mechanisms and empowering frontend developers to build interactive features upon a secure foundation. <br><br>This will be confirmed when users can successfully register, log in, manage their sessions, and access their profile information securely through the frontend, interacting directly with the backend API. |
+| **Sprint 4 Velocity**          | 25 |
+| **Sum of Story Points**        | 44 (26) |
+
+Si bien la suma total de Story Points asignados a las historias del Sprint 4 asciende a 44 puntos, el esfuerzo efectivo estimado fue de aproximadamente 26 puntos. Esto se debe a que varias funcionalidades ya contaban con avances previos, desarrollados durante las etapas iniciales del proyecto, especialmente en los Sprints 1, 2 y 3, donde se trabajaron aspectos de diseño, lógica de backend e interfaces de usuario. Esta estimación más realista nos permitió mantenernos dentro de nuestra Sprint Velocity de 25 puntos, asegurando una distribución equilibrada de tareas y una planificación acorde a la capacidad operativa del equipo.
+
+#### 5.2.4.2. Aspect Leaders and Collaborators
+
+| **Team Member (Last Name, First Name)** | **Traducciones del backend** | **Tokens** | **Conexión con dashboard** | **Conexión Mis voluntarios** | **Conexión con activity details y create/edit activity** | **Conexión con voluntarios inscritos** | **Conexión con calendario** | **Certificados** | **Notifications** |
+|----------------------------------------|-------------------------------|------------|-----------------------------|------------------------------|----------------------------------------------------------|----------------------------------------|----------------------------|------------------|--------------------|
+| Castillo Garay, Ainhoa Lucía           | C                             | C          | C                           | L                            | C                                                        | C                                      | C                          | C                | C                  |
+| Binda Arbañil, Marcelo Alejandro       | C                             | C          | C                           | C                            | L                                                        | C                                      | C                          | C                | C                  |
+| Martel Andrade, Cassius Estefano       | C                             | L          | C                           | C                            | C                                                        | C                                      | C                          | C                | L                  |
+| Ortiz Alarcón, Victor Nicolás          | C                             | C          | C                           | C                            | C                                                        | C                                      | C                          | L                | C                  |
+| Nakamurake Teruya, Alex Tomio          | C                             | C          | L                           | C                            | C                                                        | L                                      | L                          | C                | C                  |
+| Galván Cerrón, George                  | L                             | C          | C                           | C                            | C                                                        | C                                      | C                          | C                | C                  |
+
+#### 5.2.4.3 Sprint Backlog 4
+
+| **Sprint** | **User Story ID** | **Task ID** | **Descripción**                                                                                                            | **Estimación (hrs)** | **Asignado a**                | **Estado** |
+|------------|-------------------|-------------|-----------------------------------------------------------------------------------------------------------------------------|----------------------|-------------------------------|------------|
+| Sprint #4  | US01              | T01         | Integración de register.component con el backend                                                                            | 1                    | Cassius Martel                | Done       |
+| Sprint #4  | US03              | T02         | Integración de create-activity.component con el backend                                                                     | 2                    | Tomio Nakamurakare            | Done       |
+|            |                   | T03         | Integración de create-activity.service con el backend                                                                       | 1                    | Tomio Nakamurakare            | Done       |
+| Sprint #4  | US04              | T04         | Integración de volunteers.component con el backend                                                                          | 2                    | Ainhoa Castillo               | Done       |
+|            |                   | T05         | Integración de volunteers.service con el backend                                                                            | 1                    | Ainhoa Castillo               | Done       |
+|            |                   | T06         | Integración de volunteers.entity con el backend                                                                             | 1                    | Ainhoa Castillo               | Done       |
+| Sprint #4  | US05              | T07         | Integración de registeredvolunteers.component con el backend                                                                | 2                    | Tomio Nakamurakare            | Done       |
+|            |                   | T08         | Integración de registeredvolunteers.service con el backend                                                                  | 1                    | Tomio Nakamurakare            | Done       |
+|            |                   | T09         | Integración de registeredvolunteers.etntiy con el backend                                                                   | 1                    | Tomio Nakamurakare            | Done       |
+| Sprint #4  | US06              | T10         | Integración de notifications.component con el backend                                                                       | 1                    | Ainhoa Castillo               | Done       |
+|            |                   | T11         | Integración de notifications.service con el backend                                                                         | 1                    | Ainhoa Castillo               | Done       |
+|            |                   | T12         | Integración de notifications.entity con el backend                                                                          | 1                    | Ainhoa Castillo               | Done       |
+| Sprint #4  | US09              | T13         | Integración de certificates-dialog.component con el backend                                                                 | 3                    | Victor Ortíz                  | Done       |
+|            |                   | T14         | Integración de certificates-dialog.service con el backend                                                                   | 1                    | Victor Ortíz                  | Done       |
+| Sprint #4  | US10              | T15         | Integración de activity-details.component con el backend                                                                    | 2                    | Marcelo Binda                 | Done       |
+|            |                   | T16         | Integración de activity-details.service con el backend                                                                      | 1                    | Marcelo Binda                 | Done       |
+| Sprint #4  | US20              | T17         | Integración de calendar.component con el backend                                                                            | 3                    | Tomio Nakamurakare            | Done       |
+|            |                   | T18         | Integración de calendar.service con el backend                                                                              | 1                    | Tomio Nakamurakare            | Done       |
+| Sprint #4  | US21              | T19         | Integración de dashboard.component con el backend                                                                           | 3                    | Tomio Nakamurakare            | Done       |
+|            |                   | T20         | Integración de dashboard.service con el backend                                                                             | 1                    | Tomio Nakamurakare            | Done       |
+|            |                   | T21         | Integración de dashboard.entity con el backend                                                                              | 1                    | Tomio Nakamurakare            | Done       |
+| Sprint #4  | TS08              | T22         | Implementar AuthenticationController y DTOs (SignInResource, SignUpResource, AuthenticationResponseResource) para /auth.   | 2                    | Cassius Martel                | Done       |
+|            |                   | T23         | Desarrollar TokenService y JwtAuthenticationFilter para generación y validación de JWTs                                    | 2                    | Cassius Martel                | Done       |
+| Sprint #4  | TS09              | T24         | Actualizar el backend y frontend para /api/users/{userId} y /api/users/me                                                   | 3                    | Cassius Martel                | Done       |
+| Sprint #4  | TS10              | T25         | Crear y modificar archivos iniciales para es y en (mensajes de éxito y errores de validación)                              | 2                    | George Galván                 | Done       |
+|            |                   | T26         | Configurar la localización de mensajes de Bean Validation                                                                   | 1                    | George Galván                 | Done       |
+
+Evidencia del Sprint en Jiro:
+
+<p align="center">
+  <img src="https://imgur.com/op6ybde.png" alt="sprrr4-0">
+</p>
+
+<p align="center">
+  <img src="https://imgur.com/M6A6TBk.png" alt="sprrr4-1">
+</p>
+
+#### 5.2.4.4. Development Evidence for Sprint Review
+
+| Repository              | Branch               | Commit ID                               | Commit Message                                                                                   | Committed on   |
+|:------------------------|:---------------------|:----------------------------------------|:--------------------------------------------------------------------------------------------------|:---------------|
+| VolunTrack-WebServices  | develop              | 1b0f28e33f4055419e5e1be243a142568f7760b8| Pulling latest changes into develop                                                               | Jul 9, 2025    |
+| VolunTrack-WebServices  | develop              | 2ac9bdf437639dab423cc59c11422b240aeb1837| Updating visual for user profile                                                                  | Jul 9, 2025    |
+| VolunTrack-WebServices  | develop              | 12b60849a9ef84d33167be52b21840f77d41358c| Merge branch 'feature/volunteers' into develop                                                    | Jul 9, 2025    |
+| VolunTrack-WebServices  | develop              | 3e4373066b3c1afef00d89f80f8102afbf114b16| Add aditional participation endpoint                                                              | Jul 9, 2025    |
+| VolunTrack-WebServices  | develop              | 0dc177570c74ddd62612e27b9c3506af6110b1c8| Add endpoints for volunteer registration in activities                                            | Jul 9, 2025    |
+| VolunTrack-WebServices  | develop              | 0dc177570c74ddd62612e27b9c3506af6110b1c8| Add organization id attribute into User aggregate                                                 | Jul 9, 2025    |
+| VolunTrack-WebServices  | feature-i18n         | c0622008581af4bf94626949a5ebf2df3ae1068b| feat: added i18n 2                                                                                | Jul 9, 2025    |
+| VolunTrack-WebServices  | feature-i18n         | c6827c61ee60d4ca2bf2b54caeef2b705f215131| feat: added i18n                                                                                  | Jul 9, 2025    |
+| VolunTrack-WebServices  | develop              | 61984b5daf6bf589ea0c2dc2012b958e4fec25bb| Merge branch 'feature/user' into develop                                                          | Jul 9, 2025    |
+| VolunTrack-WebServices  | feature/user         | 87db974f7e7c29cd42aefad9fae8306c4b0b0680| Add endpoints for user management                                                                 | Jul 9, 2025    |
+| VolunTrack-WebServices  | develop              | cb71685d5c4b98062518d626ad049135113b0fe3| Fix activity images fetching                                                                      | Jul 9, 2025    |
+| VolunTrack-WebServices  | develop              | 21ad178918f6f4c8714cdca3f9d262ed8e3a296a| Add activity image value object                                                                   | Jul 9, 2025    |
+| VolunTrack-WebServices  | develop              | 536e78acabebbee19a0dd585931fb1f552ecfc31| Add form validation for activity                                                                  | Jul 9, 2025    |
+| VolunTrack-WebServices  | add-activit          | 7c441319b1b5583a0964464fab4114dd20994010| Implement backend integration for volunteer registration for activities                          | Jul 9, 2025    |
+| VolunTrack-WebServices  | volunteer-creation   | ae24d35be5106c1c43d3fda28c4f10b14351935a| Implement volunteer panel integration with backend                                                | Jul 9, 2025    |
+| VolunTrack-WebServices  | activity-integration | f5292e3ba1c6ccd8e5c5f6f4adfe192f3df0f492| Update activity variable names                                                                    | Jul 9, 2025    |
+| VolunTrack-WebServices  | activity-integration | 506b0fc1ee2ee98bcc78c561fd0be69fb435d8e0| Merge branch 'develop' of https://github.com/Wasi-Masi/VoluntTrack-FrontendWebApplications       | Jul 9, 2025    |
+| VolunTrack-WebServices  | volunteers           | 993e13f9ed669c279635d56e7adda7b85ef1ba51| Implement deactiva volunteer button logic                                                         | Jul 9, 2025    |
+| VolunTrack-WebServices  | volunteers           | 975ae54d7e426e492099711d07bdf3d5cf2e02e0| feat: Improvement in volunteers' search filters                                                    | Jul 9, 2025    |
+| VolunTrack-WebServices  | volunteers           | 4a069260a860c11f1531990dfbb453c37a2785e9| Fix display                                                                                        | Jul 9, 2025    |
+| VolunTrack-WebServices  | volunteers           | 1f42f0f05dab4bf902f6b8980d4db1ab17783287| Fix dashboard card image                                                                          | Jul 8, 2025    |
+| VolunTrack-WebServices  | volunteers           | fdc3df9a5cf6a62c9a0a294ac3e25e69ae12787d| Integrate activities api calls with frontend                                                       | Jul 8, 2025    |
+| VolunTrack-WebServices  | volunteers           | 3d5af1db2fd4c442bbe6cfbd5480dba137fd97d9| Volunteers connection to database                                                                 | Jul 8, 2025    |
+| VolunTrack-WebServices  | develop              | 2b485e226ad9ba6d44c26a4314b9502ecb3e850f| Merge branch 'develop' of https://github.com/Wasi-Masi/VolunTrack-WebServices into develop        | Jul 8, 2025    |
+| VolunTrack-WebServices  | profile-integration  | 695dfadac1e18e2400541bd962f43cd8e98293b0| Implement profile integration with backend                                                        | Jul 8, 2025    |
+| VolunTrack-WebServices  | dashboard            | 2eaf6ed650ffaa1f5cdca6891663d6fbd1c78d0c| Improving visuals and design                                                                      | Jul 8, 2025    |
+| VolunTrack-WebServices  | dashboard            | 169da12bea9f4e907b92182f777a66657f178fd9| Pull latest changes into branch                                                                   | Jul 8, 2025    |
+| VolunTrack-WebServices  | register-integration | 24e59906d1ddcdb00fe75d32b0f8efb9bc85447c| Integrate register component with backend                                                         | Jul 8, 2025    |
+| VolunTrack-WebServices  | login-integration    | a64f2bf27c9220c5bc29f5af8f383053578d876f| Integrate login component with backend                                                            | Jul 8, 2025    |
+| VolunTrack-WebServices  | login-integration    | aa24caced09145b5344d1598a1018a4a0af68dab| Fix backend connection                                                                            | Jul 8, 2025    |
+| VolunTrack-WebServices  | login-integration    | f29e24913007464d1e603bfc5fd56f449b9cba91| Comment unnecessary code                                                                          | Jul 8, 2025    |
+| VolunTrack-WebServices  | login-integration    | 6415dff2d7783c21561fc523a899b1318b101d77| Add initial backend connection configuration                                                      | Jul 8, 2025    |
+| VolunTrack-WebServices  | feature/iam          | 2c4238d004796aef44e10de6231fd7c8a9a2cc48| Add IAM and JWT configuration                                                                     | Jul 8, 2025    |
+| VolunTrack-WebServices  | feature/iam          | ea724370b0129f687e727b5cadad6870022b9ac6| Add initial frontend configuration                                                                | Jul 8, 2025    |
+
+#### 5.2.4.5. Execution Evidence for Sprint Review
+
+Durante el Sprint 4, el equipo de backend de Voluntrack se enfocó en la implementación crítica del bounded context de IAM (Identity and Access Management). Este módulo es fundamental para garantizar una gestión robusta de la autenticación y autorización de usuarios dentro de la plataforma.
+
+Se procedió con el desarrollo de la capa REST, creando controladores específicos como AuthenticationController y UserController para manejar las operaciones de registro, inicio de sesión y actualización de perfiles de usuario. Se definieron los DTOs correspondientes, como SignInResource, SignUpResource, UpdateUserResource, UserResource y AuthenticationResponseResource, para facilitar la comunicación entre el frontend y el backend.
+
+En la capa de dominio, se consolidó el modelo User dentro de los agregados, representando la entidad central de usuario. La infraestructura de seguridad fue una prioridad, implementando un UserDetailsServiceImp para la carga de detalles del usuario y estableciendo una estructura para la gestión de tokens JWT. Se desarrolló el JwtAuthenticationFilter y el TokenService para asegurar la generación, validación y gestión segura de los tokens de acceso, protegiendo las rutas de la API. Además, se definió el UserRepository para la persistencia de los datos de usuario.
+
+Este sprint representó un avance significativo en la modularidad y seguridad de la aplicación, sentando las bases para la gestión de usuarios y el control de acceso.
+
+
+<p align="center">
+  <img src="https://imgur.com/M8uFvAU.png" alt="sprinttt4">
+</p>
+
+
+<p align="center">
+  <img src="https://imgur.com/wzCCuSw" alt="sprintttf4">
+</p>
+
+Las imágenes proporcionan una evidencia clara del funcionamiento del sistema de autenticación basado en JSON Web Tokens (JWT) dentro de la interfaz de documentación Swagger de Voluntrack.
+El proceso de autenticación se inicia mediante el endpoint POST /api/auth/sign-in, que permite a los usuarios registrados iniciar sesión con sus credenciales. Tras una solicitud exitosa, verificada por un código de respuesta 200 OK, la API retorna un token JWT completo en el cuerpo de la respuesta. Este token es crucial para la seguridad de la aplicación.
+
+Posteriormente, este token JWT es utilizado para autorizar futuras solicitudes. En la sección "Available authorizations" de Swagger UI, se introduce el token obtenido (en formato Bearer). Este mecanismo demuestra cómo el token JWT es generado y luego empleado para autenticar y autorizar llamadas a otros endpoints protegidos de la API directamente desde la documentación interactiva, validando así la correcta implementación de la seguridad y la gestión de autenticación en el backend de Voluntrack.
+
+#### 5.2.4.6. Services Documentation Evidence for Sprint Review
+
+Durante el Sprint 4, el equipo de desarrollo de Voluntrack se centró en consolidar la integración y la seguridad, documentando exhaustivamente los Web Services utilizando Swagger UI. Esto garantiza el correcto entendimiento, uso y mantenimiento de la API, especialmente para el recién implementado bounded context de IAM (Identity and Access Management).
+
+La documentación está completa para los endpoints de autenticación y gestión de usuarios. Para cada endpoint, se detallan las acciones (como "Register a user" y "Sign in with an existing user"), el verbo HTTP (POST), la sintaxis de llamada, la especificación de parámetros, y ejemplos de request y response. Un aspecto crucial documentado es el proceso de generación y consumo de tokens JWT, mostrando cómo, tras un inicio de sesión exitoso, se retorna un token que luego se utiliza para autorizar llamadas a otros endpoints protegidos de la API directamente desde Swagger.
+
+| Endpoint                   | Acción                                                                                      | Verbo HTTP | Sintaxis de llamada            | Parámetros                                                                                                                                               | Ejemplo de Request                                                                                                                                                                                                                                                                                                          | Ejemplo de Response                                                                                                                                                                                                                                   | Explicación                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+|----------------------------|---------------------------------------------------------------------------------------------|------------|--------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| /api/auth/sign-up          | Registrar un nuevo usuario en el sistema.                                                  | POST       | POST /api/auth/sign-up         | Body JSON:<br>{<br>"username": "string",<br>"password": "string",<br>"email": "string",<br>"phoneNumber": "string",<br>"plan": "string",<br>"description": "string",<br>"profilePictureUrl": "string",<br>"bannerPictureUrl": "string"<br>}                                   | POST /api/auth/sign-up<br>{<br>"username": "ONG Ayuda Comunitaria",<br>"password": "contra123",<br>"email": "contacto@ongayudacomunitaria.org",<br>"phoneNumber": "987987655",<br>"plan": "Premiun",<br>"description": "Organización dedicada a la asistencia social en comunidades vulnerables,",<br>"profilePictureUrl": "https://m.supergeek.cl/.../GOLDEN_WIND.jpg",<br>"bannerPictureUrl": "https://m.supergeek.cl/.../GOLDEN_WIND.jpg"<br>} | {<br>"token": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJPTkcgQXl1ZGEgQ29tdW5pdGFyaWEiLCJpYXQiOjE3NTIwNzc4MjQsImV4cCI6MTc1MjE2NDIyNH0.94W8HrGdGCbQkijeAKoveVt8Khu49Uid-mnI3FF96ts"<br>} | Este endpoint permite a nuevos usuarios o entidades registrarse en la plataforma Voluntrack. Al proporcionar los datos requeridos (nombre de usuario, contraseña, email, etc.), el sistema crea una nueva cuenta y, en caso de éxito, retorna un token JWT que el usuario puede usar para futuras interacciones autenticadas con la API. Este token es esencial para la gestión segura de sesiones y para acceder a recursos protegidos. |
+| /api/auth/sign-in          | Iniciar sesión con un usuario existente.                                                   | POST       | POST /api/auth/sign-in         | Body JSON:<br>{<br>"username": "string",<br>"password": "string"<br>}                                                                                     | POST /api/auth/sign-in<br>{<br>"username": "ONG Ayuda Comunitaria",<br>"password": "contra123"<br>}                                                                                                                                                                                                                         | {<br>"token": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJPTkcgQXl1ZGEgQ29tdW5pdGFyaWEiLCJpYXQiOjE3NTIwNzc4MjQsImV4cCI6MTc1MjE2NDIyNH0.94W8HrGdGCbQkijeAKoveVt8Khu49Uid-mnI3FF96ts"<br>} | Este endpoint se utiliza para que los usuarios ya registrados puedan autenticarse en la plataforma Voluntrack. Al enviar sus credenciales (nombre de usuario y contraseña), el sistema valida la información y, si es correcta, emite un token JWT. Este token actúa como una credencial de sesión para el usuario, permitiéndole realizar solicitudes autorizadas a otros servicios de la API sin necesidad de reenviar sus credenciales en cada petición. |
+| /api/users/{userId}        | Actualizar la información de un usuario específico.                                        | PUT        | PUT /api/users/{userId}        | Path Param:<br>userId: int<br><br>Body JSON:<br>{<br>"username": "string",<br>"email": "string",<br>"phoneNumber": "string",<br>"plan": "string",<br>"description": "string",<br>"profilePictureUrl": "string",<br>"bannerPictureUrl": "string"<br>}                              | PUT /api/users/1<br>{<br>"id": 1,<br>"username": "ONG Ayuda Comunitaria",<br>"email": "CONTACTOREAL@ongayudacomunitaria.org",<br>"phoneNumber": "987987655",<br>"plan": "Premiun",<br>"description": "Organización dedicada a la asistencia social en comunidades vulnerables,",<br>"profilePictureUrl": "...",<br>"bannerPictureUrl": "..."<br>}                     | {<br>"id": 1,<br>"username": "ONG Ayuda Comunitaria",<br>"email": "CONTACTOREAL@ongayudacomunitaria.org",<br>"phoneNumber": "987987655",<br>"plan": "Premiun",<br>"description": "Organización dedicada a la asistencia social en comunidades vulnerables,",<br>"profilePictureUrl": "...",<br>"bannerPictureUrl": "..."<br>}      | Este endpoint permite a un usuario o administrador autorizado modificar los detalles de un perfil de usuario existente. El `userId` en la URL identifica al usuario a actualizar. Se envía un cuerpo JSON con los campos del perfil que se desean modificar. Tras una actualización exitosa, normalmente retorna el perfil de usuario actualizado. |
+| /api/users/me              | Obtener la información del perfil del usuario autenticado actualmente.                    | GET        | GET /api/users/me              | Header: Authorization: Bearer token                                                                                                                      | GET /api/users/me                                                                                                                                                                                                                                                                                                             | {<br>"id": 1,<br>"username": "ONG Ayuda Comunitaria",<br>"email": "contacto@ongayudacomunitaria.org",<br>"phoneNumber": "987987655",<br>"plan": "Premiun",<br>"description": "...",<br>"profilePictureUrl": "...",<br>"bannerPictureUrl": "..."<br>}                                                                        | Este endpoint proporciona una forma conveniente para que el usuario que está actualmente autenticado recupere sus propios detalles de perfil sin necesidad de conocer su `userId`. El sistema identifica al usuario mediante el token JWT. Retorna toda la información pública y editable del perfil del usuario autenticado. |
+| /api/v1/email/send         | Enviar un correo al email especificado.                                                  | POST       | POST /api/v1/email/send        | Body JSON:<br>{<br>"to": "string",<br>"subject": "string",<br>"body": "string"<br>}                                                                      | POST /api/v1/email/send<br>{<br>"to": "cassius@gmail.com",<br>"subject": "PRUEBA",<br>"body": "Prueba para confirmar el envío."<br>}                                                                                                                                                                                        | Email sent successfully.                                                                                                                                                                                                                           | Este endpoint tiene como objetivo enviar correos electrónicos personalizados a una dirección especificada por el usuario. Es útil para implementar confirmaciones de inscripción, recordatorios, notificaciones de cambios importantes o mensajes administrativos. |
+
+**Ejemplos de funcionamiento de Endpoints:**
+
+Nos registramos mediante el sign-up de Authentication
+
+<p align="center">
+  <img src="https://imgur.com/V2GzerL.png" alt="tfff1">
+</p>
+
+Iniciamos sesión con nuestras credenciales
+
+
+<p align="center">
+  <img src="https://imgur.com/A3pbeQW.png" alt="tfff2">
+</p>
+
+Obtenemos el usuario que acabamos de registrar
+
+<p align="center">
+  <img src="https://imgur.com/Lp2c5Zc.png" alt="tfff3">
+</p>
+
+Actualizamos los datos del usuario registrado
+
+<p align="center">
+  <img src="https://imgur.com/DXXR0Nb.png" alt="tfff4">
+</p>
+
+Obtenemos los datos de la organización creada con el usuario
+
+<p align="center">
+  <img src="https://imgur.com/VADJhnF.png" alt="tfff5">
+</p>
+
+Envío de correo al email especificado:
+
+<p align="center">
+  <img src="https://imgur.com/vQ4WkDx.png" alt="tfff6">
+</p>
+
+#### 5.2.4.7. Software Deployment Evidence for Sprint Review.
+
+Durante el Sprint 4, el equipo de Voluntrack se dedicó a la documentación exhaustiva de los Web Services mediante Swagger UI, especialmente para el bounded context de IAM. Se detallaron los endpoints de autenticación y gestión de usuarios, incluyendo el proceso de generación y uso de tokens JWT para la autorización de API.
+
+Esta documentación fue vital para la fluida integración entre el backend y el frontend, permitiendo al frontend implementar los flujos de inicio de sesión y gestión de sesiones de forma segura. En cuanto al despliegue, el frontend se mantuvo en Firebase Hosting y el backend se puso en producción utilizando Render, asegurando la estabilidad y continuidad de las nuevas funcionalidades.
+
+*Web Applications desplegado en Firebase*
+
+<p align="center">
+  <img src="https://imgur.com/4bOcnBf.png" alt="tfff8">
+</p>
+
+*Web Services desplegado en Render*
+
+<p align="center">
+  <img src="https://imgur.com/0Ti6X5e.png" alt="tfff9">
+</p>
+
+Adicionalmente, se implementó una configuración CORS (Cross-Origin Resource Sharing) en el archivo Program.cs del backend de VolunTrack, lo que permitió establecer una comunicación fluida y segura entre el frontend y el backend. Gracias a esta configuración, las solicitudes realizadas desde el entorno del frontend fueron correctamente redirigidas y atendidas por el backend desplegado en Azure, asegurando así una integración real y funcional del sistema completo en un entorno de producción.
+
+*Program.cs*
+
+<p align="center">
+  <img src="https://imgur.com/dh7R4sk.png" alt="tfff9">
+</p>
+
+*Redirección del API*
+
+<p align="center">
+  <img src="https://imgur.com/iyMyATc.png" alt="tfff9">
+</p>
+
+#### 5.2.4.8. Team Collaboration Insights during Sprint.
+
+Durante el Sprint 4, el equipo de Voluntrack priorizó la fuerte integración entre el frontend y el backend, manteniendo una estricta adhesión a la metodología ágil Scrum. Este periodo se caracterizó por una sincronización excepcional para vincular la interfaz de usuario con la API RESTful, especialmente en lo relativo al sistema de autenticación JWT y la funcionalidad de internacionalización. La colaboración fluida, impulsada por canales como WhatsApp y Discord y reuniones estratégicas, junto con un seguimiento riguroso en Pivotal Tracker, fue esencial para consolidar una aplicación web cohesiva, funcional y segura.
+
+Uso de Herramientas de Colaboración (VoluntTrack-FrontendWebApplications):
+
+<p align="center">
+  <img src="https://imgur.com/Y1awpE1.png" alt="HCTF">
+</p>
+
+Uso de Herramientas de Colaboración (VolunTrack-WebServices):
+
+<p align="center">
+  <img src="https://imgur.com/U6M4H8X.png" alt="HCTF1">
+</p>
+
+Evidencia de las ramas (VoluntTrack-FrontendWebApplications):
+
+<p align="center">
+  <img src="https://imgur.com/a5dhfyZ.png" alt="HCTF2">
+</p>
+
+Evidencia de las ramas (VolunTrack-WebServices):
+
+<p align="center">
+  <img src="https://imgur.com/y1mM72s.png" alt="HCTF3">
+</p>
+
+Evidencia de commits por integrante del grupo (VoluntTrack-FrontendWebApplications):
+
+<p align="center">
+  <img src="https://imgur.com/mWFyKhe.png" alt="HCTF4">
+</p>
+
+Evidencia de commits por integrante del grupo (VolunTrack-WebServices):
+
+<p align="center">
+  <img src="https://imgur.com/Ns2mgrY.png" alt="HCTF5">
 </p>
 
 ## 5.3. Validation Interviews
