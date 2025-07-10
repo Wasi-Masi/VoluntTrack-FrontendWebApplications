@@ -160,7 +160,7 @@
         <button mat-raised-button color="primary" (click)="openCertificatesDialog()">{{ 'volunteers.viewCertificates' | translate }}</button>
         <button mat-raised-button (click)="aproveSendEmail()" color="accent">{{ 'volunteers.sendEmail' | translate }}</button>
         <button mat-raised-button color="warn" (click)="onAddToActivity()">{{ 'volunteers.addToActivity' | translate }}</button>
-        <button mat-stroked-button color="warn">{{ 'volunteers.deactivate' | translate }}</button>
+        <button mat-stroked-button color="warn" (click)="onDeleteVolunteer()">{{ 'volunteers.deactivate' | translate }}</button>
       </div>
 
       <div class="volunteer-bottom-panel">
