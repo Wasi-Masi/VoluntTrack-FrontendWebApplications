@@ -34,30 +34,35 @@ import { NotificationsService} from '../../notifications/services/notifications.
 })
 export class CreateActivityComponent {
   activity: Activity = new Activity(
-    0,
-    '',
-    '',
-    '',
-    '',
-    '',
-    '',
-    '',
-    0,
-    '',
-    'Activa',
-    1,
-    []
+    0, // actividad_id
+    '', // fecha
+    '', // horaInicio
+    '', // horaFin
+    '', // titulo
+    '', // descripcion
+    '', // instrucciones
+    '', // proposito
+    0,  // <--- cupos: Ahora se inicializa a 0, se llenará con el input del usuario.
+    '', // ubicacion
+    'Activa', // estado (valor por defecto)
+    1, // organizacion_id (valor por defecto)
+    [], // imagenes
+    0   // availableSlots: Se inicializará con el valor de cupos en onSubmit
   );
 
-  instructions: string = '';
-  purpose: string = '';
   picturesInput: string = '';
 
   constructor(
     private createService: CreateActivityService,
     private router: Router,
     private notificationsService: NotificationsService,
-  ) {}
+  ) {
+    // Solo inicializamos aquí las propiedades que son fijas o no dependen de un input del usuario.
+    // this.activity.cupos = 50; // <--- ELIMINADO: Ya no es un valor fijo, viene del input
+    this.activity.estado = 'Activa'; // Estado por defecto
+    this.activity.organizacion_id = 1; // ID de organización por defecto
+    // this.activity.availableSlots = this.activity.cupos; // <--- ELIMINADO: Se moverá a onSubmit para usar el valor real de cupos
+  }
 
   onSubmit() {
     const parsedPictures = this.picturesInput
@@ -65,23 +70,18 @@ export class CreateActivityComponent {
       .map(url => url.trim())
       .filter(url => url.length > 0);
 
-    const activityToSend = {
-      actividad_id: 0,
-      fecha: this.activity.fecha,
-      horaInicio: this.activity.horaInicio,
-      horaFin: this.activity.horaFin,
-      titulo: this.activity.titulo,
-      descripcion: this.activity.descripcion,
-      instrucciones: this.instructions,
-      proposito: this.purpose,
-      cupos: 50,
-      ubicacion: this.activity.ubicacion,
-      estado: 'Activa',
-      organizacion_id: 1,
-      imagenes: parsedPictures,
-    } as Activity;
+    // Asegurarse de que `cupos` sea un número válido antes de asignarlo
+    // Esto es importante porque el input de tipo "number" devuelve un string vacío si no hay valor
+    this.activity.cupos = Number(this.activity.cupos) || 0; // Asegura que sea un número, o 0 si está vacío/inválido
 
-    this.createService.createActivity(activityToSend).subscribe({
+    // Para una actividad nueva, los cupos disponibles son iguales a los cupos totales
+    this.activity.availableSlots = this.activity.cupos; // <--- MOVIDO AQUÍ: Se asigna justo antes de enviar
+
+    this.activity.instrucciones = this.activity.instrucciones || '';
+    this.activity.proposito = this.activity.proposito || '';
+    this.activity.imagenes = parsedPictures;
+
+    this.createService.createActivity(this.activity).subscribe({
       next: (createdActivity) => {
         this.notificationsService.createTypedNotification('new-activity').subscribe(() => {
           window.dispatchEvent(new Event('openNotifications'));
@@ -90,6 +90,9 @@ export class CreateActivityComponent {
       },
       error: (err) => {
         console.error('Error al crear actividad:', err);
+        this.notificationsService.createTypedNotification('error', 'Error al crear la actividad.').subscribe(() => {
+          window.dispatchEvent(new Event('openNotifications'));
+        });
       }
     });
   }

@@ -1,0 +1,49 @@
+<h2 mat-dialog-title>{{ 'activities.availableActivities' | translate }}</h2>
+<mat-dialog-content>
+  <div *ngIf="loadingActivities" class="loading-spinner">
+    <mat-spinner></mat-spinner>
+    <p>{{ 'common.loading' | translate }}</p>
+  </div>
+
+  <div *ngIf="!loadingActivities && activities.length === 0" class="no-activities">
+    <mat-icon>info</mat-icon>
+    <p>{{ 'activities.noActivitiesFound' | translate }}</p>
+  </div>
+
+  <div *ngIf="!loadingActivities && activities.length > 0" class="activity-list-container">
+    <p class="dialog-info">
+      {{ 'activities.assignActivityTo' | translate }}: <strong>{{ data.volunteerName }}</strong>
+    </p>
+
+    <div class="activity-cards-grid">
+      <mat-card *ngFor="let activity of activities" class="activity-card" [class.selected-card]="activity === selectedActivity">
+        <mat-card-header>
+          <mat-card-title>{{ activity.titulo }}</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <p>{{ activity.descripcion }}</p>
+          <div class="activity-info">
+            <span [ngClass]="{'available': activity.availableSlots > 0, 'full': activity.availableSlots <= 0}">
+              {{ 'activities.availableSlots' | translate }}: {{ activity.availableSlots }}
+            </span>
+          </div>
+        </mat-card-content>
+        <mat-card-actions align="end">
+          <button
+            mat-raised-button
+            color="primary"
+            [disabled]="activity.availableSlots <= 0 || loadingEnrollment"
+            (click)="enrollVolunteer(activity)"
+          >
+            <span *ngIf="!loadingEnrollment">{{ 'activities.enroll' | translate }}</span>
+            <mat-spinner *ngIf="loadingEnrollment" [diameter]="20"></mat-spinner>
+          </button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+
+  </div>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button (click)="onCancel()">{{ 'common.cancel' | translate }}</button>
+</mat-dialog-actions>

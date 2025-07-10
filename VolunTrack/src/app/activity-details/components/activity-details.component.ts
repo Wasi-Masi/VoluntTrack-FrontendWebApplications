@@ -1,3 +1,5 @@
+// src/app/activity-details/activity-details.component.ts
+
 import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute, RouterLink} from '@angular/router';
 import { ActivityDetailsService } from '../services/activity-details.service';
@@ -26,19 +28,20 @@ import {TranslatePipe} from "@ngx-translate/core";
 })
 export class ActivityDetailsComponent implements OnInit {
   activity: Activity = new Activity(
-    0,
-    '',
-    '',
-    '',
-    '',
-    '',
-    '',
-    '',
-    0,
-    '',
-    '',
-    0,
-    []
+    0,  // actividad_id: number
+    '', // fecha: string
+    '', // horaInicio: string
+    '', // horaFin: string
+    '', // titulo: string
+    '', // descripcion: string
+    '', // instrucciones: string
+    '', // proposito: string
+    0,  // cupos: number
+    '', // ubicacion: string   <--- ¡Aquí va la ubicación!
+    '', // estado: string
+    0,  // organizacion_id: number
+    [], // imagenes: string[]
+    0   // <--- ¡AÑADIDO: availableSlots: number (ahora al final)!
   );
   selectedImage: string = '';
   currentIndex: number = 0;
