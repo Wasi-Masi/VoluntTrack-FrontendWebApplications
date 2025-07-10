@@ -1,14 +1,10 @@
-/*
-Description: Component that manages and displays user notifications in a drawer, allowing opening, closing, loading, and deleting notifications.
-Author: Ainhoa Castillo
-*/
-
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { NotificationsService } from '../services/notifications.service';
 import { Notification } from '../model/notifications.entity';
 import { CommonModule, NgForOf } from '@angular/common';
 import { MatIconModule } from '@angular/material/icon';
 import { TranslatePipe } from '@ngx-translate/core';
+import { MatButtonModule } from '@angular/material/button';
 
 @Component({
   selector: 'app-notifications',
@@ -17,12 +13,13 @@ import { TranslatePipe } from '@ngx-translate/core';
     CommonModule,
     NgForOf,
     MatIconModule,
-    TranslatePipe
+    TranslatePipe,
+    MatButtonModule
   ],
   templateUrl: './notifications.component.html',
   styleUrl: './notifications.component.css'
 })
-export class NotificationsComponent {
+export class NotificationsComponent implements OnInit {
   notifications: Notification[] = [];
   isDrawerOpen = false;
 
@@ -31,10 +28,9 @@ export class NotificationsComponent {
   ngOnInit() {
     this.loadNotifications();
     window.addEventListener('openNotifications', () => {
-        this.isDrawerOpen = true;
-        this.loadNotifications();
-      }
-    );
+      this.isDrawerOpen = true;
+      this.loadNotifications();
+    });
     window.addEventListener('closeNotifications', () => this.isDrawerOpen = false);
   }
 
@@ -44,21 +40,43 @@ export class NotificationsComponent {
 
   loadNotifications() {
     this.notificationsService.getNotifications().subscribe({
-      next: (data) => (this.notifications = data),
-      error: (err) => console.error('Error loading notifications', err)
+      next: (data) => {
+        this.notifications = data.sort((a, b) => {
+          return new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime();
+        });
+        console.log('[DEBUG] Notificaciones cargadas:', this.notifications);
+      },
+      error: (err) => {
+        console.error('[ERROR] Error cargando notificaciones:', err);
+      }
     });
   }
 
-
-  deleteNotification(noti: Notification) {
-    this.notificationsService.deleteNotification(noti).subscribe(() => {
-      this.loadNotifications();
-    });
+  deleteNotification(id: number | undefined) {
+    if (id) {
+      this.notificationsService.deleteNotification(id).subscribe({
+        next: () => {
+          console.log(`[DEBUG] Notificación ${id} eliminada`);
+          this.loadNotifications();
+        },
+        error: (err) => {
+          console.error(`[ERROR] Error al eliminar notificación ${id}:`, err);
+        }
+      });
+    } else {
+      console.warn('[WARN] No se puede eliminar notificación: ID indefinido');
+    }
   }
 
   deleteAllNotifications() {
-    this.notificationsService.deleteAllNotifications().subscribe(() => {
-      this.loadNotifications();
+    this.notificationsService.deleteAllNotifications().subscribe({
+      next: () => {
+        console.log('[DEBUG] Todas las notificaciones eliminadas');
+        this.loadNotifications();
+      },
+      error: (err) => {
+        console.error('[ERROR] Error al eliminar todas las notificaciones:', err);
+      }
     });
   }
 }
