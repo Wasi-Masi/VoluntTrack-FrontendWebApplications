@@ -454,14 +454,17 @@ export class VolunteersComponent implements OnInit, AfterViewInit {
         maxMonth = m;
       }
     });
+    const now = new Date();
+    const currentMonth = now.getMonth(); // 0 = enero, 11 = diciembre
+    const currentYear = now.getFullYear();
 
     this.newThisMonth = this.volunteers.filter(v => {
       const d = new Date(v.dateOfBirth);
-      return d.getFullYear() === maxYear && d.getMonth() === maxMonth;
+      return d.getFullYear() === currentYear && d.getMonth() === currentMonth;
     }).length;
 
-    let prevMonth = maxMonth - 1;
-    let prevYear = maxYear;
+    let prevMonth = currentMonth - 1;
+    let prevYear = currentYear;
     if (prevMonth < 0) {
       prevMonth = 11;
       prevYear--;
@@ -474,13 +477,15 @@ export class VolunteersComponent implements OnInit, AfterViewInit {
 
     const totalLastMonth = this.volunteers.filter(v => {
       const d = new Date(v.dateOfBirth);
-      return (d.getFullYear() < maxYear) || (d.getFullYear() === maxYear && d.getMonth() < maxMonth);
+      return d.getFullYear() < currentYear || (d.getFullYear() === currentYear && d.getMonth() < currentMonth);
     }).length;
 
     const inactiveLastMonth = this.volunteers.filter(v => {
       const d = new Date(v.dateOfBirth);
-      return ((d.getFullYear() < maxYear) || (d.getFullYear() === maxYear && d.getMonth() < maxMonth))
-        && !v.active;
+      return (
+        (d.getFullYear() < currentYear || (d.getFullYear() === currentYear && d.getMonth() < currentMonth))
+        && !v.active
+      );
     }).length;
 
     this.totalVolunteersChange = this.calculatePercentageChange(totalLastMonth, this.totalVolunteers);

@@ -1,4 +1,4 @@
-import {AfterViewInit, Component, OnInit, ViewChild} from '@angular/core';
+import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { MatPaginator } from '@angular/material/paginator';
 import {
@@ -27,6 +27,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { NotificationsService } from '../../notifications/services/notifications.service';
 import { TranslateService, TranslatePipe } from '@ngx-translate/core';
 import { forkJoin } from 'rxjs';
+import { LoginService } from '../../login/services/login.service'; // ← IMPORTANTE
 
 @Component({
   selector: 'app-registered-volunteers',
@@ -50,7 +51,6 @@ export class RegisteredVolunteersComponent implements OnInit, AfterViewInit {
   dataSource = new MatTableDataSource<any>([]);
   searchText: string = '';
   isAttendanceMode = false;
-  //attendanceMarked: { [id: string]: boolean } = {};
   private volunteerParticipations: { [volunteerId: string]: number } = {};
 
   allColumns = ['fullName', 'age', 'profession', 'registrationDate', 'registrationStatus', 'registrationAttendance'];
@@ -67,7 +67,8 @@ export class RegisteredVolunteersComponent implements OnInit, AfterViewInit {
     private snackBar: MatSnackBar,
     private notificationsService: NotificationsService,
     private translate: TranslateService,
-    private datePipe: DatePipe
+    private datePipe: DatePipe,
+    private loginService: LoginService // ← AÑADIDO
   ) {}
 
   ngOnInit(): void {
@@ -81,11 +82,7 @@ export class RegisteredVolunteersComponent implements OnInit, AfterViewInit {
           this.activity = activity;
           this.loadExistingParticipations(activityId);
         },
-        error: err => {
-          this.notificationsService.createTypedNotification('error', this.translate.instant('volunteers.activityLoadError')).subscribe(() => {
-            window.dispatchEvent(new Event('openNotifications'));
-          });
-        }
+        error: () => this.notify('error', 'volunteers.activityLoadError')
       });
     }
 
@@ -97,6 +94,19 @@ export class RegisteredVolunteersComponent implements OnInit, AfterViewInit {
     this.dataSource.paginator = this.paginator;
   }
 
+  private notify(type: string, key: string, openPanel: boolean = false) {
+    const recipientId = this.loginService.getOrganizationId();
+    if (recipientId !== null) {
+      this.notificationsService.createTypedNotification(
+        type, recipientId, 'ORGANIZATION', this.translate.instant(key)
+      ).subscribe(() => {
+        if (openPanel) {
+          window.dispatchEvent(new Event('openNotifications'));
+        }
+      });
+    }
+  }
+
   loadExistingParticipations(activityId: number): void {
     this.regVolunteersService.getParticipationsByActivityId(activityId).subscribe({
       next: (participations: any[]) => {
@@ -106,11 +116,8 @@ export class RegisteredVolunteersComponent implements OnInit, AfterViewInit {
         });
         this.loadRegisteredVolunteers(activityId);
       },
-      error: err => {
-        console.error("Error loading existing participations:", err);
-        this.notificationsService.createTypedNotification('error', this.translate.instant('volunteers.participationsLoadError')).subscribe(() => {
-          window.dispatchEvent(new Event('openNotifications'));
-        });
+      error: () => {
+        this.notify('error', 'volunteers.participationsLoadError');
         this.loadRegisteredVolunteers(activityId);
       }
     });
@@ -124,7 +131,6 @@ export class RegisteredVolunteersComponent implements OnInit, AfterViewInit {
           v.hasParticipation = !!this.volunteerParticipations[String(v.id)];
           v.participationId = this.volunteerParticipations[String(v.id)] || null;
         });
-        console.log('Voluntarios con datos:', volunteers);
 
         this.dataSource = new MatTableDataSource(volunteers);
         if (this.paginator) {
@@ -132,12 +138,7 @@ export class RegisteredVolunteersComponent implements OnInit, AfterViewInit {
           this.paginator.pageSize = 7;
         }
       },
-      error: err => {
-        console.log("error cargando participantes", err)
-        this.notificationsService.createTypedNotification('error', this.translate.instant('volunteers.registeredVolunteersLoadError')).subscribe(() => {
-          window.dispatchEvent(new Event('openNotifications'));
-        });
-      }
+      error: () => this.notify('error', 'volunteers.registeredVolunteersLoadError')
     });
   }
 
@@ -151,8 +152,10 @@ export class RegisteredVolunteersComponent implements OnInit, AfterViewInit {
     const birthDate = new Date(dateOfBirth);
     const today = new Date();
     let age = today.getFullYear() - birthDate.getFullYear();
-    const m = today.getMonth() - birthDate.getMonth();
-    if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
+    if (
+      today.getMonth() < birthDate.getMonth() ||
+      (today.getMonth() === birthDate.getMonth() && today.getDate() < birthDate.getDate())
+    ) {
       age--;
     }
     return age;
@@ -161,70 +164,49 @@ export class RegisteredVolunteersComponent implements OnInit, AfterViewInit {
   toggleAttendanceMode() {
     this.isAttendanceMode = !this.isAttendanceMode;
     this.displayedColumns = this.isAttendanceMode ? this.attendanceColumns : this.allColumns;
-
   }
 
   onAttendanceChange(volunteer: any, checked: boolean) {
     const volunteerId = volunteer.id;
-    const activityId = this.activityId;
+    const participationId = this.volunteerParticipations[String(volunteerId)];
 
     if (checked) {
-      this.regVolunteersService.createParticipationByAttendance(volunteerId, activityId).subscribe({ // ¡Usa regVolunteersService!
-        next: (response) => {
-          console.log(`Participación creada para voluntario ${volunteerId}:`, response);
-          this.notificationsService.createTypedNotification('success', this.translate.instant('volunteers.participationCreated')).subscribe(() => {
-            window.dispatchEvent(new Event('openNotifications'));
-          });
+      this.regVolunteersService.createParticipationByAttendance(volunteerId, this.activityId).subscribe({
+        next: response => {
+          this.notify('success', 'volunteers.participationCreated');
           this.volunteerParticipations[String(volunteerId)] = response.id;
           volunteer.hasParticipation = true;
           volunteer.participationId = response.id;
         },
-        error: (err) => {
-          console.error(`Error al crear participación para voluntario ${volunteerId}:`, err);
-          this.notificationsService.createTypedNotification('error', this.translate.instant('volunteers.participationCreateError')).subscribe(() => {
-            window.dispatchEvent(new Event('openNotifications'));
-          });
+        error: () => {
+          this.notify('error', 'volunteers.participationCreateError');
           volunteer.hasParticipation = false;
         }
       });
+    } else if (participationId) {
+      this.regVolunteersService.deleteParticipation(participationId).subscribe({
+        next: () => {
+          this.notify('success', 'volunteers.participationDeleted');
+          delete this.volunteerParticipations[String(volunteerId)];
+          volunteer.hasParticipation = false;
+          volunteer.participationId = null;
+        },
+        error: () => {
+          this.notify('error', 'volunteers.participationDeleteError');
+          volunteer.hasParticipation = true;
+        }
+      });
     } else {
-      const participationIdToDelete = this.volunteerParticipations[String(volunteerId)];
-
-      if (participationIdToDelete) {
-        this.regVolunteersService.deleteParticipation(participationIdToDelete).subscribe({ // ¡Usa regVolunteersService!
-          next: () => {
-            console.log(`Participación ${participationIdToDelete} eliminada para voluntario ${volunteerId}`);
-            this.notificationsService.createTypedNotification('success', this.translate.instant('volunteers.participationDeleted')).subscribe(() => {
-              window.dispatchEvent(new Event('openNotifications'));
-            });
-            delete this.volunteerParticipations[String(volunteerId)];
-            volunteer.hasParticipation = false;
-            volunteer.participationId = null;
-          },
-          error: (err) => {
-            console.error(`Error al eliminar participación ${participationIdToDelete}:`, err);
-            this.notificationsService.createTypedNotification('error', this.translate.instant('volunteers.participationDeleteError')).subscribe(() => {
-              window.dispatchEvent(new Event('openNotifications'));
-            });
-            volunteer.hasParticipation = true;
-          }
-        });
-      } else {
-        console.warn(`No se encontró participationId para eliminar para el voluntario ${volunteerId}.`);
-        this.notificationsService.createTypedNotification('info', this.translate.instant('volunteers.noParticipationToDelete')).subscribe(() => {
-          window.dispatchEvent(new Event('openNotifications'));
-        });
-        volunteer.hasParticipation = false;
-      }
+      this.notify('info', 'volunteers.noParticipationToDelete');
+      volunteer.hasParticipation = false;
     }
   }
-
 
   generateCertificates() {
     if (!this.activity) return;
 
     const certificados: Certificate[] = this.dataSource.data
-      .filter(v => v.attendance)
+      .filter(v => v.hasParticipation)
       .map(v => new Certificate(
         crypto.randomUUID(),
         v.volunteerId,
@@ -237,30 +219,18 @@ export class RegisteredVolunteersComponent implements OnInit, AfterViewInit {
       ));
 
     if (certificados.length === 0) {
-      this.notificationsService.createTypedNotification('error', this.translate.instant('volunteers.noVolunteersAttendedForCertificates')).subscribe(() => {
-        window.dispatchEvent(new Event('openNotifications'));
-      });
+      this.notify('error', 'volunteers.noVolunteersAttendedForCertificates');
       return;
     }
 
     forkJoin(certificados.map(cert => this.certificatesService.postCertificate(cert))).subscribe({
-      next: () => {
-        this.notificationsService.createTypedNotification('certificate', this.translate.instant('volunteers.certificatesGeneratedAndSent')).subscribe(() => {
-          window.dispatchEvent(new Event('openNotifications'));
-        });
-      },
-      error: err => {
-        this.notificationsService.createTypedNotification('error', this.translate.instant('volunteers.certificateGenerationError')).subscribe(() => {
-          window.dispatchEvent(new Event('openNotifications'));
-        });
-      }
+      next: () => this.notify('certificate', 'volunteers.certificatesGeneratedAndSent'),
+      error: () => this.notify('error', 'volunteers.certificateGenerationError')
     });
   }
 
   toNotify() {
-    this.notificationsService.createTypedNotification('info', this.translate.instant('volunteers.sendNotificationFeatureNotImplemented')).subscribe(() => {
-      window.dispatchEvent(new Event('openNotifications'));
-    });
+    this.notify('info', 'volunteers.sendNotificationFeatureNotImplemented');
   }
 
   toggleRegistrationStatus(): void {
@@ -282,25 +252,23 @@ export class RegisteredVolunteersComponent implements OnInit, AfterViewInit {
       cupos: this.activity.cupos,
       ubicacion: this.activity.ubicacion,
       estado: newStatus,
-      organizacionId: this.activity.organizacion_id,
+      organizacionId: this.activity.organizacion_id, // <- CORRECTO
       imagenes: this.activity.imagenes
     }).subscribe({
       next: () => {
-        const msgKey = newStatus === 'Abierta' ? 'volunteers.registrationsOpened' : 'volunteers.registrationsClosed';
-        this.notificationsService.createTypedNotification('success', this.translate.instant(msgKey)).subscribe(() => {
-          window.dispatchEvent(new Event('openNotifications'));
-        });
-
+        const msgKey = newStatus === 'Abierta'
+          ? 'volunteers.registrationsOpened'
+          : 'volunteers.registrationsClosed';
+        this.notify('success', msgKey);
         this.activityService.getActivityById(this.activityId).subscribe({
           next: updated => this.activity = updated
         });
       },
-      error: err => {
+      error: () => {
         this.activity.estado = originalStatus;
-        this.notificationsService.createTypedNotification('error', this.translate.instant('volunteers.registrationStatusUpdateError')).subscribe(() => {
-          window.dispatchEvent(new Event('openNotifications'));
-        });
+        this.notify('error', 'volunteers.registrationStatusUpdateError');
       }
     });
+
   }
 }

@@ -51,20 +51,7 @@
           </div>
         </div>
 
-        <div class="metric-card">
-          <div class="metric-title">{{ 'volunteers.newThisMonth' | translate }}</div>
-          <div class="metric-value">
-            <mat-icon class="metric-icon">favorite</mat-icon>
-            <span>{{ newThisMonth }}</span>
-          </div>
-          <div class="metric-change" [ngClass]="{'positive': newThisMonthChange >= 0, 'negative': newThisMonthChange < 0}">
-            <mat-icon>
-              {{ newThisMonthChange >= 0 ? 'arrow_drop_up' : 'arrow_drop_down' }}
-            </mat-icon>
-            {{ newThisMonthChange | number:'1.1-1' }}%
-            <span class="metric-note">{{ 'volunteers.sinceLastMonth' | translate }}</span>
-          </div>
-        </div>
+
 
         <div class="metric-card">
           <div class="metric-title">{{ 'volunteers.inactive' | translate }}</div>

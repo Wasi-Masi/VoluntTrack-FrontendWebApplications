@@ -88,7 +88,7 @@ export class CreateVolunteerDialogComponent implements OnInit {
       const day = date.getDate().toString().padStart(2, '0');
       this.newVolunteer.dateOfBirth = `${year}-${month}-${day}`;
     }
-
+    console.log('Payload a enviar:', this.newVolunteer);
     this.volunteersService.createVolunteer(this.newVolunteer).subscribe({
       next: (response) => {
         console.log('Voluntario creado con éxito:', response);
@@ -108,6 +108,7 @@ export class CreateVolunteerDialogComponent implements OnInit {
         this.dialogRef.close(true);
       },
       error: (error) => {
+
         console.error('Error al crear voluntario:', error);
         let errorMessage = 'Error al crear voluntario.';
         if (error.error && error.error.message) {
