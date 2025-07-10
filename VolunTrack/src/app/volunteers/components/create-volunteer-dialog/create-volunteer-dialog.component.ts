@@ -92,9 +92,19 @@ export class CreateVolunteerDialogComponent implements OnInit {
     this.volunteersService.createVolunteer(this.newVolunteer).subscribe({
       next: (response) => {
         console.log('Voluntario creado con éxito:', response);
-        this.notificationsService.createTypedNotification('success', 'Voluntario creado exitosamente.').subscribe(() => {
-          window.dispatchEvent(new Event('openNotifications'));
-        });
+        const recipientId = this.loginService.getOrganizationId();
+        const recipientType: 'VOLUNTEER' | 'ORGANIZATION' = 'ORGANIZATION';
+
+        if (recipientId !== null) {
+          this.notificationsService.createTypedNotification(
+            'SIGNUP', // Usar 'SIGNUP' si este es el tipo de notificación para "voluntario creado" en tu backend
+            recipientId,
+            recipientType,
+            'Voluntario creado exitosamente.'
+          ).subscribe(() => {
+            window.dispatchEvent(new Event('openNotifications'));
+          });
+        }
         this.dialogRef.close(true);
       },
       error: (error) => {
@@ -108,9 +118,20 @@ export class CreateVolunteerDialogComponent implements OnInit {
           errorMessage = error.error.errors.map((err: any) => err.defaultMessage).join(', ');
           if (errorMessage === '') errorMessage = 'Datos de entrada inválidos.';
         }
-        this.notificationsService.createTypedNotification('error', errorMessage).subscribe(() => {
-          window.dispatchEvent(new Event('openNotifications'));
-        });
+
+        const recipientId = this.loginService.getOrganizationId();
+        const recipientType: 'VOLUNTEER' | 'ORGANIZATION' = 'ORGANIZATION';
+
+        if (recipientId !== null) {
+          this.notificationsService.createTypedNotification(
+            'GENERIC', // Usar 'GENERIC' para errores, o 'ERROR' si tienes ese tipo en tu backend enum
+            recipientId,
+            recipientType,
+            errorMessage
+          ).subscribe(() => {
+            window.dispatchEvent(new Event('openNotifications'));
+          });
+        }
       }
     });
   }

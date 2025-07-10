@@ -1,108 +1,87 @@
-/*
-Description: Service to manage CRUD operations for notifications, including creating typed notifications with preset or custom messages.
-Author: Ainhoa Castillo
-*/
+// src/app/notifications/services/notifications.service.ts
 
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import {HttpClient} from '@angular/common/http';
-import { Notification } from '../model/notifications.entity'
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Notification } from '../model/notifications.entity';
 import { forkJoin, switchMap } from 'rxjs';
+import { environment } from '../../../environments/environment';
+import { LoginService } from '../../login/services/login.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class NotificationsService {
-  private apiUrl = 'https://voluntrack.onrender.com/notifications';
+  private apiUrl = `${environment.apiUrl}/v1/notifications`;
 
-  constructor(private http: HttpClient) { }
+  constructor(
+    private http: HttpClient,
+    private loginService: LoginService
+  ) { }
+
+  private getAuthHeaders(): HttpHeaders {
+    let headers = new HttpHeaders();
+    const token = this.loginService.getToken();
+    if (token) {
+      headers = headers.set('Authorization', `Bearer ${token}`);
+    }
+    return headers;
+  }
 
   getNotifications(): Observable<Notification[]> {
-    return this.http.get<Notification[]>(this.apiUrl);
+    const headers = this.getAuthHeaders();
+    return this.http.get<Notification[]>(this.apiUrl, { headers: headers });
   }
+
 
   createNotification(noti: Notification): Observable<Notification> {
-    return this.http.post<Notification>(this.apiUrl, noti);
+    const headers = this.getAuthHeaders();
+    // ¡MODIFICADO! El payload ahora solo incluye 'type', 'recipientId', y 'recipientType'
+    const payload = {
+      type: noti.type,         // ¡NUEVO! El tipo de notificación (ej. 'SIGNUP')
+      recipientId: noti.recipientId, // ¡NUEVO! El ID del destinatario
+      recipientType: noti.recipientType // ¡NUEVO! El tipo de destinatario (ej. 'VOLUNTEER')
+    };
+    return this.http.post<Notification>(this.apiUrl, payload, { headers: headers });
   }
 
-  deleteNotification(noti: Notification): Observable<Notification> {
-    return this.http.delete<Notification>(`${this.apiUrl}/${noti.id}`);
+  deleteNotification(id: number): Observable<void> { // ID es 'number'
+    const headers = this.getAuthHeaders();
+    return this.http.delete<void>(`${this.apiUrl}/${id}`, { headers: headers });
   }
 
   deleteAllNotifications(): Observable<any> {
+    const headers = this.getAuthHeaders();
     return this.getNotifications().pipe(
       switchMap(notiList => {
         const deletes = notiList.map(noti =>
-          this.http.delete(`${this.apiUrl}/${noti.id}`)
+          this.http.delete(`${this.apiUrl}/${noti.id}`, { headers: headers })
         );
         return forkJoin(deletes);
       })
     );
   }
 
-
-  createTypedNotification(type: string, customMessage?: string): Observable<Notification> {
-    return this.getNotifications().pipe(
-      switchMap(existingNotis => {
-        const maxId = existingNotis.length > 0
-          ? Math.max(...existingNotis.map(n => parseInt(n.id || '0', 10)))
-          : 0;
-        const newId = (maxId + 1).toString();
-        const createdAt = new Date().toISOString();
-
-        let title = '';
-        let message = '';
-
-        switch (type) {
-          case 'success':
-            title = 'Éxito';
-            message = 'Operación realizada exitosamente.';
-            break;
-          case 'error':
-            title = 'Error';
-            message = 'Ha ocurrido un error durante la operación.';
-            break;
-          case 'signup':
-            title = '¡Bienvenido a VolunTrack!';
-            message = 'Tu cuenta ha sido creada exitosamente. Ya puedes unirte a actividades.';
-            break;
-          case 'login':
-            title = 'Sesión iniciada';
-            message = 'Has iniciado sesión correctamente.';
-            break;
-          case 'new-activity':
-            title = 'Actividad creada';
-            message = 'Has creado una nueva actividad de voluntariado. ¡Comparte para sumar voluntarios!';
-            break;
-          case 'open-inscriptions':
-            title = 'Inscripciones abiertas';
-            message = 'Acabas de abrir inscripciones para la actividad seleccionada. ¡Sean todos bienvenidos!';
-            break;
-          case 'certificate':
-            title = 'Certificados disponibles';
-            message = 'Has enviado certificados a todos los participantes involucrados. ¡Sigue valorando el compromiso!';
-            break;
-          case 'reminder':
-            title = 'Recordatorio de actividad';
-            message = 'Tienes una actividad programada pronto. No olvides revisar los detalles.';
-            break;
-          case 'mail':
-            title = 'Correo enviado';
-            message = 'Has enviado correctamente un correo al voluntario seleccionado.';
-            break;
-          default:
-            title = 'Notificación';
-            message = 'Tienes una nueva notificación en VolunTrack.';
-        }
-
-        if (customMessage) {
-          message = customMessage;
-        }
-
-        const newNotification = new Notification(newId, title, message, createdAt);
-        return this.createNotification(newNotification);
-      })
-    );
+  createTypedNotification(
+    type: string,
+    recipientId: number,
+    recipientType: 'VOLUNTEER' | 'ORGANIZATION',
+    customMessage?: string
+  ): Observable<Notification> {
+    console.warn('[AVISO] createTypedNotification fue llamado pero está desactivado.');
+    // Retorna un Observable vacío con un dummy Notification (si lo necesitas para que los `.subscribe()` no rompan)
+    const dummy = new Notification({
+      id: 0,
+      title: '',
+      message: '',
+      createdAt: new Date().toISOString(),
+      type: undefined,
+      recipientId,
+      recipientType
+    });
+    return new Observable<Notification>(observer => {
+      observer.next(dummy);
+      observer.complete();
+    });
   }
-
 }

@@ -13,7 +13,7 @@ import {MatSelectModule} from '@angular/material/select';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatNativeDateModule} from '@angular/material/core';
 import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
-import {MatDialog, MatDialogModule, MatDialogConfig} from '@angular/material/dialog'; // <-- ¡MODIFICADO! Añadir MatDialogConfig
+import {MatDialog, MatDialogModule, MatDialogConfig} from '@angular/material/dialog';
 import {MatButtonModule} from '@angular/material/button';
 
 import {VolunteersService} from '../services/volunteers.service';
@@ -21,7 +21,7 @@ import {Volunteer, VolunteerFilterPayload} from '../model/volunteers.entity';
 import {CertificatesDialogComponent} from './certificates-dialog/certificates-dialog.component';
 import {CreateVolunteerDialogComponent} from './create-volunteer-dialog/create-volunteer-dialog.component';
 import {VolunteerFilterDialogComponent} from './volunteer-filter-dialog/volunteer-filter-dialog.component';
-import { ConfirmDialogComponent } from '../../shared/components/confirm-dialog/confirm-dialog.component'; // <-- ¡NUEVO! Importar el componente de confirmación
+import { ConfirmDialogComponent } from '../../shared/components/confirm-dialog/confirm-dialog.component';
 
 import {TranslatePipe} from '@ngx-translate/core';
 import {NotificationsService} from '../../notifications/services/notifications.service';
@@ -79,8 +79,8 @@ export class VolunteersComponent implements OnInit, AfterViewInit {
   constructor(
     private volunteersService: VolunteersService,
     private dialog: MatDialog,
-    private notificationsService: NotificationsService,
-    private loginService: LoginService,
+    private notificationsService: NotificationsService, // Servicio de notificaciones
+    private loginService: LoginService, // Para obtener el ID de la organización
     private cdr: ChangeDetectorRef
   ) {}
 
@@ -92,7 +92,6 @@ export class VolunteersComponent implements OnInit, AfterViewInit {
   selectVolunteer(volunteer: Volunteer) {
     this.selectedVolunteer = volunteer;
     this.selectedRow = volunteer;
-    console.log('Selected Volunteer:', volunteer);
     this.cdr.detectChanges();
   }
 
@@ -112,23 +111,31 @@ export class VolunteersComponent implements OnInit, AfterViewInit {
     const loggedInOrganizationId = this.loginService.getOrganizationId();
     if (loggedInOrganizationId !== null) {
       this.currentFilterCriteria.organizationId = loggedInOrganizationId;
-      console.log('ngOnInit: Cargando voluntarios para organizationId:', this.currentFilterCriteria.organizationId);
       this.loadVolunteers(this.currentFilterCriteria);
     } else {
       console.error('No se pudo obtener la Organization ID del usuario logueado. No se cargarán voluntarios.');
-      this.notificationsService.createTypedNotification('error', 'No se pudo cargar voluntarios. Inicie sesión nuevamente.').subscribe(() => {
-        window.dispatchEvent(new Event('openNotifications'));
-      });
+      // LLAMADA 1: Notificación de error si no se puede obtener el Organization ID
+      const recipientId = this.loginService.getOrganizationId(); // Puede ser null aquí
+      const recipientType: 'VOLUNTEER' | 'ORGANIZATION' = 'ORGANIZATION';
+
+      if (recipientId !== null) { // Solo si hay un ID válido
+        this.notificationsService.createTypedNotification(
+          'GENERIC', // Asumiendo 'GENERIC' para errores que no son de un tipo específico de backend
+          recipientId,
+          recipientType,
+          'No se pudo cargar voluntarios. Inicie sesión nuevamente.'
+        ).subscribe(() => {
+          window.dispatchEvent(new Event('openNotifications'));
+        });
+      }
     }
   }
 
   loadVolunteers(filters?: VolunteerFilterPayload): void {
     const effectiveFilters = filters || this.currentFilterCriteria;
-    console.log('loadVolunteers: Llamando al servicio con filtros:', effectiveFilters);
 
     this.volunteersService.getVolunteers(effectiveFilters).subscribe({
       next: (data) => {
-        console.log('loadVolunteers: Datos recibidos del backend:', data);
         this.volunteers = data;
         this.dataSource.data = data;
 
@@ -142,9 +149,20 @@ export class VolunteersComponent implements OnInit, AfterViewInit {
       },
       error: (error) => {
         console.error('Error al cargar voluntarios:', error);
-        this.notificationsService.createTypedNotification('error', 'Error al cargar voluntarios.').subscribe(() => {
-          window.dispatchEvent(new Event('openNotifications'));
-        });
+        // LLAMADA 2: Notificación de error al cargar voluntarios
+        const recipientId = this.loginService.getOrganizationId();
+        const recipientType: 'VOLUNTEER' | 'ORGANIZATION' = 'ORGANIZATION';
+
+        if (recipientId !== null) {
+          this.notificationsService.createTypedNotification(
+            'GENERIC', // Asumiendo 'GENERIC' para errores
+            recipientId,
+            recipientType,
+            'Error al cargar voluntarios.'
+          ).subscribe(() => {
+            window.dispatchEvent(new Event('openNotifications'));
+          });
+        }
       }
     });
   }
@@ -166,20 +184,41 @@ export class VolunteersComponent implements OnInit, AfterViewInit {
 
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
-        console.log('Diálogo de creación cerrado. Recargando voluntarios...');
         this.loadVolunteers(this.currentFilterCriteria);
-        this.notificationsService.createTypedNotification('success', 'Voluntario creado exitosamente.').subscribe(() => {
-          window.dispatchEvent(new Event('openNotifications'));
-        });
+        // LLAMADA 3: Notificación de éxito al crear voluntario
+        const recipientId = this.loginService.getOrganizationId();
+        const recipientType: 'VOLUNTEER' | 'ORGANIZATION' = 'ORGANIZATION';
+
+        if (recipientId !== null) {
+          this.notificationsService.createTypedNotification(
+            'SIGNUP', // Usar 'SIGNUP' si el backend usa este tipo para "voluntario creado"
+            recipientId,
+            recipientType,
+            'Voluntario creado exitosamente.' // Mensaje personalizado, si no quieres el por defecto del backend
+          ).subscribe(() => {
+            window.dispatchEvent(new Event('openNotifications'));
+          });
+        }
       }
     });
   }
 
   onAddToActivity(): void {
     if (!this.selectedVolunteer) {
-      this.notificationsService.createTypedNotification('info', 'Por favor, seleccione un voluntario primero.').subscribe(() => {
-        window.dispatchEvent(new Event('openNotifications'));
-      });
+      // LLAMADA 4: Notificación informativa si no hay voluntario seleccionado
+      const recipientId = this.loginService.getOrganizationId();
+      const recipientType: 'VOLUNTEER' | 'ORGANIZATION' = 'ORGANIZATION';
+
+      if (recipientId !== null) {
+        this.notificationsService.createTypedNotification(
+          'GENERIC', // Asumiendo 'GENERIC' para mensajes informativos o de advertencia
+          recipientId,
+          recipientType,
+          'Por favor, seleccione un voluntario primero.'
+        ).subscribe(() => {
+          window.dispatchEvent(new Event('openNotifications'));
+        });
+      }
       return;
     }
 
@@ -193,23 +232,42 @@ export class VolunteersComponent implements OnInit, AfterViewInit {
 
     dialogRef.afterClosed().subscribe(result => {
       if (result && result.enrolled) {
-        console.log('Actividad asignada exitosamente al voluntario:', this.selectedVolunteer?.firstName);
-        this.notificationsService.createTypedNotification('success', 'Voluntario inscrito en la actividad exitosamente.').subscribe(() => {
-          window.dispatchEvent(new Event('openNotifications'));
-        });
+        // LLAMADA 5: Notificación de éxito al inscribir voluntario en actividad
+        const recipientId = this.loginService.getOrganizationId();
+        const recipientType: 'VOLUNTEER' | 'ORGANIZATION' = 'ORGANIZATION';
+
+        if (recipientId !== null) {
+          this.notificationsService.createTypedNotification(
+            'JOINED_ACTIVITY', // Usar 'JOINED_ACTIVITY' si el backend tiene este tipo para inscripciones
+            recipientId,
+            recipientType,
+            'Voluntario inscrito en la actividad exitosamente.' // Mensaje personalizado
+          ).subscribe(() => {
+            window.dispatchEvent(new Event('openNotifications'));
+          });
+        }
       } else if (result && result.error) {
         console.error('Error al inscribir voluntario en actividad:', result.error);
-        this.notificationsService.createTypedNotification('error', 'Error al inscribir voluntario en la actividad.').subscribe(() => {
-          window.dispatchEvent(new Event('openNotifications'));
-        });
+        // LLAMADA 6: Notificación de error al inscribir voluntario en actividad
+        const recipientId = this.loginService.getOrganizationId();
+        const recipientType: 'VOLUNTEER' | 'ORGANIZATION' = 'ORGANIZATION';
+
+        if (recipientId !== null) {
+          this.notificationsService.createTypedNotification(
+            'GENERIC', // Asumiendo 'GENERIC' para errores
+            recipientId,
+            recipientType,
+            'Error al inscribir voluntario en la actividad.'
+          ).subscribe(() => {
+            window.dispatchEvent(new Event('openNotifications'));
+          });
+        }
       }
     });
   }
 
   applyLocalFilters(): void {
-    console.log('applyLocalFilters: Datos iniciales (this.volunteers):', this.volunteers);
-    console.log('applyLocalFilters: searchText:', this.searchText);
-    console.log('applyLocalFilters: currentFilterCriteria:', this.currentFilterCriteria);
+
 
     let filteredData = this.volunteers.filter(v => {
       const volunteerFullName = `${v.firstName} ${v.lastName}`;
@@ -264,9 +322,20 @@ export class VolunteersComponent implements OnInit, AfterViewInit {
   }
 
   fireNotification() {
-    this.notificationsService.createTypedNotification('mail', 'Correo enviado al voluntario seleccionado.').subscribe(() => {
-      window.dispatchEvent(new Event('openNotifications'));
-    });
+    // LLAMADA 7: Notificación de envío de correo (asumiendo que se envía a la organización logueada)
+    const recipientId = this.loginService.getOrganizationId();
+    const recipientType: 'VOLUNTEER' | 'ORGANIZATION' = 'ORGANIZATION';
+
+    if (recipientId !== null) {
+      this.notificationsService.createTypedNotification(
+        'GENERIC', // Asumiendo 'GENERIC' para eventos como envío de correo, o crea un tipo 'MAIL_SENT' en backend
+        recipientId,
+        recipientType,
+        'Correo enviado al voluntario seleccionado.'
+      ).subscribe(() => {
+        window.dispatchEvent(new Event('openNotifications'));
+      });
+    }
   }
 
   aproveSendEmail() {
@@ -275,57 +344,79 @@ export class VolunteersComponent implements OnInit, AfterViewInit {
 
   // --- ¡NUEVO MÉTODO PARA ELIMINAR VOLUNTARIO! ---
   onDeleteVolunteer(): void {
-    // 1. Verificar si hay un voluntario seleccionado
     if (!this.selectedVolunteer) {
-      this.notificationsService.createTypedNotification('info', 'Por favor, seleccione un voluntario para eliminar.').subscribe(() => {
-        window.dispatchEvent(new Event('openNotifications'));
-      });
-      return; // Salir si no hay voluntario seleccionado
+      // LLAMADA 8: Notificación informativa si no hay voluntario seleccionado para eliminar
+      const recipientId = this.loginService.getOrganizationId();
+      const recipientType: 'VOLUNTEER' | 'ORGANIZATION' = 'ORGANIZATION';
+
+      if (recipientId !== null) {
+        this.notificationsService.createTypedNotification(
+          'GENERIC', // Asumiendo 'GENERIC' para mensajes informativos
+          recipientId,
+          recipientType,
+          'Por favor, seleccione un voluntario para eliminar.'
+        ).subscribe(() => {
+          window.dispatchEvent(new Event('openNotifications'));
+        });
+      }
+      return;
     }
 
-    // 2. Configurar el diálogo de confirmación
     const dialogConfig = new MatDialogConfig();
-    dialogConfig.disableClose = true; // El usuario no puede cerrar el diálogo haciendo clic fuera
-    dialogConfig.autoFocus = true;    // El primer elemento enfocable dentro del diálogo recibirá el foco
-    dialogConfig.data = {             // Datos a pasar al ConfirmDialogComponent
-      title: 'volunteers.confirmDeleteTitle',       // Clave para traducir el título
-      message: 'volunteers.confirmDeleteMessage',   // Clave para traducir el mensaje
-      confirmText: 'common.delete',                 // Clave para traducir el texto del botón de confirmar
-      cancelText: 'common.cancel'                   // Clave para traducir el texto del botón de cancelar
+    dialogConfig.disableClose = true;
+    dialogConfig.autoFocus = true;
+    dialogConfig.data = {
+      title: 'volunteers.confirmDeleteTitle',
+      message: 'volunteers.confirmDeleteMessage',
+      confirmText: 'common.delete',
+      cancelText: 'common.cancel'
     };
 
-    // 3. Abrir el diálogo de confirmación
     const dialogRef = this.dialog.open(ConfirmDialogComponent, dialogConfig);
 
-    // 4. Suscribirse al resultado del diálogo
     dialogRef.afterClosed().subscribe(result => {
-      if (result) { // Si el usuario hizo clic en "Confirmar" (result es true)
-        console.log('Confirmación de eliminación recibida. Eliminando voluntario con ID:', this.selectedVolunteer?.id);
-        // Asegurarse de que el ID del voluntario seleccionado no es null/undefined
+      if (result) {
         if (this.selectedVolunteer?.id) {
-          // 5. Llamar al servicio para eliminar el voluntario
           this.volunteersService.deleteVolunteer(this.selectedVolunteer.id).subscribe({
             next: () => {
-              // 6. Manejar el éxito de la eliminación
-              this.notificationsService.createTypedNotification('success', 'Voluntario eliminado exitosamente.').subscribe(() => {
-                window.dispatchEvent(new Event('openNotifications'));
-              });
-              this.selectedVolunteer = null; // Deseleccionar el voluntario en la UI
-              this.selectedRow = null;       // Deseleccionar la fila en la tabla
-              this.loadVolunteers(this.currentFilterCriteria); // Recargar la lista de voluntarios
+              // LLAMADA 9: Notificación de éxito al eliminar voluntario
+              const recipientId = this.loginService.getOrganizationId();
+              const recipientType: 'VOLUNTEER' | 'ORGANIZATION' = 'ORGANIZATION';
+
+              if (recipientId !== null) {
+                this.notificationsService.createTypedNotification(
+                  'GENERIC', // Asumiendo 'GENERIC' para "Voluntario eliminado". Si tu backend tiene 'VOLUNTEER_DELETED', úsalo.
+                  recipientId,
+                  recipientType,
+                  'Voluntario eliminado exitosamente.'
+                ).subscribe(() => {
+                  window.dispatchEvent(new Event('openNotifications'));
+                });
+              }
+              this.selectedVolunteer = null;
+              this.selectedRow = null;
+              this.loadVolunteers(this.currentFilterCriteria);
             },
             error: (error) => {
-              // 7. Manejar el error de la eliminación
+              // LLAMADA 10: Notificación de error al eliminar voluntario
               console.error('Error al eliminar voluntario:', error);
-              this.notificationsService.createTypedNotification('error', 'Error al eliminar voluntario.').subscribe(() => {
-                window.dispatchEvent(new Event('openNotifications'));
-              });
+              const recipientId = this.loginService.getOrganizationId();
+              const recipientType: 'VOLUNTEER' | 'ORGANIZATION' = 'ORGANIZATION';
+
+              if (recipientId !== null) {
+                this.notificationsService.createTypedNotification(
+                  'GENERIC', // Asumiendo 'GENERIC' para errores
+                  recipientId,
+                  recipientType,
+                  'Error al eliminar voluntario.'
+                ).subscribe(() => {
+                  window.dispatchEvent(new Event('openNotifications'));
+                });
+              }
             }
           });
         }
       } else {
-        // Si el usuario hizo clic en "Cancelar" (result es false)
-        console.log('Eliminación cancelada por el usuario.');
       }
     });
   }
@@ -350,10 +441,6 @@ export class VolunteersComponent implements OnInit, AfterViewInit {
 
   calculateMetrics(): void {
     this.totalVolunteers = this.volunteers.length;
-    // NOTA IMPORTANTE: Si "desactivar" es eliminar, la métrica 'inactiveVolunteers'
-    // puede requerir ser revisada o eliminada si no tiene sentido que un voluntario "inactivo" exista en la lista.
-    // Si 'active' es una propiedad que tu API todavía devuelve para *otros* propósitos (ej. voluntarios históricos)
-    // entonces esta línea está bien. Si solo eliminas, esta métrica podría no ser útil.
     this.inactiveVolunteers = this.volunteers.filter(v => !v.active).length;
 
     let maxYear = 0;

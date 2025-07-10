@@ -1,8 +1,3 @@
-<!--
-Description: Notification drawer component that displays user notifications with options to delete individual or all notifications.
-Author: Ainhoa Castillo
--->
-
 <div class="notification-drawer" [class.open]="isDrawerOpen">
   <div class="drawer-header">
     <h2>{{ 'NOTIFICATIONS.TITLE' | translate }}</h2>
@@ -23,8 +18,7 @@ Author: Ainhoa Castillo
         </div>
       </div>
       <div class="notification-actions">
-        <mat-icon class="icon" (click)="deleteNotification(noti)">delete_outline
-        </mat-icon>
+        <mat-icon class="icon" (click)="deleteNotification(noti.id)">delete_outline</mat-icon>
       </div>
     </div>
 

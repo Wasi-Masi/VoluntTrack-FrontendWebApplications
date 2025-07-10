@@ -7,7 +7,8 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { Activity } from '../../dashboard/model/dashboard.entity';
 import { CreateActivityService } from '../../create-activity/services/create-activity.service';
-import { NotificationsService } from '../../notifications/services/notifications.service'; // Import NotificationsService
+import { NotificationsService } from '../../notifications/services/notifications.service';
+import {LoginService} from '../../login/services/login.service'; // Import NotificationsService
 
 @Component({
   selector: 'app-edit-activity',
@@ -53,7 +54,8 @@ export class EditActivityComponent implements OnInit {
     private route: ActivatedRoute,
     private activityService: CreateActivityService,
     private router: Router,
-    private notificationsService: NotificationsService // Inject NotificationsService
+    private notificationsService: NotificationsService,
+    private loginService: LoginService
   ) {}
 
   ngOnInit(): void {
@@ -170,9 +172,24 @@ export class EditActivityComponent implements OnInit {
 
     this.activityService.updateActivity(this.activity).subscribe({
       next: () => {
-        this.notificationsService.createTypedNotification('activity-updated').subscribe(() => {
-          window.dispatchEvent(new Event('openNotifications'));
-        });
+        const recipientId = this.loginService.getOrganizationId(); // ¡CORREGIDO! Usar getOrganizationId()
+        // Si la organización ID es null, significa que no hay organización logueada o hay un problema.
+        // Deberías manejar este caso, quizás no enviar la notificación o registrar un error.
+        // Para este ejemplo, asumiremos que siempre hay un organizationId cuando se actualiza una actividad.
+        const recipientType: 'VOLUNTEER' | 'ORGANIZATION' = 'ORGANIZATION'; // El tipo de destinatario es una Organización
+
+        if (recipientId !== null) { // Asegúrate de que tenemos un ID de organización válido
+          this.notificationsService.createTypedNotification(
+            'NEW_ACTIVITY', // Ajusta este tipo si tienes un tipo más específico como 'ACTIVITY_UPDATED' en tu backend enum
+            recipientId,
+            recipientType,
+            'Actividad actualizada exitosamente.' // Mensaje personalizado
+          ).subscribe(() => {
+            window.dispatchEvent(new Event('openNotifications'));
+          });
+        } else {
+          console.warn('No se pudo crear la notificación de éxito: Organization ID no disponible.');
+        }
         this.router.navigate(['/dashboard']);
       },
       error: (err) => {
@@ -191,9 +208,21 @@ export class EditActivityComponent implements OnInit {
           errorMessage += ` (Código: ${err.status})`;
         }
 
-        this.notificationsService.createTypedNotification('error', errorMessage).subscribe(() => {
-          window.dispatchEvent(new Event('openNotifications'));
-        });
+        const recipientId = this.loginService.getOrganizationId(); // ¡CORREGIDO!
+        const recipientType: 'VOLUNTEER' | 'ORGANIZATION' = 'ORGANIZATION'; // Tipo de destinatario
+
+        if (recipientId !== null) { // Asegúrate de que tenemos un ID de organización válido
+          this.notificationsService.createTypedNotification(
+            'GENERIC', // Tipo genérico para errores (o 'ERROR' si lo tienes en el backend enum)
+            recipientId,
+            recipientType,
+            errorMessage
+          ).subscribe(() => {
+            window.dispatchEvent(new Event('openNotifications'));
+          });
+        } else {
+          console.warn('No se pudo crear la notificación de error: Organization ID no disponible.');
+        }
       }
     });
   }
