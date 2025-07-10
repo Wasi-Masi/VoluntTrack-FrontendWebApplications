@@ -3373,7 +3373,9 @@ Si bien la suma total de Story Points asignados a las historias del Sprint 4 asc
 | Sprint #4  | TS10              | T25         | Crear y modificar archivos iniciales para es y en (mensajes de éxito y errores de validación)                              | 2                    | George Galván                 | Done       |
 |            |                   | T26         | Configurar la localización de mensajes de Bean Validation                                                                   | 1                    | George Galván                 | Done       |
 
-Evidencia del Sprint en Jiro:
+Evidencia del Sprint en Jira:
+
+https://upc-team-rwpyu55g.atlassian.net/jira/software/projects/SCRUM/boards/1/backlog?atlOrigin=eyJpIjoiYTJmZjRmZGRhOTRkNDExNmE5ZmJhMTQ4NjA4YTZjNDkiLCJwIjoiaiJ9
 
 <p align="center">
   <img src="https://imgur.com/op6ybde.png" alt="sprrr4-0">
@@ -4026,6 +4028,28 @@ Tras la entrega final, sugerimos implementar un plan estratégico para la escala
 
 Una vez lanzado Voluntrack, se recomienda encarecidamente implementar un proceso formal para la recolección, análisis y priorización del feedback de los usuarios reales. Esto no solo abarca la funcionalidad, sino también la experiencia de usuario (UX) y la interfaz de usuario (UI), prestando especial atención a la claridad de los mensajes internacionalizados. Este ciclo de retroalimentación permitirá identificar puntos de fricción, nuevas necesidades y oportunidades de mejora, asegurando que el producto evolucione constantemente para satisfacer las expectativas de sus usuarios y adaptarse a los cambios del ecosistema del voluntariado.
 
+## Video About-The-Team
+
+Esta sección presenta el video “About-the-Team” de VolunTrack, el cual documenta el proceso colaborativo del equipo durante las distintas fases del desarrollo del proyecto. El video combina escenas reales de sesiones de trabajo (ideación, planificación, diseño, programación y pruebas), una narración en off que describe el enfoque de trabajo basado en Lean UX, y los testimonios individuales frente a cámara de cada uno de los seis integrantes. En sus intervenciones, los miembros del equipo detallan sus principales aportes, los resultados alcanzados (outcomes) y las competencias que fortalecieron a lo largo de toda la experiencia.
+
+<p align="center">
+  <img src="https://imgur.com/TdSQxpA.png" alt="Team Screenshot">
+</p>
+
+| Sección               | Timing (hh:mm:ss) | Contenido                                                                           |
+|-----------------------|-------------------|-------------------------------------------------------------------------------------|
+| 00:00 – 00:29   | Intro             | Trabajo realizado a lo largo de las semanas                                       |
+| 00:29 – 02:16   | Marcelo Binda        | Trabajo Realizado por Marcelo Binda a lo largo del proyecto  |
+| 02:16 – 04:08         | Ainhoa Castillo          | Trabajo Realizado por Ainhoa Castillo a lo largo del proyecto  |
+| 04:08 – 05:40         | Cassius Martel | Trabajo Realizado por Cassius Martel a lo largo del proyecto        |
+| 05:40 – 07:30         | Tomio Nakamurake      | Trabajo Realizado por Tomio Nakamurakare a lo largo del proyecto                         |
+| 07:30 – 08:40         | George Galván     | Trabajo Realizado por George Galván a lo largo del proyecto                  |
+| 08:40 – Fin           | Victor Ortíz  | Trabajo Realizado por Victor Ortiz a lo largo del proyecto                              |
+
+
+Link Microsoft Stream: https://upcedupe-my.sharepoint.com/:v:/g/personal/u20201f855_upc_edu_pe/EVw9SwiNoelDrlBzTGARKpABMgqYlzbTV-n2ZETkdZrFmA?e=v8ZhYp
+
+Link Youtube: https://www.youtube.com/watch?v=Fghp9K8dapY
 
 # Bibliografia
 
@@ -4061,6 +4085,8 @@ Execution Evidence for Sprint 2 Review. https://drive.google.com/file/d/1pp985R2
 
 Execution Evidence for Sprint 3 Review. https://upcedupe-my.sharepoint.com/:v:/g/personal/u20201f855_upc_edu_pe/Edy2FnqV-A5Mr6FxVXD_iekBLGNNL507SKO8-1Akm7n69w?e=MKo7IV
 
+Execution Evidence for Sprint 4 Review. 
+
 Exposición TB1. https://upcedupe-my.sharepoint.com/:v:/g/personal/u20201f855_upc_edu_pe/EYo4bWjuiZJIto67pij-UGIBvCjIbIDt9vEwSGJBnFQTQQ?e=ZL7e0W
 
 Anexo C. UI
@@ -4084,3 +4110,7 @@ Anexo H. Link del Web Application. https://voluntrack-4ceb9.web.app/
 Anexo I. About-The-Product. https://upcedupe-my.sharepoint.com/:v:/g/personal/u202312287_upc_edu_pe/ER7knyPZhxxNutfOYOZln24BT1-Z8-MXBlkFiYdrpf_cZg?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=SuFYws
 
 Anexo J. Link del Deployment del Backend https://voluntrack-webservices.onrender.com/swagger-ui/index.html
+
+Anexo K. Link del Sprint 4 en Jira https://upc-team-rwpyu55g.atlassian.net/jira/software/projects/SCRUM/boards/1/backlog?atlOrigin=eyJpIjoiYTJmZjRmZGRhOTRkNDExNmE5ZmJhMTQ4NjA4YTZjNDkiLCJwIjoiaiJ9
+
+Anexo L. About-The-Team https://upcedupe-my.sharepoint.com/:v:/g/personal/u20201f855_upc_edu_pe/EVw9SwiNoelDrlBzTGARKpABMgqYlzbTV-n2ZETkdZrFmA?e=v8ZhYp
