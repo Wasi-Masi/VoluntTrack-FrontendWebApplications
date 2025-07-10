@@ -27,6 +27,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { NotificationsService } from '../../notifications/services/notifications.service';
 import { TranslateService, TranslatePipe } from '@ngx-translate/core';
 import { forkJoin } from 'rxjs';
+import { LoginService } from '../../login/services/login.service'; // ¡NUEVO! Importar LoginService
 
 @Component({
   selector: 'app-registered-volunteers',
@@ -36,11 +37,11 @@ import { forkJoin } from 'rxjs';
   imports: [
     RouterLink, MatIconModule, FormsModule, MatInput, MatSuffix,
     MatFormField, TitleCasePipe, DatePipe,
-    MatCell, MatColumnDef, MatHeaderCell, MatHeaderRow, MatRow,
-    MatPaginator, MatHeaderRowDef, MatRowDef, MatTable,
+    MatCell, MatColumnDef, MatHeaderCell, MatHeaderCellDef, MatHeaderRow, MatHeaderRowDef,
+    MatRow, MatRowDef, MatTable,
     MatHeaderCellDef, MatCellDef, MatIconButton, MatButton,
     MatCardContent, MatCard, MatCardHeader, NgIf, MatTooltipModule,
-    MatFormFieldModule, MatCardModule, MatCheckbox, TranslatePipe
+    MatFormFieldModule, MatCardModule, MatCheckbox, TranslatePipe, MatPaginator
   ],
   providers: [DatePipe]
 })
@@ -66,7 +67,8 @@ export class RegisteredVolunteersComponent implements OnInit {
     private snackBar: MatSnackBar,
     private notificationsService: NotificationsService,
     private translate: TranslateService,
-    private datePipe: DatePipe
+    private datePipe: DatePipe,
+    private loginService: LoginService // ¡NUEVO! Inyectar LoginService
   ) {}
 
   ngOnInit(): void {
@@ -81,9 +83,20 @@ export class RegisteredVolunteersComponent implements OnInit {
           this.loadRegisteredVolunteers(activityId);
         },
         error: err => {
-          this.notificationsService.createTypedNotification('error', this.translate.instant('volunteers.activityLoadError')).subscribe(() => {
-            window.dispatchEvent(new Event('openNotifications'));
-          });
+          // LLAMADA 1: Notificación de error al cargar la actividad
+          const recipientId = this.loginService.getOrganizationId();
+          const recipientType: 'VOLUNTEER' | 'ORGANIZATION' = 'ORGANIZATION';
+
+          if (recipientId !== null) {
+            this.notificationsService.createTypedNotification(
+              'GENERIC', // Tipo genérico para errores
+              recipientId,
+              recipientType,
+              this.translate.instant('volunteers.activityLoadError')
+            ).subscribe(() => {
+              window.dispatchEvent(new Event('openNotifications'));
+            });
+          }
         }
       });
     }
@@ -99,7 +112,6 @@ export class RegisteredVolunteersComponent implements OnInit {
   loadRegisteredVolunteers(activityId: number) {
     this.regVolunteersService.getRegisteredVolunteersByActivityId(activityId).subscribe({
       next: volunteers => {
-        // Calcular edad para cada voluntario
         volunteers.forEach(v => {
           v.age = this.calculateAge(v.dateOfBirth) ?? 0;
           this.attendanceMarked[String(v.id)] = v.attendance;
@@ -113,9 +125,20 @@ export class RegisteredVolunteersComponent implements OnInit {
         }
       },
       error: err => {
-        this.notificationsService.createTypedNotification('error', this.translate.instant('volunteers.registeredVolunteersLoadError')).subscribe(() => {
-          window.dispatchEvent(new Event('openNotifications'));
-        });
+        // LLAMADA 2: Notificación de error al cargar voluntarios registrados
+        const recipientId = this.loginService.getOrganizationId();
+        const recipientType: 'VOLUNTEER' | 'ORGANIZATION' = 'ORGANIZATION';
+
+        if (recipientId !== null) {
+          this.notificationsService.createTypedNotification(
+            'GENERIC', // Tipo genérico para errores
+            recipientId,
+            recipientType,
+            this.translate.instant('volunteers.registeredVolunteersLoadError')
+          ).subscribe(() => {
+            window.dispatchEvent(new Event('openNotifications'));
+          });
+        }
       }
     });
   }
@@ -162,24 +185,51 @@ export class RegisteredVolunteersComponent implements OnInit {
       }
     }
 
+    const recipientId = this.loginService.getOrganizationId();
+    const recipientType: 'VOLUNTEER' | 'ORGANIZATION' = 'ORGANIZATION';
+
     if (updateCalls.length === 0) {
-      this.notificationsService.createTypedNotification('info', this.translate.instant('volunteers.noAttendanceChanges')).subscribe(() => {
-        window.dispatchEvent(new Event('openNotifications'));
-      });
+      // LLAMADA 3: Notificación informativa si no hay cambios de asistencia
+      if (recipientId !== null) {
+        this.notificationsService.createTypedNotification(
+          'GENERIC', // Tipo genérico para info
+          recipientId,
+          recipientType,
+          this.translate.instant('volunteers.noAttendanceChanges')
+        ).subscribe(() => {
+          window.dispatchEvent(new Event('openNotifications'));
+        });
+      }
       return;
     }
 
     forkJoin(updateCalls).subscribe({
       next: () => {
         this.loadRegisteredVolunteers(this.activityId);
-        this.notificationsService.createTypedNotification('success', this.translate.instant('volunteers.attendanceSaved')).subscribe(() => {
-          window.dispatchEvent(new Event('openNotifications'));
-        });
+        // LLAMADA 4: Notificación de éxito al guardar asistencia
+        if (recipientId !== null) {
+          this.notificationsService.createTypedNotification(
+            'GENERIC', // Tipo genérico para éxito. Si tienes 'ATTENDANCE_SAVED', úsalo.
+            recipientId,
+            recipientType,
+            this.translate.instant('volunteers.attendanceSaved')
+          ).subscribe(() => {
+            window.dispatchEvent(new Event('openNotifications'));
+          });
+        }
       },
       error: err => {
-        this.notificationsService.createTypedNotification('error', this.translate.instant('volunteers.attendanceSaveError')).subscribe(() => {
-          window.dispatchEvent(new Event('openNotifications'));
-        });
+        // LLAMADA 5: Notificación de error al guardar asistencia
+        if (recipientId !== null) {
+          this.notificationsService.createTypedNotification(
+            'GENERIC', // Tipo genérico para errores
+            recipientId,
+            recipientType,
+            this.translate.instant('volunteers.attendanceSaveError')
+          ).subscribe(() => {
+            window.dispatchEvent(new Event('openNotifications'));
+          });
+        }
       }
     });
   }
@@ -200,31 +250,69 @@ export class RegisteredVolunteersComponent implements OnInit {
         })
       ));
 
+    const recipientId = this.loginService.getOrganizationId();
+    const recipientType: 'VOLUNTEER' | 'ORGANIZATION' = 'ORGANIZATION';
+
     if (certificados.length === 0) {
-      this.notificationsService.createTypedNotification('error', this.translate.instant('volunteers.noVolunteersAttendedForCertificates')).subscribe(() => {
-        window.dispatchEvent(new Event('openNotifications'));
-      });
+      // LLAMADA 6: Notificación de error si no hay voluntarios con asistencia para certificados
+      if (recipientId !== null) {
+        this.notificationsService.createTypedNotification(
+          'GENERIC', // Tipo genérico para errores de validación
+          recipientId,
+          recipientType,
+          this.translate.instant('volunteers.noVolunteersAttendedForCertificates')
+        ).subscribe(() => {
+          window.dispatchEvent(new Event('openNotifications'));
+        });
+      }
       return;
     }
 
     forkJoin(certificados.map(cert => this.certificatesService.postCertificate(cert))).subscribe({
       next: () => {
-        this.notificationsService.createTypedNotification('certificate', this.translate.instant('volunteers.certificatesGeneratedAndSent')).subscribe(() => {
-          window.dispatchEvent(new Event('openNotifications'));
-        });
+        // LLAMADA 7: Notificación de éxito al generar y enviar certificados
+        if (recipientId !== null) {
+          this.notificationsService.createTypedNotification(
+            'CERTIFICATE_READY', // Usar 'CERTIFICATE_READY' si el backend tiene este tipo
+            recipientId,
+            recipientType,
+            this.translate.instant('volunteers.certificatesGeneratedAndSent')
+          ).subscribe(() => {
+            window.dispatchEvent(new Event('openNotifications'));
+          });
+        }
       },
       error: err => {
-        this.notificationsService.createTypedNotification('error', this.translate.instant('volunteers.certificateGenerationError')).subscribe(() => {
-          window.dispatchEvent(new Event('openNotifications'));
-        });
+        // LLAMADA 8: Notificación de error al generar certificados
+        if (recipientId !== null) {
+          this.notificationsService.createTypedNotification(
+            'GENERIC', // Tipo genérico para errores
+            recipientId,
+            recipientType,
+            this.translate.instant('volunteers.certificateGenerationError')
+          ).subscribe(() => {
+            window.dispatchEvent(new Event('openNotifications'));
+          });
+        }
       }
     });
   }
 
   toNotify() {
-    this.notificationsService.createTypedNotification('info', this.translate.instant('volunteers.sendNotificationFeatureNotImplemented')).subscribe(() => {
-      window.dispatchEvent(new Event('openNotifications'));
-    });
+    // LLAMADA 9: Notificación de funcionalidad no implementada
+    const recipientId = this.loginService.getOrganizationId();
+    const recipientType: 'VOLUNTEER' | 'ORGANIZATION' = 'ORGANIZATION';
+
+    if (recipientId !== null) {
+      this.notificationsService.createTypedNotification(
+        'GENERIC', // Tipo genérico para info
+        recipientId,
+        recipientType,
+        this.translate.instant('volunteers.sendNotificationFeatureNotImplemented')
+      ).subscribe(() => {
+        window.dispatchEvent(new Event('openNotifications'));
+      });
+    }
   }
 
   toggleRegistrationStatus(): void {
@@ -251,9 +339,20 @@ export class RegisteredVolunteersComponent implements OnInit {
     }).subscribe({
       next: () => {
         const msgKey = newStatus === 'Abierta' ? 'volunteers.registrationsOpened' : 'volunteers.registrationsClosed';
-        this.notificationsService.createTypedNotification('success', this.translate.instant(msgKey)).subscribe(() => {
-          window.dispatchEvent(new Event('openNotifications'));
-        });
+        // LLAMADA 10: Notificación de éxito al cambiar estado de inscripción
+        const recipientId = this.loginService.getOrganizationId();
+        const recipientType: 'VOLUNTEER' | 'ORGANIZATION' = 'ORGANIZATION';
+
+        if (recipientId !== null) {
+          this.notificationsService.createTypedNotification(
+            'OPEN_INSCRIPTIONS', // Usar 'OPEN_INSCRIPTIONS' si el backend tiene este tipo para abrir/cerrar
+            recipientId,
+            recipientType,
+            this.translate.instant(msgKey)
+          ).subscribe(() => {
+            window.dispatchEvent(new Event('openNotifications'));
+          });
+        }
 
         this.activityService.getActivityById(this.activityId).subscribe({
           next: updated => this.activity = updated
@@ -261,9 +360,20 @@ export class RegisteredVolunteersComponent implements OnInit {
       },
       error: err => {
         this.activity.estado = originalStatus;
-        this.notificationsService.createTypedNotification('error', this.translate.instant('volunteers.registrationStatusUpdateError')).subscribe(() => {
-          window.dispatchEvent(new Event('openNotifications'));
-        });
+        // LLAMADA 11: Notificación de error al cambiar estado de inscripción
+        const recipientId = this.loginService.getOrganizationId();
+        const recipientType: 'VOLUNTEER' | 'ORGANIZATION' = 'ORGANIZATION';
+
+        if (recipientId !== null) {
+          this.notificationsService.createTypedNotification(
+            'GENERIC', // Tipo genérico para errores
+            recipientId,
+            recipientType,
+            this.translate.instant('volunteers.registrationStatusUpdateError')
+          ).subscribe(() => {
+            window.dispatchEvent(new Event('openNotifications'));
+          });
+        }
       }
     });
   }

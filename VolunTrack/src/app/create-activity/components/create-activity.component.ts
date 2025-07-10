@@ -17,6 +17,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { CreateActivityService } from '../services/create-activity.service';
 import { NotificationsService } from '../../notifications/services/notifications.service';
+import {LoginService} from '../../login/services/login.service';
 
 @Component({
   selector: 'app-create-activity',
@@ -57,23 +58,38 @@ export class CreateActivityComponent implements OnInit { // Implement OnInit
   generalErrors: string[] = []; // Array for general (non-field-specific) errors
 
   public today: string = ''; // Property to hold today's date for date input min attribute
+  isSubmitting = false;
 
   constructor(
     private createService: CreateActivityService,
     private router: Router,
     private notificationsService: NotificationsService,
+    private loginService: LoginService // ¡NUEVO! Inyectar LoginService si no está ya
   ) {
     this.activity.estado = 'Activa';
-    this.activity.organizacion_id = 1;
   }
 
   ngOnInit(): void {
     // Initialize 'today' date to ensure the min attribute for date input is set correctly
     const now = new Date();
     this.today = now.toISOString().split('T')[0]; // Format as YYYY-MM-DD
+    const loggedInOrgId = this.loginService.getOrganizationId();
+    if (loggedInOrgId !== null) {
+      this.activity.organizacion_id = loggedInOrgId;
+    } else {
+      // Manejar el caso de que no haya ID de organización logueado
+      console.error('No se pudo obtener el ID de la organización logueada. La actividad puede no crearse correctamente.');
+      // Podrías redirigir al login o mostrar un mensaje al usuario
+    }
   }
 
   onSubmit() {
+    if (this.isSubmitting) {
+      console.warn('[DEBUG] Ya se está enviando el formulario. Ignorando envío duplicado.');
+      return;
+    }
+    this.isSubmitting = true;
+    console.log('[DEBUG] onSubmit ejecutado');
     this.validationErrors = {}; // Clear previous field-specific errors
     this.generalErrors = []; // Clear previous general errors
 
@@ -159,10 +175,25 @@ export class CreateActivityComponent implements OnInit { // Implement OnInit
     // If all frontend validations pass, then attempt backend submission
     this.createService.createActivity(this.activity).subscribe({
       next: (createdActivity) => {
-        this.notificationsService.createTypedNotification('new-activity').subscribe(() => {
-          window.dispatchEvent(new Event('openNotifications'));
-        });
+        console.log('[DEBUG] Actividad creada exitosamente'); // 👈 AÑADE ESTO AQUÍ
+        const recipientId = this.loginService.getOrganizationId(); // Obtener el ID de la organización logueada
+        const recipientType: 'VOLUNTEER' | 'ORGANIZATION' = 'ORGANIZATION'; // El tipo de destinatario es una Organización
+
+        if (recipientId !== null) { // Asegurarse de que tenemos un ID de organización válido
+         /* this.notificationsService.createTypedNotification(
+            'NEW_ACTIVITY', // Tipo de notificación específico para 'Actividad creada' desde tu backend enum
+            recipientId,
+            recipientType
+            // El mensaje por defecto de 'NEW_ACTIVITY' en el backend es 'Has creado una nueva actividad...'
+            // No pasamos customMessage si queremos el por defecto.
+          ).subscribe(() => {
+            window.dispatchEvent(new Event('openNotifications'));
+          });*/
+        } else {
+          console.warn('No se pudo crear la notificación de éxito: Organization ID no disponible.');
+        }
         this.router.navigate(['/dashboard']);
+        this.isSubmitting = false; // ✅ Reset
       },
       error: (err) => {
         console.error('Error al crear actividad:', err);
@@ -183,9 +214,22 @@ export class CreateActivityComponent implements OnInit { // Implement OnInit
           errorMessage += ` (Código: ${err.status})`;
         }
 
-        this.notificationsService.createTypedNotification('error', errorMessage).subscribe(() => {
-          window.dispatchEvent(new Event('openNotifications'));
-        });
+        const recipientId = this.loginService.getOrganizationId(); // Obtener el ID de la organización logueada
+        const recipientType: 'VOLUNTEER' | 'ORGANIZATION' = 'ORGANIZATION'; // Tipo de destinatario
+
+        if (recipientId !== null) { // Asegurarse de que tenemos un ID de organización válido
+          this.notificationsService.createTypedNotification(
+            'GENERIC', // Tipo genérico para errores (o 'ERROR' si lo tienes en el backend enum)
+            recipientId,
+            recipientType,
+            errorMessage // Pasa el mensaje de error como customMessage
+          ).subscribe(() => {
+            window.dispatchEvent(new Event('openNotifications'));
+            this.isSubmitting = false;
+          });
+        } else {
+          console.warn('No se pudo crear la notificación de error: Organization ID no disponible.');
+        }
       }
     });
   }

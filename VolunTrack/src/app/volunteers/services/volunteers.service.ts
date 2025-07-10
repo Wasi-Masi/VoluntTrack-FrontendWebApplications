@@ -69,7 +69,6 @@ export class VolunteersService {
     }
 
     const headers = this.getAuthHeaders();
-    console.log('VolunteersService: Enviando petición GET a:', this.basePath, 'con parámetros:', params.toString(), 'y cabeceras:', headers);
 
     return this.http.get<Volunteer[]>(this.basePath, { params: params, headers: headers });
   }

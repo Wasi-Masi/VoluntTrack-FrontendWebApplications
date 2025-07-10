@@ -17,11 +17,12 @@ import {MatCardModule} from '@angular/material/card';
 import {TranslateModule, TranslatePipe} from '@ngx-translate/core';
 
 import {ActivityDetailsService} from '../../../activity-details/services/activity-details.service';
-import {Activity} from '../../../dashboard/model/dashboard.entity'; // Tu entidad Activity existente
+import {Activity} from '../../../dashboard/model/dashboard.entity';
 import {InscriptionService} from '../../../participation/services/inscription.service';
 import {CreateInscriptionResource} from '../../../participation/resources/create-inscription.resource';
 
 import {NotificationsService} from '../../../notifications/services/notifications.service';
+import { LoginService } from '../../../login/services/login.service'; // ¡NUEVO! Importar LoginService
 
 
 @Component({
@@ -47,10 +48,8 @@ import {NotificationsService} from '../../../notifications/services/notification
 })
 export class ActivityListDialogComponent implements OnInit {
 
-  // Cambia el tipo de activities para usar la clase Activity directamente
-  // y luego le asignaremos la propiedad 'availableSlots' si es necesario.
   activities: Activity[] = [];
-  selectedActivity: Activity | null = null; // También aquí
+  selectedActivity: Activity | null = null;
   loadingActivities: boolean = true;
   loadingEnrollment: boolean = false;
   displayedColumns: string[] = ['name', 'description', 'availableSlots', 'action'];
@@ -60,7 +59,8 @@ export class ActivityListDialogComponent implements OnInit {
     @Inject(MAT_DIALOG_DATA) public data: { volunteerId: number, volunteerName: string },
     private activityDetailsService: ActivityDetailsService,
     private inscriptionService: InscriptionService,
-    private notificationsService: NotificationsService
+    private notificationsService: NotificationsService,
+    private loginService: LoginService // ¡NUEVO! Inyectar LoginService
   ) {}
 
   ngOnInit(): void {
@@ -71,7 +71,8 @@ export class ActivityListDialogComponent implements OnInit {
     this.loadingActivities = true;
     this.activityDetailsService.getAllActivities().subscribe({
       next: (data: Activity[]) => {
-        // ¡CAMBIO CLAVE AQUÍ! Mapea los objetos planos a instancias de la clase Activity
+        // Asegúrate de que el constructor de Activity en dashboard.entity.ts
+        // coincida con estos parámetros. Si lo cambiaste a un objeto, actualiza esto también.
         this.activities = data.map(activityData => new Activity(
           activityData.actividad_id,
           activityData.fecha,
@@ -86,18 +87,29 @@ export class ActivityListDialogComponent implements OnInit {
           activityData.estado,
           activityData.organizacion_id,
           activityData.imagenes,
-          activityData.availableSlots // Asegúrate de que este campo exista en el JSON del backend
+          activityData.availableSlots
         ));
 
         this.loadingActivities = false;
-        console.log('Actividades cargadas (instancias de Activity):', this.activities); // Puedes verificar en consola
+        console.log('Actividades cargadas (instancias de Activity):', this.activities);
       },
       error: (error) => {
         console.error('Error al cargar actividades:', error);
         this.loadingActivities = false;
-        this.notificationsService.createTypedNotification('error', 'Error al cargar las actividades.').subscribe(() => {
-          window.dispatchEvent(new Event('openNotifications'));
-        });
+        // LLAMADA 1: Notificación de error al cargar actividades
+        const recipientId = this.loginService.getOrganizationId();
+        const recipientType: 'VOLUNTEER' | 'ORGANIZATION' = 'ORGANIZATION';
+
+        if (recipientId !== null) {
+          this.notificationsService.createTypedNotification(
+            'GENERIC', // Tipo genérico para errores de carga
+            recipientId,
+            recipientType,
+            'Error al cargar las actividades.'
+          ).subscribe(() => {
+            window.dispatchEvent(new Event('openNotifications'));
+          });
+        }
       }
     });
   }
@@ -113,33 +125,53 @@ export class ActivityListDialogComponent implements OnInit {
     console.log('¿Está la inscripción abierta (isInscriptionOpen)?', activity.isInscriptionOpen);
     console.log('Cupos disponibles (availableSlots):', activity.availableSlots);
 
+    const recipientId = this.loginService.getOrganizationId();
+    const recipientType: 'VOLUNTEER' | 'ORGANIZATION' = 'ORGANIZATION';
 
     if (!this.data.volunteerId) {
-      this.notificationsService.createTypedNotification('error', 'Error: ID de voluntario no proporcionado.').subscribe(() => {
-        window.dispatchEvent(new Event('openNotifications'));
-      });
+      // LLAMADA 2: Notificación de error si ID de voluntario no proporcionado
+      if (recipientId !== null) {
+        this.notificationsService.createTypedNotification(
+          'GENERIC', // Tipo genérico para errores de validación
+          recipientId,
+          recipientType,
+          'Error: ID de voluntario no proporcionado.'
+        ).subscribe(() => {
+          window.dispatchEvent(new Event('openNotifications'));
+        });
+      }
       return;
     }
 
-    // Esta validación ahora usará el 'estado' real del backend gracias a tu cambio en Activity.ts
     if (!activity.isInscriptionOpen) {
-      this.notificationsService.createTypedNotification('info', 'La inscripción para esta actividad no está abierta.').subscribe(() => {
-        window.dispatchEvent(new Event('openNotifications'));
-      });
+      // LLAMADA 3: Notificación informativa si la inscripción no está abierta
+      if (recipientId !== null) {
+        this.notificationsService.createTypedNotification(
+          'GENERIC', // Tipo genérico para info/advertencia
+          recipientId,
+          recipientType,
+          'La inscripción para esta actividad no está abierta.'
+        ).subscribe(() => {
+          window.dispatchEvent(new Event('openNotifications'));
+        });
+      }
       return;
     }
 
-    // Asegúrate de que 'availableSlots' sea una propiedad en el objeto de actividad
-    // que estás usando. Si `activity.availableSlots` no existe o es incorrecto,
-    // el chequeo fallará.
-    // Necesitas verificar que `Object.assign` en `loadActivities` realmente agregue esto.
-    if (activity.availableSlots <= 0) { //
-      this.notificationsService.createTypedNotification('info', 'Esta actividad no tiene cupos disponibles.').subscribe(() => {
-        window.dispatchEvent(new Event('openNotifications'));
-      });
+    if (activity.availableSlots <= 0) {
+      // LLAMADA 4: Notificación informativa si no hay cupos disponibles
+      if (recipientId !== null) {
+        this.notificationsService.createTypedNotification(
+          'GENERIC', // Tipo genérico para info/advertencia
+          recipientId,
+          recipientType,
+          'Esta actividad no tiene cupos disponibles.'
+        ).subscribe(() => {
+          window.dispatchEvent(new Event('openNotifications'));
+        });
+      }
       return;
     }
-
 
     this.loadingEnrollment = true;
 
@@ -147,15 +179,23 @@ export class ActivityListDialogComponent implements OnInit {
       voluntarioId: this.data.volunteerId,
       actividadId: activity.actividad_id,
       estado: "APPROVED",
-      fecha: new Date().toISOString().split('T')[0], // formato yyyy-mm-dd
+      fecha: new Date().toISOString().split('T')[0], // formato YYYY-MM-DD
     };
 
     this.inscriptionService.createInscription(inscriptionResource).subscribe({
       next: (response) => {
         console.log('Voluntario inscrito exitosamente:', response);
-        this.notificationsService.createTypedNotification('success', `Voluntario inscrito en "${activity.titulo}" exitosamente.`).subscribe(() => {
-          window.dispatchEvent(new Event('openNotifications'));
-        });
+        // LLAMADA 5: Notificación de éxito al inscribir voluntario
+        if (recipientId !== null) {
+          this.notificationsService.createTypedNotification(
+            'VOLUNTEER_JOINED', // Usar 'VOLUNTEER_JOINED' si el backend usa este tipo para un nuevo voluntario en actividad
+            recipientId,
+            recipientType,
+            `Voluntario inscrito en "${activity.titulo}" exitosamente.`
+          ).subscribe(() => {
+            window.dispatchEvent(new Event('openNotifications'));
+          });
+        }
         this.dialogRef.close({ enrolled: true, activity: activity });
       },
       error: (error) => {
@@ -167,9 +207,17 @@ export class ActivityListDialogComponent implements OnInit {
         } else if (error.message) {
           errorMessage = error.message;
         }
-        this.notificationsService.createTypedNotification('error', errorMessage).subscribe(() => {
-          window.dispatchEvent(new Event('openNotifications'));
-        });
+        // LLAMADA 6: Notificación de error al inscribir voluntario
+        if (recipientId !== null) {
+          this.notificationsService.createTypedNotification(
+            'GENERIC', // Tipo genérico para errores
+            recipientId,
+            recipientType,
+            errorMessage
+          ).subscribe(() => {
+            window.dispatchEvent(new Event('openNotifications'));
+          });
+        }
         this.dialogRef.close({ error: errorMessage });
       }
     });
@@ -179,8 +227,3 @@ export class ActivityListDialogComponent implements OnInit {
     this.dialogRef.close();
   }
 }
-
-// Eliminamos la interfaz ActivityWithAvailableSlots, ya que la clase Activity lo manejará
-// interface ActivityWithAvailableSlots extends Activity {
-//   availableSlots: number;
-// }
