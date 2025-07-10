@@ -157,7 +157,7 @@ Como se puede ver, todos hemos participado en los commits del readme. Si bien pa
       - [5.2.3.6. Services Documentation Evidence for Sprint Review](#5236-services-documentation-evidence-for-sprint-review)
       - [5.2.3.7. Software Deployment Evidence for Sprint Review](#5237-software-deployment-evidence-for-sprint-review)
       - [5.2.3.8. Team Collaboration Insights during Sprint](#5238-team-collaboration-insights-during-sprint)
-    + [5.2.4. Sprint 3](#524-sprint-4)
+    + [5.2.4. Sprint 4](#524-sprint-4)
       - [5.2.4.1. Sprint Planning](#5241-sprint-planning)
       - [5.2.4.2. Aspect Leaders and Collaborators](#5242-aspect-leaders-and-collaborators)
       - [5.2.4.3 Sprint Backlog 4](#5243-sprint-backlog-4)
@@ -3432,11 +3432,9 @@ En la capa de dominio, se consolidó el modelo User dentro de los agregados, rep
 
 Este sprint representó un avance significativo en la modularidad y seguridad de la aplicación, sentando las bases para la gestión de usuarios y el control de acceso.
 
-
 <p align="center">
   <img src="https://imgur.com/M8uFvAU.png" alt="sprinttt4">
 </p>
-
 
 <p align="center">
   <img src="https://imgur.com/wzCCuSw" alt="sprintttf4">
@@ -3446,6 +3444,40 @@ Las imágenes proporcionan una evidencia clara del funcionamiento del sistema de
 El proceso de autenticación se inicia mediante el endpoint POST /api/auth/sign-in, que permite a los usuarios registrados iniciar sesión con sus credenciales. Tras una solicitud exitosa, verificada por un código de respuesta 200 OK, la API retorna un token JWT completo en el cuerpo de la respuesta. Este token es crucial para la seguridad de la aplicación.
 
 Posteriormente, este token JWT es utilizado para autorizar futuras solicitudes. En la sección "Available authorizations" de Swagger UI, se introduce el token obtenido (en formato Bearer). Este mecanismo demuestra cómo el token JWT es generado y luego empleado para autenticar y autorizar llamadas a otros endpoints protegidos de la API directamente desde la documentación interactiva, validando así la correcta implementación de la seguridad y la gestión de autenticación en el backend de Voluntrack.
+
+<p align="center">
+  <img src="https://imgur.com/f27FosJ.png" alt="sprintttf4">
+</p>
+
+El panel de actividades permite visualizar todas las actividades registradas en la aplicación de forma ordenada y atractiva. Cada actividad se presenta con una imagen de previsualización, junto con su fecha de inicio y fin. Además, cada tarjeta cuenta con un botón "Ver más" que, al ser presionado, redirige al usuario a una vista detallada con toda la información específica de la actividad seleccionada.
+
+<p align="center">
+  <img src="https://imgur.com/E3LXQ1V.png" alt="sprintttf4">
+</p>
+
+Al presionar el botón superior "+Crear", el usuario será redirigido a una pantalla destinada a la creación de nuevas actividades. En esta vista se muestra un formulario que solicita ingresar información clave como la imagen, título, fecha, dirección y otros datos necesarios para registrar correctamente la nueva actividad en el sistema.
+
+<p align="center">
+  <img src="https://imgur.com/1z3MAoe.png" alt="sprintttf4">
+</p>
+
+En la pantalla principal, al presionar el ícono de la campana, se desplegará un panel lateral (slide) que muestra las notificaciones de la aplicación. Cada notificación se genera automáticamente a partir de acciones específicas realizadas dentro de la plataforma, como inscripciones, actualizaciones de actividades u otros eventos relevantes.
+
+<p align="center">
+  <img src="https://imgur.com/37foIKy.png" alt="sprintttf4">
+</p>
+
+En la pantalla "Mis voluntarios", podrás registrar un nuevo voluntario completando un formulario con datos como nombre, apellido, DNI, correo electrónico y otros campos relevantes. Esta funcionalidad permite agregar nuevos voluntarios a la aplicación para una mejor gestión y seguimiento dentro de la organización.
+
+Aquí se evidencian dos solicitudes HTTP GET idénticas al endpoint /api/v1/activities, con la única diferencia de un parámetro de consulta locale. La primera solicitud (?lang =en) devuelve un mensaje en inglés ("List of activities retrieved succesfully."), mientras que la solicitud que le sigue (?lang=es) devuelve el mismo mensaje traducido al español. Esto evidencia la correcta implementación de la internacionalización en el backend, permitiendo que la API sirva mensajes en el idioma preferido por el cliente.
+
+<p align="center">
+  <img src="https://imgur.com/Ln3dxKY.png" alt="sprintttf4">
+</p>
+
+<p align="center">
+  <img src="https://imgur.com/e2Ll5cM.png" alt="sprintttf4">
+</p>
 
 #### 5.2.4.6. Services Documentation Evidence for Sprint Review
 
