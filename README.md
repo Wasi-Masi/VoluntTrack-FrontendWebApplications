@@ -3469,6 +3469,60 @@ En la pantalla principal, al presionar el ícono de la campana, se desplegará u
 
 En la pantalla "Mis voluntarios", podrás registrar un nuevo voluntario completando un formulario con datos como nombre, apellido, DNI, correo electrónico y otros campos relevantes. Esta funcionalidad permite agregar nuevos voluntarios a la aplicación para una mejor gestión y seguimiento dentro de la organización.
 
+<p align="center">
+  <img src="https://imgur.com/AXA7YsS.png" alt="sp19">
+</p>
+
+En VolunTrack, es posible enviar correos electrónicos directamente desde la aplicación. Para ello, el usuario debe ingresar la dirección de correo del destinatario, el asunto y el cuerpo del mensaje. Una vez completados estos campos, el sistema enviará el mensaje al correo electrónico especificado. Esta funcionalidad facilita la comunicación directa entre coordinadores y voluntarios.
+
+<p align="center">
+  <img src="https://imgur.com/34afOn3.png" alt="sp18">
+</p>
+
+Al seleccionar una actividad específica, la aplicación mostrará todos los detalles relacionados con ella, incluyendo su descripción, instrucciones y propósito. Esta funcionalidad permite a los usuarios conocer a fondo cada actividad antes de decidir participar.
+
+<p align="center">
+  <img src="https://imgur.com/FJLpMIC.png" alt="sp17">
+</p>
+
+Para cada actividad, la organización tendrá la posibilidad de enviar notificaciones, registrar asistencias, generar certificados y habilitar o deshabilitar inscripciones según lo requiera.
+
+<p align="center">
+  <img src="https://imgur.com/XpRKlHp.png" alt="sp16">
+</p>
+
+En la aplicación se pueden visualizar todas las actividades disponibles para inscripción. Además, se muestra la cantidad de cupos disponibles para que el usuario pueda tomar decisiones informadas al momento de unirse.
+
+<p align="center">
+  <img src="https://imgur.com/8kA5xxJ.png" alt="sp15">
+</p>
+
+En esta pantalla se muestran todos los voluntarios inscritos en una actividad específica, junto con sus datos personales relevantes, como nombre, apellido, correo y estado de asistencia. Esta vista permite a los coordinadores tener un control detallado de los participantes.
+
+<p align="center">
+  <img src="https://imgur.com/Av5WLuI.png" alt="sp14">
+</p>
+
+Es posible visualizar, según lo requiera el usuario, la lista de voluntarios inscritos en una actividad específica. Se muestra información relevante como el nombre del voluntario y su estado de asistencia.
+
+<p align="center">
+  <img src="https://imgur.com/nDMejrV.png" alt="sp13">
+</p>
+
+En la aplicación, es posible visualizar y emitir certificados según las actividades completadas por cada voluntario, reconociendo así su participación y compromiso.
+
+<p align="center">
+  <img src="https://imgur.com/sHx1qYY.png" alt="sp12">
+</p>
+
+En VolunTrack, existe una funcionalidad de calendario que permite visualizar de forma clara las actividades programadas para el mes en curso, facilitando el seguimiento de eventos próximos.
+
+<p align="center">
+  <img src="https://imgur.com/NwDn2Bq.png" alt="sp11">
+</p>
+
+Voluntrack cuenta con una pantalla de perfil destinada al usuario que ha iniciado sesión en la aplicación. En esta sección, se muestra su información personal (como nombre, correo electrónico, plan, entre otros) y se ofrecen opciones de configuración para personalizar su experiencia dentro de la plataforma.
+
 Aquí se evidencian dos solicitudes HTTP GET idénticas al endpoint /api/v1/activities, con la única diferencia de un parámetro de consulta locale. La primera solicitud (?lang =en) devuelve un mensaje en inglés ("List of activities retrieved succesfully."), mientras que la solicitud que le sigue (?lang=es) devuelve el mismo mensaje traducido al español. Esto evidencia la correcta implementación de la internacionalización en el backend, permitiendo que la API sirva mensajes en el idioma preferido por el cliente.
 
 <p align="center">
