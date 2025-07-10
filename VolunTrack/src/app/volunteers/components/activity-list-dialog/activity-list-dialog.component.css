@@ -1,7 +1,20 @@
-/* src/app/volunteers/activity-list-dialog/activity-list-dialog.component.css */
+/*
+  ===============================================
+  Volunteers View Stylesheet
+  -----------------------------------------------
+  Description: Styles for the Activity Inscription
+  panel and its responsive interactions.
+  Author: Ainhoa Castillo
+  ===============================================
+*/
 
+
+/* Contenedor principal de la lista de actividades */
 .activity-list-container {
-  padding: 16px;
+  padding: 1rem 0;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.05);
 }
 
 .loading-spinner, .no-activities {
@@ -9,88 +22,167 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 20px;
-  min-height: 150px; /* Ensure some height for feedback */
+  padding: 30px;
+  min-height: 200px;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  margin: 1rem;
 }
 
 .loading-spinner mat-spinner {
-  margin-bottom: 10px;
+  margin-bottom: 15px;
 }
 
 .no-activities mat-icon {
-  font-size: 48px;
-  color: #999;
-  margin-bottom: 10px;
+  font-size: 60px;
+  color: #a0a0a0;
+  margin-bottom: 15px;
+}
+
+.no-activities p {
+  font-size: 1.1em;
+  color: #666;
 }
 
 .dialog-info {
-  margin-bottom: 20px;
-  font-size: 1.1em;
+  font-size: 1.2em;
   color: #333;
+  text-align: center;
+  font-weight: 500;
 }
 
-/* Card Layout Styling */
+/* Diseño de la cuadrícula de tarjetas */
 .activity-cards-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 16px;
-  max-height: 500px; /* Limit height for scrolling */
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+  max-height: 500px;
   overflow-y: auto;
-  padding-right: 5px; /* For scrollbar space */
+  padding: 1.2rem 0.5rem;
 }
 
 .activity-card {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  border: 1px solid #e0e0e0;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border 0.3s ease;
+  width: 450px;
+  margin: 0 auto;
 }
 
 .activity-card:hover {
   transform: translateY(-3px);
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
 }
 
 .activity-card.selected-card {
-  border: 2px solid var(--mdc-theme-primary); /* Highlight selected card */
-  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.25);
+  transform: scale(1.01);
+}
+
+/* Encabezado de la tarjeta */
+.activity-card mat-card-header {
+  background-color: #e0f2f7;
+  padding: 0.2rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 50px;
+  border-radius: 10px 10px 0 0;
 }
 
 .activity-card mat-card-title {
-  font-size: 1.3em;
-  font-weight: 500;
-  color: #24344C;
+  font-size: 1.2em;
+  font-weight: 600;
+  color: #263238;
+  text-align: center;
+  line-height: 1;
+}
+
+/* Contenido de la tarjeta */
+.activity-card mat-card-content {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .activity-card mat-card-content p {
   color: #555;
-  font-size: 0.9em;
+  font-size: 1em;
+  line-height: 1.2;
   margin-bottom: 10px;
 }
 
 .activity-info {
-  margin-top: 10px;
-  font-weight: bold;
+  margin-top: auto;
+  font-weight: 600;
+  font-size: 1em;
+  text-align: left;
 }
 
 .activity-info .available {
-  color: green;
+  color: #4CAF50;
+  font-weight: bold;
 }
 
 .activity-info .full {
-  color: red;
+  color: #F44336;
+  font-weight: bold;
 }
 
-mat-dialog-actions {
+/* Acciones de la tarjeta (botón) */
+mat-card-actions {
   padding: 16px 24px;
   border-top: 1px solid #eee;
+  display: flex;
+  justify-content: flex-end;
 }
 
-/* Spinner inside button */
+mat-card-actions button {
+  font-weight: 500;
+  padding: 0 20px;
+  min-width: 120px;
+}
+
+
+/* Estilos para el título del diálogo (mat-dialog-title) */
+h2[mat-dialog-title] {
+  text-align: center;
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #24344C;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #eeeeee;
+  margin-bottom: 1rem;
+}
+
+/* Estilos para las acciones del diálogo (mat-dialog-actions) */
+mat-dialog-actions {
+  padding: 1rem 1.5rem;
+  border-top: 1px solid #eeeeee;
+  justify-content: flex-end;
+}
+
+/* Estilo para el botón de cerrar */
+mat-dialog-actions button[mat-button] {
+  font-weight: 500;
+  color: #24344C;
+  min-width: 120px;
+}
+
+mat-dialog-actions button[mat-button]:hover {
+  background-color: #e8eaf6;
+}
+
+/* Spinner dentro del botón - Asegura que se vea bien */
 button .mat-spinner {
   display: inline-block;
   vertical-align: middle;
-  margin-left: 5px;
+  margin-left: 8px;
 }

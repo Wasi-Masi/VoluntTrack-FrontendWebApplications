@@ -133,7 +133,6 @@ export class VolunteersComponent implements OnInit, AfterViewInit {
           recipientType,
           'Could not load volunteers. Please log in again.'
         ).subscribe(() => {
-          window.dispatchEvent(new Event('openNotifications'));
         });
       }
     }
@@ -145,10 +144,7 @@ export class VolunteersComponent implements OnInit, AfterViewInit {
     this.volunteersService.getVolunteers(effectiveFilters).subscribe({
       next: (response: ApiResponse<Volunteer[]>) => { // Expect ApiResponse<Volunteer[]>
         if (response.data && Array.isArray(response.data)) {
-          // --- CAMBIO CLAVE AQUÍ: Añadir fullName a cada objeto Volunteer ---
           const processedVolunteers = response.data.map(v => {
-            // Create a new object to avoid directly mutating the original Volunteer reference
-            // and to add the fullName property.
             const volunteerWithFullName: Volunteer & { fullName?: string } = { ...v };
             volunteerWithFullName.fullName = `${v.firstName || ''} ${v.lastName || ''}`.trim();
             return volunteerWithFullName;
@@ -157,7 +153,7 @@ export class VolunteersComponent implements OnInit, AfterViewInit {
           this.volunteers = processedVolunteers; // Store the processed volunteers
           this.dataSource.data = processedVolunteers; // Assign to dataSource
 
-          this.applyLocalFilters();
+          this.applyLocalFilters()
           this.calculateMetrics();
           if (this.paginator) {
             this.paginator.firstPage();
@@ -250,7 +246,6 @@ export class VolunteersComponent implements OnInit, AfterViewInit {
           recipientType,
           'Please select a volunteer first.'
         ).subscribe(() => {
-          window.dispatchEvent(new Event('openNotifications'));
         });
       }
       return;
@@ -291,7 +286,6 @@ export class VolunteersComponent implements OnInit, AfterViewInit {
             recipientType,
             'Error enrolling volunteer in the activity.'
           ).subscribe(() => {
-            window.dispatchEvent(new Event('openNotifications'));
           });
         }
       }
@@ -354,22 +348,6 @@ export class VolunteersComponent implements OnInit, AfterViewInit {
     });
   }
 
-  fireNotification() {
-    const recipientId = this.loginService.getOrganizationId();
-    const recipientType: 'VOLUNTEER' | 'ORGANIZATION' = 'ORGANIZATION';
-
-    if (recipientId !== null) {
-      this.notificationsService.createTypedNotification(
-        NotificationType.GENERIC,
-        recipientId,
-        recipientType,
-        'Email sent to the selected volunteer.'
-      ).subscribe(() => {
-        window.dispatchEvent(new Event('openNotifications'));
-      });
-    }
-  }
-
   aproveSendEmail() {
     this.sendEmail = !this.sendEmail;
   }
@@ -386,7 +364,6 @@ export class VolunteersComponent implements OnInit, AfterViewInit {
           recipientType,
           'Please select a volunteer to delete.'
         ).subscribe(() => {
-          window.dispatchEvent(new Event('openNotifications'));
         });
       }
       return;
@@ -457,7 +434,6 @@ export class VolunteersComponent implements OnInit, AfterViewInit {
         'ORGANIZATION',
         'Could not send email. Please select a volunteer with an email address.'
       ).subscribe(() => {
-        window.dispatchEvent(new Event('openNotifications'));
       });
       return;
     }
@@ -469,7 +445,6 @@ export class VolunteersComponent implements OnInit, AfterViewInit {
         'ORGANIZATION',
         'Email subject and body cannot be empty.'
       ).subscribe(() => {
-        window.dispatchEvent(new Event('openNotifications'));
       });
       return;
     }
@@ -549,7 +524,6 @@ export class VolunteersComponent implements OnInit, AfterViewInit {
         'ORGANIZATION',
         'Could not send email. The volunteer does not have an email address.'
       ).subscribe(() => {
-        window.dispatchEvent(new Event('openNotifications'));
       });
       return;
     }

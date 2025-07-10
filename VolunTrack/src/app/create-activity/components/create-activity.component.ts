@@ -78,7 +78,6 @@ export class CreateActivityComponent implements OnInit {
       this.activity.organizacion_id = loggedInOrgId;
     } else {
       console.error('No se pudo obtener el ID de la organización logueada. La actividad puede no crearse correctamente.');
-      // Considerar redirigir al login o deshabilitar el formulario
     }
   }
 
@@ -96,7 +95,7 @@ export class CreateActivityComponent implements OnInit {
       this.populateValidationErrors();
       this.generalErrors.push('Por favor, completa todos los campos requeridos y corrige los errores.');
       console.warn('Frontend validation failed:', this.validationErrors, this.generalErrors);
-      this.isSubmitting = false; // ✅ Reset isSubmitting on frontend validation failure
+      this.isSubmitting = false;
       return;
     }
 
@@ -104,7 +103,7 @@ export class CreateActivityComponent implements OnInit {
     if (isNaN(this.activity.cupos) || this.activity.cupos <= 0) {
       this.validationErrors['cupos'] = 'Los cupos deben ser un número positivo mayor que cero.';
       this.generalErrors.push('Por favor, corrige los errores de cupos.');
-      this.isSubmitting = false; // ✅ Reset isSubmitting on frontend validation failure
+      this.isSubmitting = false;
       return;
     }
 
@@ -115,7 +114,7 @@ export class CreateActivityComponent implements OnInit {
       if (selectedDate < todayDateOnly) {
         this.validationErrors['fecha'] = 'La fecha de la actividad debe ser hoy o en el futuro.';
         this.generalErrors.push('Por favor, corrige la fecha de la actividad.');
-        this.isSubmitting = false; // ✅ Reset isSubmitting on frontend validation failure
+        this.isSubmitting = false;
         return;
       }
     }
@@ -128,7 +127,7 @@ export class CreateActivityComponent implements OnInit {
       if (endTime <= startTime) {
         this.validationErrors['horaFin'] = 'La hora de fin debe ser posterior a la hora de inicio.';
         this.generalErrors.push('Por favor, corrige el horario de la actividad.');
-        this.isSubmitting = false; // ✅ Reset isSubmitting on frontend validation failure
+        this.isSubmitting = false;
         return;
       }
     }
@@ -141,9 +140,6 @@ export class CreateActivityComponent implements OnInit {
     this.activity.availableSlots = this.activity.cupos;
     this.activity.imagenes = parsedPictures;
 
-    // Asegurarse de que los campos requeridos por el backend no estén vacíos.
-    // Aunque ya tienes validación de minLength, un campo vacío podría pasar si no se toca.
-    // También verifica que el 'name' en tu HTML para estos campos sea correcto (ej. 'descripcion', 'instructions', 'purpose', 'address')
     if (!this.activity.descripcion || this.activity.descripcion.length < 10) {
       this.validationErrors['descripcion'] = 'La descripción debe tener al menos 10 caracteres.';
       this.generalErrors.push('Por favor, corrige la descripción.');
@@ -169,8 +165,6 @@ export class CreateActivityComponent implements OnInit {
       return;
     }
 
-
-    // MODIFICADO: Espera ApiResponse<Activity> y maneja la propiedad 'data'
     this.createService.createActivity(this.activity).subscribe({
       next: (apiResponse: ApiResponse<Activity>) => { // Especificamos el tipo de la respuesta
         if (apiResponse.data) { // Si hay datos en la respuesta (actividad creada)
@@ -190,34 +184,27 @@ export class CreateActivityComponent implements OnInit {
                 window.dispatchEvent(new Event('openNotifications'));
               },
               error: (notifErr) => console.error('Error al enviar notificación de éxito:', notifErr)
-              // No bloqueamos la navegación por un fallo en la notificación.
             });
           } else {
             console.warn('No se pudo crear la notificación de éxito: Organization ID no disponible.');
           }
           this.router.navigate(['/dashboard']);
         } else {
-          // Esto puede pasar si el backend devuelve un 200 OK con ApiResponse success:false o data:null
-          // Esto es importante si tu backend devuelve errores de negocio con status 200
           console.error('Error de negocio al crear actividad:', apiResponse.message);
           this.generalErrors.push(apiResponse.message || 'Error de negocio al crear la actividad.');
-          // Puedes decidir si lanzar una notificación de error aquí también.
         }
-        this.isSubmitting = false; // ✅ Reset isSubmitting
+        this.isSubmitting = false;
       },
-      error: (err) => { // 'err' será un Error de JavaScript si se propaga desde handleHttpError
+      error: (err) => {
         console.error('Error al crear actividad (HTTP/Service Error):', err);
         let errorMessage = 'Error al crear la actividad.';
 
-        // Ajustamos cómo se extrae el mensaje de error del 'err' propagado
         if (err && err.message) {
-          errorMessage = err.message; // Asumimos que handleHttpError ya formatea un buen mensaje
-        } else if (err && err.error && err.error.message) { // Fallback por si llega un HttpErrorResponse directo
+          errorMessage = err.message;
+        } else if (err && err.error && err.error.message) {
           errorMessage = err.error.message;
         }
 
-
-        // Si hay un objeto 'error' anidado que contenga 'errors' (ej. de validación de Spring)
         if (err.error && err.error.errors && Array.isArray(err.error.errors)) {
           const backendValidationErrors = err.error.errors.map((e: any) => e.defaultMessage || e.message);
           this.generalErrors.push(...backendValidationErrors);
@@ -236,21 +223,20 @@ export class CreateActivityComponent implements OnInit {
 
         if (recipientId !== null) {
           this.notificationsService.createTypedNotification(
-            'GENERIC', // O 'ERROR' si tienes un tipo de notificación de error en el backend
+            'GENERIC',
             recipientId,
             recipientType,
-            errorMessage // Pasa el mensaje de error como customMessage
+            errorMessage
           ).subscribe({
             next: () => {
               console.log('Notificación de error enviada.');
-              window.dispatchEvent(new Event('openNotifications'));
             },
             error: (notifErr) => console.error('Error al enviar notificación de error:', notifErr)
           });
         } else {
           console.warn('No se pudo crear la notificación de error: Organization ID no disponible.');
         }
-        this.isSubmitting = false; // ✅ Reset isSubmitting en caso de error
+        this.isSubmitting = false;
       }
     });
   }
@@ -268,7 +254,6 @@ export class CreateActivityComponent implements OnInit {
         } else if (control.errors?.['min']) {
           this.validationErrors[key] = `Debe ser al menos ${control.errors['min'].min}.`;
         }
-        // Puedes añadir más tipos de error específicos aquí
       }
     });
 

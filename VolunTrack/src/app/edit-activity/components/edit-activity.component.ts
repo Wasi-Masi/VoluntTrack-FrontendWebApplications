@@ -240,7 +240,6 @@ export class EditActivityComponent implements OnInit {
           ).subscribe({
             next: (notifApiResponse) => {
               console.log('Notificación de error enviada:', notifApiResponse.message);
-              window.dispatchEvent(new Event('openNotifications'));
             },
             error: (notifErr) => console.error('Error al enviar notificación de error:', notifErr.message || notifErr)
           });

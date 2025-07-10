@@ -100,10 +100,9 @@ export class ActivityListDialogComponent implements OnInit {
         }
         this.loadingActivities = false;
       },
-      error: (err: any) => { // 'err' ya es un objeto Error
+      error: (err: any) => {
         console.error('Error al cargar actividades:', err);
         this.loadingActivities = false;
-        // LLAMADA 1: Notificación de error al cargar actividades
         const recipientId = this.loginService.getOrganizationId();
         const recipientType: 'VOLUNTEER' | 'ORGANIZATION' = 'ORGANIZATION';
 
@@ -137,7 +136,6 @@ export class ActivityListDialogComponent implements OnInit {
     const recipientType: 'VOLUNTEER' | 'ORGANIZATION' = 'ORGANIZATION';
 
     if (!this.data.volunteerId) {
-      // LLAMADA 2: Notificación de error si ID de voluntario no proporcionado
       if (recipientId !== null) {
         this.notificationsService.createTypedNotification2( // Usar createTypedNotification2
           NotificationType.GENERIC, // Usar el enum NotificationType
@@ -153,7 +151,6 @@ export class ActivityListDialogComponent implements OnInit {
     }
 
     if (!activity.isInscriptionOpen) {
-      // LLAMADA 3: Notificación informativa si la inscripción no está abierta
       if (recipientId !== null) {
         this.notificationsService.createTypedNotification2( // Usar createTypedNotification2
           NotificationType.GENERIC, // Usar el enum NotificationType
@@ -169,7 +166,6 @@ export class ActivityListDialogComponent implements OnInit {
     }
 
     if (activity.availableSlots <= 0) {
-      // LLAMADA 4: Notificación informativa si no hay cupos disponibles
       if (recipientId !== null) {
         this.notificationsService.createTypedNotification2( // Usar createTypedNotification2
           NotificationType.GENERIC, // Usar el enum NotificationType
@@ -193,11 +189,9 @@ export class ActivityListDialogComponent implements OnInit {
       fecha: new Date().toISOString().split('T')[0], // formato YYYY-MM-DD
     };
 
-    // MODIFICADO: Espera ApiResponse<any> (o ApiResponse<InscriptionResponse> si es específico)
     this.inscriptionService.createInscription(inscriptionResource).subscribe({
       next: (apiResponse: ApiResponse<any>) => { // Recibe ApiResponse
         console.log('Voluntario inscrito exitosamente:', apiResponse.message, apiResponse.data);
-        // LLAMADA 5: Notificación de éxito al inscribir voluntario
         if (recipientId !== null) {
           this.notificationsService.createTypedNotification2( // Usar createTypedNotification2
             NotificationType.VOLUNTEER_JOINED, // Usar el enum NotificationType
@@ -212,16 +206,15 @@ export class ActivityListDialogComponent implements OnInit {
         this.loadingEnrollment = false;
         this.dialogRef.close({ enrolled: true, activity: activity, message: apiResponse.message });
       },
-      error: (err: any) => { // 'err' ya es un objeto Error
+      error: (err: any) => {
         console.error('Error al inscribir voluntario:', err);
         this.loadingEnrollment = false;
-        // LLAMADA 6: Notificación de error al inscribir voluntario
         if (recipientId !== null) {
-          this.notificationsService.createTypedNotification2( // Usar createTypedNotification2
-            NotificationType.GENERIC, // Usar el enum NotificationType
+          this.notificationsService.createTypedNotification2(
+            NotificationType.GENERIC,
             recipientId,
             recipientType,
-            err.message || 'Error al inscribir al voluntario en la actividad.' // Usa err.message
+            err.message || 'Error al inscribir al voluntario en la actividad.'
           ).subscribe({
             next: (response) => console.log('Notificación de error enviada:', response.message),
             error: (notificationErr) => console.error('Error al enviar notificación:', notificationErr)

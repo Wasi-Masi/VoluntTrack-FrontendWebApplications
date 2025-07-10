@@ -60,7 +60,8 @@
     "purpose-textarea": "Propósito de la actividad",
     "create": "Crear",
     "discard": "Descartar",
-    "update": "Actualizar"
+    "update": "Actualizar",
+    "slots": "Cupos para esta Actividad"
   },
 
   "NOTIFICATIONS": {
@@ -234,31 +235,32 @@
     "registrationsOpened": "¡Inscripciones abiertas!",
     "registrationsClosed": "Inscripciones cerradas.",
     "registrationStatusUpdateError": "Error al actualizar el estado de las inscripciones.",
-    "certificateTitle": "Certificado de Participación"
+    "certificateTitle": "Certificado de Participación",
+    "body": "Mensaje"
   },
-
   "certificatesDialog": {
     "title": "Certificados Generados",
     "close": "Cerrar"
   },
-
+  "activities": {
+    "availableActivities": "Actividades Disponibles",
+    "noActivitiesFound": "No se encontraron actividades disponibles en este momento.",
+    "assignActivityTo": "Asignar actividad a",
+    "availableSlots": "Cupos disponibles",
+    "enroll": "Inscribir"
+  },
   "common": {
     "cancel": "Cancelar",
     "create": "Crear",
+    "loading": "Cargando...",
     "clearFilters": "Limpiar Filtros",
     "applyFilters": "Aplicar Filtros"
   },
-
   "toolbar": {
     "dashboard": "Panel",
     "volunteers": "Mis Voluntarios",
     "notifications": "Notificaciones",
     "profile": "Perfil"
-  },
-
-  "certificatesDialog": {
-    "title": "Certificados",
-    "close": "Cerrar"
   }
 
 }

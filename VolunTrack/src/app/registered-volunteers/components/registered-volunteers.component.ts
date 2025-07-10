@@ -179,13 +179,6 @@ export class RegisteredVolunteersComponent implements OnInit, AfterViewInit {
             v.hasParticipation = !!this.volunteerParticipations[String(v.id)];
             v.participationId = this.volunteerParticipations[String(v.id)] || null;
 
-            // IMPORTANT: If 'v.fullName' is expected directly from the API,
-            // no further construction from firstName/lastName is needed here.
-            // Your current RegisteredVolunteer class already has 'fullName'.
-            // So, the problematic line 'if (!v.fullName && v.firstName && v.lastName)'
-            // and the subsequent casting are not needed if the API sends fullName.
-            // If the API sends firstName/lastName but not fullName, you will still have issues
-            // unless the API is changed or a new interface is introduced.
           });
           console.log('Voluntarios con datos:', volunteers);
 
@@ -384,7 +377,7 @@ export class RegisteredVolunteersComponent implements OnInit, AfterViewInit {
             this.activity.organizacion_id,
             'ORGANIZATION',
             this.translate.instant('volunteers.allCertificatesAlreadyGenerated')
-          ).subscribe(() => { window.dispatchEvent(new Event('openNotifications')); });
+          ).subscribe(() => { });
           return of(0);
         }
 
@@ -414,7 +407,7 @@ export class RegisteredVolunteersComponent implements OnInit, AfterViewInit {
               this.activity.organizacion_id,
               'ORGANIZATION',
               this.translate.instant('volunteers.certificateGenerationError')
-            ).subscribe(() => { window.dispatchEvent(new Event('openNotifications')); });
+            ).subscribe(() => { });
             return of(0);
           })
         );
@@ -581,7 +574,7 @@ export class RegisteredVolunteersComponent implements OnInit, AfterViewInit {
             this.activity.organizacion_id,
             'ORGANIZATION',
             this.translate.instant(msgKey)
-          ).subscribe(() => { window.dispatchEvent(new Event('openNotifications')); });
+          ).subscribe(() => { });
 
           this.activity = response.data; // Update with data from response
         } else {
@@ -592,7 +585,7 @@ export class RegisteredVolunteersComponent implements OnInit, AfterViewInit {
             this.activity.organizacion_id,
             'ORGANIZATION',
             this.translate.instant('volunteers.registrationStatusUpdateError') + ' (data missing)'
-          ).subscribe(() => { window.dispatchEvent(new Event('openNotifications')); });
+          ).subscribe(() => { });
         }
       },
       error: err => {
@@ -602,7 +595,7 @@ export class RegisteredVolunteersComponent implements OnInit, AfterViewInit {
           this.activity.organizacion_id,
           'ORGANIZATION',
           this.translate.instant('volunteers.registrationStatusUpdateError')
-        ).subscribe(() => { window.dispatchEvent(new Event('openNotifications')); });
+        ).subscribe(() => { });
       }
     });
   }

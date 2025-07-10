@@ -6,7 +6,7 @@
   <div class="volunteers-main-panel" [ngClass]="{ 'with-selection': selectedVolunteer }">
 
     <div class="volunteer-metrics-panel mat-elevation-z4">
-      <h3 class="metrics">{{ 'volunteers.metrics' | translate }}</h3>
+      <h3 class="metrics" style="font-size: 2em; color: #008CBA">{{ 'volunteers.metrics' | translate }}</h3>
       <div class="metrics-cards">
 
         <div class="metric-card">
@@ -123,7 +123,7 @@
             <p><strong>{{ 'volunteers.email' | translate }}:</strong> {{ selectedVolunteer.email }}</p>
             <p><strong>{{ 'volunteers.phone' | translate }}:</strong> {{ selectedVolunteer.phoneNumber }}</p>
             <p><strong>{{ 'volunteers.profession' | translate }}:</strong> {{ selectedVolunteer.profession || 'N/A' }}</p>
-            <p><strong>{{ 'volunteers.dateOfBirth' | translate }}:</strong> {{ selectedVolunteer.dateOfBirth | date:'yyyy-MM-dd' }}</p>
+            <p><strong>{{ 'volunteers.dateOfBirth' | translate }}:</strong> {{ selectedVolunteer.dateOfBirth | date }}</p>
             <p><strong>{{ 'volunteers.address' | translate }}:</strong> {{ selectedVolunteer.address }}</p>
             <p><strong>{{ 'volunteers.status' | translate }}:</strong> {{ selectedVolunteer.active ? ('volunteers.statusActive' | translate) : ('volunteers.statusInactive' | translate) }}</p>
             <p><strong>{{ 'volunteers.organization' | translate }}:</strong> {{ selectedVolunteer.organizationId }}</p>
@@ -149,20 +149,24 @@
               <div class="line">
                 <p><strong>{{ 'volunteers.to' | translate }}: {{ selectedVolunteer?.email }}</strong></p>
               </div>
-              <div class="line">
-                <mat-form-field appearance="outline" class="full-width">
-                  <mat-label>{{ 'volunteers.subject' | translate }}</mat-label>
-                  <input matInput [(ngModel)]="emailSubject" name="subject" required>
-                </mat-form-field>
+              <div class="fields">
+                <div class="line">
+                  <mat-form-field appearance="outline" class="full-width">
+                    <mat-label>{{ 'volunteers.subject' | translate }}</mat-label>
+                    <input matInput [(ngModel)]="emailSubject" name="subject" required>
+                  </mat-form-field>
+                </div>
+                <div class="line">
+                  <mat-form-field appearance="outline" class="full-width">
+                    <mat-label>{{ 'volunteers.body' | translate }}</mat-label>
+                    <textarea matInput rows="6" [(ngModel)]="emailBody" name="body" required></textarea>
+                  </mat-form-field>
+                </div>
+                <div class="buttons">
+                  <button mat-raised-button color="primary" type="button" (click)="sendEmail = false">{{ 'common.cancel' | translate }}</button>
+                  <button mat-raised-button color="accent" type="submit">{{ 'volunteers.send' | translate }}</button>
+                </div>
               </div>
-              <div class="line">
-                <mat-form-field appearance="outline" class="full-width">
-                  <mat-label>{{ 'volunteers.body' | translate }}</mat-label>
-                  <textarea matInput rows="6" [(ngModel)]="emailBody" name="body" required></textarea>
-                </mat-form-field>
-              </div>
-              <button mat-raised-button color="accent" type="submit">{{ 'volunteers.send' | translate }}</button>
-              <button mat-raised-button color="primary" type="button" (click)="sendEmail = false">{{ 'common.cancel' | translate }}</button>
             </form>
           </div>
         </div>

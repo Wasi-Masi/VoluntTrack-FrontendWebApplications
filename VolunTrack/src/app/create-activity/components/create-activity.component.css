@@ -173,7 +173,7 @@ textarea.ng-invalid.ng-touched {
 }
 
 textarea {
-  min-height: 100px;
+  min-height: 80px;
   resize: vertical;
 }
 

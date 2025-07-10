@@ -64,7 +64,8 @@
     "purpose-textarea": "Purpose of the activity",
     "create": "Create",
     "discard": "Discard",
-    "update": "Update"
+    "update": "Update",
+    "slots": "Slots for the Activity"
   },
 
   "NOTIFICATIONS": {
@@ -222,21 +223,27 @@
     "registrationsOpened": "Registrations are now open!",
     "registrationsClosed": "Registrations are closed.",
     "registrationStatusUpdateError": "Error updating registration status.",
-    "certificateTitle": "Certificate of Participation"
+    "certificateTitle": "Certificate of Participation",
+    "body": "Message"
   },
-
+  "activities": {
+    "availableActivities": "Available Activities",
+    "noActivitiesFound": "No activities found at this time.",
+    "assignActivityTo": "Assign activity to",
+    "availableSlots": "Available slots",
+    "enroll": "Enroll"
+  },
   "certificatesDialog": {
     "title": "Generated Certificates",
     "close": "Close"
   },
-
   "common": {
     "cancel": "Cancel",
     "create": "Create",
+    "loading": "Loading...",
     "clearFilters": "Clear Filters",
     "applyFilters": "Apply Filters"
   },
-
   "register": {
     "title": "User Registration",
     "username": "Username",
@@ -254,16 +261,11 @@
     "plan.premium": "Premium"
 
   },
-
   "toolbar": {
     "dashboard": "Dashboard",
     "volunteers": "My Volunteers",
     "notifications": "Notifications",
     "profile": "Profile"
-  },
-  "certificatesDialog": {
-    "title": "Certificates",
-    "close": "Close"
   }
 
 }

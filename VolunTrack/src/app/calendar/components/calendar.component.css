@@ -47,7 +47,7 @@ Author: Tomio Nakamurakare
   border: 1px solid #ddd;
   border-radius: 20px;
   overflow: hidden;
-  font-family: sans-serif;
+  font-family: Alexandria;
   background-color: rgba(155, 208, 223, 0.5);
   box-shadow: 0 6px 10px rgba(0, 0, 0, 0.25);
   box-sizing: border-box;
@@ -132,7 +132,7 @@ Author: Tomio Nakamurakare
 
 .day {
   min-width: 10%;
-  min-height: 10vh;
+  min-height: 9vh;
   padding: 5px;
   color: #24344c;
   background-color: #F2F7F8;
