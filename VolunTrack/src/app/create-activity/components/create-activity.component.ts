@@ -7,16 +7,16 @@ to save the activity and trigger notifications.
 Author: Ainhoa Castillo
 */
 
-import { Component } from '@angular/core';
+import { Component, ViewChild, OnInit } from '@angular/core'; // Import ViewChild, OnInit
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, NgForm } from '@angular/forms'; // Import NgForm
 import { Router, RouterLink } from '@angular/router';
-import {TranslateModule} from "@ngx-translate/core";
+import { TranslateModule } from "@ngx-translate/core";
 import { Activity } from '../../dashboard/model/dashboard.entity';
-import {MatButtonModule} from '@angular/material/button';
+import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { CreateActivityService } from '../services/create-activity.service';
-import { NotificationsService} from '../../notifications/services/notifications.service';
+import { NotificationsService } from '../../notifications/services/notifications.service';
 
 @Component({
   selector: 'app-create-activity',
@@ -32,7 +32,9 @@ import { NotificationsService} from '../../notifications/services/notifications.
     TranslateModule
   ]
 })
-export class CreateActivityComponent {
+export class CreateActivityComponent implements OnInit { // Implement OnInit
+  @ViewChild('activityForm') activityForm!: NgForm; // Reference to the form
+
   activity: Activity = new Activity(
     0, // actividad_id
     '', // fecha
@@ -42,45 +44,119 @@ export class CreateActivityComponent {
     '', // descripcion
     '', // instrucciones
     '', // proposito
-    0,  // <--- cupos: Ahora se inicializa a 0, se llenará con el input del usuario.
+    0,  // cupos
     '', // ubicacion
     'Activa', // estado (valor por defecto)
     1, // organizacion_id (valor por defecto)
     [], // imagenes
-    0   // availableSlots: Se inicializará con el valor de cupos en onSubmit
+    0   // availableSlots
   );
 
   picturesInput: string = '';
+  validationErrors: { [key: string]: string } = {}; // Object to store field-specific errors
+  generalErrors: string[] = []; // Array for general (non-field-specific) errors
+
+  public today: string = ''; // Property to hold today's date for date input min attribute
 
   constructor(
     private createService: CreateActivityService,
     private router: Router,
     private notificationsService: NotificationsService,
   ) {
-    // Solo inicializamos aquí las propiedades que son fijas o no dependen de un input del usuario.
-    // this.activity.cupos = 50; // <--- ELIMINADO: Ya no es un valor fijo, viene del input
-    this.activity.estado = 'Activa'; // Estado por defecto
-    this.activity.organizacion_id = 1; // ID de organización por defecto
-    // this.activity.availableSlots = this.activity.cupos; // <--- ELIMINADO: Se moverá a onSubmit para usar el valor real de cupos
+    this.activity.estado = 'Activa';
+    this.activity.organizacion_id = 1;
+  }
+
+  ngOnInit(): void {
+    // Initialize 'today' date to ensure the min attribute for date input is set correctly
+    const now = new Date();
+    this.today = now.toISOString().split('T')[0]; // Format as YYYY-MM-DD
   }
 
   onSubmit() {
+    this.validationErrors = {}; // Clear previous field-specific errors
+    this.generalErrors = []; // Clear previous general errors
+
+    // Ensure form reference is available and form is valid
+    if (!this.activityForm || this.activityForm.invalid) {
+      this.populateValidationErrors(); // Populate errors for display
+      this.generalErrors.push('Por favor, completa todos los campos requeridos y corrige los errores.');
+      console.warn('Frontend validation failed:', this.validationErrors, this.generalErrors);
+      return; // Stop submission if form is invalid
+    }
+
+    // Manual validation for cupos (slots)
+    this.activity.cupos = Number(this.activity.cupos);
+    if (isNaN(this.activity.cupos) || this.activity.cupos <= 0) {
+      this.validationErrors['cupos'] = 'Los cupos deben ser un número positivo mayor que cero.';
+      this.generalErrors.push('Por favor, corrige los errores de cupos.');
+      console.warn('Frontend validation failed: Cupos invalid.');
+      return;
+    }
+
+    // Manual date validation: fecha (date) must be today or in the future
+    const fechaControl = this.activityForm.controls['date']; // Use 'date' as name in HTML
+    if (fechaControl && fechaControl.value) {
+      const selectedDate = new Date(fechaControl.value);
+      const todayDateOnly = new Date(this.today); // Use the normalized 'today' from ngOnInit
+      if (selectedDate < todayDateOnly) {
+        this.validationErrors['fecha'] = 'La fecha de la actividad debe ser hoy o en el futuro.';
+        this.generalErrors.push('Por favor, corrige la fecha de la actividad.');
+        console.warn('Frontend validation failed: Fecha invalid.');
+        return;
+      }
+    }
+
+    // Manual time validation: horaFin (end time) must be after horaInicio (start time)
+    const startTimeControl = this.activityForm.controls['startTime']; // Use 'startTime' as name in HTML
+    const endTimeControl = this.activityForm.controls['endTime'];     // Use 'endTime' as name in HTML
+    if (startTimeControl && endTimeControl && startTimeControl.value && endTimeControl.value) {
+      const startTime = startTimeControl.value; // "HH:MM"
+      const endTime = endTimeControl.value;     // "HH:MM"
+      if (endTime <= startTime) {
+        this.validationErrors['horaFin'] = 'La hora de fin debe ser posterior a la hora de inicio.';
+        this.generalErrors.push('Por favor, corrige el horario de la actividad.');
+        console.warn('Frontend validation failed: Horario invalid.');
+        return;
+      }
+    }
+
+
     const parsedPictures = this.picturesInput
       .split('\n')
       .map(url => url.trim())
       .filter(url => url.length > 0);
 
-    // Asegurarse de que `cupos` sea un número válido antes de asignarlo
-    // Esto es importante porque el input de tipo "number" devuelve un string vacío si no hay valor
-    this.activity.cupos = Number(this.activity.cupos) || 0; // Asegura que sea un número, o 0 si está vacío/inválido
+    this.activity.availableSlots = this.activity.cupos;
+    this.activity.imagenes = parsedPictures; // Assign parsed pictures
 
-    // Para una actividad nueva, los cupos disponibles son iguales a los cupos totales
-    this.activity.availableSlots = this.activity.cupos; // <--- MOVIDO AQUÍ: Se asigna justo antes de enviar
+    // Descriptions and Instructions are optional in your HTML but required in backend (assuming)
+    // If not required, ensure backend allows null/empty or set defaults here if needed.
+    // Based on your previous backend resource, they had @NotBlank.
+    // Ensure they have minlength in HTML for basic validation if they are meant to be filled.
+    if (!this.activity.descripcion || this.activity.descripcion.length < 10) {
+      this.validationErrors['descripcion'] = 'La descripción debe tener al menos 10 caracteres.';
+      this.generalErrors.push('Por favor, corrige la descripción.');
+      return;
+    }
+    if (!this.activity.instrucciones || this.activity.instrucciones.length < 10) {
+      this.validationErrors['instrucciones'] = 'Las instrucciones deben tener al menos 10 caracteres.';
+      this.generalErrors.push('Por favor, corrige las instrucciones.');
+      return;
+    }
+    if (!this.activity.proposito || this.activity.proposito.length < 10) {
+      this.validationErrors['proposito'] = 'El propósito debe tener al menos 10 caracteres.';
+      this.generalErrors.push('Por favor, corrige el propósito.');
+      return;
+    }
+    if (!this.activity.ubicacion || this.activity.ubicacion.length < 5) {
+      this.validationErrors['ubicacion'] = 'La ubicación debe tener al menos 5 caracteres.';
+      this.generalErrors.push('Por favor, corrige la ubicación.');
+      return;
+    }
 
-    this.activity.instrucciones = this.activity.instrucciones || '';
-    this.activity.proposito = this.activity.proposito || '';
-    this.activity.imagenes = parsedPictures;
 
+    // If all frontend validations pass, then attempt backend submission
     this.createService.createActivity(this.activity).subscribe({
       next: (createdActivity) => {
         this.notificationsService.createTypedNotification('new-activity').subscribe(() => {
@@ -90,11 +166,89 @@ export class CreateActivityComponent {
       },
       error: (err) => {
         console.error('Error al crear actividad:', err);
-        this.notificationsService.createTypedNotification('error', 'Error al crear la actividad.').subscribe(() => {
+        // Display a more specific error message based on backend response if available
+        let errorMessage = 'Error al crear la actividad.';
+        if (err.status === 403) {
+          errorMessage = 'Acceso denegado. No tienes permiso para crear actividades.';
+        } else if (err.status === 400 && err.error && err.error.errors) {
+          // This part will only execute if your backend's ValidationExceptionHandler works
+          // and returns errors in the expected format.
+          const backendErrors = err.error.errors.map((e: any) => e.defaultMessage || e.message);
+          errorMessage += ' Errores de validación: ' + backendErrors.join('; ');
+          this.generalErrors.push(...backendErrors); // Add backend errors to display
+          this.populateValidationErrors(err.error.errors); // Populate specific fields if backend provides 'field'
+        } else if (err.error && err.error.message) {
+          errorMessage += ' ' + err.error.message;
+        } else {
+          errorMessage += ` (Código: ${err.status})`;
+        }
+
+        this.notificationsService.createTypedNotification('error', errorMessage).subscribe(() => {
           window.dispatchEvent(new Event('openNotifications'));
         });
       }
     });
+  }
+
+  // Helper to populate validationErrors from Angular's form controls
+  populateValidationErrors(backendErrors?: any[]) {
+    // Add Angular form control errors
+    Object.keys(this.activityForm.controls).forEach(key => {
+      const control = this.activityForm.controls[key];
+      if (control.invalid && (control.dirty || control.touched)) {
+        if (control.errors?.['required']) {
+          this.validationErrors[key] = `Este campo es requerido.`;
+        } else if (control.errors?.['minlength']) {
+          this.validationErrors[key] = `Mínimo ${control.errors['minlength'].requiredLength} caracteres.`;
+        } else if (control.errors?.['maxlength']) {
+          this.validationErrors[key] = `Máximo ${control.errors['maxlength'].requiredLength} caracteres.`;
+        } else if (control.errors?.['min']) {
+          this.validationErrors[key] = `Debe ser al menos ${control.errors['min'].min}.`;
+        }
+        // You can add more specific error types here (e.g., pattern, email)
+      }
+    });
+
+    // Optionally, if backend errors are passed, merge them
+    if (backendErrors && backendErrors.length > 0) {
+      backendErrors.forEach(err => {
+        if (err.field) {
+          // Map backend field names to your form control names if they differ
+          const mappedField = this.mapBackendFieldToFrontend(err.field);
+          this.validationErrors[mappedField] = err.defaultMessage || err.message || 'Error de validación.';
+        } else {
+          this.generalErrors.push(err.defaultMessage || err.message || 'Error de validación general.');
+        }
+      });
+    }
+  }
+
+  // Helper function to map backend field names to frontend form control names
+  private mapBackendFieldToFrontend(backendField: string): string {
+    switch (backendField) {
+      case 'titulo': return 'title';
+      case 'fecha': return 'date';
+      case 'horaInicio': return 'startTime';
+      case 'horaFin': return 'endTime';
+      case 'ubicacion': return 'address';
+      case 'cupos': return 'slots';
+      case 'descripcion': return 'description';
+      case 'instrucciones': return 'instructions';
+      case 'proposito': return 'purpose';
+      // Add other mappings if your backend field names don't exactly match your HTML 'name' attributes
+      default: return backendField;
+    }
+  }
+
+  // Helper to check if a control has a specific error to show
+  hasError(controlName: string, errorType: string): boolean {
+    const control = this.activityForm?.controls[controlName];
+    return (control?.dirty || control?.touched) && control?.errors?.[errorType];
+  }
+
+  // Helper to get error message for a control
+  getErrorMessage(controlName: string): string {
+    return this.validationErrors[controlName] || '';
   }
 
   discard() {
