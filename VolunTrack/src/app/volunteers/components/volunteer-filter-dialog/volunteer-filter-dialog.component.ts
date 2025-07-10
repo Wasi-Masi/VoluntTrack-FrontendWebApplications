@@ -33,12 +33,14 @@ import { VolunteerFilterPayload } from '../../model/volunteers.entity';
 export class VolunteerFilterDialogComponent implements OnInit {
 
   filterCriteria: VolunteerFilterPayload;
+  availableProfessions: string[] = [];
 
   constructor(
     public dialogRef: MatDialogRef<VolunteerFilterDialogComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: VolunteerFilterPayload
+    @Inject(MAT_DIALOG_DATA) public data: { filterCriteria: VolunteerFilterPayload, professions: string[] }
   ) {
-    this.filterCriteria = { ...data };
+    this.filterCriteria = { ...data.filterCriteria };
+    this.availableProfessions = data.professions || [];
   }
 
   ngOnInit(): void {
@@ -46,13 +48,9 @@ export class VolunteerFilterDialogComponent implements OnInit {
 
   onClear(): void {
     this.filterCriteria = {
-      firstName: '',
-      lastName: '',
-      dni: '',
-      email: '',
-      phoneNumber: '',
-      profession: '',
-      organizationId: null as any
+      minAge: null,
+      maxAge: null,
+      profession: null
     };
   }
 

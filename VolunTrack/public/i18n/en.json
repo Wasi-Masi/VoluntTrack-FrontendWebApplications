@@ -176,7 +176,39 @@
     "subject": "Subject",
     "send": "Send email",
     "activityHistory": "Activity History",
-    "noActivity": "No recent activities."
+    "noActivity": "No recent activities.",
+    "createVolunteer": "Create Volunteer",
+    "firstName": "First Name",
+    "lastName": "Last Name",
+    "dni": "DNI",
+    "email": "Email",
+    "phoneNumber": "Phone Number",
+    "profession": "Profession",
+    "dateOfBirth": "Date of Birth",
+    "address": "Address",
+    "firstNameRequired": "First Name is required.",
+    "lastNameRequired": "Last Name is required.",
+    "dniRequired": "DNI is required.",
+    "dniInvalid": "DNI must be 8 digits.",
+    "emailRequired": "Email is required.",
+    "emailInvalid": "Invalid email format.",
+    "phoneNumberRequired": "Phone Number is required.",
+    "dateOfBirthRequired": "Date of Birth is required.",
+    "addressRequired": "Address is required.",
+    "statusActive": "Active",
+    "statusInactive": "Inactive",
+    "organization": "Organization",
+    "filterVolunteers": "Filter Volunteers",
+    "minAge": "Min Age",
+    "maxAge": "Max Age",
+    "allProfessions": "All Professions"
+  },
+
+  "common": {
+    "cancel": "Cancel",
+    "create": "Create",
+    "clearFilters": "Clear Filters",
+    "applyFilters": "Apply Filters"
   },
 
   "register": {

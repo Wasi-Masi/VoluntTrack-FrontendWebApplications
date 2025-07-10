@@ -13,7 +13,7 @@ import {MatSelectModule} from '@angular/material/select';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatNativeDateModule} from '@angular/material/core';
 import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
-import {MatDialog, MatDialogModule} from '@angular/material/dialog';
+import {MatDialog, MatDialogModule, MatDialogConfig} from '@angular/material/dialog'; // <-- ¡MODIFICADO! Añadir MatDialogConfig
 import {MatButtonModule} from '@angular/material/button';
 
 import {VolunteersService} from '../services/volunteers.service';
@@ -21,12 +21,13 @@ import {Volunteer, VolunteerFilterPayload} from '../model/volunteers.entity';
 import {CertificatesDialogComponent} from './certificates-dialog/certificates-dialog.component';
 import {CreateVolunteerDialogComponent} from './create-volunteer-dialog/create-volunteer-dialog.component';
 import {VolunteerFilterDialogComponent} from './volunteer-filter-dialog/volunteer-filter-dialog.component';
+import { ConfirmDialogComponent } from '../../shared/components/confirm-dialog/confirm-dialog.component'; // <-- ¡NUEVO! Importar el componente de confirmación
 
 import {TranslatePipe} from '@ngx-translate/core';
 import {NotificationsService} from '../../notifications/services/notifications.service';
 import { LoginService } from '../../login/services/login.service';
 import { ChangeDetectorRef } from '@angular/core';
-import { ActivityListDialogComponent } from './activity-list-dialog/activity-list-dialog.component'; // <--- NEW IMPORT
+import { ActivityListDialogComponent } from './activity-list-dialog/activity-list-dialog.component';
 
 
 @Component({
@@ -49,7 +50,7 @@ import { ActivityListDialogComponent } from './activity-list-dialog/activity-lis
     NgIf,
     DatePipe,
     NgClass,
-    TranslatePipe,
+    TranslatePipe
   ],
   templateUrl: './volunteers.component.html',
   styleUrls: ['./volunteers.component.css']
@@ -62,12 +63,9 @@ export class VolunteersComponent implements OnInit, AfterViewInit {
 
   searchText: string = '';
   currentFilterCriteria: VolunteerFilterPayload = {
-    firstName: '',
-    lastName: '',
-    dni: '',
-    email: '',
-    phoneNumber: '',
-    profession: '',
+    minAge: null,
+    maxAge: null,
+    profession: null,
     organizationId: null
   };
 
@@ -128,21 +126,21 @@ export class VolunteersComponent implements OnInit, AfterViewInit {
     const effectiveFilters = filters || this.currentFilterCriteria;
     console.log('loadVolunteers: Llamando al servicio con filtros:', effectiveFilters);
 
-    this.volunteersService.getVolunteers(effectiveFilters).subscribe({ // Usar patrón de observador completo
+    this.volunteersService.getVolunteers(effectiveFilters).subscribe({
       next: (data) => {
         console.log('loadVolunteers: Datos recibidos del backend:', data);
         this.volunteers = data;
-        this.dataSource.data = data; // Asigna los datos directamente a dataSource.data
+        this.dataSource.data = data;
 
-        this.applyLocalFilters(); // Aplica filtros locales (como searchText)
+        this.applyLocalFilters();
         this.calculateMetrics();
-        // Forzar un refresh de la paginación si es necesario
         if (this.paginator) {
-          this.paginator.firstPage(); // Vuelve a la primera página
-          this.dataSource.paginator = this.paginator; // Reasigna el paginator para forzar refresh
+          this.paginator.firstPage();
+          this.dataSource.paginator = this.paginator;
+          this.cdr.detectChanges();
         }
       },
-      error: (error) => { // Manejo de error para el subscribe
+      error: (error) => {
         console.error('Error al cargar voluntarios:', error);
         this.notificationsService.createTypedNotification('error', 'Error al cargar voluntarios.').subscribe(() => {
           window.dispatchEvent(new Event('openNotifications'));
@@ -169,8 +167,6 @@ export class VolunteersComponent implements OnInit, AfterViewInit {
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
         console.log('Diálogo de creación cerrado. Recargando voluntarios...');
-        // Recargar la lista de voluntarios para mostrar el nuevo
-        // Asegurarse de recargar con los filtros actuales (incluyendo organizationId)
         this.loadVolunteers(this.currentFilterCriteria);
         this.notificationsService.createTypedNotification('success', 'Voluntario creado exitosamente.').subscribe(() => {
           window.dispatchEvent(new Event('openNotifications'));
@@ -179,7 +175,6 @@ export class VolunteersComponent implements OnInit, AfterViewInit {
     });
   }
 
-  // --- NEW METHOD FOR ADDING TO ACTIVITY ---
   onAddToActivity(): void {
     if (!this.selectedVolunteer) {
       this.notificationsService.createTypedNotification('info', 'Por favor, seleccione un voluntario primero.').subscribe(() => {
@@ -189,11 +184,10 @@ export class VolunteersComponent implements OnInit, AfterViewInit {
     }
 
     const dialogRef = this.dialog.open(ActivityListDialogComponent, {
-      width: '800px', // Adjust width as needed
+      width: '800px',
       data: {
         volunteerId: this.selectedVolunteer.id,
         volunteerName: `${this.selectedVolunteer.firstName} ${this.selectedVolunteer.lastName}`
-        // You might want to pass more volunteer details if needed by the dialog
       }
     });
 
@@ -203,8 +197,6 @@ export class VolunteersComponent implements OnInit, AfterViewInit {
         this.notificationsService.createTypedNotification('success', 'Voluntario inscrito en la actividad exitosamente.').subscribe(() => {
           window.dispatchEvent(new Event('openNotifications'));
         });
-        // Optionally, reload volunteer data or specific sections if participation data is displayed here
-        // For example, if you had an "activity history" section for the selected volunteer, you might refresh it.
       } else if (result && result.error) {
         console.error('Error al inscribir voluntario en actividad:', result.error);
         this.notificationsService.createTypedNotification('error', 'Error al inscribir voluntario en la actividad.').subscribe(() => {
@@ -213,67 +205,60 @@ export class VolunteersComponent implements OnInit, AfterViewInit {
       }
     });
   }
-  // --- END NEW METHOD ---
-
 
   applyLocalFilters(): void {
-    // Depuración: Logear los datos antes y después del filtro
     console.log('applyLocalFilters: Datos iniciales (this.volunteers):', this.volunteers);
     console.log('applyLocalFilters: searchText:', this.searchText);
     console.log('applyLocalFilters: currentFilterCriteria:', this.currentFilterCriteria);
 
-    // --- NUEVOS LOGS DE DEPURACIÓN ---
-    console.log('DEBUG: currentFilterCriteria.organizationId:', this.currentFilterCriteria.organizationId, 'Type:', typeof this.currentFilterCriteria.organizationId);
-
-
-    const filteredData = this.volunteers.filter(v => {
+    let filteredData = this.volunteers.filter(v => {
       const volunteerFullName = `${v.firstName} ${v.lastName}`;
       const matchesSearchText = this.searchText === '' || volunteerFullName.toLowerCase().includes(this.searchText.toLowerCase());
 
-      const matchesFirstName = !this.currentFilterCriteria.firstName || v.firstName.toLowerCase().includes(this.currentFilterCriteria.firstName.toLowerCase());
-      const matchesLastName = !this.currentFilterCriteria.lastName || v.lastName.toLowerCase().includes(this.currentFilterCriteria.lastName.toLowerCase());
-      const matchesDni = !this.currentFilterCriteria.dni || v.dni.toLowerCase().includes(this.currentFilterCriteria.dni.toLowerCase());
-      const matchesEmail = !this.currentFilterCriteria.email || v.email.toLowerCase().includes(this.currentFilterCriteria.email.toLowerCase());
-      const matchesPhoneNumber = !this.currentFilterCriteria.phoneNumber || v.phoneNumber.toLowerCase().includes(this.currentFilterCriteria.phoneNumber.toLowerCase());
-      const matchesProfession = !this.currentFilterCriteria.profession || v.profession.toLowerCase().includes(this.currentFilterCriteria.profession.toLowerCase());
+      const volunteerAge = this.calculateAge(v.dateOfBirth);
+      const matchesMinAge = this.currentFilterCriteria.minAge === null || this.currentFilterCriteria.minAge === undefined ||
+        (volunteerAge !== null && volunteerAge >= this.currentFilterCriteria.minAge);
 
-      // Este filtro de organizationId debería ser redundante si el backend ya lo filtra,
-      // pero lo mantenemos por seguridad.
-      // --- MODIFICACIÓN DEPURACIÓN: Asegurar que ambos son números para la comparación ---
-      const matchesOrganization = (this.currentFilterCriteria.organizationId === null || this.currentFilterCriteria.organizationId === undefined) ||
-        (Number(v.organizationId) === Number(this.currentFilterCriteria.organizationId));
+      const matchesMaxAge = this.currentFilterCriteria.maxAge === null || this.currentFilterCriteria.maxAge === undefined ||
+        (volunteerAge !== null && volunteerAge <= this.currentFilterCriteria.maxAge);
 
+      const matchesProfession = this.currentFilterCriteria.profession === null || this.currentFilterCriteria.profession === undefined || this.currentFilterCriteria.profession === '' ||
+        (v.profession && v.profession.toLowerCase() === this.currentFilterCriteria.profession.toLowerCase());
 
-      const result = matchesSearchText && matchesFirstName && matchesLastName && matchesDni &&
-        matchesEmail && matchesPhoneNumber && matchesProfession && matchesOrganization;
-
-
-
-      return result;
+      return matchesSearchText && matchesMinAge && matchesMaxAge && matchesProfession;
     });
 
     this.dataSource.data = filteredData;
-    // Depuración: Logear los datos después del filtro
-    this.dataSource.paginator = this.paginator; // Reasigna el paginator para forzar refresh
+    this.dataSource.paginator = this.paginator;
     if (this.paginator) {
-      this.paginator.firstPage(); // Vuelve a la primera página después de aplicar filtros
+      this.paginator.firstPage();
     }
   }
 
-
   openFilterDialog(): void {
+    const uniqueProfessions = Array.from(new Set(this.volunteers
+      .map(v => v.profession)
+      .filter(p => p !== null && p !== undefined && p !== ''))).sort();
+
     const dialogRef = this.dialog.open(VolunteerFilterDialogComponent, {
       width: '600px',
-      data: { ...this.currentFilterCriteria }
+      data: {
+        filterCriteria: {
+          minAge: this.currentFilterCriteria.minAge,
+          maxAge: this.currentFilterCriteria.maxAge,
+          profession: this.currentFilterCriteria.profession
+        },
+        professions: uniqueProfessions
+      }
     });
 
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
-        // Asegurarse de que la organizationId del usuario logueado persista
-        // incluso si el diálogo de filtro no la devuelve o la resetea.
-        result.organizationId = this.loginService.getOrganizationId(); // Forzar la organizationId
-        this.currentFilterCriteria = result;
-        this.loadVolunteers(this.currentFilterCriteria);
+        this.currentFilterCriteria.minAge = result.minAge;
+        this.currentFilterCriteria.maxAge = result.maxAge;
+        this.currentFilterCriteria.profession = result.profession;
+
+        this.applyLocalFilters();
       }
     });
   }
@@ -287,6 +272,65 @@ export class VolunteersComponent implements OnInit, AfterViewInit {
   aproveSendEmail() {
     this.sendEmail = !this.sendEmail;
   }
+
+  // --- ¡NUEVO MÉTODO PARA ELIMINAR VOLUNTARIO! ---
+  onDeleteVolunteer(): void {
+    // 1. Verificar si hay un voluntario seleccionado
+    if (!this.selectedVolunteer) {
+      this.notificationsService.createTypedNotification('info', 'Por favor, seleccione un voluntario para eliminar.').subscribe(() => {
+        window.dispatchEvent(new Event('openNotifications'));
+      });
+      return; // Salir si no hay voluntario seleccionado
+    }
+
+    // 2. Configurar el diálogo de confirmación
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.disableClose = true; // El usuario no puede cerrar el diálogo haciendo clic fuera
+    dialogConfig.autoFocus = true;    // El primer elemento enfocable dentro del diálogo recibirá el foco
+    dialogConfig.data = {             // Datos a pasar al ConfirmDialogComponent
+      title: 'volunteers.confirmDeleteTitle',       // Clave para traducir el título
+      message: 'volunteers.confirmDeleteMessage',   // Clave para traducir el mensaje
+      confirmText: 'common.delete',                 // Clave para traducir el texto del botón de confirmar
+      cancelText: 'common.cancel'                   // Clave para traducir el texto del botón de cancelar
+    };
+
+    // 3. Abrir el diálogo de confirmación
+    const dialogRef = this.dialog.open(ConfirmDialogComponent, dialogConfig);
+
+    // 4. Suscribirse al resultado del diálogo
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) { // Si el usuario hizo clic en "Confirmar" (result es true)
+        console.log('Confirmación de eliminación recibida. Eliminando voluntario con ID:', this.selectedVolunteer?.id);
+        // Asegurarse de que el ID del voluntario seleccionado no es null/undefined
+        if (this.selectedVolunteer?.id) {
+          // 5. Llamar al servicio para eliminar el voluntario
+          this.volunteersService.deleteVolunteer(this.selectedVolunteer.id).subscribe({
+            next: () => {
+              // 6. Manejar el éxito de la eliminación
+              this.notificationsService.createTypedNotification('success', 'Voluntario eliminado exitosamente.').subscribe(() => {
+                window.dispatchEvent(new Event('openNotifications'));
+              });
+              this.selectedVolunteer = null; // Deseleccionar el voluntario en la UI
+              this.selectedRow = null;       // Deseleccionar la fila en la tabla
+              this.loadVolunteers(this.currentFilterCriteria); // Recargar la lista de voluntarios
+            },
+            error: (error) => {
+              // 7. Manejar el error de la eliminación
+              console.error('Error al eliminar voluntario:', error);
+              this.notificationsService.createTypedNotification('error', 'Error al eliminar voluntario.').subscribe(() => {
+                window.dispatchEvent(new Event('openNotifications'));
+              });
+            }
+          });
+        }
+      } else {
+        // Si el usuario hizo clic en "Cancelar" (result es false)
+        console.log('Eliminación cancelada por el usuario.');
+      }
+    });
+  }
+  // --- FIN NUEVO MÉTODO ---
+
 
   protected readonly history = history;
 
@@ -306,6 +350,10 @@ export class VolunteersComponent implements OnInit, AfterViewInit {
 
   calculateMetrics(): void {
     this.totalVolunteers = this.volunteers.length;
+    // NOTA IMPORTANTE: Si "desactivar" es eliminar, la métrica 'inactiveVolunteers'
+    // puede requerir ser revisada o eliminada si no tiene sentido que un voluntario "inactivo" exista en la lista.
+    // Si 'active' es una propiedad que tu API todavía devuelve para *otros* propósitos (ej. voluntarios históricos)
+    // entonces esta línea está bien. Si solo eliminas, esta métrica podría no ser útil.
     this.inactiveVolunteers = this.volunteers.filter(v => !v.active).length;
 
     let maxYear = 0;

@@ -140,7 +140,7 @@
 
       <div class="volunteer-detail-panel mat-elevation-z4">
         <div class="profile-header">
-          <mat-icon>assignment_ind</mat-icon>
+          <mat-icon style="margin: 8px 0;">assignment_ind</mat-icon>
           <div class="info">
             <h3>{{ selectedVolunteer.firstName }} {{ selectedVolunteer.lastName }}</h3>
             <p><strong>DNI:</strong> {{ selectedVolunteer.dni }}</p>
@@ -160,7 +160,7 @@
         <button mat-raised-button color="primary" (click)="openCertificatesDialog()">{{ 'volunteers.viewCertificates' | translate }}</button>
         <button mat-raised-button (click)="aproveSendEmail()" color="accent">{{ 'volunteers.sendEmail' | translate }}</button>
         <button mat-raised-button color="warn" (click)="onAddToActivity()">{{ 'volunteers.addToActivity' | translate }}</button>
-        <button mat-stroked-button color="warn">{{ 'volunteers.deactivate' | translate }}</button>
+        <button mat-stroked-button color="warn" (click)="onDeleteVolunteer()">{{ 'volunteers.deactivate' | translate }}</button>
       </div>
 
       <div class="volunteer-bottom-panel">
@@ -168,14 +168,13 @@
           <div class="volunteer-email-panel mat-elevation-z4">
             <form>
               <div class="line">
-                <h3 style="color:#24344C; font-size: 2rem">{{ 'volunteers.newEmail' | translate }}</h3>
+                <h3 style="color:#24344C; font-size: 1.5rem">{{ 'volunteers.newEmail' | translate }}</h3>
               </div>
               <div class="line">
                 <p><strong>{{ 'volunteers.to' | translate }}: {{ selectedVolunteer.email }}</strong></p>
               </div>
               <div class="line">
-                <label>{{ 'volunteers.subject' | translate }}</label>
-                <input type="text">
+                <input type="text" [placeholder]="'volunteers.subject' | translate">
               </div>
               <div class="line">
                 <textarea name="description"></textarea>

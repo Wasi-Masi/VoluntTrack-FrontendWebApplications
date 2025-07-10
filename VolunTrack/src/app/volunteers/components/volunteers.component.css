@@ -65,7 +65,8 @@
   display: flex;
   flex-direction: column;
   height: 100%;
-  gap: 2rem;
+  justify-content: space-between;
+  gap: 1rem;
 }
 
 .volunteer-detail-panel,
@@ -109,6 +110,12 @@
   box-sizing: border-box;
 }
 
+.line input {
+  font-family: inherit;
+  color: #0C7987;
+  padding: 0.2rem
+}
+
 .volunteer-email-panel textarea,
 .volunteer-email-panel input,
 .volunteer-history-panel {
@@ -125,9 +132,8 @@
 
 .profile-header {
   display: flex;
-  align-items: center;
-  margin-bottom: 20px;
-  gap: 20px;
+  align-items: flex-start;
+  gap: 0.5rem;
 }
 
 .profile-header img {
@@ -143,14 +149,14 @@
 }
 
 .profile-header .info h3, .metrics {
-  margin: 0 0 10px 0;
+  margin: 0.5rem 0 1rem;
   color: #0C7987;
   font-weight: bolder;
 }
 
 .profile-header .info p {
-  margin: 4px 0;
-  font-size: 14px;
+  margin: 8px 0;
+  font-size: 15px;
   color: #333;
 }
 
@@ -168,18 +174,17 @@
 
 .volunteers-toolbar {
   flex: 0 0 auto;
-  margin-bottom: 5%;
-  height: 40px;
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 1rem;
+  height: 55px;
 }
 
 .search-input {
   flex-grow: 1;
   max-width: 300px;
   margin: 0;
-  height: 36px;
+  height: 100%;
 }
 
 .volunteers-table-container {
