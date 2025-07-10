@@ -213,7 +213,10 @@
     "filterVolunteers": "Filtrar Voluntarios",
     "minAge": "Edad Mínima",
     "maxAge": "Edad Máxima",
-    "allProfessions": "Todas las Profesiones"
+    "allProfessions": "Todas las Profesiones",
+    "closeRegistrations": "Cerrar Inscripciones",
+    "certificateTitle": "¡Felicidades!",
+    "certificateText": "Se certifica que {{fullName}} ha completado satisfactoriamente la actividad \"{{activityTitle}}\" el día {{activityDate}}."
   },
 
   "common": {

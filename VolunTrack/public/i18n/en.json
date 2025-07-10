@@ -201,7 +201,10 @@
     "filterVolunteers": "Filter Volunteers",
     "minAge": "Min Age",
     "maxAge": "Max Age",
-    "allProfessions": "All Professions"
+    "allProfessions": "All Professions",
+    "closeRegistrations": "Close Registrations",
+    "certificateTitle": "Congratulations!",
+    "certificateText": "This certifies that {{fullName}} has successfully completed the activity \"{{activityTitle}}\" on {{activityDate}}."
   },
 
   "common": {

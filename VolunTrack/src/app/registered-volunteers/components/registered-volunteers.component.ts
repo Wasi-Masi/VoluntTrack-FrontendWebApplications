@@ -26,7 +26,8 @@ import { CertificatesService } from '../../volunteers/services/certificats.servi
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { NotificationsService } from '../../notifications/services/notifications.service';
 import { TranslateService, TranslatePipe } from '@ngx-translate/core';
-import { forkJoin } from 'rxjs';
+import { forkJoin, of } from 'rxjs';
+import { catchError, map, switchMap } from 'rxjs/operators'; // Import operators
 
 @Component({
   selector: 'app-registered-volunteers',
@@ -52,6 +53,7 @@ export class RegisteredVolunteersComponent implements OnInit, AfterViewInit {
   isAttendanceMode = false;
   //attendanceMarked: { [id: string]: boolean } = {};
   private volunteerParticipations: { [volunteerId: string]: number } = {};
+  private certificatesIssued: Set<number> = new Set<number>();
 
   allColumns = ['fullName', 'age', 'profession', 'registrationDate', 'registrationStatus', 'registrationAttendance'];
   attendanceColumns = ['fullName', 'attendanceCheckbox'];
@@ -219,37 +221,94 @@ export class RegisteredVolunteersComponent implements OnInit, AfterViewInit {
     }
   }
 
-
   generateCertificates() {
     if (!this.activity) return;
 
-    const certificados: Certificate[] = this.dataSource.data
-      .filter(v => v.attendance)
-      .map(v => new Certificate(
-        crypto.randomUUID(),
-        v.volunteerId,
-        this.activity.titulo,
-        this.translate.instant('volunteers.certificateText', {
-          fullName: v.fullName,
-          activityTitle: this.activity.titulo,
-          activityDate: this.datePipe.transform(this.activity.fecha, 'mediumDate')
-        })
-      ));
+    // Get unique volunteer IDs that have participation
+    const volunteerIdsWithParticipation = new Set<number>();
+    this.dataSource.data
+      .filter(v => v.hasParticipation && v.participationId !== null)
+      .forEach(v => volunteerIdsWithParticipation.add(v.id));
 
-    if (certificados.length === 0) {
+    if (volunteerIdsWithParticipation.size === 0) {
       this.notificationsService.createTypedNotification('error', this.translate.instant('volunteers.noVolunteersAttendedForCertificates')).subscribe(() => {
         window.dispatchEvent(new Event('openNotifications'));
       });
       return;
     }
 
-    forkJoin(certificados.map(cert => this.certificatesService.postCertificate(cert))).subscribe({
-      next: () => {
-        this.notificationsService.createTypedNotification('certificate', this.translate.instant('volunteers.certificatesGeneratedAndSent')).subscribe(() => {
-          window.dispatchEvent(new Event('openNotifications'));
+    // Fetch existing certificates for these volunteers to avoid duplicates
+    const fetchCertificatesObservables = Array.from(volunteerIdsWithParticipation).map(volunteerId =>
+      this.certificatesService.getCertificatesByVolunteer(volunteerId).pipe(
+        catchError(err => {
+          console.error(`Error fetching certificates for volunteer ${volunteerId}:`, err);
+          return of([]); // Return an empty array on error to allow other requests to complete
+        })
+      )
+    );
+
+    forkJoin(fetchCertificatesObservables).pipe(
+      map((allCertificatesArrays: any[][]) => {
+        this.certificatesIssued.clear(); // Clear previous state
+        allCertificatesArrays.forEach(certs => {
+          certs.forEach(cert => {
+            if (cert.participationId) {
+              this.certificatesIssued.add(cert.participationId);
+            }
+          });
         });
+
+        // Filter volunteers who have participation and no existing certificate
+        return this.dataSource.data.filter(v =>
+          v.hasParticipation &&
+          v.participationId !== null &&
+          !this.certificatesIssued.has(v.participationId)
+        );
+      }),
+      switchMap(volunteersToCertify => {
+        if (volunteersToCertify.length === 0) {
+          this.notificationsService.createTypedNotification('info', this.translate.instant('volunteers.allCertificatesAlreadyGenerated')).subscribe(() => {
+            window.dispatchEvent(new Event('openNotifications'));
+          });
+          return of(0); // Explicitly return a number (0) when no certificates are generated
+        }
+
+        const certificatesToPost = volunteersToCertify.map(v => {
+          const description = this.translate.instant('volunteers.certificateText', {
+            fullName: `${v.firstName} ${v.lastName}`,
+            activityTitle: this.activity.titulo,
+            activityDate: this.datePipe.transform(this.activity.fecha, 'mediumDate')
+          });
+          return new Certificate(v.participationId, description);
+        });
+
+        // ForkJoin for posting, then map to just return the count of certificates posted
+        return forkJoin(certificatesToPost.map(cert => this.certificatesService.postCertificate(cert))).pipe(
+          map(() => certificatesToPost.length), // Emit the number of certificates posted
+          catchError(err => {
+            console.error("Error posting certificates:", err);
+            this.notificationsService.createTypedNotification('error', this.translate.instant('volunteers.certificateGenerationError')).subscribe(() => {
+              window.dispatchEvent(new Event('openNotifications'));
+            });
+            return of(0); // Return 0 on error
+          })
+        );
+      })
+      // Add a catchError to the outer pipe as well, to catch errors from any stage before the final subscribe
+    ).subscribe({
+      next: (count: number) => { // Explicitly type 'count' here
+        if (count > 0) {
+          this.notificationsService.createTypedNotification('certificate', this.translate.instant('volunteers.certificatesGeneratedAndSent', { count: count })).subscribe(() => {
+            window.dispatchEvent(new Event('openNotifications'));
+          });
+          // Update the local set of issued certificates for future checks
+          this.dataSource.data
+            .filter(v => v.hasParticipation && v.participationId !== null && !this.certificatesIssued.has(v.participationId))
+            .forEach(v => this.certificatesIssued.add(v.participationId));
+        }
       },
-      error: err => {
+      error: err => { // This error handler will catch errors from the outer pipe
+        console.error("Unhandled error during certificate generation process:", err);
         this.notificationsService.createTypedNotification('error', this.translate.instant('volunteers.certificateGenerationError')).subscribe(() => {
           window.dispatchEvent(new Event('openNotifications'));
         });

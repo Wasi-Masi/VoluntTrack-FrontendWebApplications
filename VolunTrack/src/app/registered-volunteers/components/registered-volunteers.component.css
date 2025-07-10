@@ -73,11 +73,8 @@ root {
 .details-container {
   display: flex;
   flex-wrap: wrap;
-  gap: 30px;
   max-width: 90%;
-  width: 90%;
-
-  border: 3px solid salmon;
+  width: 70%;
   margin: 20px auto;
   padding: 20px;
   background-color: #9BD0DF50;
@@ -90,13 +87,11 @@ root {
 
 .details-subpanels {
   display: flex;
-  width: 60%;
   flex-wrap: wrap;
   flex: 1;
-  gap: 20px;
   box-sizing: border-box;
   align-items: center;
-  justify-content: center;
+  justify-content: space-around;
 }
 
 .volunteers-table-subpanel {
@@ -105,7 +100,6 @@ root {
   flex-direction: column;
   overflow-x: auto;
   box-sizing: border-box;
-
 }
 
 .volunteers-actions-subpanel {
@@ -132,7 +126,7 @@ root {
 
 table.mat-table {
   width: 100%;
-  min-width: 400px;
+  min-width: 600px;
   table-layout: auto;
 }
 

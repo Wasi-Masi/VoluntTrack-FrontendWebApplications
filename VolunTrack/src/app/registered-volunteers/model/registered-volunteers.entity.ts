@@ -1,32 +1,26 @@
 /**
- * Defines the RegisteredVolunteersEntity class representing a volunteer's registration details for an activity,
- * the Certificate class for participation certificates,
- * and the RegisteredVolunteer class for enriched display data in the UI.
+ * Defines the class representing a volunteer's registration details for an activity and
+ * the Certificate class for participation certificates.
  *
- * Cassius Martel
- * Actualizado por Gemini AI
+ * Ainhoa Castillo
  */
 
-export class RegisteredVolunteersEntity {
-  constructor(
-    public id: number,
-    public activityId: number,
-    public volunteerId: number,
-    public registrationDate: string,
-    public status: string,
-    public hasParticipation: boolean,
-    public participationId?: number | null
-  ) {}
-}
 
 export class Certificate {
-  constructor(
-    public id: string,
-    public volunteerId: number,
-    public activityTitle: string,
-    public text: string,
-  ) {}
+  id?: number; // Optional, as it's returned by GET but not sent with POST
+  participationId: number;
+  description: string;
+
+  constructor(participationId: number, description: string, id?: number) {
+    this.participationId = participationId;
+    this.description = description;
+    if (id) {
+      this.id = id;
+    }
+  }
 }
+
+
 
 /**
  * Class used in the frontend to represent a volunteer registration with full volunteer details
@@ -35,9 +29,6 @@ export class Certificate {
 export class RegisteredVolunteer {
   constructor(
     public id: number,                // volunteer.id
-    public volunteerId: number,      // registration.id
-    public firstName: string,
-    public lastName: string,
     public fullName: string,
     public dateOfBirth: string,
     public age: number,
