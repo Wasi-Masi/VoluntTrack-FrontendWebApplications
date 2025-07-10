@@ -60,9 +60,7 @@
             <th mat-header-cell *matHeaderCellDef> {{ 'volunteers.attendance' | translate }} </th>
             <td mat-cell *matCellDef="let volunteer">
               <mat-checkbox
-                [checked]="attendanceMarked[volunteer.id]"
-                (change)="onAttendanceChange(volunteer.id, $event.checked)">
-              </mat-checkbox>
+                [checked]="volunteer.hasParticipation"  (change)="onAttendanceChange(volunteer, $event.checked)"> </mat-checkbox>
             </td>
           </ng-container>
 

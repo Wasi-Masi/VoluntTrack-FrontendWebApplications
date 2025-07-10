@@ -75,8 +75,9 @@ root {
   flex-wrap: wrap;
   gap: 30px;
   max-width: 90%;
-  width: 60%;
+  width: 90%;
 
+  border: 3px solid salmon;
   margin: 20px auto;
   padding: 20px;
   background-color: #9BD0DF50;
@@ -84,6 +85,7 @@ root {
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
   box-sizing: border-box;
   align-items: center;
+  justify-content: space-around;
 }
 
 .details-subpanels {

@@ -14,7 +14,8 @@ export class RegisteredVolunteersEntity {
     public volunteerId: number,
     public registrationDate: string,
     public status: string,
-    public attendance: boolean
+    public hasParticipation: boolean,
+    public participationId?: number | null
   ) {}
 }
 
@@ -43,6 +44,7 @@ export class RegisteredVolunteer {
     public profession: string,
     public registrationDate: string,
     public status: string,
-    public attendance: boolean
+    public hasParticipation?: boolean, // Indica si el voluntario tiene una participación para esta actividad
+    public participationId?: number | null
   ) {}
 }

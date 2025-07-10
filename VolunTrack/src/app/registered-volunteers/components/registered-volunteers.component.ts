@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import {AfterViewInit, Component, OnInit, ViewChild} from '@angular/core';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { MatPaginator } from '@angular/material/paginator';
 import {
@@ -44,13 +44,14 @@ import { forkJoin } from 'rxjs';
   ],
   providers: [DatePipe]
 })
-export class RegisteredVolunteersComponent implements OnInit {
+export class RegisteredVolunteersComponent implements OnInit, AfterViewInit {
   activityId!: number;
   activity!: Activity;
   dataSource = new MatTableDataSource<any>([]);
   searchText: string = '';
   isAttendanceMode = false;
-  attendanceMarked: { [id: string]: boolean } = {};
+  //attendanceMarked: { [id: string]: boolean } = {};
+  private volunteerParticipations: { [volunteerId: string]: number } = {};
 
   allColumns = ['fullName', 'age', 'profession', 'registrationDate', 'registrationStatus', 'registrationAttendance'];
   attendanceColumns = ['fullName', 'attendanceCheckbox'];
@@ -78,7 +79,7 @@ export class RegisteredVolunteersComponent implements OnInit {
       this.activityService.getActivityById(activityId).subscribe({
         next: activity => {
           this.activity = activity;
-          this.loadRegisteredVolunteers(activityId);
+          this.loadExistingParticipations(activityId);
         },
         error: err => {
           this.notificationsService.createTypedNotification('error', this.translate.instant('volunteers.activityLoadError')).subscribe(() => {
@@ -96,13 +97,32 @@ export class RegisteredVolunteersComponent implements OnInit {
     this.dataSource.paginator = this.paginator;
   }
 
+  loadExistingParticipations(activityId: number): void {
+    this.regVolunteersService.getParticipationsByActivityId(activityId).subscribe({
+      next: (participations: any[]) => {
+        this.volunteerParticipations = {};
+        participations.forEach(p => {
+          this.volunteerParticipations[String(p.volunteerId)] = p.id;
+        });
+        this.loadRegisteredVolunteers(activityId);
+      },
+      error: err => {
+        console.error("Error loading existing participations:", err);
+        this.notificationsService.createTypedNotification('error', this.translate.instant('volunteers.participationsLoadError')).subscribe(() => {
+          window.dispatchEvent(new Event('openNotifications'));
+        });
+        this.loadRegisteredVolunteers(activityId);
+      }
+    });
+  }
+
   loadRegisteredVolunteers(activityId: number) {
     this.regVolunteersService.getRegisteredVolunteersByActivityId(activityId).subscribe({
       next: volunteers => {
-        // Calcular edad para cada voluntario
         volunteers.forEach(v => {
           v.age = this.calculateAge(v.dateOfBirth) ?? 0;
-          this.attendanceMarked[String(v.id)] = v.attendance;
+          v.hasParticipation = !!this.volunteerParticipations[String(v.id)];
+          v.participationId = this.volunteerParticipations[String(v.id)] || null;
         });
         console.log('Voluntarios con datos:', volunteers);
 
@@ -113,6 +133,7 @@ export class RegisteredVolunteersComponent implements OnInit {
         }
       },
       error: err => {
+        console.log("error cargando participantes", err)
         this.notificationsService.createTypedNotification('error', this.translate.instant('volunteers.registeredVolunteersLoadError')).subscribe(() => {
           window.dispatchEvent(new Event('openNotifications'));
         });
@@ -141,48 +162,63 @@ export class RegisteredVolunteersComponent implements OnInit {
     this.isAttendanceMode = !this.isAttendanceMode;
     this.displayedColumns = this.isAttendanceMode ? this.attendanceColumns : this.allColumns;
 
-    if (!this.isAttendanceMode) {
-      this.saveAttendance();
-    }
   }
 
-  onAttendanceChange(volunteerId: string, checked: boolean) {
-    this.attendanceMarked[volunteerId] = checked;
-  }
+  onAttendanceChange(volunteer: any, checked: boolean) {
+    const volunteerId = volunteer.id;
+    const activityId = this.activityId;
 
-  saveAttendance() {
-    const updateCalls = [];
-
-    for (const [idString, attended] of Object.entries(this.attendanceMarked)) {
-      const row = this.dataSource.data.find(v => String(v.id) === idString);
-      if (row && row.attendance !== attended) {
-        updateCalls.push(
-          this.regVolunteersService.updateAttendance(Number(row.id), attended)
-        );
-      }
-    }
-
-    if (updateCalls.length === 0) {
-      this.notificationsService.createTypedNotification('info', this.translate.instant('volunteers.noAttendanceChanges')).subscribe(() => {
-        window.dispatchEvent(new Event('openNotifications'));
+    if (checked) {
+      this.regVolunteersService.createParticipationByAttendance(volunteerId, activityId).subscribe({ // ¡Usa regVolunteersService!
+        next: (response) => {
+          console.log(`Participación creada para voluntario ${volunteerId}:`, response);
+          this.notificationsService.createTypedNotification('success', this.translate.instant('volunteers.participationCreated')).subscribe(() => {
+            window.dispatchEvent(new Event('openNotifications'));
+          });
+          this.volunteerParticipations[String(volunteerId)] = response.id;
+          volunteer.hasParticipation = true;
+          volunteer.participationId = response.id;
+        },
+        error: (err) => {
+          console.error(`Error al crear participación para voluntario ${volunteerId}:`, err);
+          this.notificationsService.createTypedNotification('error', this.translate.instant('volunteers.participationCreateError')).subscribe(() => {
+            window.dispatchEvent(new Event('openNotifications'));
+          });
+          volunteer.hasParticipation = false;
+        }
       });
-      return;
-    }
+    } else {
+      const participationIdToDelete = this.volunteerParticipations[String(volunteerId)];
 
-    forkJoin(updateCalls).subscribe({
-      next: () => {
-        this.loadRegisteredVolunteers(this.activityId);
-        this.notificationsService.createTypedNotification('success', this.translate.instant('volunteers.attendanceSaved')).subscribe(() => {
+      if (participationIdToDelete) {
+        this.regVolunteersService.deleteParticipation(participationIdToDelete).subscribe({ // ¡Usa regVolunteersService!
+          next: () => {
+            console.log(`Participación ${participationIdToDelete} eliminada para voluntario ${volunteerId}`);
+            this.notificationsService.createTypedNotification('success', this.translate.instant('volunteers.participationDeleted')).subscribe(() => {
+              window.dispatchEvent(new Event('openNotifications'));
+            });
+            delete this.volunteerParticipations[String(volunteerId)];
+            volunteer.hasParticipation = false;
+            volunteer.participationId = null;
+          },
+          error: (err) => {
+            console.error(`Error al eliminar participación ${participationIdToDelete}:`, err);
+            this.notificationsService.createTypedNotification('error', this.translate.instant('volunteers.participationDeleteError')).subscribe(() => {
+              window.dispatchEvent(new Event('openNotifications'));
+            });
+            volunteer.hasParticipation = true;
+          }
+        });
+      } else {
+        console.warn(`No se encontró participationId para eliminar para el voluntario ${volunteerId}.`);
+        this.notificationsService.createTypedNotification('info', this.translate.instant('volunteers.noParticipationToDelete')).subscribe(() => {
           window.dispatchEvent(new Event('openNotifications'));
         });
-      },
-      error: err => {
-        this.notificationsService.createTypedNotification('error', this.translate.instant('volunteers.attendanceSaveError')).subscribe(() => {
-          window.dispatchEvent(new Event('openNotifications'));
-        });
+        volunteer.hasParticipation = false;
       }
-    });
+    }
   }
+
 
   generateCertificates() {
     if (!this.activity) return;

@@ -5,20 +5,22 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import {Certificate} from '../../registered-volunteers/model/registered-volunteers.entity';
+import {environment} from '../../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CertificatesService {
-  private apiUrl = 'https://voluntrack.onrender.com/certificates';
+  private apiUrl = environment.apiUrl;
+  private basePath: string = `${this.apiUrl}/v1/certificates`;
 
   constructor(private http: HttpClient) {}
 
   postCertificate(certificate: Certificate) {
-    return this.http.post(this.apiUrl, certificate);
+    return this.http.post(this.basePath, certificate);
   }
 
   getCertificatesByVolunteer(volunteerId: number) {
-    return this.http.get<any[]>(`${this.apiUrl}?volunteerId=${volunteerId}`);
+    return this.http.get<any[]>(`${this.basePath}/by-volunteer/${volunteerId}`);
   }
 }
