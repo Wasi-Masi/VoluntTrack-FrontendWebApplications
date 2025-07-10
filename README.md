@@ -3660,6 +3660,10 @@ Finalmente, este trabajo parcial fortaleció significativamente las competencias
 
 Esta entrega (TB2) marcó un avance fundamental para VolunTrack con la culminación del backend, desarrollado íntegramente en Java bajo un enfoque de Design-Driven Development. La exitosa implementación y despliegue de este componente, junto con la exposición y documentación interactiva de sus APIs mediante Swagger, establece una base lógica robusta y validada que servirá como pilar para la inminente integración con el frontend.
 
+La culminación de Voluntrack representa la materialización de un sistema integral de gestión de voluntariado, desde sus fases de análisis y diseño hasta una solución funcional y robusta. Esta etapa final ha sido pivotal, logrando la integración completa del backend con el frontend, lo que ha permitido que la plataforma opere de manera efectiva en escenarios de uso reales. Un hito central de este sprint ha sido la exitosa implementación de un robusto sistema de autenticación basado en JSON Web Tokens (JWT), el cual no solo garantiza la seguridad de las interacciones, sino que también establece una base sólida para un control de acceso granular a los recursos de la API.
+
+La incorporación de la internacionalización en el backend dota a Voluntrack de una flexibilidad fundamental, capacitándolo para comunicarse eficientemente en múltiples idiomas y enriquecer la experiencia del usuario a nivel global, reafirmando nuestro compromiso con la accesibilidad. Este proyecto es un testimonio de la eficaz coordinación del equipo, evidenciada por una clara distribución de tareas, el cumplimiento riguroso de objetivos y una cultura de mejora continua. El producto final no solo satisface la visión original del usuario, sino que también encapsula las mejores prácticas de ingeniería de software, posicionando a Voluntrack como una solución sólida, segura y lista para su validación final y futuras expansiones.
+
 
 ## Recomendaciones
 
@@ -3674,6 +3678,11 @@ Se recomienda establecer y mantener un **proceso de desarrollo iterativo e incre
 Finalmente, se sugiere seguir **invirtiendo en la capacitación y actualización constante del equipo** en tecnologías emergentes, herramientas de desarrollo, control de versiones y buenas prácticas de ingeniería de software. Esto no solo asegurará la calidad técnica y funcional del proyecto, sino que también fomentará la innovación, el uso eficiente de recursos y la sostenibilidad a largo plazo de la plataforma **VolunTrack**.
 
 Se recomienda enfáticamente capitalizar la sólida base del backend en Java desarrollado con Design-Driven Development y desplegado con Swagger en esta etapa. Este fundamento técnico debe ser el pilar para la continuación del desarrollo de la aplicación web y una futura versión móvil, priorizando una gestión de base de datos robusta, eficiente y escalable para asegurar la integridad y seguridad de la información. Asimismo, es crucial iniciar pruebas de usabilidad rigurosas y continuas en las fases de integración con el frontend, manteniendo un proceso de desarrollo iterativo para la entrega de valor constante y la inversión en capacitación del equipo, garantizando así la evolución innovadora y la sostenibilidad a largo plazo de VolunTrack.
+
+Tras la entrega final, sugerimos implementar un plan estratégico para la escalabilidad del backend, especialmente dado el uso de Render para el despliegue. Esto implica monitorear activamente el rendimiento de la API (latencia, tasa de errores, consumo de recursos) y la base de datos, así como definir puntos de ajuste para futuras optimizaciones o la adopción de arquitecturas más distribuidas (ej. microservicios) si el volumen de usuarios crece exponencialmente. Este enfoque proactivo asegurará que Voluntrack mantenga su robustez y disponibilidad a medida que la comunidad de voluntarios y organizaciones se expandan.
+
+Una vez lanzado Voluntrack, se recomienda encarecidamente implementar un proceso formal para la recolección, análisis y priorización del feedback de los usuarios reales. Esto no solo abarca la funcionalidad, sino también la experiencia de usuario (UX) y la interfaz de usuario (UI), prestando especial atención a la claridad de los mensajes internacionalizados. Este ciclo de retroalimentación permitirá identificar puntos de fricción, nuevas necesidades y oportunidades de mejora, asegurando que el producto evolucione constantemente para satisfacer las expectativas de sus usuarios y adaptarse a los cambios del ecosistema del voluntariado.
+
 
 # Bibliografia
 
