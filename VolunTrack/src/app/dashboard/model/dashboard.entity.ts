@@ -10,9 +10,10 @@ export class Activity {
     public proposito: string,
     public cupos: number,
     public ubicacion: string,
-    public estado: string,
+    public estado: string, // <-- Este es el estado de la actividad (ej: 'Abierta', 'Cerrada', 'Finalizada')
     public organizacion_id: number,
-    public imagenes: string[]
+    public imagenes: string[],
+    public availableSlots: number,
   ) {}
 
   get dashboardPicture(): string {
@@ -22,6 +23,7 @@ export class Activity {
   }
 
   get isInscriptionOpen(): boolean {
-    return this.estado === 'Activa';
+    // Si tu backend envía 'Abierta' cuando las inscripciones están listas para recibir voluntarios
+    return this.estado === 'Abierta'; // <-- CAMBIO AQUÍ
   }
 }

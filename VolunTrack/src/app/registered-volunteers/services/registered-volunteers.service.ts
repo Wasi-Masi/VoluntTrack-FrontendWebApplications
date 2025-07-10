@@ -1,34 +1,25 @@
-/**
- * Service to manage registered volunteers data, including fetching registrations by activity,
- * retrieving volunteer details, and updating attendance status.
- *
- * Author: Cassius Martel
- */
-
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpParams } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { RegisteredVolunteersEntity } from '../model/registered-volunteers.entity';
-import {Volunteer } from '../../volunteers/model/volunteers.entity'
+import { RegisteredVolunteer } from '../model/registered-volunteers.entity';
+import { environment } from '../../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class RegisteredVolunteersService {
-  private apiUrl = 'https://voluntrack.onrender.com/registers';
+  private registrationsApiUrl = `${environment.apiUrl}/v1/inscriptions`;
 
   constructor(private http: HttpClient) { }
 
-  getRegistrationsByActivity(activityId: number): Observable<RegisteredVolunteersEntity[]> {
-    const params = new HttpParams().set('activityId', activityId);
-
-    return this.http.get<RegisteredVolunteersEntity[]>(this.apiUrl, { params });
-  }
-  getVolunteerById(id: string): Observable<Volunteer> {
-    return this.http.get<Volunteer>(`https://voluntrack.onrender.com/volunteers/${id}`);
+  getRegisteredVolunteersByActivityId(activityId: number): Observable<RegisteredVolunteer[]> {
+    return this.http.get<RegisteredVolunteer[]>(
+      `${this.registrationsApiUrl}/volunteers/byActivity/${activityId}`
+    );
   }
 
-  updateAttendance(registrationId: string, attendance: string): Observable<any> {
-    return this.http.patch(`${this.apiUrl}/${registrationId}`, { attendance });
+  updateAttendance(registrationId: number, attendance: boolean): Observable<any> {
+    const attendanceValue = attendance ? 'asistio' : 'no asistio';
+    return this.http.patch(`${this.registrationsApiUrl}/${registrationId}`, { attendance: attendanceValue });
   }
 }

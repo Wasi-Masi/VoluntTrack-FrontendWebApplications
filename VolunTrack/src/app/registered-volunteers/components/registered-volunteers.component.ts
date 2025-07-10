@@ -1,87 +1,54 @@
-/**
- * Component to manage and display the list of volunteers registered for a specific activity.
- * Includes functionality to search volunteers, mark attendance, and generate certificates.
- *
- * Author: Cassius Martel (Actualizado)
- */
-
 import { Component, OnInit, ViewChild } from '@angular/core';
-import {ActivatedRoute, RouterLink} from '@angular/router';
-import { forkJoin } from 'rxjs';
+import { ActivatedRoute, RouterLink } from '@angular/router';
 import { MatPaginator } from '@angular/material/paginator';
 import {
-  MatCell, MatCellDef,
-  MatColumnDef,
-  MatHeaderCell, MatHeaderCellDef,
-  MatHeaderRow,
-  MatHeaderRowDef,
-  MatRow, MatRowDef, MatTable,
-  MatTableDataSource
+  MatTableDataSource,
+  MatCell, MatCellDef, MatColumnDef,
+  MatHeaderCell, MatHeaderCellDef, MatHeaderRow, MatHeaderRowDef,
+  MatRow, MatRowDef, MatTable
 } from '@angular/material/table';
 
 import { Activity } from '../../dashboard/model/dashboard.entity';
 import { ActivityDetailsService } from '../../activity-details/services/activity-details.service';
 import { RegisteredVolunteersService } from '../services/registered-volunteers.service';
-import { VolunteersService } from '../../volunteers/services/volunteers.service';
-import {Certificate, RegisteredVolunteersEntity} from '../model/registered-volunteers.entity';
-import {FormsModule} from '@angular/forms';
-import {MatFormField, MatInput, MatSuffix} from '@angular/material/input';
-import {DatePipe, NgIf, TitleCasePipe} from '@angular/common';
-import {MatButton, MatIconButton} from '@angular/material/button';
-import {MatIconModule} from '@angular/material/icon';
-import {MatCard, MatCardContent, MatCardHeader} from '@angular/material/card';
-import {MatTooltipModule} from '@angular/material/tooltip';
+import { Certificate } from '../model/registered-volunteers.entity';
+import { FormsModule } from '@angular/forms';
+import { MatFormField, MatInput, MatSuffix } from '@angular/material/input';
+import { DatePipe, NgIf, TitleCasePipe } from '@angular/common';
+import { MatButton, MatIconButton } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+import { MatCard, MatCardContent, MatCardHeader } from '@angular/material/card';
+import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatCardModule } from '@angular/material/card';
-import {MatCheckbox} from '@angular/material/checkbox';
-import {CertificatesService} from '../../volunteers/services/certificats.service';
-import {MatSnackBar} from '@angular/material/snack-bar';
-import { NotificationsService} from '../../notifications/services/notifications.service';
-import { TranslatePipe} from '@ngx-translate/core';
+import { MatCheckbox } from '@angular/material/checkbox';
+import { CertificatesService } from '../../volunteers/services/certificats.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { NotificationsService } from '../../notifications/services/notifications.service';
+import { TranslateService, TranslatePipe } from '@ngx-translate/core';
+import { forkJoin } from 'rxjs';
 
 @Component({
   selector: 'app-registered-volunteers',
   templateUrl: './registered-volunteers.component.html',
   standalone: true,
+  styleUrls: ['./registered-volunteers.component.css'],
   imports: [
-    RouterLink,
-    MatIconModule,
-    FormsModule,
-    MatInput,
-    MatSuffix,
-    MatFormField,
-    TitleCasePipe,
-    DatePipe,
-    MatCell,
-    MatColumnDef,
-    MatHeaderCell,
-    MatHeaderRow,
-    MatRow,
-    MatPaginator,
-    MatHeaderRowDef,
-    MatRowDef,
-    MatTable,
-    MatHeaderCellDef,
-    MatCellDef,
-    MatIconButton,
-    MatButton,
-    MatCardContent,
-    MatCard,
-    MatCardHeader,
-    NgIf,
-    MatTooltipModule,
-    MatFormFieldModule,
-    MatCardModule,
-    MatCheckbox,
-    TranslatePipe
+    RouterLink, MatIconModule, FormsModule, MatInput, MatSuffix,
+    MatFormField, TitleCasePipe, DatePipe,
+    MatCell, MatColumnDef, MatHeaderCell, MatHeaderRow, MatRow,
+    MatPaginator, MatHeaderRowDef, MatRowDef, MatTable,
+    MatHeaderCellDef, MatCellDef, MatIconButton, MatButton,
+    MatCardContent, MatCard, MatCardHeader, NgIf, MatTooltipModule,
+    MatFormFieldModule, MatCardModule, MatCheckbox, TranslatePipe
   ],
-  styleUrls: ['./registered-volunteers.component.css']
+  providers: [DatePipe]
 })
 export class RegisteredVolunteersComponent implements OnInit {
+  activityId!: number;
   activity!: Activity;
   dataSource = new MatTableDataSource<any>([]);
   searchText: string = '';
-  selectedVolunteer: any = null;
   isAttendanceMode = false;
   attendanceMarked: { [id: string]: boolean } = {};
 
@@ -89,74 +56,17 @@ export class RegisteredVolunteersComponent implements OnInit {
   attendanceColumns = ['fullName', 'attendanceCheckbox'];
   displayedColumns = this.allColumns;
 
-  toggleAttendanceMode() {
-    this.isAttendanceMode = !this.isAttendanceMode;
-
-    if (this.isAttendanceMode) {
-      this.displayedColumns = this.attendanceColumns;
-
-      this.attendanceMarked = {};
-      this.dataSource.data.forEach(volunteer => {
-        this.attendanceMarked[String(volunteer.registrationId)] = volunteer.registration?.attendance ?? false;
-      });
-    } else {
-      this.displayedColumns = this.allColumns;
-      this.saveAttendance();
-    }
-  }
-
-  saveAttendance() {
-    const updateCalls = [];
-
-    for (const [registrationId, attended] of Object.entries(this.attendanceMarked)) {
-      const volunteer = this.dataSource.data.find(v => String(v.registrationId) === registrationId);
-      if (volunteer) {
-        const attendanceValue = attended ? 'asistio' : 'no asistio';
-        volunteer.registration.attendance = attendanceValue;
-
-        updateCalls.push(
-          this.regVolunteersService.updateAttendance(registrationId, attendanceValue)
-        );
-      }
-    }
-
-    forkJoin(updateCalls).subscribe({
-      next: () => {
-        this.dataSource._updateChangeSubscription();
-        if (this.selectedVolunteer) {
-          const updatedVolunteer = this.dataSource.data.find(v => v.registrationId === this.selectedVolunteer.registrationId);
-          if (updatedVolunteer) {
-            this.selectedVolunteer.registration.attendance = updatedVolunteer.registration.attendance;
-          }
-        }
-        this.loadRegistrations(this.activity.actividad_id);
-        this.notificationsService.createTypedNotification('success', 'Asistencia guardada correctamente.').subscribe(() => {
-          window.dispatchEvent(new Event('openNotifications'));
-        });
-      },
-      error: err => {
-        console.error('Error actualizando asistencias:', err);
-        this.notificationsService.createTypedNotification('error', 'Error al guardar asistencia.').subscribe(() => {
-          window.dispatchEvent(new Event('openNotifications'));
-        });
-      }
-    });
-  }
-  onAttendanceChange(registrationId: string, checked: boolean) {
-    this.attendanceMarked[registrationId] = checked;
-  }
   @ViewChild(MatPaginator) paginator!: MatPaginator;
-
-  registrations: RegisteredVolunteersEntity[] = [];
 
   constructor(
     private route: ActivatedRoute,
     private activityService: ActivityDetailsService,
     private regVolunteersService: RegisteredVolunteersService,
-    private volunteerService: VolunteersService,
     private certificatesService: CertificatesService,
     private snackBar: MatSnackBar,
-    private notificationsService: NotificationsService
+    private notificationsService: NotificationsService,
+    private translate: TranslateService,
+    private datePipe: DatePipe
   ) {}
 
   ngOnInit(): void {
@@ -164,22 +74,17 @@ export class RegisteredVolunteersComponent implements OnInit {
     const activityId = idParam ? parseInt(idParam, 10) : null;
 
     if (activityId !== null && !isNaN(activityId)) {
+      this.activityId = activityId;
       this.activityService.getActivityById(activityId).subscribe({
         next: activity => {
           this.activity = activity;
-          this.loadRegistrations(activityId);
+          this.loadRegisteredVolunteers(activityId);
         },
         error: err => {
-          console.error('Error fetching activity:', err);
-          this.notificationsService.createTypedNotification('error', 'Error al cargar los detalles de la actividad.').subscribe(() => {
+          this.notificationsService.createTypedNotification('error', this.translate.instant('volunteers.activityLoadError')).subscribe(() => {
             window.dispatchEvent(new Event('openNotifications'));
           });
         }
-      });
-    } else {
-      console.error('Invalid activity ID provided in route.');
-      this.notificationsService.createTypedNotification('error', 'ID de actividad inválido.').subscribe(() => {
-        window.dispatchEvent(new Event('openNotifications'));
       });
     }
 
@@ -187,15 +92,31 @@ export class RegisteredVolunteersComponent implements OnInit {
       data.fullName.toLowerCase().includes(filter);
   }
 
-  fireNoti() {
-    this.notificationsService.createTypedNotification('open-inscriptions', 'Inscripciones abiertas.').subscribe(() => {
-      window.dispatchEvent(new Event('openNotifications'));
-    });
+  ngAfterViewInit() {
+    this.dataSource.paginator = this.paginator;
   }
 
-  toNotify() {
-    this.notificationsService.createTypedNotification('reminder', 'Recordatorio de actividad enviado.').subscribe(() => {
-      window.dispatchEvent(new Event('openNotifications'));
+  loadRegisteredVolunteers(activityId: number) {
+    this.regVolunteersService.getRegisteredVolunteersByActivityId(activityId).subscribe({
+      next: volunteers => {
+        // Calcular edad para cada voluntario
+        volunteers.forEach(v => {
+          v.age = this.calculateAge(v.dateOfBirth) ?? 0;
+          this.attendanceMarked[String(v.id)] = v.attendance;
+        });
+        console.log('Voluntarios con datos:', volunteers);
+
+        this.dataSource = new MatTableDataSource(volunteers);
+        if (this.paginator) {
+          this.dataSource.paginator = this.paginator;
+          this.paginator.pageSize = 7;
+        }
+      },
+      error: err => {
+        this.notificationsService.createTypedNotification('error', this.translate.instant('volunteers.registeredVolunteersLoadError')).subscribe(() => {
+          window.dispatchEvent(new Event('openNotifications'));
+        });
+      }
     });
   }
 
@@ -204,48 +125,59 @@ export class RegisteredVolunteersComponent implements OnInit {
     this.dataSource.filter = filterValue;
   }
 
-  loadRegistrations(activityId: number) {
-    this.regVolunteersService.getRegistrationsByActivity(activityId).subscribe({
-      next: regs => {
-        this.registrations = regs;
+  calculateAge(dateOfBirth: string): number | null {
+    if (!dateOfBirth) return null;
+    const birthDate = new Date(dateOfBirth);
+    const today = new Date();
+    let age = today.getFullYear() - birthDate.getFullYear();
+    const m = today.getMonth() - birthDate.getMonth();
+    if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
+      age--;
+    }
+    return age;
+  }
 
-        const volunteersRequests = regs.map(reg =>
-          this.volunteerService.getVolunteerById(Number(reg.volunteerId))
+  toggleAttendanceMode() {
+    this.isAttendanceMode = !this.isAttendanceMode;
+    this.displayedColumns = this.isAttendanceMode ? this.attendanceColumns : this.allColumns;
+
+    if (!this.isAttendanceMode) {
+      this.saveAttendance();
+    }
+  }
+
+  onAttendanceChange(volunteerId: string, checked: boolean) {
+    this.attendanceMarked[volunteerId] = checked;
+  }
+
+  saveAttendance() {
+    const updateCalls = [];
+
+    for (const [idString, attended] of Object.entries(this.attendanceMarked)) {
+      const row = this.dataSource.data.find(v => String(v.id) === idString);
+      if (row && row.attendance !== attended) {
+        updateCalls.push(
+          this.regVolunteersService.updateAttendance(Number(row.id), attended)
         );
+      }
+    }
 
-        forkJoin(volunteersRequests).subscribe({
-          next: vols => {
-            const combinedData = vols.map((vol, i) => ({
-              volunteerId: vol.id,
-              registrationId: this.registrations[i].id,
-              fullName: `${vol.firstName} ${vol.lastName}`,
-              profession: vol.profession,
-              registrationDate: this.registrations[i].registrationDate,
-              status: this.registrations[i].status,
-              attendance: this.registrations[i].attendance,
-              registration: {
-                status: this.registrations[i].status,
-                attendance: String(this.registrations[i].attendance).toLowerCase() === 'asistio'
-              }
-            }));
+    if (updateCalls.length === 0) {
+      this.notificationsService.createTypedNotification('info', this.translate.instant('volunteers.noAttendanceChanges')).subscribe(() => {
+        window.dispatchEvent(new Event('openNotifications'));
+      });
+      return;
+    }
 
-            this.dataSource = new MatTableDataSource(combinedData);
-            if (this.paginator) {
-              this.dataSource.paginator = this.paginator;
-              this.paginator.pageSize = 7;
-            }
-          },
-          error: err => {
-            console.error('Error al obtener detalles de voluntarios para registros:', err);
-            this.notificationsService.createTypedNotification('error', 'Error al cargar detalles de voluntarios.').subscribe(() => {
-              window.dispatchEvent(new Event('openNotifications'));
-            });
-          }
+    forkJoin(updateCalls).subscribe({
+      next: () => {
+        this.loadRegisteredVolunteers(this.activityId);
+        this.notificationsService.createTypedNotification('success', this.translate.instant('volunteers.attendanceSaved')).subscribe(() => {
+          window.dispatchEvent(new Event('openNotifications'));
         });
       },
       error: err => {
-        console.error('Error al cargar registros:', err);
-        this.notificationsService.createTypedNotification('error', 'Error al cargar registros de voluntarios.').subscribe(() => {
+        this.notificationsService.createTypedNotification('error', this.translate.instant('volunteers.attendanceSaveError')).subscribe(() => {
           window.dispatchEvent(new Event('openNotifications'));
         });
       }
@@ -253,24 +185,23 @@ export class RegisteredVolunteersComponent implements OnInit {
   }
 
   generateCertificates() {
-    if (!this.activity) {
-      this.notificationsService.createTypedNotification('error', 'No hay actividad seleccionada para generar certificados.').subscribe(() => {
-        window.dispatchEvent(new Event('openNotifications'));
-      });
-      return;
-    }
+    if (!this.activity) return;
 
     const certificados: Certificate[] = this.dataSource.data
-      .filter(v => v.registration?.attendance)
+      .filter(v => v.attendance)
       .map(v => new Certificate(
         crypto.randomUUID(),
         v.volunteerId,
         this.activity.titulo,
-        `Mediante este certificado, se acredita que el voluntario ${v.fullName} participó satisfactoriamente en la actividad "${this.activity.titulo}" el ${new Date(this.activity.fecha).toLocaleDateString()}.`
+        this.translate.instant('volunteers.certificateText', {
+          fullName: v.fullName,
+          activityTitle: this.activity.titulo,
+          activityDate: this.datePipe.transform(this.activity.fecha, 'mediumDate')
+        })
       ));
 
     if (certificados.length === 0) {
-      this.notificationsService.createTypedNotification('error', 'No hay voluntarios con asistencia marcada para generar certificados.').subscribe(() => {
+      this.notificationsService.createTypedNotification('error', this.translate.instant('volunteers.noVolunteersAttendedForCertificates')).subscribe(() => {
         window.dispatchEvent(new Event('openNotifications'));
       });
       return;
@@ -278,13 +209,59 @@ export class RegisteredVolunteersComponent implements OnInit {
 
     forkJoin(certificados.map(cert => this.certificatesService.postCertificate(cert))).subscribe({
       next: () => {
-        this.notificationsService.createTypedNotification('certificate', 'Certificados generados y enviados correctamente.').subscribe(() => {
+        this.notificationsService.createTypedNotification('certificate', this.translate.instant('volunteers.certificatesGeneratedAndSent')).subscribe(() => {
           window.dispatchEvent(new Event('openNotifications'));
         });
       },
       error: err => {
-        console.error('Error enviando uno o más certificados:', err);
-        this.notificationsService.createTypedNotification('error', 'Error al generar algunos certificados.').subscribe(() => {
+        this.notificationsService.createTypedNotification('error', this.translate.instant('volunteers.certificateGenerationError')).subscribe(() => {
+          window.dispatchEvent(new Event('openNotifications'));
+        });
+      }
+    });
+  }
+
+  toNotify() {
+    this.notificationsService.createTypedNotification('info', this.translate.instant('volunteers.sendNotificationFeatureNotImplemented')).subscribe(() => {
+      window.dispatchEvent(new Event('openNotifications'));
+    });
+  }
+
+  toggleRegistrationStatus(): void {
+    if (!this.activity) return;
+
+    const newStatus = this.activity.estado === 'Abierta' ? 'Cerrada' : 'Abierta';
+    const originalStatus = this.activity.estado;
+
+    this.activity.estado = newStatus;
+
+    this.activityService.updateActivity(this.activity.actividad_id!, {
+      fecha: this.activity.fecha,
+      horaInicio: this.activity.horaInicio,
+      horaFin: this.activity.horaFin,
+      titulo: this.activity.titulo,
+      descripcion: this.activity.descripcion,
+      instrucciones: this.activity.instrucciones,
+      proposito: this.activity.proposito,
+      cupos: this.activity.cupos,
+      ubicacion: this.activity.ubicacion,
+      estado: newStatus,
+      organizacionId: this.activity.organizacion_id,
+      imagenes: this.activity.imagenes
+    }).subscribe({
+      next: () => {
+        const msgKey = newStatus === 'Abierta' ? 'volunteers.registrationsOpened' : 'volunteers.registrationsClosed';
+        this.notificationsService.createTypedNotification('success', this.translate.instant(msgKey)).subscribe(() => {
+          window.dispatchEvent(new Event('openNotifications'));
+        });
+
+        this.activityService.getActivityById(this.activityId).subscribe({
+          next: updated => this.activity = updated
+        });
+      },
+      error: err => {
+        this.activity.estado = originalStatus;
+        this.notificationsService.createTypedNotification('error', this.translate.instant('volunteers.registrationStatusUpdateError')).subscribe(() => {
           window.dispatchEvent(new Event('openNotifications'));
         });
       }
