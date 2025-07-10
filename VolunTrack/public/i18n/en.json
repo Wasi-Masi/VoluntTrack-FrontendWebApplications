@@ -204,7 +204,30 @@
     "allProfessions": "All Professions",
     "closeRegistrations": "Close Registrations",
     "certificateTitle": "Congratulations!",
-    "certificateText": "This certifies that {{fullName}} has successfully completed the activity \"{{activityTitle}}\" on {{activityDate}}."
+    "certificateText": "This certifies that {{fullName}} has successfully completed the activity \"{{activityTitle}}\" on {{activityDate}}.",
+    "certificateText": "This certifies that {{fullName}} has successfully completed the activity \"{{activityTitle}}\" on {{activityDate}}.",
+    "activityLoadError": "Error loading activity.",
+    "participationsLoadError": "Error loading existing participations.",
+    "registeredVolunteersLoadError": "Error loading registered volunteers.",
+    "participationCreated": "Participation successfully registered.",
+    "participationCreateError": "Error registering participation.",
+    "participationDeleted": "Participation successfully deleted.",
+    "participationDeleteError": "Error deleting participation.",
+    "noParticipationToDelete": "No participation found to delete for this volunteer.",
+    "noVolunteersAttendedForCertificates": "No volunteers with registered attendance to generate certificates.",
+    "allCertificatesAlreadyGenerated": "All certificates for attended volunteers have already been generated.",
+    "certificateGenerationError": "Error generating certificates. Please try again later.",
+    "certificatesGeneratedAndSent": "{{count}} certificate(s) successfully generated and sent.",
+    "sendNotificationFeatureNotImplemented": "Send notifications feature is not yet implemented.",
+    "registrationsOpened": "Registrations are now open!",
+    "registrationsClosed": "Registrations are closed.",
+    "registrationStatusUpdateError": "Error updating registration status.",
+    "certificateTitle": "Certificate of Participation"
+  },
+
+  "certificatesDialog": {
+    "title": "Generated Certificates",
+    "close": "Close"
   },
 
   "common": {

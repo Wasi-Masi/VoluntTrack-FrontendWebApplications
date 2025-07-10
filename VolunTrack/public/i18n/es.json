@@ -216,7 +216,30 @@
     "allProfessions": "Todas las Profesiones",
     "closeRegistrations": "Cerrar Inscripciones",
     "certificateTitle": "¡Felicidades!",
-    "certificateText": "Se certifica que {{fullName}} ha completado satisfactoriamente la actividad \"{{activityTitle}}\" el día {{activityDate}}."
+    "certificateText": "Se certifica que {{fullName}} ha completado satisfactoriamente la actividad \"{{activityTitle}}\" el día {{activityDate}}.",
+    "certificateText": "Se certifica que {{fullName}} ha completado satisfactoriamente la actividad \"{{activityTitle}}\" el día {{activityDate}}.",
+    "activityLoadError": "Error al cargar la actividad.",
+    "participationsLoadError": "Error al cargar las participaciones existentes.",
+    "registeredVolunteersLoadError": "Error al cargar los voluntarios registrados.",
+    "participationCreated": "Participación registrada con éxito.",
+    "participationCreateError": "Error al registrar la participación.",
+    "participationDeleted": "Participación eliminada con éxito.",
+    "participationDeleteError": "Error al eliminar la participación.",
+    "noParticipationToDelete": "No se encontró una participación para eliminar para este voluntario.",
+    "noVolunteersAttendedForCertificates": "No hay voluntarios con asistencia registrada para generar certificados.",
+    "allCertificatesAlreadyGenerated": "Todos los certificados para los voluntarios con asistencia ya han sido generados.",
+    "certificateGenerationError": "Error al generar los certificados. Inténtelo de nuevo más tarde.",
+    "certificatesGeneratedAndSent": "Se han generado y enviado {{count}} certificado(s) con éxito.",
+    "sendNotificationFeatureNotImplemented": "La función de enviar notificaciones aún no está implementada.",
+    "registrationsOpened": "¡Inscripciones abiertas!",
+    "registrationsClosed": "Inscripciones cerradas.",
+    "registrationStatusUpdateError": "Error al actualizar el estado de las inscripciones.",
+    "certificateTitle": "Certificado de Participación"
+  },
+
+  "certificatesDialog": {
+    "title": "Certificados Generados",
+    "close": "Cerrar"
   },
 
   "common": {
