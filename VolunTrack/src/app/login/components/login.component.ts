@@ -12,7 +12,7 @@ import {TranslatePipe} from '@ngx-translate/core';
 
 import { LoginService } from '../services/login.service';
 import { SignInResource } from './sign-in-resource';
-
+import { ApiResponse } from '../../shared/models/api-response.interface'; // ¡IMPORTAR APIRESPONSE!
 
 @Component({
   selector: 'app-login',
@@ -53,13 +53,20 @@ export class LoginComponent {
       password: this.password
     };
 
+    // MODIFICADO: Espera ApiResponse<any> (o el tipo específico que devuelve signIn, ej. ApiResponse<LoginResponse>)
     this.loginService.signIn(credentials).subscribe({
-      next: (response) => {
+      next: (apiResponse: ApiResponse<any>) => { // Recibe ApiResponse
+        console.log('Login successful:', apiResponse.message); // Para depuración, usa el mensaje del backend
+        // Si apiResponse.data contiene el token o datos del usuario, puedes acceder a ellos aquí.
+        // El servicio LoginService ya debería estar guardando el token internamente.
         this.router.navigate(['/dashboard']);
       },
-      error: (err) => {
+      error: (err: any) => { // 'err' ya es un objeto Error si se propaga desde handleHttpError
         console.error('Login failed:', err);
-        alert('Invalid username or password. Please try again.');
+        // Accede a err.message, ya que tu handleHttpError lo propaga así.
+        // El mensaje de error ahora será más específico si viene del backend.
+        const errorMessage = err.message || 'Invalid username or password. Please try again.';
+        alert(errorMessage);
       }
     });
   }

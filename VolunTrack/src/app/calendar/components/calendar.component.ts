@@ -7,6 +7,7 @@ import {TranslatePipe} from '@ngx-translate/core';
 import { DashboardService } from '../../dashboard/services/dashboard.service';
 import { Activity } from '../../dashboard/model/dashboard.entity';
 import { CalendarService } from '../services/calendar.service';
+import { ApiResponse } from '../../shared/models/api-response.interface'; // Importa ApiResponse
 
 @Component({
   selector: 'app-calendar',
@@ -43,14 +44,26 @@ export class CalendarComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    // MODIFICADO: Ahora 'response' es de tipo ApiResponse<Activity[]>
     this.dashboardService.getActivities().subscribe({
-      next: (data) => {
-        this.activities = data;
-        this.groupActivitiesByDate();
-        this.weeks = this.calendarService.generateCalendar(this.year, this.month);
+      next: (apiResponse: ApiResponse<Activity[]>) => { // Especificamos el tipo de la respuesta
+        if (apiResponse.data) { // Verificamos si la propiedad 'data' contiene los datos
+          this.activities = apiResponse.data; // Asignamos los datos reales de la actividad
+          this.groupActivitiesByDate();
+          this.weeks = this.calendarService.generateCalendar(this.year, this.month);
+        } else {
+          // Esto se ejecuta si la API devuelve un ApiResponse exitoso pero con 'data: null'
+          // Podrías manejarlo como un caso de "no hay actividades"
+          console.warn('No hay datos de actividades en la respuesta:', apiResponse.message);
+          this.activities = []; // Asegurarse de que la lista de actividades esté vacía
+          this.eventsByDate = {}; // Y los eventos también
+        }
       },
-      error: (err) => {
-        console.error('Error al cargar actividades:', err);
+      error: (err) => { // 'err' será un Error de JavaScript si se propaga desde handleHttpError
+        console.error('Error al cargar actividades:', err.message || err); // Acceder a err.message si está disponible
+        this.activities = []; // Asegurarse de que la lista de actividades esté vacía
+        this.eventsByDate = {}; // Y los eventos también
+        // Aquí podrías mostrar un mensaje de error al usuario
       }
     });
   }
@@ -78,7 +91,9 @@ export class CalendarComponent implements OnInit {
   groupActivitiesByDate(): void {
     this.eventsByDate = {};
     for (let activity of this.activities) {
-      const dateKey = activity.fecha;
+      // Asegúrate de que activity.fecha es el formato esperado (ej. "YYYY-MM-DD")
+      // Si activity.fecha es un objeto Date, quizás necesites convertirlo a string
+      const dateKey = activity.fecha; // Asumiendo que activity.fecha ya es 'YYYY-MM-DD' string
       if (!this.eventsByDate[dateKey]) {
         this.eventsByDate[dateKey] = [];
       }
@@ -87,7 +102,7 @@ export class CalendarComponent implements OnInit {
   }
 
   getEvents(date: Date): Activity[] {
-    const key = date.toISOString().split('T')[0];
+    const key = date.toISOString().split('T')[0]; // Asegura que el formato de clave sea 'YYYY-MM-DD'
     return this.eventsByDate[key] || [];
   }
 

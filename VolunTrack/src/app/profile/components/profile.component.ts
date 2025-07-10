@@ -15,7 +15,7 @@ import { TranslatePipe } from '@ngx-translate/core';
 import { ProfileService } from '../services/profile.service';
 import { LoginService } from '../../login/services/login.service';
 import { User } from '../model/profile.entity';
-
+import { ApiResponse } from '../../shared/models/api-response.interface'; // ¡IMPORTAR APIRESPONSE!
 
 
 interface ExtendedUser extends User {
@@ -63,47 +63,63 @@ export class ProfileComponent implements OnInit {
     window.open(pdfUrl, '_blank');
   }
   loadUserProfile(): void {
+    // MODIFICADO: Espera ApiResponse<User>
     this.profileService.getProfile().subscribe({
-      next: (data: User) => {
-        this.user = { ...data } as ExtendedUser;
-        this.editedUser = { ...this.user };
+      next: (apiResponse: ApiResponse<User>) => { // Recibe ApiResponse
+        if (apiResponse.data) { // Accede a los datos a través de .data
+          this.user = { ...apiResponse.data } as ExtendedUser;
+          this.editedUser = { ...this.user };
 
-        console.log('Perfil de usuario cargado:', this.user);
+          console.log('Perfil de usuario cargado:', this.user, 'Mensaje:', apiResponse.message);
 
-        const additionalDataString = localStorage.getItem('additional_user_data');
-        if (additionalDataString) {
-          const additionalData = JSON.parse(additionalDataString);
-          this.user.language = additionalData.language || 'English';
-          this.user.notifications = additionalData.notifications || 'All';
-          this.user.timezone = additionalData.timezone || 'GMT-5';
-          this.user.inscriptions = additionalData.inscriptions || 'Automatic';
+          const additionalDataString = localStorage.getItem('additional_user_data');
+          if (additionalDataString) {
+            const additionalData = JSON.parse(additionalDataString);
+            this.user.language = additionalData.language || 'English';
+            this.user.notifications = additionalData.notifications || 'All';
+            this.user.timezone = additionalData.timezone || 'GMT-5';
+            this.user.inscriptions = additionalData.inscriptions || 'Automatic';
 
-          this.editedUser.language = this.user.language;
-          this.editedUser.notifications = this.user.notifications;
-          this.editedUser.timezone = this.user.timezone;
-          this.editedUser.inscriptions = this.user.inscriptions;
+            this.editedUser.language = this.user.language;
+            this.editedUser.notifications = this.user.notifications;
+            this.editedUser.timezone = this.user.timezone;
+            this.editedUser.inscriptions = this.user.inscriptions;
 
-          console.log('Datos adicionales cargados de localStorage:', additionalData);
+            console.log('Datos adicionales cargados de localStorage:', additionalData);
+          } else {
+            this.user.language = 'English';
+            this.user.notifications = 'All';
+            this.user.timezone = 'GMT-5';
+            this.user.inscriptions = 'Automatic';
+
+            this.editedUser.language = 'English';
+            this.editedUser.notifications = 'All';
+            this.editedUser.timezone = 'GMT-5';
+            this.editedUser.inscriptions = 'Automatic';
+          }
         } else {
-          this.user.language = 'English';
-          this.user.notifications = 'All';
-          this.user.timezone = 'GMT-5';
-          this.user.inscriptions = 'Automatic';
-
-          this.editedUser.language = 'English';
-          this.editedUser.notifications = 'All';
-          this.editedUser.timezone = 'GMT-5';
-          this.editedUser.inscriptions = 'Automatic';
+          // Si el backend envía un ApiResponse exitoso pero sin 'data'
+          console.warn('No se encontraron datos de perfil:', apiResponse.message);
+          alert(apiResponse.message || 'No se pudo cargar el perfil del usuario.');
+          this.user = null; // Asegurarse de que el usuario sea null si no hay datos
         }
       },
-      error: (err) => {
+      error: (err: any) => { // 'err' ya es un objeto Error si se propaga de handleHttpError
         console.error('Error al cargar el perfil del usuario:', err);
-        if (err.status === 401 || err.status === 403) {
+        const errorMessage = err.message || 'Error desconocido al cargar el perfil.'; // Accede a err.message
+
+        if (err.status === 401 || err.status === 403) { // err.status no estará directamente en 'err' si es un Error
+          // Si tu handleHttpError convierte HttpErrorResponse en Error,
+          // 'err.status' no estará directamente disponible. Necesitarías
+          // que handleHttpError agregue el status al objeto Error o
+          // manejar HttpErrorResponse directamente aquí.
+          // Para consistencia con los servicios, el servicio ya transformó el HttpErrorResponse.
+          // Si necesitas el status aquí, deberías modificar tu handleHttpError para incluirlo.
           this.loginService.removeToken();
           this.router.navigate(['/login']);
           alert('Tu sesión ha expirado o no estás autorizado. Por favor, inicia sesión de nuevo.');
         } else {
-          alert('No se pudo cargar el perfil del usuario.');
+          alert(errorMessage);
         }
       }
     });
@@ -140,34 +156,53 @@ export class ProfileComponent implements OnInit {
       description: this.editedUser.description,
       profilePictureUrl: this.editedUser.profilePictureUrl,
       bannerPictureUrl: this.editedUser.bannerPictureUrl
-    };
+      // Asegúrate de no incluir propiedades que tu backend no espera en el PUT,
+      // como 'notifications' o 'inscriptions' si no son parte de la actualización de perfil principal.
+      // Si son parte del objeto User pero no se actualizan por este PUT, no las envíes.
+      // O, como en tu ProfileService, si ya usas Omit<User, 'id'> para el payload,
+      // entonces el payload ya es correcto.
+      // Si el backend acepta estas propiedades en el PUT, entonces deberías incluirlas aquí.
+      // En tu ProfileService, ya las estás enviando, así que asegúrate que el backend las maneje.
+    } as User; // Castear explícitamente para asegurar la compatibilidad con User (no ExtendedUser)
 
+    // MODIFICADO: Espera ApiResponse<User>
     this.profileService.updateProfile(this.user.id, updatedProfile).subscribe({
-      next: (data: User) => {
-        this.user = { ...data } as ExtendedUser;
+      next: (apiResponse: ApiResponse<User>) => { // Recibe ApiResponse
+        if (apiResponse.data) { // Accede a los datos actualizados a través de .data
+          this.user = { ...apiResponse.data } as ExtendedUser; // Actualiza con los datos del backend
 
-        this.user.language = this.editedUser.language;
-        this.user.notifications = this.editedUser.notifications;
-        this.user.timezone = this.editedUser.timezone;
-        this.user.inscriptions = this.editedUser.inscriptions;
+          // Estos campos adicionales no vienen del backend directamente, los gestionamos localmente
+          this.user.language = this.editedUser.language;
+          this.user.notifications = this.editedUser.notifications;
+          this.user.timezone = this.editedUser.timezone;
+          this.user.inscriptions = this.editedUser.inscriptions;
 
-        this.editMode = false;
-        alert('Cambios guardados exitosamente!');
-        console.log('Perfil actualizado:', this.user);
+          this.editMode = false;
+          alert(apiResponse.message || 'Cambios guardados exitosamente!'); // Usa el mensaje del backend
+          console.log('Perfil actualizado:', this.user, 'Mensaje:', apiResponse.message);
 
-        const additionalUserData = {
-          language: this.user.language,
-          notifications: this.user.notifications,
-          timezone: this.user.timezone,
-          inscriptions: this.user.inscriptions
-        };
-        localStorage.setItem('additional_user_data', JSON.stringify(additionalUserData));
-        console.log('Datos adicionales actualizados en localStorage:', additionalUserData);
+          const additionalUserData = {
+            language: this.user.language,
+            notifications: this.user.notifications,
+            timezone: this.user.timezone,
+            inscriptions: this.user.inscriptions
+          };
+          localStorage.setItem('additional_user_data', JSON.stringify(additionalUserData));
+          console.log('Datos adicionales actualizados en localStorage:', additionalUserData);
+        } else {
+          console.error('Error de negocio al guardar cambios (data es null):', apiResponse.message);
+          alert(apiResponse.message || 'No se pudo guardar los cambios. Inténtalo de nuevo.');
+        }
       },
-      error: (err) => {
+      error: (err: any) => { // 'err' ya es un objeto Error si se propaga desde handleHttpError
         console.error('Error al guardar cambios:', err);
-        const errorMessage = err.error && err.error.message ? err.error.message : 'Error al guardar cambios. Inténtalo de nuevo.';
+        // Accede a err.message, ya que tu handleHttpError lo propaga así.
+        const errorMessage = err.message || 'Error al guardar cambios. Inténtalo de nuevo.';
         alert(errorMessage);
+        // Si necesitas saber el código de estado HTTP (ej. para 403),
+        // tu handleHttpError en el servicio debería incluir el status
+        // en el objeto Error que propaga (ej. new Error(message, { cause: status }))
+        // o podrías hacer un 'instanceof HttpErrorResponse' aquí si no lo transformas en el servicio.
       }
     });
   }

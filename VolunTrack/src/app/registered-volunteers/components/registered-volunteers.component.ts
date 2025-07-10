@@ -1,6 +1,8 @@
 import {AfterViewInit, Component, OnInit, ViewChild} from '@angular/core';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { MatPaginator } from '@angular/material/paginator';
+
+
 import {
   MatTableDataSource,
   MatCell, MatCellDef, MatColumnDef,
@@ -78,12 +80,12 @@ export class RegisteredVolunteersComponent implements OnInit, AfterViewInit {
     private notificationsService: NotificationsService,
     private translate: TranslateService,
     private datePipe: DatePipe,
-  private loginService: LoginService,
-  // NUEVA INYECCIÓN:
-  private participationService: ParticipationService // Inyecta el servicio de participación
-  // Si necesitas VolunteersService para obtener detalles de voluntarios, inyecta aquí:
-  // private volunteersService: VolunteersService,
-) {}
+    private loginService: LoginService,
+    // NUEVA INYECCIÓN:
+    private participationService: ParticipationService // Inyecta el servicio de participación
+    // Si necesitas VolunteersService para obtener detalles de voluntarios, inyecta aquí:
+    // private volunteersService: VolunteersService,
+  ) {}
 
   ngOnInit(): void {
     const idParam = this.route.snapshot.paramMap.get('id');

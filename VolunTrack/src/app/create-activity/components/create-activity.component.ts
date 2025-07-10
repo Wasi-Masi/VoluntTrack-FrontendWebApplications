@@ -7,9 +7,9 @@ to save the activity and trigger notifications.
 Author: Ainhoa Castillo
 */
 
-import { Component, ViewChild, OnInit } from '@angular/core'; // Import ViewChild, OnInit
+import { Component, ViewChild, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule, NgForm } from '@angular/forms'; // Import NgForm
+import { FormsModule, NgForm } from '@angular/forms';
 import { Router, RouterLink } from '@angular/router';
 import { TranslateModule } from "@ngx-translate/core";
 import { Activity } from '../../dashboard/model/dashboard.entity';
@@ -17,7 +17,8 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { CreateActivityService } from '../services/create-activity.service';
 import { NotificationsService } from '../../notifications/services/notifications.service';
-import {LoginService} from '../../login/services/login.service';
+import { LoginService } from '../../login/services/login.service';
+import { ApiResponse } from '../../shared/models/api-response.interface'; // Importar ApiResponse
 
 @Component({
   selector: 'app-create-activity',
@@ -33,8 +34,8 @@ import {LoginService} from '../../login/services/login.service';
     TranslateModule
   ]
 })
-export class CreateActivityComponent implements OnInit { // Implement OnInit
-  @ViewChild('activityForm') activityForm!: NgForm; // Reference to the form
+export class CreateActivityComponent implements OnInit {
+  @ViewChild('activityForm') activityForm!: NgForm;
 
   activity: Activity = new Activity(
     0, // actividad_id
@@ -54,32 +55,30 @@ export class CreateActivityComponent implements OnInit { // Implement OnInit
   );
 
   picturesInput: string = '';
-  validationErrors: { [key: string]: string } = {}; // Object to store field-specific errors
-  generalErrors: string[] = []; // Array for general (non-field-specific) errors
+  validationErrors: { [key: string]: string } = {};
+  generalErrors: string[] = [];
 
-  public today: string = ''; // Property to hold today's date for date input min attribute
+  public today: string = '';
   isSubmitting = false;
 
   constructor(
     private createService: CreateActivityService,
     private router: Router,
     private notificationsService: NotificationsService,
-    private loginService: LoginService // ¡NUEVO! Inyectar LoginService si no está ya
+    private loginService: LoginService
   ) {
     this.activity.estado = 'Activa';
   }
 
   ngOnInit(): void {
-    // Initialize 'today' date to ensure the min attribute for date input is set correctly
     const now = new Date();
-    this.today = now.toISOString().split('T')[0]; // Format as YYYY-MM-DD
+    this.today = now.toISOString().split('T')[0];
     const loggedInOrgId = this.loginService.getOrganizationId();
     if (loggedInOrgId !== null) {
       this.activity.organizacion_id = loggedInOrgId;
     } else {
-      // Manejar el caso de que no haya ID de organización logueado
       console.error('No se pudo obtener el ID de la organización logueada. La actividad puede no crearse correctamente.');
-      // Podrías redirigir al login o mostrar un mensaje al usuario
+      // Considerar redirigir al login o deshabilitar el formulario
     }
   }
 
@@ -90,53 +89,49 @@ export class CreateActivityComponent implements OnInit { // Implement OnInit
     }
     this.isSubmitting = true;
     console.log('[DEBUG] onSubmit ejecutado');
-    this.validationErrors = {}; // Clear previous field-specific errors
-    this.generalErrors = []; // Clear previous general errors
+    this.validationErrors = {};
+    this.generalErrors = [];
 
-    // Ensure form reference is available and form is valid
     if (!this.activityForm || this.activityForm.invalid) {
-      this.populateValidationErrors(); // Populate errors for display
+      this.populateValidationErrors();
       this.generalErrors.push('Por favor, completa todos los campos requeridos y corrige los errores.');
       console.warn('Frontend validation failed:', this.validationErrors, this.generalErrors);
-      return; // Stop submission if form is invalid
+      this.isSubmitting = false; // ✅ Reset isSubmitting on frontend validation failure
+      return;
     }
 
-    // Manual validation for cupos (slots)
     this.activity.cupos = Number(this.activity.cupos);
     if (isNaN(this.activity.cupos) || this.activity.cupos <= 0) {
       this.validationErrors['cupos'] = 'Los cupos deben ser un número positivo mayor que cero.';
       this.generalErrors.push('Por favor, corrige los errores de cupos.');
-      console.warn('Frontend validation failed: Cupos invalid.');
+      this.isSubmitting = false; // ✅ Reset isSubmitting on frontend validation failure
       return;
     }
 
-    // Manual date validation: fecha (date) must be today or in the future
-    const fechaControl = this.activityForm.controls['date']; // Use 'date' as name in HTML
+    const fechaControl = this.activityForm.controls['date'];
     if (fechaControl && fechaControl.value) {
       const selectedDate = new Date(fechaControl.value);
-      const todayDateOnly = new Date(this.today); // Use the normalized 'today' from ngOnInit
+      const todayDateOnly = new Date(this.today);
       if (selectedDate < todayDateOnly) {
         this.validationErrors['fecha'] = 'La fecha de la actividad debe ser hoy o en el futuro.';
         this.generalErrors.push('Por favor, corrige la fecha de la actividad.');
-        console.warn('Frontend validation failed: Fecha invalid.');
+        this.isSubmitting = false; // ✅ Reset isSubmitting on frontend validation failure
         return;
       }
     }
 
-    // Manual time validation: horaFin (end time) must be after horaInicio (start time)
-    const startTimeControl = this.activityForm.controls['startTime']; // Use 'startTime' as name in HTML
-    const endTimeControl = this.activityForm.controls['endTime'];     // Use 'endTime' as name in HTML
+    const startTimeControl = this.activityForm.controls['startTime'];
+    const endTimeControl = this.activityForm.controls['endTime'];
     if (startTimeControl && endTimeControl && startTimeControl.value && endTimeControl.value) {
-      const startTime = startTimeControl.value; // "HH:MM"
-      const endTime = endTimeControl.value;     // "HH:MM"
+      const startTime = startTimeControl.value;
+      const endTime = endTimeControl.value;
       if (endTime <= startTime) {
         this.validationErrors['horaFin'] = 'La hora de fin debe ser posterior a la hora de inicio.';
         this.generalErrors.push('Por favor, corrige el horario de la actividad.');
-        console.warn('Frontend validation failed: Horario invalid.');
+        this.isSubmitting = false; // ✅ Reset isSubmitting on frontend validation failure
         return;
       }
     }
-
 
     const parsedPictures = this.picturesInput
       .split('\n')
@@ -144,99 +139,123 @@ export class CreateActivityComponent implements OnInit { // Implement OnInit
       .filter(url => url.length > 0);
 
     this.activity.availableSlots = this.activity.cupos;
-    this.activity.imagenes = parsedPictures; // Assign parsed pictures
+    this.activity.imagenes = parsedPictures;
 
-    // Descriptions and Instructions are optional in your HTML but required in backend (assuming)
-    // If not required, ensure backend allows null/empty or set defaults here if needed.
-    // Based on your previous backend resource, they had @NotBlank.
-    // Ensure they have minlength in HTML for basic validation if they are meant to be filled.
+    // Asegurarse de que los campos requeridos por el backend no estén vacíos.
+    // Aunque ya tienes validación de minLength, un campo vacío podría pasar si no se toca.
+    // También verifica que el 'name' en tu HTML para estos campos sea correcto (ej. 'descripcion', 'instructions', 'purpose', 'address')
     if (!this.activity.descripcion || this.activity.descripcion.length < 10) {
       this.validationErrors['descripcion'] = 'La descripción debe tener al menos 10 caracteres.';
       this.generalErrors.push('Por favor, corrige la descripción.');
+      this.isSubmitting = false;
       return;
     }
     if (!this.activity.instrucciones || this.activity.instrucciones.length < 10) {
       this.validationErrors['instrucciones'] = 'Las instrucciones deben tener al menos 10 caracteres.';
       this.generalErrors.push('Por favor, corrige las instrucciones.');
+      this.isSubmitting = false;
       return;
     }
     if (!this.activity.proposito || this.activity.proposito.length < 10) {
       this.validationErrors['proposito'] = 'El propósito debe tener al menos 10 caracteres.';
       this.generalErrors.push('Por favor, corrige el propósito.');
+      this.isSubmitting = false;
       return;
     }
     if (!this.activity.ubicacion || this.activity.ubicacion.length < 5) {
       this.validationErrors['ubicacion'] = 'La ubicación debe tener al menos 5 caracteres.';
       this.generalErrors.push('Por favor, corrige la ubicación.');
+      this.isSubmitting = false;
       return;
     }
 
 
-    // If all frontend validations pass, then attempt backend submission
+    // MODIFICADO: Espera ApiResponse<Activity> y maneja la propiedad 'data'
     this.createService.createActivity(this.activity).subscribe({
-      next: (createdActivity) => {
-        console.log('[DEBUG] Actividad creada exitosamente'); // 👈 AÑADE ESTO AQUÍ
-        const recipientId = this.loginService.getOrganizationId(); // Obtener el ID de la organización logueada
-        const recipientType: 'VOLUNTEER' | 'ORGANIZATION' = 'ORGANIZATION'; // El tipo de destinatario es una Organización
+      next: (apiResponse: ApiResponse<Activity>) => { // Especificamos el tipo de la respuesta
+        if (apiResponse.data) { // Si hay datos en la respuesta (actividad creada)
+          console.log('[DEBUG] Actividad creada exitosamente:', apiResponse.message, apiResponse.data);
+          const recipientId = this.loginService.getOrganizationId();
+          const recipientType: 'VOLUNTEER' | 'ORGANIZATION' = 'ORGANIZATION';
 
-        if (recipientId !== null) { // Asegurarse de que tenemos un ID de organización válido
-         /* this.notificationsService.createTypedNotification(
-            'NEW_ACTIVITY', // Tipo de notificación específico para 'Actividad creada' desde tu backend enum
-            recipientId,
-            recipientType
-            // El mensaje por defecto de 'NEW_ACTIVITY' en el backend es 'Has creado una nueva actividad...'
-            // No pasamos customMessage si queremos el por defecto.
-          ).subscribe(() => {
-            window.dispatchEvent(new Event('openNotifications'));
-          });*/
+          if (recipientId !== null) {
+            // Activa la notificación de éxito solo si realmente se creó la actividad.
+            this.notificationsService.createTypedNotification(
+              'NEW_ACTIVITY',
+              recipientId,
+              recipientType
+            ).subscribe({
+              next: () => {
+                console.log('Notificación de éxito enviada.');
+                window.dispatchEvent(new Event('openNotifications'));
+              },
+              error: (notifErr) => console.error('Error al enviar notificación de éxito:', notifErr)
+              // No bloqueamos la navegación por un fallo en la notificación.
+            });
+          } else {
+            console.warn('No se pudo crear la notificación de éxito: Organization ID no disponible.');
+          }
+          this.router.navigate(['/dashboard']);
         } else {
-          console.warn('No se pudo crear la notificación de éxito: Organization ID no disponible.');
+          // Esto puede pasar si el backend devuelve un 200 OK con ApiResponse success:false o data:null
+          // Esto es importante si tu backend devuelve errores de negocio con status 200
+          console.error('Error de negocio al crear actividad:', apiResponse.message);
+          this.generalErrors.push(apiResponse.message || 'Error de negocio al crear la actividad.');
+          // Puedes decidir si lanzar una notificación de error aquí también.
         }
-        this.router.navigate(['/dashboard']);
-        this.isSubmitting = false; // ✅ Reset
+        this.isSubmitting = false; // ✅ Reset isSubmitting
       },
-      error: (err) => {
-        console.error('Error al crear actividad:', err);
-        // Display a more specific error message based on backend response if available
+      error: (err) => { // 'err' será un Error de JavaScript si se propaga desde handleHttpError
+        console.error('Error al crear actividad (HTTP/Service Error):', err);
         let errorMessage = 'Error al crear la actividad.';
-        if (err.status === 403) {
-          errorMessage = 'Acceso denegado. No tienes permiso para crear actividades.';
-        } else if (err.status === 400 && err.error && err.error.errors) {
-          // This part will only execute if your backend's ValidationExceptionHandler works
-          // and returns errors in the expected format.
-          const backendErrors = err.error.errors.map((e: any) => e.defaultMessage || e.message);
-          errorMessage += ' Errores de validación: ' + backendErrors.join('; ');
-          this.generalErrors.push(...backendErrors); // Add backend errors to display
-          this.populateValidationErrors(err.error.errors); // Populate specific fields if backend provides 'field'
-        } else if (err.error && err.error.message) {
-          errorMessage += ' ' + err.error.message;
-        } else {
-          errorMessage += ` (Código: ${err.status})`;
+
+        // Ajustamos cómo se extrae el mensaje de error del 'err' propagado
+        if (err && err.message) {
+          errorMessage = err.message; // Asumimos que handleHttpError ya formatea un buen mensaje
+        } else if (err && err.error && err.error.message) { // Fallback por si llega un HttpErrorResponse directo
+          errorMessage = err.error.message;
         }
 
-        const recipientId = this.loginService.getOrganizationId(); // Obtener el ID de la organización logueada
-        const recipientType: 'VOLUNTEER' | 'ORGANIZATION' = 'ORGANIZATION'; // Tipo de destinatario
 
-        if (recipientId !== null) { // Asegurarse de que tenemos un ID de organización válido
+        // Si hay un objeto 'error' anidado que contenga 'errors' (ej. de validación de Spring)
+        if (err.error && err.error.errors && Array.isArray(err.error.errors)) {
+          const backendValidationErrors = err.error.errors.map((e: any) => e.defaultMessage || e.message);
+          this.generalErrors.push(...backendValidationErrors);
+          this.populateValidationErrors(err.error.errors); // Intenta mapear errores a campos específicos
+          errorMessage = 'Errores de validación: ' + backendValidationErrors.join('; ');
+        } else if (err.error && typeof err.error === 'string') {
+          // Si el backend devuelve un string de error simple
+          this.generalErrors.push(err.error);
+        } else {
+          // Otro tipo de error o mensaje general del HTTPErrorResponse
+          this.generalErrors.push(errorMessage);
+        }
+
+        const recipientId = this.loginService.getOrganizationId();
+        const recipientType: 'VOLUNTEER' | 'ORGANIZATION' = 'ORGANIZATION';
+
+        if (recipientId !== null) {
           this.notificationsService.createTypedNotification(
-            'GENERIC', // Tipo genérico para errores (o 'ERROR' si lo tienes en el backend enum)
+            'GENERIC', // O 'ERROR' si tienes un tipo de notificación de error en el backend
             recipientId,
             recipientType,
             errorMessage // Pasa el mensaje de error como customMessage
-          ).subscribe(() => {
-            window.dispatchEvent(new Event('openNotifications'));
-            this.isSubmitting = false;
+          ).subscribe({
+            next: () => {
+              console.log('Notificación de error enviada.');
+              window.dispatchEvent(new Event('openNotifications'));
+            },
+            error: (notifErr) => console.error('Error al enviar notificación de error:', notifErr)
           });
         } else {
           console.warn('No se pudo crear la notificación de error: Organization ID no disponible.');
         }
+        this.isSubmitting = false; // ✅ Reset isSubmitting en caso de error
       }
     });
   }
 
-  // Helper to populate validationErrors from Angular's form controls
   populateValidationErrors(backendErrors?: any[]) {
-    // Add Angular form control errors
     Object.keys(this.activityForm.controls).forEach(key => {
       const control = this.activityForm.controls[key];
       if (control.invalid && (control.dirty || control.touched)) {
@@ -249,15 +268,13 @@ export class CreateActivityComponent implements OnInit { // Implement OnInit
         } else if (control.errors?.['min']) {
           this.validationErrors[key] = `Debe ser al menos ${control.errors['min'].min}.`;
         }
-        // You can add more specific error types here (e.g., pattern, email)
+        // Puedes añadir más tipos de error específicos aquí
       }
     });
 
-    // Optionally, if backend errors are passed, merge them
     if (backendErrors && backendErrors.length > 0) {
       backendErrors.forEach(err => {
         if (err.field) {
-          // Map backend field names to your form control names if they differ
           const mappedField = this.mapBackendFieldToFrontend(err.field);
           this.validationErrors[mappedField] = err.defaultMessage || err.message || 'Error de validación.';
         } else {
@@ -267,7 +284,6 @@ export class CreateActivityComponent implements OnInit { // Implement OnInit
     }
   }
 
-  // Helper function to map backend field names to frontend form control names
   private mapBackendFieldToFrontend(backendField: string): string {
     switch (backendField) {
       case 'titulo': return 'title';
@@ -279,18 +295,15 @@ export class CreateActivityComponent implements OnInit { // Implement OnInit
       case 'descripcion': return 'description';
       case 'instrucciones': return 'instructions';
       case 'proposito': return 'purpose';
-      // Add other mappings if your backend field names don't exactly match your HTML 'name' attributes
       default: return backendField;
     }
   }
 
-  // Helper to check if a control has a specific error to show
   hasError(controlName: string, errorType: string): boolean {
     const control = this.activityForm?.controls[controlName];
     return (control?.dirty || control?.touched) && control?.errors?.[errorType];
   }
 
-  // Helper to get error message for a control
   getErrorMessage(controlName: string): string {
     return this.validationErrors[controlName] || '';
   }

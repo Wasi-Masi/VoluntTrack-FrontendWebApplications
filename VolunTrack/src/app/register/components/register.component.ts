@@ -13,6 +13,7 @@ import { MatSelectModule } from '@angular/material/select';
 
 import { LoginService } from '../../login/services/login.service';
 import { SignUpResource } from './sign-up-resource';
+import { ApiResponse } from '../../shared/models/api-response.interface'; // ¡IMPORTAR APIRESPONSE!
 
 @Component({
   selector: 'app-register',
@@ -81,8 +82,13 @@ export class RegisterComponent {
       bannerPictureUrl: this.bannerPictureUrl
     };
 
+    // MODIFICADO: Espera ApiResponse<any> (o el tipo específico que devuelve signUp)
     this.loginService.signUp(newUser).subscribe({
-      next: (response) => {
+      next: (apiResponse: ApiResponse<any>) => { // Recibe ApiResponse
+        console.log('Respuesta de registro:', apiResponse); // Para depuración
+
+        // Puedes acceder a apiResponse.data si el backend devuelve datos útiles aquí
+        // o apiResponse.message para el mensaje de éxito.
 
         const additionalUserData = {
           language: this.language,
@@ -92,11 +98,13 @@ export class RegisterComponent {
         };
         localStorage.setItem('additional_user_data', JSON.stringify(additionalUserData));
 
-        alert('Registro exitoso. Ahora puedes iniciar sesión.');
+        alert(apiResponse.message || 'Registro exitoso. Ahora puedes iniciar sesión.'); // Usa el mensaje del backend
         this.goToLogin();
       },
-      error: (err) => {
-        const errorMessage = err.error && err.error.message ? err.error.message : 'Error al registrar usuario. Inténtalo de nuevo.';
+      error: (err: any) => { // 'err' ya es un objeto Error si se propaga desde handleHttpError
+        console.error('Error al registrar usuario:', err);
+        // Accede a err.message, ya que tu handleHttpError lo propaga así.
+        const errorMessage = err.message || 'Error al registrar usuario. Inténtalo de nuevo.';
         alert(errorMessage);
       }
     });
