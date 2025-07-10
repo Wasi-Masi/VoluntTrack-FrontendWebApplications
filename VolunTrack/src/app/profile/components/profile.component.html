@@ -3,13 +3,9 @@
 </div>
 
 <div class="profile-container">
-  <div class="banner">
-    <img class="cover" [src]="user?.bannerPictureUrl" alt="Banner">
-    <div class="profile-icon-wrapper">
-      <img class="profile-icon" [src]="user?.profilePictureUrl" alt="Icono">
-    </div>
+  <div class="profile-content">
     <div class="description-box">
-      <strong>{{ 'profile.description-label' | translate }}:</strong>
+      <p style="font-weight: bold"><strong>{{ 'profile.description-label' | translate }}:</strong></p>
       <div *ngIf="!editMode">
         <p>{{ user?.description }}</p>
       </div>
@@ -17,92 +13,100 @@
         <textarea [(ngModel)]="editedUser.description"></textarea>
       </div>
     </div>
-  </div>
 
-  <div class="profile-content">
-    <div class="personal-info">
-      <h3>{{ 'profile.personal-info' | translate }}</h3>
-      <mat-divider></mat-divider>
+    <div class="card-holder">
+      <div class="personal-info">
+        <h3>{{ 'profile.personal-info' | translate }}</h3>
+        <mat-divider></mat-divider>
 
-      <h4>{{ 'profile.username' | translate }}:
-        <span *ngIf="!editMode">{{ user?.username }}</span>
-        <input *ngIf="editMode" [(ngModel)]="editedUser.username">
-      </h4>
+        <p>{{ 'profile.username' | translate }}: <br>
+          <span *ngIf="!editMode">{{ user?.username }}</span>
+          <input *ngIf="editMode" [(ngModel)]="editedUser.username">
+        </p>
 
-      <h4>{{ 'profile.email' | translate }}:
-        <span *ngIf="!editMode">{{ user?.email }}</span>
-        <input *ngIf="editMode" [(ngModel)]="editedUser.email">
-      </h4>
+        <p>{{ 'profile.email' | translate }}:<br>
+          <span *ngIf="!editMode">{{ user?.email }}</span>
+          <input *ngIf="editMode" [(ngModel)]="editedUser.email">
+        </p>
 
-      <h4>{{ 'profile.password' | translate }}:
-        <span>**********</span>
-      </h4>
+        <p>{{ 'profile.password' | translate }}:<br>
+          <span>**********</span>
+        </p>
 
-      <h4>{{ 'profile.phone' | translate }}:
-        <span *ngIf="!editMode">{{ user?.phoneNumber }}</span>
-        <input matInput *ngIf="editMode" [(ngModel)]="editedUser.phoneNumber">
-      </h4>
+        <p>{{ 'profile.phone' | translate }}:<br>
+          <span *ngIf="!editMode">{{ user?.phoneNumber }}</span>
+          <input matInput *ngIf="editMode" [(ngModel)]="editedUser.phoneNumber">
+        </p>
 
-      <h4>{{ 'profile.plan' | translate }}:
-        <span *ngIf="!editMode">{{ user?.plan }}</span>
-        <select *ngIf="editMode" [(ngModel)]="editedUser.plan">
-          <option value="Gratis">{{ 'profile.free' | translate }}</option>
-          <option value="Premium">{{ 'profile.premium' | translate }}</option>
-        </select>
-      </h4>
+        <p>{{ 'profile.plan' | translate }}:<br>
+          <span *ngIf="!editMode">{{ user?.plan }}</span>
+          <select *ngIf="editMode" [(ngModel)]="editedUser.plan">
+            <option value="Gratis">{{ 'profile.free' | translate }}</option>
+            <option value="Premium">{{ 'profile.premium' | translate }}</option>
+          </select>
+        </p>
+      </div>
+
+      <div class="config-info">
+        <h3>{{ 'profile.config' | translate }}</h3>
+        <mat-divider></mat-divider>
+
+        <p>{{ 'profile.notifications' | translate }}:<br>
+          <span *ngIf="!editMode">{{ user?.notifications }}</span>
+          <select *ngIf="editMode" [(ngModel)]="editedUser.notifications">
+            <option value="All">{{ 'profile.notif-all' | translate }}</option>
+            <option value="Silenced">{{ 'profile.notif-silenced' | translate }}</option>
+            <option value="Mentions">{{ 'profile.notif-mentions' | translate }}</option>
+          </select>
+        </p>
+
+        <p>{{ 'profile.timezone' | translate }}:<br>
+          <span *ngIf="!editMode">{{ user?.timezone }}</span>
+          <select *ngIf="editMode" [(ngModel)]="editedUser.timezone">
+            <option value="GMT-5">GMT-5</option>
+            <option value="GMT-4">GMT-4</option>
+            <option value="GMT-3">GMT-3</option>
+          </select>
+        </p>
+
+        <p>{{ 'profile.inscriptions' | translate }}:<br>
+          <span *ngIf="!editMode">{{ user?.inscriptions }}</span>
+          <select *ngIf="editMode" [(ngModel)]="editedUser.inscriptions" >
+            <option value="Manual">{{ 'profile.manual' | translate }}</option>
+            <option value="Automatic">{{ 'profile.automatic' | translate }}</option>
+          </select>
+        </p>
+        <p>{{ 'profile.help' | translate }}:<br>
+          <button mat-raised-button color="primary" (click)="openHelpPdf()">
+            {{ 'profile.view-help-pdf' | translate }}
+          </button>
+        </p>
+      </div>
     </div>
 
-    <div class="config-info">
-      <h3>{{ 'profile.config' | translate }}</h3>
-      <mat-divider></mat-divider>
-
-      <h4>{{ 'profile.notifications' | translate }}:
-        <span *ngIf="!editMode">{{ user?.notifications }}</span>
-        <select *ngIf="editMode" [(ngModel)]="editedUser.notifications">
-          <option value="All">{{ 'profile.notif-all' | translate }}</option>
-          <option value="Silenced">{{ 'profile.notif-silenced' | translate }}</option>
-          <option value="Mentions">{{ 'profile.notif-mentions' | translate }}</option>
-        </select>
-      </h4>
-
-      <h4>{{ 'profile.timezone' | translate }}:
-        <span *ngIf="!editMode">{{ user?.timezone }}</span>
-        <select *ngIf="editMode" [(ngModel)]="editedUser.timezone">
-          <option value="GMT-5">GMT-5</option>
-          <option value="GMT-4">GMT-4</option>
-          <option value="GMT-3">GMT-3</option>
-        </select>
-      </h4>
-
-      <h4>{{ 'profile.inscriptions' | translate }}:
-        <span *ngIf="!editMode">{{ user?.inscriptions }}</span>
-        <select *ngIf="editMode" [(ngModel)]="editedUser.inscriptions" >
-          <option value="Manual">{{ 'profile.manual' | translate }}</option>
-          <option value="Automatic">{{ 'profile.automatic' | translate }}</option>
-        </select>
-      </h4>
-      <h4>{{ 'profile.help' | translate }}:
-        <button mat-raised-button color="primary" (click)="openHelpPdf()">
-          {{ 'profile.view-help-pdf' | translate }}
+    <div class="button-group">
+      <button *ngIf="!editMode" class="edit-btn" (click)="toggleEdit()" >
+        ✏️ {{ 'profile.edit-btn' | translate }}
+      </button>
+      <div *ngIf="editMode">
+        <button class="edit-btn" (click)="saveChanges()" >
+          💾 {{ 'profile.save-btn' | translate }}
         </button>
-      </h4>
+        <button class="logout-btn" (click)="cancelEdit()" >
+          ❌ {{ 'profile.cancel-btn' | translate }}
+        </button>
+      </div>
+      <button class="logout-btn" (click)="logout()" >
+        ⛔ {{ 'profile.logout-btn' | translate }}
+      </button>
     </div>
   </div>
 
-  <div class="button-group">
-    <button *ngIf="!editMode" class="edit-btn" (click)="toggleEdit()" >
-      ✏️ {{ 'profile.edit-btn' | translate }}
-    </button>
-    <div *ngIf="editMode">
-      <button class="edit-btn" (click)="saveChanges()" >
-        💾 {{ 'profile.save-btn' | translate }}
-      </button>
-      <button class="logout-btn" (click)="cancelEdit()" >
-        ❌ {{ 'profile.cancel-btn' | translate }}
-      </button>
+  <div class="banner">
+    <img class="cover" [src]="user?.bannerPictureUrl" alt="Banner">
+    <div class="profile-icon-wrapper">
+      <img class="profile-icon" [src]="user?.profilePictureUrl" alt="Icono">
     </div>
-    <button class="logout-btn" (click)="logout()" >
-      ⛔ {{ 'profile.logout-btn' | translate }}
-    </button>
   </div>
+
 </div>
