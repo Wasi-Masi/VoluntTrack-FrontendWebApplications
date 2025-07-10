@@ -1,8 +1,3 @@
-<!--
-Description: Form for creating or editing activities with fields for pictures, title, date, time, address, description, instructions, and purpose, including action buttons to update or discard changes.
-Author: Victor Ortiz
--->
-
 <div class="dashboard-header">
   <h2 [routerLink]="['/dashboard']">{{ 'create-act.dashboard-title' | translate }}</h2>
   <div class="dashboard-actions">
@@ -78,6 +73,20 @@ Author: Victor Ortiz
           <input type="text" [(ngModel)]="activity.ubicacion" name="address" />
         </div>
       </div>
+
+      <div class="activities-form__right-sameline">
+        <div class="activities-form__upperside">
+          <label for="slotsInput">{{ 'create-act.slots' | translate }}</label>
+          <input
+            id="slotsInput"
+            type="number"
+            [(ngModel)]="activity.cupos"
+            name="slots"
+            min="1"
+            required
+          />
+        </div>
+      </div>
       <div class="activities-form__right-sameline">
         <div class="activities-form__upperside">
           <label>{{ 'create-act.description' | translate }}</label>
@@ -87,11 +96,11 @@ Author: Victor Ortiz
       <div class="activities-form__right-sameline">
         <div class="activities-form__right-half">
           <label>{{ 'create-act.instructions' | translate }}</label>
-          <textarea [(ngModel)]="instructions" name="instructions" placeholder="{{ 'create-act.instructions-textarea' | translate }}"></textarea>
+          <textarea [(ngModel)]="activity.instrucciones" name="instructions" placeholder="{{ 'create-act.instructions-textarea' | translate }}"></textarea>
         </div>
         <div class="activities-form__right-half">
           <label>{{ 'create-act.purpose' | translate }}</label>
-          <textarea [(ngModel)]="purpose" name="purpose" placeholder="{{ 'create-act.purpose-textarea' | translate }}"></textarea>
+          <textarea [(ngModel)]="activity.proposito" name="purpose" placeholder="{{ 'create-act.purpose-textarea' | translate }}"></textarea>
         </div>
       </div>
     </div>

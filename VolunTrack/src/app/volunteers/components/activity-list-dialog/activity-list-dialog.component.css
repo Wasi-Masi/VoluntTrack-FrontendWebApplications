@@ -1,0 +1,96 @@
+/* src/app/volunteers/activity-list-dialog/activity-list-dialog.component.css */
+
+.activity-list-container {
+  padding: 16px;
+}
+
+.loading-spinner, .no-activities {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  min-height: 150px; /* Ensure some height for feedback */
+}
+
+.loading-spinner mat-spinner {
+  margin-bottom: 10px;
+}
+
+.no-activities mat-icon {
+  font-size: 48px;
+  color: #999;
+  margin-bottom: 10px;
+}
+
+.dialog-info {
+  margin-bottom: 20px;
+  font-size: 1.1em;
+  color: #333;
+}
+
+/* Card Layout Styling */
+.activity-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 16px;
+  max-height: 500px; /* Limit height for scrolling */
+  overflow-y: auto;
+  padding-right: 5px; /* For scrollbar space */
+}
+
+.activity-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border: 1px solid #e0e0e0;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.activity-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.activity-card.selected-card {
+  border: 2px solid var(--mdc-theme-primary); /* Highlight selected card */
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.activity-card mat-card-title {
+  font-size: 1.3em;
+  font-weight: 500;
+  color: #24344C;
+}
+
+.activity-card mat-card-content p {
+  color: #555;
+  font-size: 0.9em;
+  margin-bottom: 10px;
+}
+
+.activity-info {
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+.activity-info .available {
+  color: green;
+}
+
+.activity-info .full {
+  color: red;
+}
+
+mat-dialog-actions {
+  padding: 16px 24px;
+  border-top: 1px solid #eee;
+}
+
+/* Spinner inside button */
+button .mat-spinner {
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 5px;
+}

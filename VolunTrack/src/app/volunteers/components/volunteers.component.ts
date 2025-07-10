@@ -26,7 +26,7 @@ import {TranslatePipe} from '@ngx-translate/core';
 import {NotificationsService} from '../../notifications/services/notifications.service';
 import { LoginService } from '../../login/services/login.service';
 import { ChangeDetectorRef } from '@angular/core';
-
+import { ActivityListDialogComponent } from './activity-list-dialog/activity-list-dialog.component'; // <--- NEW IMPORT
 
 
 @Component({
@@ -50,7 +50,6 @@ import { ChangeDetectorRef } from '@angular/core';
     DatePipe,
     NgClass,
     TranslatePipe,
-
   ],
   templateUrl: './volunteers.component.html',
   styleUrls: ['./volunteers.component.css']
@@ -175,6 +174,43 @@ export class VolunteersComponent implements OnInit, AfterViewInit {
       }
     });
   }
+
+  // --- NEW METHOD FOR ADDING TO ACTIVITY ---
+  onAddToActivity(): void {
+    if (!this.selectedVolunteer) {
+      this.notificationsService.createTypedNotification('info', 'Por favor, seleccione un voluntario primero.').subscribe(() => {
+        window.dispatchEvent(new Event('openNotifications'));
+      });
+      return;
+    }
+
+    const dialogRef = this.dialog.open(ActivityListDialogComponent, {
+      width: '800px', // Adjust width as needed
+      data: {
+        volunteerId: this.selectedVolunteer.id,
+        volunteerName: `${this.selectedVolunteer.firstName} ${this.selectedVolunteer.lastName}`
+        // You might want to pass more volunteer details if needed by the dialog
+      }
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result && result.enrolled) {
+        console.log('Actividad asignada exitosamente al voluntario:', this.selectedVolunteer?.firstName);
+        this.notificationsService.createTypedNotification('success', 'Voluntario inscrito en la actividad exitosamente.').subscribe(() => {
+          window.dispatchEvent(new Event('openNotifications'));
+        });
+        // Optionally, reload volunteer data or specific sections if participation data is displayed here
+        // For example, if you had an "activity history" section for the selected volunteer, you might refresh it.
+      } else if (result && result.error) {
+        console.error('Error al inscribir voluntario en actividad:', result.error);
+        this.notificationsService.createTypedNotification('error', 'Error al inscribir voluntario en la actividad.').subscribe(() => {
+          window.dispatchEvent(new Event('openNotifications'));
+        });
+      }
+    });
+  }
+  // --- END NEW METHOD ---
+
 
   applyLocalFilters(): void {
     // Depuración: Logear los datos antes y después del filtro

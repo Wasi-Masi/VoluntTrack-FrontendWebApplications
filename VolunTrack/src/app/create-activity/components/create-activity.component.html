@@ -1,13 +1,3 @@
-<!--
-Description:
-This code defines the Activity Dashboard page with navigation buttons,
-and a comprehensive form for creating or editing an activity,
-including fields for pictures, title, date, time, address, description, instructions, and purpose.
-ARIA attributes are added for accessibility to improve navigation for screen readers and assistive technologies.
-
-Author: Ainhoa Castillo
--->
-
 <div class="dashboard-header" role="banner">
   <h2 [routerLink]="['/dashboard']" role="link" tabindex="0">{{ 'dashboard.title' | translate }}</h2>
   <div class="dashboard-actions" role="navigation">
@@ -107,6 +97,19 @@ Author: Ainhoa Castillo
 
       <div class="activities-form__right-sameline">
         <div class="activities-form__upperside">
+          <label for="slotsInput">{{ 'create-act.slots' | translate }}</label>
+          <input
+            id="slotsInput"
+            type="number"
+            [(ngModel)]="activity.cupos"
+            name="slots"
+            min="1"
+            required
+          />
+        </div>
+      </div>
+      <div class="activities-form__right-sameline">
+        <div class="activities-form__upperside">
           <label for="descriptionInput">{{ 'create-act.description' | translate }}</label>
           <textarea
             id="descriptionInput"
@@ -122,7 +125,7 @@ Author: Ainhoa Castillo
           <label for="instructionsInput">{{ 'create-act.instructions' | translate }}</label>
           <textarea
             id="instructionsInput"
-            [(ngModel)]="instructions"
+            [(ngModel)]="activity.instrucciones"
             name="instructions"
             placeholder="{{ 'create-act.instructions-textarea' | translate }}"
             aria-multiline="true"
@@ -132,7 +135,7 @@ Author: Ainhoa Castillo
           <label for="purposeInput">{{ 'create-act.purpose' | translate }}</label>
           <textarea
             id="purposeInput"
-            [(ngModel)]="purpose"
+            [(ngModel)]="activity.proposito"
             name="purpose"
             placeholder="{{ 'create-act.purpose-textarea' | translate }}"
             aria-multiline="true"

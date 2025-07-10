@@ -1,4 +1,4 @@
-// src/app/register/components/register/sign-up-resource.ts
+// src/app/register/components/register/sign-up-resources.ts
 export interface SignUpResource {
   username: string;
   password: string;
