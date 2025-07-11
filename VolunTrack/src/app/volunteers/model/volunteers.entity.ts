@@ -11,7 +11,7 @@ export interface Volunteer {
   phoneNumber: string;
   address: string;
   profession: string;
-  active: boolean;
+  status: string;
   organizationId: number;
   organizationName?: string;
   registrationDate: string;

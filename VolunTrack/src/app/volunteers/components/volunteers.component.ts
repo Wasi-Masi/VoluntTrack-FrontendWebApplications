@@ -578,7 +578,7 @@ export class VolunteersComponent implements OnInit, AfterViewInit {
 
   calculateMetrics(): void {
     this.totalVolunteers = this.volunteers.length;
-    this.inactiveVolunteers = this.volunteers.filter(v => !v.active).length;
+    this.inactiveVolunteers = this.volunteers.filter(v => !v.status).length;
 
     let maxYear = 0;
     let maxMonth = -1;
@@ -621,7 +621,7 @@ export class VolunteersComponent implements OnInit, AfterViewInit {
       const d = new Date(v.dateOfBirth);
       return (
         (d.getFullYear() < currentYear || (d.getFullYear() === currentYear && d.getMonth() < currentMonth))
-        && !v.active
+        && !v.status
       );
     }).length;
 

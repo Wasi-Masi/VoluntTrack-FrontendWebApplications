@@ -125,7 +125,7 @@
             <p><strong>{{ 'volunteers.profession' | translate }}:</strong> {{ selectedVolunteer.profession || 'N/A' }}</p>
             <p><strong>{{ 'volunteers.dateOfBirth' | translate }}:</strong> {{ selectedVolunteer.dateOfBirth | date }}</p>
             <p><strong>{{ 'volunteers.address' | translate }}:</strong> {{ selectedVolunteer.address }}</p>
-            <p><strong>{{ 'volunteers.status' | translate }}:</strong> {{ selectedVolunteer.active ? ('volunteers.statusActive' | translate) : ('volunteers.statusInactive' | translate) }}</p>
+            <p><strong>{{ 'volunteers.status' | translate }}:</strong> {{ selectedVolunteer.status == 'ACTIVE' ? ('volunteers.statusActive' | translate) : ('volunteers.statusInactive' | translate) }}</p>
             <p><strong>{{ 'volunteers.organization' | translate }}:</strong> {{ selectedVolunteer.organizationId }}</p>
             <p><strong>{{ 'volunteers.registrationDate' | translate }}:</strong> {{ selectedVolunteer.registrationDate | date }}</p>
           </div>
